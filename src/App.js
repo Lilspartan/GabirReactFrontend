@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Haikus from './components/Haikus'
 import Header from './components/Header'
+import Main from './components/MainBody'
+import './index.css'
 
 const backend = "https://api.gabirmotors.ga"
 
@@ -27,23 +29,22 @@ const App = () => {
 
   return (
     <Router>
-      <div className='container'>
         <Route
           path='/'
           exact
           render={(props) => (
             <>
               <Header title = "Gabir Motors | Home" />
-              <Haikus haikus = {haikus}/>
+              <Main />
             </>
           )}
         />
         <Route path='/haikus' render ={(props) => (
           <>
             <Header title = "Gabir Motors | Haiku" />
+            <Haikus haikus = {haikus}/>
           </>
         )} />
-      </div>
     </Router>
   )
 }
