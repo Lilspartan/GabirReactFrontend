@@ -1,10 +1,17 @@
+import {IoChevronDownSharp} from 'react-icons/io5'
+
 const MainBody = ({ haikus }) => {
     var d = new Date();
     return (
         <>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
 
-                <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container" uk-parallax = "blur: 10;">Welcome to Gabir Motors</h1>
+                <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax = "blur: 10;">Welcome to Gabir Motors</h1>
+                <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
+                    <div className = "uk-position-center" style = {{top:'60vh'}}>
+                        <h3><IoChevronDownSharp /> Scroll Down <IoChevronDownSharp /></h3>
+                    </div>
+                </div>
                 <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
                     <div>
                         <h4 className="fade-p1" uk-parallax = "blur: 7;">{`Gabir Motors • ${d.getFullYear()}`}</h4>

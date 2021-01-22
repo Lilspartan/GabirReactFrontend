@@ -4,7 +4,37 @@ import { Link } from 'react-router-dom'
 import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
 
-const Header = ({ title, desc }) => {
+const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
+  const LoggedInSidebar = (props) => {
+    return (
+      <li className="uk-parent">
+          <Link to = "#">{ props.user.name }</Link>
+          <ul className="uk-nav-sub">
+            <li>Dashboard</li>
+            <li><button onClick = {() => { props.toggle() }}></button></li>
+          </ul>
+      </li>
+    )
+  }
+
+  const GuestInSidebar = (props) => {
+    return (
+      <li className="uk-parent">
+          <ul className="uk-nav-sub">
+            <li><Link to = "/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</Link> | <Link to = "/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</Link></li>
+          </ul>
+      </li>
+    )
+  }
+
+  const SidebarUser = (props) => {
+    if (props.isLoggedIn) {
+      return <LoggedInSidebar toggle = {props.onLogInClick} user = {user} />
+    } else {
+      return <GuestInSidebar toggle = {props.onLogInClick} />
+    }
+  }
+
   return (
     <header>
       <title>{ title }</title>
@@ -20,6 +50,9 @@ const Header = ({ title, desc }) => {
 
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li className="uk-active"><Link to="/">Gabir Motors</Link></li>
+
+            <SidebarUser isLoggedIn = {loggedin} onLogInClick = {onLogInClick} />
+            
             <li className="uk-parent">
                 <Link to = "#">Stream Submissions</Link>
                 <ul className="uk-nav-sub">

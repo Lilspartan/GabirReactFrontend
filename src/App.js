@@ -4,6 +4,7 @@ import Haikus from './components/Haikus'
 import Header from './components/Header'
 import MainIndex from './components/MainBody'
 import MainCal from './components/CalendarBody'
+import MainLog from './components/LoginBody'
 import './index.css'
 
 const backend = "https://api.gabirmotors.ga"
@@ -11,6 +12,8 @@ const backend = "https://api.gabirmotors.ga"
 const App = () => {
   const [haikus, setHaikus] = useState([])
   const [calendar, setCalendar] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [user, setUser] = useState({})
 
   useEffect(() => {
     const getHaikus = async () => {
@@ -43,24 +46,39 @@ const App = () => {
     return data
   }
 
+  const toggleLogIn = async () => {
+    setLoggedIn(!loggedIn);
+    var res = await fetch(`${backend}/user/0be0d201-397c-460b-9a88-d918dfc501e8`);
+    res = await res.json();
+    setUser(res)
+  }
+
   return (
     <Router>
         <Route path='/' exact render={(props) => (
             <>
-              <Header title = "Gabir Motors | Home" />
+              <Header title = "Gabir Motors | Home" loggedin = {loggedIn} user = {user} onLogInClick = {toggleLogIn} />
               <MainIndex />
             </>
-          )}
-        />
+        )}/>
+        {/* Login / Signup pages */}
+
+        <Route path='/login' render={(props) => (
+          <>
+            <Header title = "Gabir Motors | Login" loggedin = {loggedIn} user = {user} />
+            <MainLog />
+          </>
+        )} />
+
         <Route path='/calendar' exact render={(props) => (
           <>
-            <Header title = "Gabir Motors | Calendar" />
+            <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
             <MainCal calendar = {calendar} />
           </>
         )} />
         <Route path='/haikus' render ={(props) => (
           <>
-            <Header title = "Gabir Motors | Haiku" />
+            <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />
             <Haikus haikus = {haikus}/>
           </>
         )} />
