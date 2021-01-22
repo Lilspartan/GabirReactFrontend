@@ -24,6 +24,7 @@ const MainBody = ({ haikus }) => {
                                 </div>
                             </div>
                             <div>
+                                <div className = "uk-grid-margin" style = {{width: '45vw', height: '15vh'}} /> 
                                 <div className="uk-grid-margin"  style = {{width: '45vw'}}>
                                     <h2 className = "fade-p2">Mike Racecar</h2>
                                 </div>
@@ -35,11 +36,18 @@ const MainBody = ({ haikus }) => {
                         <br/>
                         <div className="uk-child-width-expand@s uk-text-center" uk-grid="parallax: 50">
                             <div>
+                                <div className = "uk-grid-margin" style = {{width: '45vw', height: '15vh'}} />
                                 <div className="uk-grid-margin"  style = {{width: '45vw'}}>
                                     <h2 className = "fade-p2">Carson Bolt</h2>
                                 </div>
                                 <div className="uk-grid-margin"  style = {{width: '45vw'}}>
                                     <p className = "fade-p2">Massa sed elementum tempus egestas sed. Mi bibendum neque egestas congue quisque egestas diam in arcu. Suspendisse sed nisi lacus sed viverra tellus in hac. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Euismod in pellentesque massa placerat duis ultricies lacus sed. Augue ut lectus arcu bibendum at. Posuere morbi leo urna molestie at elementum eu facilisis sed. Venenatis lectus magna fringilla urna porttitor. Odio euismod lacinia at quis risus sed. Volutpat sed cras ornare arcu dui. Sagittis nisl rhoncus mattis rhoncus urna.</p>
+                                </div>
+                                <div>
+                                    <blockquote cite="#">
+                                        <p class="uk-margin-small-bottom">Sometimes your worst nights, are your best nights.</p>
+                                        <footer><cite><a href="#">Carson Bolt</a></cite></footer>
+                                    </blockquote>
                                 </div>
                             </div>
                             <div>
