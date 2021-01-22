@@ -1,6 +1,6 @@
 import Haiku from './Haiku'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { a } from 'react-router-dom'
 import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
 
@@ -8,7 +8,7 @@ const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
   const LoggedInSidebar = (props) => {
     return (
       <li className="uk-parent">
-          <Link to = "#">{ props.user.name }</Link>
+          <a href = "#">{ props.user.name }</a>
           <ul className="uk-nav-sub">
             <li>Dashboard</li>
             <li><button onClick = {() => { props.toggle() }}></button></li>
@@ -21,7 +21,7 @@ const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
     return (
       <li className="uk-parent">
           <ul className="uk-nav-sub">
-            <li><Link to = "/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</Link> | <Link to = "/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</Link></li>
+            <li><a href = "https://gabirmotors.ga/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</a> | <a href = "https://gabirmotors.ga/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</a></li>
           </ul>
       </li>
     )
@@ -49,31 +49,31 @@ const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-            <li className="uk-active"><Link to="/">Gabir Motors</Link></li>
+            <li className="uk-active"><a href="/">Gabir Motors</a></li>
 
             <SidebarUser isLoggedIn = {loggedin} onLogInClick = {onLogInClick} />
             
             <li className="uk-parent">
-                <Link to = "#">Stream Submissions</Link>
+                <a href = "#">Stream Submissions</a>
                 <ul className="uk-nav-sub">
-                    <li><Link to = "/haikus">Haikus</Link></li>
-                    <li><Link to = "/quotes">Quotes</Link></li>
+                    <li><a href = "https://gabirmotors.ga/haikus">Haikus</a></li>
+                    <li><a href = "https://gabirmotors.ga/quotes">Quotes</a></li>
                 </ul>
             </li>
             
             <li className="uk-parent">
-                <Link to = "#">Helpful Resources</Link>
+                <a href = "#">Helpful Resources</a>
                 <ul className="uk-nav-sub">
-                    <li><Link to = "/calendar">Calendar</Link></li>
-                    <li><Link to = "/assets">Assets</Link></li>
+                    <li><a href = "https://gabirmotors.ga/calendar">Calendar</a></li>
+                    <li><a href = "https://gabirmotors.ga/assets">Assets</a></li>
                 </ul>
             </li>
 
             <li className="uk-parent">
-                <Link to = "#">How To</Link>
+                <a href = "#">How href</a>
                 <ul className="uk-nav-sub">
-                    <li><Link to = "/info/blueflags">Blue Flags</Link></li>
-                    <li><Link to = "/info/blackflags">Black Flags</Link></li>
+                    <li><a href = "https://gabirmotors.ga/info/blueflags">Blue Flags</a></li>
+                    <li><a href = "https://gabirmotors.ga/info/blackflags">Black Flags</a></li>
                 </ul>
             </li>
 
