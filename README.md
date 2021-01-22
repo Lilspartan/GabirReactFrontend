@@ -1,0 +1,2 @@
+- [ ] Scroll down text does not blur out
+- [ ] 
