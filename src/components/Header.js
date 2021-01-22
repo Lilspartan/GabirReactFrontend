@@ -13,9 +13,9 @@ const Header = ({ title, desc }) => {
         content= {desc}
       />
       <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
-        <a className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-push"><BsList style = {{color: 'white', fontSize: '60px'}}/></a>
+        <a className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide"><BsList style = {{color: 'white', fontSize: '60px'}}/></a>
       </div>
-      <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
+      <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
@@ -45,7 +45,7 @@ const Header = ({ title, desc }) => {
             </li>
 
             <li className="uk-nav-divider"></li>
-            <li><a className = "uk-display-inline" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a> • <a className = "uk-display-inline" href = "https://gabirmotors.ga/twitter"><FaTwitter /></a> • <a className = "uk-display-inline" href = "https://gabirmotors.ga/twitch"><FaTwitch /></a></li>
+            <li><a className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a> • <a className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a> • <a className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a></li>
         </ul>
 
     </div>
