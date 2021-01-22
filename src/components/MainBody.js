@@ -17,7 +17,7 @@ const MainBody = ({ haikus }) => {
                 <div className="uk-child-width-auto uk-margin uk-child-width-1-1@m" uk-grid>
                     <div>
                         <br/>
-                        <div className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100; repeat: true">
+                        <div id = "mike" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100; repeat: true">
                             <div>
                                 <div className="uk-grid-margin"  style = {{height: "55vh", width: '50vw'}}>
                                     <img className = "fade-p2" src="img/MikeRacecar.png" alt = "Mike Racecar" style = {{height: "55vh", width: 'auto'}} uk-img />
@@ -31,7 +31,7 @@ const MainBody = ({ haikus }) => {
                                 <div>
                                     <blockquote cite="#" className = "fade-p2">
                                         <p class="uk-margin-small-bottom">The tallest flowers get cut, don't try to be good at anything.</p>
-                                        <footer><cite><a href="#">Mike Racecar</a></cite></footer>
+                                        <footer><cite><a href="#mike">Mike Racecar</a></cite></footer>
                                     </blockquote>
                                 </div>
                             </div>
