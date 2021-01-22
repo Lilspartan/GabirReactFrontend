@@ -5,6 +5,7 @@ import Header from './components/Header'
 import MainIndex from './components/MainBody'
 import MainCal from './components/CalendarBody'
 import MainLog from './components/LoginBody'
+import MainSign from './components/SignupBody'
 import './index.css'
 
 const backend = "https://api.gabirmotors.ga"
@@ -67,6 +68,13 @@ const App = () => {
           <>
             <Header title = "Gabir Motors | Login" loggedin = {loggedIn} user = {user} />
             <MainLog />
+          </>
+        )} />
+
+        <Route path='/signup' render={(props) => (
+          <>
+            <Header title = "Gabir Motors | Signup" loggedin = {loggedIn} user = {user} />
+            <MainSign />
           </>
         )} />
 
