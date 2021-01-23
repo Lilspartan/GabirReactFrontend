@@ -33,7 +33,7 @@ const MainBody = ({ haikus }) => {
                             <div>
                                 <div style = {{width: '45vw'}}>
                                     <h2 className = "fade-p2">Mike Racecar</h2>
-                                    <p className = "fade-p2 bio-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p className = "fade-p2 bio-p uk-dropcap uk-align-left">Mike Racecar Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p2">
@@ -44,7 +44,7 @@ const MainBody = ({ haikus }) => {
                             </div>
                         </div>
                         <br/>
-                        <div className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100; repeat: true">
+                        <div id = "jerry" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100; repeat: true">
                             {/*Not Visible except on mobile (To make it easier to read)*/}
                             <div className = "uk-hidden@m">
                                 <div className="uk-grid-margin"  style = {{height: "55vh", width: '50vw'}}>
@@ -54,12 +54,12 @@ const MainBody = ({ haikus }) => {
                             <div>
                                 <div style = {{width: '45vw'}}>
                                     <h2 className = "fade-p3">Carson Bolt</h2>
-                                    <p className = "fade-p3 bio-p">Massa sed elementum tempus egestas sed. Mi bibendum neque egestas congue quisque egestas diam in arcu. Suspendisse sed nisi lacus sed viverra tellus in hac. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Euismod in pellentesque massa placerat duis ultricies lacus sed. Augue ut lectus arcu bibendum at. Posuere morbi leo urna molestie at elementum eu facilisis sed. Venenatis lectus magna fringilla urna porttitor. Odio euismod lacinia at quis risus sed. Volutpat sed cras ornare arcu dui. Sagittis nisl rhoncus mattis rhoncus urna.</p>
+                                    <p className = "fade-p3 bio-p uk-dropcap uk-align-left">Massa sed elementum tempus egestas sed. Mi bibendum neque egestas congue quisque egestas diam in arcu. Suspendisse sed nisi lacus sed viverra tellus in hac. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Euismod in pellentesque massa placerat duis ultricies lacus sed. Augue ut lectus arcu bibendum at. Posuere morbi leo urna molestie at elementum eu facilisis sed. Venenatis lectus magna fringilla urna porttitor. Odio euismod lacinia at quis risus sed. Volutpat sed cras ornare arcu dui. Sagittis nisl rhoncus mattis rhoncus urna.</p>
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p3">
                                         <p class="uk-margin-small-bottom">Sometimes your worst nights, are your best nights.</p>
-                                        <footer><cite><a href="#">Carson Bolt</a></cite></footer>
+                                        <footer><cite><a href="#jerry">Carson Bolt</a></cite></footer>
                                     </blockquote>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ const MainBody = ({ haikus }) => {
                             </div>
                         </div>
                         <br/>
-                        <div className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100; repeat: true">
+                        <div id = "kara" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100; repeat: true">
                             <div>
                                 <div className="uk-grid-margin"  style = {{height: "55vh", width: '50vw'}}>
                                     <img className = "fade-p4" src="img/kara.png" alt = "Kara" style = {{height: "55vh", width: 'auto'}} uk-img />
@@ -79,18 +79,18 @@ const MainBody = ({ haikus }) => {
                             <div>
                                 <div  style = {{width: '45vw'}}>
                                     <h2 className = "fade-p4">Kara</h2>
-                                    <p className = "fade-p4 bio-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p className = "fade-p4 bio-p uk-dropcap uk-align-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p4">
                                         <p class="uk-margin-small-bottom">What?! You're insane!</p>
-                                        <footer><cite><a href="#">Kara</a></cite></footer>
+                                        <footer><cite><a href="#kara">Kara</a></cite></footer>
                                     </blockquote>
                                 </div>
                             </div>
                         </div>
                         <br/>
-                        <div className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100; repeat: true">
+                        <div id = "gabe" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax = "" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100; repeat: true">
                             {/*Not Visible except on mobile (To make it easier to read)*/}
                             <div className = "uk-hidden@m">
                                 <div className="uk-grid-margin"  style = {{height: "55vh", width: '50vw'}}>
@@ -100,12 +100,12 @@ const MainBody = ({ haikus }) => {
                             <div>
                                 <div style = {{width: '45vw'}}>
                                     <h2 className = "fade-p5">Gabe "The Younger"</h2>
-                                    <p className = "fade-p5 bio-p">Massa sed elementum tempus egestas sed. Mi bibendum neque egestas congue quisque egestas diam in arcu. Suspendisse sed nisi lacus sed viverra tellus in hac. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Euismod in pellentesque massa placerat duis ultricies lacus sed. Augue ut lectus arcu bibendum at. Posuere morbi leo urna molestie at elementum eu facilisis sed. Venenatis lectus magna fringilla urna porttitor. Odio euismod lacinia at quis risus sed. Volutpat sed cras ornare arcu dui. Sagittis nisl rhoncus mattis rhoncus urna.</p>
+                                    <p className = "fade-p5 bio-p uk-dropcap uk-align-left">Massa sed elementum tempus egestas sed. Mi bibendum neque egestas congue quisque egestas diam in arcu. Suspendisse sed nisi lacus sed viverra tellus in hac. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Euismod in pellentesque massa placerat duis ultricies lacus sed. Augue ut lectus arcu bibendum at. Posuere morbi leo urna molestie at elementum eu facilisis sed. Venenatis lectus magna fringilla urna porttitor. Odio euismod lacinia at quis risus sed. Volutpat sed cras ornare arcu dui. Sagittis nisl rhoncus mattis rhoncus urna.</p>
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p5">
                                         <p class="uk-margin-small-bottom">I don't promise anything.</p>
-                                        <footer><cite><a href="#">Gabe "The Younger"</a></cite></footer>
+                                        <footer><cite><a href="#gabe">Gabe "The Younger"</a></cite></footer>
                                     </blockquote>
                                 </div>
                             </div>
