@@ -47,11 +47,9 @@ const App = () => {
     return data
   }
 
-  const toggleLogIn = async () => {
-    setLoggedIn(!loggedIn);
-    var res = await fetch(`${backend}/user/0be0d201-397c-460b-9a88-d918dfc501e8`);
-    res = await res.json();
-    setUser(res)
+  const toggleLogIn = async (user, logged) => {
+    setLoggedIn(logged);
+    setUser(user)
   }
 
   return (
@@ -66,14 +64,14 @@ const App = () => {
 
         <Route path='/login' render={(props) => (
           <>
-            <Header title = "Gabir Motors | Login" loggedin = {loggedIn} user = {user} />
-            <MainLog />
+            <Header title = "Gabir Motors | Login" loggedin = {loggedIn} user = {user} onLogout = {toggleLogIn} />
+            <MainLog onLogIn = {toggleLogIn} />
           </>
         )} />
 
         <Route path='/signup' render={(props) => (
           <>
-            <Header title = "Gabir Motors | Signup" loggedin = {loggedIn} user = {user} />
+            <Header title = "Gabir Motors | Signup" loggedin = {loggedIn} user = {user} onLogout = {toggleLogIn} />
             <MainSign />
           </>
         )} />

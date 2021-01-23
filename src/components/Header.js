@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import { a } from 'react-router-dom'
 import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
-const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
-  const LoggedInSidebar = (props) => {
+const Header = ({ title, desc, loggedin, user, onLogout}) => {
+  const LoggedInSidebar = ({ user, toggle }) => {
     return (
       <li className="uk-parent">
-          <a href = "#">{ props.user.name }</a>
+          <a href = "#">{ user.name }</a>
           <ul className="uk-nav-sub">
             <li>Dashboard</li>
-            <li><button onClick = {() => { props.toggle() }}></button></li>
+            <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, false) }}>Logout</a></li>
           </ul>
       </li>
     )
@@ -27,11 +28,11 @@ const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
     )
   }
 
-  const SidebarUser = (props) => {
-    if (props.isLoggedIn) {
-      return <LoggedInSidebar toggle = {props.onLogInClick} user = {user} />
+  const SidebarUser = ({ isLoggedIn, onLogout, user}) => {
+    if (isLoggedIn) {
+      return <LoggedInSidebar toggle = {onLogout} user = {user} />
     } else {
-      return <GuestInSidebar toggle = {props.onLogInClick} />
+      return <GuestInSidebar />
     }
   }
 
@@ -49,9 +50,9 @@ const Header = ({ title, desc, loggedin, user, onLogInClick }) => {
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-            <li className="uk-active"><a href="/">Gabir Motors</a></li>
+            <li className="uk-logo"><Link to="/"><img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <SidebarUser isLoggedIn = {loggedin} onLogInClick = {onLogInClick} />
+            <SidebarUser isLoggedIn = {loggedin} onLogout = {onLogout} user = {user} />
             
             <li className="uk-parent">
                 <a href = "#">Stream Submissions</a>
