@@ -25,7 +25,7 @@ const Header = ({ title, desc, loggedin, user, onLogout}) => {
     return (
       <li className="uk-parent">
           <ul className="uk-nav-sub">
-            <li><a href = "https://gabirmotors.ga/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</a> | <a href = "https://gabirmotors.ga/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</a></li>
+            <li><Link to = "https://gabirmotors.ga/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</Link> | <Link to = "https://gabirmotors.ga/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</Link></li>
           </ul>
       </li>
     )
