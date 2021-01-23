@@ -8,13 +8,16 @@ import { Link } from 'react-router-dom'
 const Header = ({ title, desc, loggedin, user, onLogout}) => {
   const LoggedInSidebar = ({ user, toggle }) => {
     return (
-      <li className="uk-parent">
-          <a href = "#">{ user.name }</a>
-          <ul className="uk-nav-sub">
-            <li>Dashboard</li>
-            <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, false) }}>Logout</a></li>
-          </ul>
-      </li>
+      <>
+        <li className="uk-parent">
+            <a href = "#">{ user.name }</a>
+            <ul className="uk-nav-sub">
+              <li>Dashboard</li>
+              <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, false) }}>Logout</a></li>
+            </ul>
+        </li>
+        <li className="uk-nav-divider"></li>
+      </>
     )
   }
 
@@ -71,7 +74,7 @@ const Header = ({ title, desc, loggedin, user, onLogout}) => {
             </li>
 
             <li className="uk-parent">
-                <a href = "#">How href</a>
+                <a href = "#">How to</a>
                 <ul className="uk-nav-sub">
                     <li><a href = "https://gabirmotors.ga/info/blueflags">Blue Flags</a></li>
                     <li><a href = "https://gabirmotors.ga/info/blackflags">Black Flags</a></li>
