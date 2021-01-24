@@ -61,7 +61,7 @@ const App = () => {
     <Router>
         <Route path='/' exact render={(props) => (
             <>
-              <Header title = "Gabir Motors | Home" onLogInClick = {toggleLogIn} />
+              <Header title = "Gabir Motors | Home" onLogout = {toggleLogIn} />
               <MainIndex />
             </>
         )}/>
@@ -85,7 +85,7 @@ const App = () => {
             <MainCal calendar = {calendar} />
           </>
         )} />
-        <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} />
+        <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} exact = {true} onLogout = {toggleLogIn} />
         <Route path='/haikus' render ={(props) => (
           <>
             <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />

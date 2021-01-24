@@ -1,13 +1,13 @@
 import Header from './Header'
 import MainDash from './DashBody'
 
-const Dashboard = (props) => {
+const Dashboard = ({ onLogout }) => {
     var user = JSON.parse(sessionStorage.getItem('user'))
     var loggedin = sessionStorage.getItem('isLoggedIn')
 
     return (
         <>
-            <Header title = {`Dashboard | ${user.name}`} />
+            <Header title = {`Dashboard | ${user.name}`} onLogout = {onLogout} />
             <MainDash />
         </>
     )

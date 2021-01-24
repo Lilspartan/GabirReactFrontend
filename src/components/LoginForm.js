@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory  } from 'react-router-dom'
 import React from 'react'
 
 const LoginForm = ({ initError, onLogIn, onError }) => {
-    
+    const history = useHistory();
     const handleSubmit = async (event) => {
         try {
             const fetchUser = async() => {
@@ -34,6 +34,7 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
                     case 'SUCCESSFUL_AUTHENTICATION':
                         var userD = data.user
                         return onLogIn({ ...userD, auth_token: data['auth_token'] }, true)
+                        
                 }
             }
             fetchUser();
