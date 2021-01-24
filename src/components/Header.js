@@ -5,7 +5,9 @@ import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const Header = ({ title, desc, loggedin, user, onLogout}) => {
+const Header = ({ title, desc, onLogout}) => {
+  var user = JSON.parse(sessionStorage.getItem('user'))
+  var loggedin = sessionStorage.getItem('isLoggedIn')
   const LoggedInSidebar = ({ user, toggle }) => {
     return (
       <>
@@ -25,7 +27,7 @@ const Header = ({ title, desc, loggedin, user, onLogout}) => {
     return (
       <li className="uk-parent">
           <ul className="uk-nav-sub">
-            <li><Link to = "https://gabirmotors.ga/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</Link> | <Link to = "https://gabirmotors.ga/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</Link></li>
+            <li><Link to = "/login" className = "uk-display-inline uk-button uk-button-text uk-text-success">Login</Link> | <Link to = "/signup" className = "uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</Link></li>
           </ul>
       </li>
     )

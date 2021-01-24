@@ -13,8 +13,8 @@ const backend = "https://api.gabirmotors.ga"
 const App = () => {
   const [haikus, setHaikus] = useState([])
   const [calendar, setCalendar] = useState([])
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [user, setUser] = useState({})
+  const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('isLoggedIn') || false)
+  const [user, setUser] = useState(sessionStorage.getItem('user') || {})
 
   useEffect(() => {
     const getHaikus = async () => {
@@ -48,15 +48,18 @@ const App = () => {
   }
 
   const toggleLogIn = async (user, logged) => {
-    setLoggedIn(logged);
-    setUser(user)
+    sessionStorage.setItem('isLoggedIn', logged);
+    sessionStorage.setItem('user', JSON.stringify(user));
+    setLoggedIn(sessionStorage.getItem('isLoggedIn'));
+    setUser(sessionStorage.getItem('user'))
+    //console.log(sessionStorage.getItem('user'))
   }
 
   return (
     <Router>
         <Route path='/' exact render={(props) => (
             <>
-              <Header title = "Gabir Motors | Home" loggedin = {loggedIn} user = {user} onLogInClick = {toggleLogIn} />
+              <Header title = "Gabir Motors | Home" onLogInClick = {toggleLogIn} />
               <MainIndex />
             </>
         )}/>
@@ -64,14 +67,14 @@ const App = () => {
 
         <Route path='/login' render={(props) => (
           <>
-            <Header title = "Gabir Motors | Login" loggedin = {loggedIn} user = {user} onLogout = {toggleLogIn} />
+            <Header title = "Gabir Motors | Login" onLogout = {toggleLogIn} />
             <MainLog onLogIn = {toggleLogIn} />
           </>
         )} />
 
         <Route path='/signup' render={(props) => (
           <>
-            <Header title = "Gabir Motors | Signup" loggedin = {loggedIn} user = {user} onLogout = {toggleLogIn} />
+            <Header title = "Gabir Motors | Signup" onLogout = {toggleLogIn} />
             <MainSign />
           </>
         )} />
