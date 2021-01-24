@@ -14,7 +14,7 @@ const Header = ({ title, desc, onLogout}) => {
         <li className="uk-parent">
             <a href = "#">{ user.name }</a>
             <ul className="uk-nav-sub">
-              <li>Dashboard</li>
+              <li><Link to = "/dashboard">Dashboard</Link></li>
               <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, '') }}>Logout</a></li>
             </ul>
         </li>

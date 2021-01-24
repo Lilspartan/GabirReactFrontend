@@ -32,7 +32,8 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
                         event.target.name.value = data.data.name
                         return event.target.password.value = ''
                     case 'SUCCESSFUL_AUTHENTICATION':
-                        return onLogIn(data.user, true)
+                        var userD = data.user
+                        return onLogIn({ ...userD, auth_token: data['auth_token'] }, true)
                 }
             }
             fetchUser();

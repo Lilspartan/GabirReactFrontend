@@ -6,7 +6,10 @@ import MainIndex from './components/MainBody'
 import MainCal from './components/CalendarBody'
 import MainLog from './components/LoginBody'
 import MainSign from './components/SignupBody'
+import MainDash from './components/Dashboard'
+import PrivateRoute from './components/AuthRoute'
 import './index.css'
+import Dashboard from './components/Dashboard'
 
 const backend = "https://api.gabirmotors.ga"
 
@@ -70,20 +73,19 @@ const App = () => {
             <MainLog onLogIn = {toggleLogIn} />
           </>
         )} />
-
         <Route path='/signup' render={(props) => (
           <>
             <Header title = "Gabir Motors | Signup" onLogout = {toggleLogIn} />
             <MainSign />
           </>
         )} />
-
         <Route path='/calendar' exact render={(props) => (
           <>
             <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
             <MainCal calendar = {calendar} />
           </>
         )} />
+        <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} />
         <Route path='/haikus' render ={(props) => (
           <>
             <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />
