@@ -15,7 +15,7 @@ const Header = ({ title, desc, onLogout}) => {
             <a href = "#">{ user.name }</a>
             <ul className="uk-nav-sub">
               <li>Dashboard</li>
-              <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, false) }}>Logout</a></li>
+              <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, '') }}>Logout</a></li>
             </ul>
         </li>
         <li className="uk-nav-divider"></li>
@@ -34,6 +34,7 @@ const Header = ({ title, desc, onLogout}) => {
   }
 
   const SidebarUser = ({ isLoggedIn, onLogout, user}) => {
+    console.log(isLoggedIn)
     if (isLoggedIn) {
       return <LoggedInSidebar toggle = {onLogout} user = {user} />
     } else {

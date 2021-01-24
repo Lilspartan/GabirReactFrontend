@@ -13,7 +13,7 @@ const backend = "https://api.gabirmotors.ga"
 const App = () => {
   const [haikus, setHaikus] = useState([])
   const [calendar, setCalendar] = useState([])
-  const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('isLoggedIn') || false)
+  const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('isLoggedIn') || '')
   const [user, setUser] = useState(sessionStorage.getItem('user') || {})
 
   useEffect(() => {
@@ -52,7 +52,6 @@ const App = () => {
     sessionStorage.setItem('user', JSON.stringify(user));
     setLoggedIn(sessionStorage.getItem('isLoggedIn'));
     setUser(sessionStorage.getItem('user'))
-    //console.log(sessionStorage.getItem('user'))
   }
 
   return (

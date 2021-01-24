@@ -23,11 +23,11 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
                 
                 const data = await res.json()
 
-                console.log(data)
+                //console.log(data)
 
                 switch (data.message) {
                     case 'INCORRECT_USERNAME_OR_PASSWORD':
-                        console.log('i')
+                        //console.log('i')
                         onError('Incorrect Username or Password')
                         event.target.name.value = data.data.name
                         return event.target.password.value = ''
