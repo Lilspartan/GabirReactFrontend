@@ -33,7 +33,6 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
                         return event.target.password.value = ''
                     case 'SUCCESSFUL_AUTHENTICATION':
                         var userD = data.user
-                        setRedirect(true)
                         return onLogIn({ ...userD, auth_token: data['auth_token'] }, true)
                         
                 }
