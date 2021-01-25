@@ -1,8 +1,8 @@
-import { Link, useHistory  } from 'react-router-dom'
-import React from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import Red from './Redirect'
 
 const LoginForm = ({ initError, onLogIn, onError }) => {
-    const history = useHistory();
     const handleSubmit = async (event) => {
         try {
             const fetchUser = async() => {
@@ -33,6 +33,7 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
                         return event.target.password.value = ''
                     case 'SUCCESSFUL_AUTHENTICATION':
                         var userD = data.user
+                        setRedirect(true)
                         return onLogIn({ ...userD, auth_token: data['auth_token'] }, true)
                         
                 }
@@ -45,7 +46,7 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
         }
         event.preventDefault();
     }
-        
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="uk-margin">
