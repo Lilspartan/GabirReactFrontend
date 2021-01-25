@@ -33,7 +33,7 @@ const MainBody = ({ haikus }) => {
                             <div>
                                 <div style = {{width: '45vw'}}>
                                     <h2 className = "fade-p2">Mike Racecar</h2>
-                                    <p className = "fade-p2 bio-p uk-dropcap uk-align-left">Mike Racecar Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p className = "fade-p2 bio-p uk-dropcap uk-align-left">His momma was a V6 and his daddy is the track.  Metaphorically speaking.  But he was born in the backseat of a stock car, that much we know for certain, because that car is now in a museum - the Mike Racecar Museum.  In 2007, he fell asleep during a race and still won.  He can't read nothing but the road, and the only number he can count to is "1st."</p>
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p2">
@@ -54,7 +54,7 @@ const MainBody = ({ haikus }) => {
                             <div>
                                 <div style = {{width: '45vw'}}>
                                     <h2 className = "fade-p3">Carson Bolt</h2>
-                                    <p className = "fade-p3 bio-p uk-dropcap uk-align-left">Massa sed elementum tempus egestas sed. Mi bibendum neque egestas congue quisque egestas diam in arcu. Suspendisse sed nisi lacus sed viverra tellus in hac. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Euismod in pellentesque massa placerat duis ultricies lacus sed. Augue ut lectus arcu bibendum at. Posuere morbi leo urna molestie at elementum eu facilisis sed. Venenatis lectus magna fringilla urna porttitor. Odio euismod lacinia at quis risus sed. Volutpat sed cras ornare arcu dui. Sagittis nisl rhoncus mattis rhoncus urna.</p>
+                                    <p className = "fade-p3 bio-p uk-dropcap uk-align-left">It's said the man eats rubber and drinks gasoline, just like the cars he loves so well.  A driver himself until an accident at the KFC Lunch buffet twenty years ago, he's since become a second father to many - and a first father to some.  Topped up on his signature "Goose Juice," the recipe for which is best left unsaid, he rules the race from his roost in the spotter tower - giving Mr. Racecar the edge he needs.</p>
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p3">
