@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Haikus from './Haikus'
 
 const DashBody = ({ }) => {
     var d = new Date();
@@ -28,10 +29,9 @@ const DashBody = ({ }) => {
     return (
         <>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
+                
+                <Haikus haikus = {haikus} />
 
-                <h3>
-                    {JSON.stringify(haikus)}
-                </h3>
                 <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
                     <div>
                         <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>

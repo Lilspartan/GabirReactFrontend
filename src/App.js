@@ -15,7 +15,11 @@ const backend = "https://api.gabirmotors.ga"
 
 const App = () => {
   const [haikus, setHaikus] = useState([])
-  const [calendar, setCalendar] = useState([])
+  const [calendar, setCalendar] = useState([
+    {
+      track: "Failed to Fetch Calendar"
+    }
+  ])
   const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('isLoggedIn') || '')
   const [user, setUser] = useState(sessionStorage.getItem('user') || {})
 

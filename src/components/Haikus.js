@@ -3,9 +3,11 @@ import Haiku from './Haiku'
 const Haikus = ({ haikus }) => {
   return (
     <>
-      {haikus.map((haiku, index) => (
-        <Haiku key={index} haiku={haiku} />
-      ))}
+      <div className="uk-child-width-expand@s uk-text-center uk-grid-match" uk-grid>
+        {haikus.map((h, index) => (
+          <Haiku key={index} haiku={h} />
+        ))}
+      </div>
     </>
   )
 }

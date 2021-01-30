@@ -1,12 +1,13 @@
 const Haiku = ({ haiku }) => {
   return (
-    <pre>
-      <h3>
-        {haiku.haikuLines.join("\n")}
-      </h3>
-      <p>- {haiku.name}</p>
+    <div className="uk-card uk-card-secondary uk-card-body">
+      
+      <p>{haiku.haikuLines[0]}</p>
+      <p>{haiku.haikuLines[1]}</p>
+      <p>{haiku.haikuLines[2]}</p>
       <br />
-    </pre>
+      <p>- {haiku.name}</p>
+    </div>
   )
 }
 
