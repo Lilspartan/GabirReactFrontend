@@ -3,6 +3,9 @@ import { useState } from 'react'
 import Red from './Redirect'
 
 const LoginForm = ({ initError, onLogIn, onError }) => {
+    const [usernameType, setUsernameType] = useState('')
+    const [passwordType, setPasswordType] = useState('')
+
     const handleSubmit = async (event) => {
         try {
             const fetchUser = async() => {
@@ -11,8 +14,10 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
                     password: event.target.password.value
                 }
 
-                if (!body.name || ! body.password) {
-                    return onError('Please Fill In All Fields')
+                if (!body.name || !body.password) {
+                    if (!body.name) setUsernameType('danger');
+                    if (!body.password) setPasswordType('danger');
+                    return onError('Please Fill In All Fields');
                 }
 
                 const res = await fetch(`https://api.gabirmotors.ga/auth`, {
@@ -46,18 +51,21 @@ const LoginForm = ({ initError, onLogIn, onError }) => {
         event.preventDefault();
     }
 
+    var userClasses = `uk-input uk-form-large uk-form-${usernameType}`
+    var passClasses = `uk-input uk-form-large uk-form-${passwordType}`
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="uk-margin">
                 <div className="uk-inline uk-width-1-1">
                     <span className="uk-form-icon" uk-icon="icon: user"></span>
-                    <input className="uk-input uk-form-large" name = "name" type="text"/>
+                    <input className={userClasses} name = "name" type="text"/>
                 </div>
             </div>
             <div className="uk-margin">
                 <div className="uk-inline uk-width-1-1">
                     <span className="uk-form-icon" uk-icon="icon: lock"></span>
-                    <input className="uk-input uk-form-large" name = "password" type="password"/>	
+                    <input className={passClasses} name = "password" type="password"/>	
                 </div>
             </div>
             <div className="uk-margin">

@@ -49,7 +49,7 @@ const Header = ({ title, desc, onLogout}) => {
         name="description"
         content= {desc}
       />
-      <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+      <div uk-sticky = "true">
         <a className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide"><BsList style = {{color: 'white', fontSize: '60px'}}/></a>
       </div>
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
@@ -71,7 +71,7 @@ const Header = ({ title, desc, onLogout}) => {
             <li className="uk-parent">
                 <a href = "#">Helpful Resources</a>
                 <ul className="uk-nav-sub">
-                    <li><a href = "https://gabirmotors.ga/calendar">Calendar</a></li>
+                    <li><Link to = "/calendar">Calendar</Link></li>
                     <li><a href = "https://gabirmotors.ga/assets">Assets</a></li>
                 </ul>
             </li>

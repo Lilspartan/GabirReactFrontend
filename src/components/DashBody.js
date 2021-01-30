@@ -29,9 +29,9 @@ const DashBody = ({ }) => {
     return (
         <>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
-                
-                <Haikus haikus = {haikus} />
-
+                <div className="uk-flex uk-flex-middle uk-width-1-1">
+                    <Haikus haikus = {haikus} />
+                </div>
                 <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
                     <div>
                         <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>
