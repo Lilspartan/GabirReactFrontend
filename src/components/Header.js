@@ -85,7 +85,7 @@ const Header = ({ title, desc, onLogout}) => {
             </li>
 
             <li className="uk-nav-divider"></li>
-            <li><a className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a> • <a className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a> • <a className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a></li>
+            <li><a className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a></li>
         </ul>
 
     </div>

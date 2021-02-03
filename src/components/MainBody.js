@@ -5,7 +5,6 @@ const MainBody = ({ haikus }) => {
     return (
         <>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
-
                 <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax = "blur: 10;">Welcome to Gabir Motors</h1>
                 <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
                     <div className = "uk-position-center" style = {{top:'60vh'}} uk-parallax = "blur: 7;">
@@ -37,7 +36,7 @@ const MainBody = ({ haikus }) => {
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p2">
-                                        <p class="uk-margin-small-bottom">The tallest flowers get cut, don't try to be good at anything.</p>
+                                        <p className="uk-margin-small-bottom">The tallest flowers get cut, don't try to be good at anything.</p>
                                         <footer><cite><a href="#mike">Mike Racecar</a></cite></footer>
                                     </blockquote>
                                 </div>
@@ -58,7 +57,7 @@ const MainBody = ({ haikus }) => {
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p3">
-                                        <p class="uk-margin-small-bottom">Sometimes your worst nights, are your best nights.</p>
+                                        <p className="uk-margin-small-bottom">Sometimes your worst nights, are your best nights.</p>
                                         <footer><cite><a href="#jerry">Carson Bolt</a></cite></footer>
                                     </blockquote>
                                 </div>
@@ -83,7 +82,7 @@ const MainBody = ({ haikus }) => {
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p4">
-                                        <p class="uk-margin-small-bottom">What?! You're insane!</p>
+                                        <p className="uk-margin-small-bottom">What?! You're insane!</p>
                                         <footer><cite><a href="#kara">Kara</a></cite></footer>
                                     </blockquote>
                                 </div>
@@ -104,7 +103,7 @@ const MainBody = ({ haikus }) => {
                                 </div>
                                 <div>
                                     <blockquote cite="#" className = "fade-p5">
-                                        <p class="uk-margin-small-bottom">I don't promise anything.</p>
+                                        <p className="uk-margin-small-bottom">I don't promise anything.</p>
                                         <footer><cite><a href="#gabe">Gabe "The Younger"</a></cite></footer>
                                     </blockquote>
                                 </div>

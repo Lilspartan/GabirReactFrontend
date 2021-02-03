@@ -10,6 +10,7 @@ import MainDash from './components/Dashboard'
 import PrivateRoute from './components/AuthRoute'
 import './index.css'
 import Dashboard from './components/Dashboard'
+import Temp from './components/temp'
 
 const backend = "https://api.gabirmotors.ga"
 
@@ -94,6 +95,12 @@ const App = () => {
           <>
             <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />
             <Haikus haikus = {haikus}/>
+          </>
+        )} />
+        <Route path = '/test' render = {(props) => (
+          <>
+            <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
+            <Temp />
           </>
         )} />
     </Router>
