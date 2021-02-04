@@ -5,8 +5,9 @@ const Alert = ({ title, body, type, links }) => {
   const classes = `uk-alert-${type}`;
 
   return (
-    <div className = {classes} uk-alert>
-      <a className="uk-alert-close" uk-close></a>
+    <div className = {classes} uk-alert = "test">
+      <a className="uk-alert-close" uk-close = "test"></a>
+      <h3>{title}:</h3>
       <p>{body}</p>
     </div>
 

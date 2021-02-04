@@ -60,29 +60,17 @@ const Header = ({ title, desc, onLogout}) => {
 
             <SidebarUser isLoggedIn = {loggedin} onLogout = {onLogout} user = {user} />
             
-            <li className="uk-parent">
-                <a href = "#">Stream Submissions</a>
-                <ul className="uk-nav-sub">
-                    <li><a href = "https://gabirmotors.ga/haikus">Haikus</a></li>
-                    <li><a href = "https://gabirmotors.ga/quotes">Quotes</a></li>
-                </ul>
-            </li>
+            <li class="uk-nav-header">Stream Submissions</li>
+            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/haikus">Haikus</a></li>
+            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/quotes">Quotes</a></li>
             
-            <li className="uk-parent">
-                <a href = "#">Helpful Resources</a>
-                <ul className="uk-nav-sub">
-                    <li><Link to = "/calendar">Calendar</Link></li>
-                    <li><a href = "https://gabirmotors.ga/assets">Assets</a></li>
-                </ul>
-            </li>
+            <li class="uk-nav-header">Helpful Resources</li>
+            <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
+            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/assets">Assets</a></li>
 
-            <li className="uk-parent">
-                <a href = "#">How to</a>
-                <ul className="uk-nav-sub">
-                    <li><a href = "https://gabirmotors.ga/info/blueflags">Blue Flags</a></li>
-                    <li><a href = "https://gabirmotors.ga/info/blackflags">Black Flags</a></li>
-                </ul>
-            </li>
+            <li class="uk-nav-header">How To</li>
+            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/info/blueflags">Blue Flags</a></li>
+            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/info/blackflags">Black Flags</a></li>
 
             <li className="uk-nav-divider"></li>
             <li><a className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a></li>
