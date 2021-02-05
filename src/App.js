@@ -16,11 +16,6 @@ const backend = "https://api.gabirmotors.ga"
 
 const App = () => {
   const [haikus, setHaikus] = useState([])
-  const [calendar, setCalendar] = useState([
-    {
-      track: "Failed to Fetch Calendar"
-    }
-  ])
   const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('isLoggedIn') || '')
   const [user, setUser] = useState(sessionStorage.getItem('user') || {})
 
@@ -29,13 +24,7 @@ const App = () => {
       const haikusFromServer = await fetchHaikus()
       setHaikus(haikusFromServer)
     }
-    
-    const getCal = async () => {
-      const calendarFromServer = await fetchCal()
-      setCalendar(calendarFromServer)
-    }
 
-    getCal();
     getHaikus()
   }, [])
 
@@ -48,12 +37,6 @@ const App = () => {
   }
 
   // Fetch Calendar
-  const fetchCal = async () => {
-    const res = await fetch(`${backend}/calendar`)
-    const data = await res.json()
-
-    return data
-  }
 
   const toggleLogIn = async (user, logged) => {
     sessionStorage.setItem('isLoggedIn', logged);
@@ -87,7 +70,7 @@ const App = () => {
         <Route path='/calendar' exact render={(props) => (
           <>
             <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
-            <MainCal calendar = {calendar} />
+            <MainCal />
           </>
         )} />
         <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} exact = {true} onLogout = {toggleLogIn} />
