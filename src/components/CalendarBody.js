@@ -6,6 +6,7 @@ const Calendar = () => {
   const [calendar, setCalendar] = useState([
     {
       "id": "0",
+      "timestamp": 100000000000000000000,
       "date": "Fetching Calendar, please wait",
       "track": "",
       "tags": {
@@ -17,11 +18,13 @@ const Calendar = () => {
       "car": null
     }
   ])
-
+  
+  /*
   setTimeout(function() {
-    if (calendar[0].id == 0) {
+    if (!calendar[1]) {
       setCalendar({
         "id": "0",
+        "timestamp": 100000000000000000000,
         "date": "Failed to Fetch Calendar",
         "track": "Refresh and try again",
         "tags": {
@@ -33,7 +36,9 @@ const Calendar = () => {
         "car": null
       })
     }
-  }, 10000)
+    
+  }, 1000)
+  */
 
   useEffect(() => {
     
@@ -48,7 +53,7 @@ const Calendar = () => {
   const fetchCal = async () => {
     const res = await fetch(`https://api.gabirmotors.ga/calendar`)
     const data = await res.json()
-
+    
     return data
   }
 
