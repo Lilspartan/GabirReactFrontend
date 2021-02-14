@@ -1,11 +1,7 @@
 import { IoChevronDownSharp } from 'react-icons/io5'
-import Cookies from 'universal-cookie'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();
-  const cookies = new Cookies();
-  cookies.set('test', 'test value here!', {path: '/'})
-  console.log(cookies.get('test'))
   return (
     <>
       <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>

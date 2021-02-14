@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Race from './Race'
+import { BsCheck } from 'react-icons/bs'
 
 const Calendar = () => {
   
@@ -59,11 +60,28 @@ const Calendar = () => {
 
   return (
     <>
-        <div className="uk-child-width-expand@s uk-text-center" uk-grid>
+      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
+        <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
+          <caption className = "uk-padding uk-position-top" style = {{ marginLeft: '8vw' }}>
+            <BsCheck style = {{ color: 'green', fontSize: '24px' }} /> = Completed Race
+          </caption>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Track</th>
+              <th>Car</th>
+              <th>Notes</th>
+              <th>Winner</th>
+              <th>Theme</th>
+            </tr>
+          </thead>
+          <tbody>
             {calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
-                <Race key={index} race={race} />
+              <Race key={index} race={race} />
             ))}
-        </div>
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }
