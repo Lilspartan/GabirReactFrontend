@@ -1,2 +1,6 @@
-- [ ] Scroll down text does not blur out
-- [ ] 
+- [ ] User data stored in plain text in session storage
+- [ ] User not redirected to dashboard on login
+- [ ] The following pages have not been started:
+- - [ ] Haiku Submit
+- - [ ] Quote Submit
+- - [ ] Black / Blue flags

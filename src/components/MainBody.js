@@ -18,8 +18,7 @@ const MainBody = ({ haikus }) => {
         </div>
       </div>
 
-      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/image.png)', height: 'auto' }}>
-
+      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" uk-parallax = "bgy: -1000; rotate: 360" style={{ backgroundImage: 'url(img/image.png)', height: 'auto' }}>
         <div className="uk-child-width-auto uk-margin uk-child-width-1-1@m" uk-grid>
           <div>
             <br />

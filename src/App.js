@@ -13,7 +13,8 @@ import './index.css'
 import Dashboard from './components/Dashboard'
 import Temp from './components/temp'
 
-const backend = "https://api.gabirmotors.ga"
+import { Provider } from "react-redux";
+import store from "./store";
 
 const App = () => {
   const [haikus, setHaikus] = useState([])
@@ -31,7 +32,7 @@ const App = () => {
 
   // Fetch Tasks
   const fetchHaikus = async () => {
-    const res = await fetch(`${backend}/haikus`)
+    const res = await fetch(`https://api.gabirmotors.ga/haikus`)
     const data = await res.json()
 
     return data
@@ -47,47 +48,49 @@ const App = () => {
   }
 
   return (
-    <Router>
-        <Route path='/' exact render={(props) => (
-            <>
-              <Header title = "Gabir Motors | Home" onLogout = {toggleLogIn} />
-              <MainIndex />
-            </>
-        )}/>
-        {/* Login / Signup pages */}
+    <Provider store={store}>
+      <Router>
+          <Route path='/' exact render={(props) => (
+              <>
+                <Header title = "Gabir Motors | Home" onLogout = {toggleLogIn} />
+                <MainIndex />
+              </>
+          )}/>
+          {/* Login / Signup pages */}
 
-        <Route path='/login' render={(props) => (
-          <>
-            <Header title = "Gabir Motors | Login" onLogout = {toggleLogIn} />
-            <MainLog onLogIn = {toggleLogIn} />
-          </>
-        )} />
-        <Route path='/signup' render={(props) => (
-          <>
-            <Header title = "Gabir Motors | Signup" onLogout = {toggleLogIn} />
-            <MainSign />
-          </>
-        )} />
-        <Route path='/calendar' exact render={(props) => (
-          <>
-            <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
-            <MainCal />
-          </>
-        )} />
-        <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} exact = {true} onLogout = {toggleLogIn} />
-        <Route path='/haikus' render ={(props) => (
-          <>
-            <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />
-            <Haikus haikus = {haikus}/>
-          </>
-        )} />
-        <Route path = '/test' render = {(props) => (
-          <>
-            <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
-            <Temp />
-          </>
-        )} />
-    </Router>
+          <Route path='/login' render={(props) => (
+            <>
+              <Header title = "Gabir Motors | Login" onLogout = {toggleLogIn} />
+              <MainLog onLogIn = {toggleLogIn} />
+            </>
+          )} />
+          <Route path='/signup' render={(props) => (
+            <>
+              <Header title = "Gabir Motors | Signup" onLogout = {toggleLogIn} />
+              <MainSign />
+            </>
+          )} />
+          <Route path='/calendar' exact render={(props) => (
+            <>
+              <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
+              <MainCal />
+            </>
+          )} />
+          <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} exact = {true} onLogout = {toggleLogIn} />
+          <Route path='/haikus' render ={(props) => (
+            <>
+              <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />
+              <Haikus haikus = {haikus}/>
+            </>
+          )} />
+          <Route path = '/test' render = {(props) => (
+            <>
+              <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
+              <Temp />
+            </>
+          )} />
+      </Router>
+    </Provider>
   )
 }
 
