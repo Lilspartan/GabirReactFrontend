@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/authActions";
+import classnames from "classnames";
+
 class Login extends Component {
   constructor() {
     super();
@@ -9,19 +14,41 @@ class Login extends Component {
       errors: {}
     };
   }
-onChange = e => {
+
+  componentDidMount() {
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/dashboard"); // push user to dashboard when they login
+    }
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
+  onChange = e => {
     const { name, value } = e.target
-        this.setState({ [name]: value });
+    this.setState({ [name]: value });
   };
-onSubmit = e => {
+  
+  onSubmit = e => {
     e.preventDefault();
     const userData = {
       name: this.state.name,
       password: this.state.password
     };
+    this.props.loginUser(userData);
     console.log(userData);
   };
-render() {
+
+  render() {
     const { errors } = this.state;
     return (
         <form noValidate onSubmit={this.onSubmit}>
@@ -31,22 +58,34 @@ render() {
                     <input 
                         onChange={this.onChange}
                         error={errors.name}
-                        className="uk-input uk-form-large " 
+                        className={classnames("uk-input uk-form-large", {
+                          invalid: errors.name || errors.namenotfound
+                        })}
                         name = "name" 
                         type="text"
                     />
+                    <span className="uk-text-danger">
+                      {errors.name}
+                      {errors.namenotfound}
+                    </span>
                 </div>
             </div>
             <div className="uk-margin">
                 <div className="uk-inline uk-width-1-1">
                     <span className="uk-form-icon" uk-icon="icon: lock"></span>
                     <input 
-                        className="uk-input uk-form-large" 
+                        className={classnames("uk-input uk-form-large", {
+                          invalid: errors.password || errors.passwordincorrect
+                        })}
                         onChange={this.onChange}
                         error={errors.password}
                         name = "password" 
                         type="password"
                     />	
+                    <span className="red-text">
+                      {errors.password}
+                      {errors.passwordincorrect}
+                    </span>
                 </div>
             </div>
             <div className="uk-margin">
@@ -59,6 +98,21 @@ render() {
     );
   }
 }
-export default Login;
+
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(withRouter(Login));
 
 

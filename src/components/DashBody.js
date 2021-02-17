@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Haikus from './Haikus'
 
-const DashBody = ({ }) => {
+const DashBody = ({ user }) => {
     var d = new Date();
 
     const [haikus, setHaikus] = useState([])
@@ -15,9 +15,6 @@ const DashBody = ({ }) => {
 
         getHaikus()
     }, [])
-
-    var user = JSON.parse(sessionStorage.getItem('user'))
-    var loggedin = sessionStorage.getItem('isLoggedIn')
 
     const fetchHaikus = async () => {
         const res = await fetch(`https://api.gabirmotors.ga/user/${user.uuid}/haikus`)

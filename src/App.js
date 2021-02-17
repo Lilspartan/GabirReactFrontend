@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Haikus from './components/Haikus'
 import Header from './components/Header'
@@ -8,87 +8,46 @@ import MainCal from './components/CalendarBody'
 import MainLog from './components/LoginBody'
 import MainSign from './components/SignupBody'
 import MainDash from './components/Dashboard'
-import PrivateRoute from './components/AuthRoute'
+import PrivateRoute from './components/PivateRoute'
 import './index.css'
-import Dashboard from './components/Dashboard'
-import Temp from './components/temp'
 
 import { Provider } from "react-redux";
 import store from "./store";
 
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
+
+// Check for token to keep user logged in
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+// Check for expired token
+  const currentTime = Date.now() / 1000; // to get in milliseconds
+  if (decoded.exp < currentTime) {
+    // Logout user
+    store.dispatch(logoutUser());
+    // Redirect to login
+    window.location.href = "./login";
+  }
+}
+
 const App = () => {
-  const [haikus, setHaikus] = useState([])
-  const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('isLoggedIn') || '')
-  const [user, setUser] = useState(sessionStorage.getItem('user') || {})
-
-  useEffect(() => {
-    const getHaikus = async () => {
-      const haikusFromServer = await fetchHaikus()
-      setHaikus(haikusFromServer)
-    }
-
-    getHaikus()
-  }, [])
-
-  // Fetch Tasks
-  const fetchHaikus = async () => {
-    const res = await fetch(`https://api.gabirmotors.ga/haikus`)
-    const data = await res.json()
-
-    return data
-  }
-
-  // Fetch Calendar
-
-  const toggleLogIn = async (user, logged) => {
-    sessionStorage.setItem('isLoggedIn', logged);
-    sessionStorage.setItem('user', JSON.stringify(user));
-    setLoggedIn(sessionStorage.getItem('isLoggedIn'));
-    setUser(sessionStorage.getItem('user'))
-  }
-
   return (
     <Provider store={store}>
       <Router>
-          <Route path='/' exact render={(props) => (
-              <>
-                <Header title = "Gabir Motors | Home" onLogout = {toggleLogIn} />
-                <MainIndex />
-              </>
-          )}/>
-          {/* Login / Signup pages */}
-
-          <Route path='/login' render={(props) => (
-            <>
-              <Header title = "Gabir Motors | Login" onLogout = {toggleLogIn} />
-              <MainLog onLogIn = {toggleLogIn} />
-            </>
-          )} />
-          <Route path='/signup' render={(props) => (
-            <>
-              <Header title = "Gabir Motors | Signup" onLogout = {toggleLogIn} />
-              <MainSign />
-            </>
-          )} />
-          <Route path='/calendar' exact render={(props) => (
-            <>
-              <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
-              <MainCal />
-            </>
-          )} />
-          <PrivateRoute authed = {loggedIn} path = "/dashboard" component = {Dashboard} exact = {true} onLogout = {toggleLogIn} />
-          <Route path='/haikus' render ={(props) => (
-            <>
-              <Header title = "Gabir Motors | Haiku" loggedin = {loggedIn} user = {user} />
-              <Haikus haikus = {haikus}/>
-            </>
-          )} />
-          <Route path = '/test' render = {(props) => (
-            <>
-              <Header title = "Gabir Motors | Calendar" loggedin = {loggedIn} user = {user} />
-              <Temp />
-            </>
-          )} />
+          <Route path='/' exact component = {MainIndex} />
+          <Route path='/login' component = {MainLog} />
+          <Route path='/signup' component = {MainSign} />
+          <Route path='/calendar' exact component = {MainCal} />
+          <Switch>
+            <PrivateRoute exact path="/dashboard" component= {MainDash} />
+          </Switch>
       </Router>
     </Provider>
   )

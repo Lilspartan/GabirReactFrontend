@@ -7,7 +7,6 @@ const Alert = ({ title, body, type, links }) => {
   return (
     <div className = {classes} uk-alert = "test">
       <a className="uk-alert-close" uk-close = "test"></a>
-      <h3>{title}:</h3>
       <p>{body}</p>
     </div>
 
@@ -20,7 +19,7 @@ Alert.defaultProps = {
 }
 
 Alert.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     body: PropTypes.string.isRequired,
     type: PropTypes.oneOf(['', 'primary', 'danger', 'success', 'warning']),
     links: PropTypes.array

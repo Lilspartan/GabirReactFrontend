@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Race from './Race'
 import { BsCheck } from 'react-icons/bs'
+import Header from './Header'
 
 const Calendar = () => {
   
@@ -60,6 +61,7 @@ const Calendar = () => {
 
   return (
     <>
+      <Header title = "Gabir Motors | Calendar" />
       <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
         <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
           <caption className = "uk-padding uk-position-top" style = {{ marginLeft: '8vw' }}>

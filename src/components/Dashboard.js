@@ -1,16 +1,35 @@
 import Header from './Header'
 import MainDash from './DashBody'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
 
-const Dashboard = ({ onLogout }) => {
-    var user = JSON.parse(sessionStorage.getItem('user'))
-    var loggedin = sessionStorage.getItem('isLoggedIn')
-
-    return (
+class Dashboard extends Component {
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+      };
+  render() {
+    var { user } = this.props.auth;
+    user = user._doc
+  return (
         <>
-            <Header title = {`Dashboard | ${user.name}`} onLogout = {onLogout} />
-            <MainDash />
+            <Header title = {`Dashboard | ${user.name}`} onLogout = {this.onLogoutClick} />
+            <a className = "uk-button-link uk-text-danger uk-position-center" onClick = {this.onLogoutClick}>Logout</a>
+            <MainDash user = {user} />
         </>
-    )
-}
-
-export default Dashboard
+      );
+    }
+  }
+  Dashboard.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(Dashboard);

@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import SignupForm from './SignupForm'
+import Header from './Header'
 
 const MainBody = ({ error, formData }) => {
     var d = new Date();
     return (
         <>
+            <Header title = "Gabir Motors | Signup" />
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
 
                 <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container">

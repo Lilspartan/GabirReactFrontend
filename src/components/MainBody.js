@@ -1,10 +1,19 @@
 import { IoChevronDownSharp } from 'react-icons/io5'
+import Header from './Header'
+import Alert from './Alert'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();
   return (
     <>
+      <Header title = "Gabir Motors | Home" />
+      
       <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
+        {/*
+        <div className = "uk-position-top-center uk-padding-large uk-center uk-position-large">
+          <Alert body = "This alert is just a test" type = "success" />
+        </div>
+        */}
         <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 10;">Welcome to Gabir Motors</h1>
         <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
           <div className="uk-position-center" style={{ top: '60vh' }} uk-parallax="blur: 7;">
@@ -18,7 +27,7 @@ const MainBody = ({ haikus }) => {
         </div>
       </div>
 
-      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" uk-parallax = "bgy: -1000" style={{ backgroundImage: 'url(img/image.png)', height: 'auto' }}>
+      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/image.png)', height: 'auto' }}>
         <div className="uk-child-width-auto uk-margin uk-child-width-1-1@m" uk-grid>
           <div>
             <br />

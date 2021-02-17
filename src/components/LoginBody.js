@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import { useState, useEffect } from 'react'
+import Header from './Header'
 
 const MainBody = ({ initError, formData, onLogIn }) => {
     var d = new Date();
@@ -9,6 +10,7 @@ const MainBody = ({ initError, formData, onLogIn }) => {
 
     return (
         <>
+            <Header title = "Gabir Motors | Login" />
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
 
                 <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container">

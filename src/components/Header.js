@@ -1,22 +1,18 @@
-import Haiku from './Haiku'
 import PropTypes from 'prop-types'
 import { a } from 'react-router-dom'
 import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { logoutUser } from "../actions/authActions";
 
-const Header = ({ title, desc, onLogout}) => {
-  var user = JSON.parse(sessionStorage.getItem('user'))
-  var loggedin = sessionStorage.getItem('isLoggedIn')
-  const LoggedInSidebar = ({ user, toggle }) => {
+const Header = ({ title, desc }) => {
+  var loggedin = localStorage.getItem('jwtToken')
+
+  const LoggedInSidebar = ({ toggle }) => {
     return (
       <>
         <li className="uk-parent">
-            <a href = "#">{ user.name }</a>
-            <ul className="uk-nav-sub">
-              <li><Link to = "/dashboard">Dashboard</Link></li>
-              <li><a className = "uk-display-inline uk-button uk-button-text uk-text-danger" onClick = {() => {toggle({}, '') }}>Logout</a></li>
-            </ul>
+            <Link to = "/dashboard" className = "uk-button uk-button-text uk-display-inline uk-padding-small">Dashboard</Link>
         </li>
         <li className="uk-nav-divider"></li>
       </>
@@ -33,10 +29,9 @@ const Header = ({ title, desc, onLogout}) => {
     )
   }
 
-  const SidebarUser = ({ isLoggedIn, onLogout, user}) => {
-    console.log(isLoggedIn)
+  const SidebarUser = ({ isLoggedIn}) => {
     if (isLoggedIn) {
-      return <LoggedInSidebar toggle = {onLogout} user = {user} />
+      return <LoggedInSidebar />
     } else {
       return <GuestInSidebar />
     }
@@ -58,7 +53,7 @@ const Header = ({ title, desc, onLogout}) => {
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li className="uk-logo"><Link to="/"><img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <SidebarUser isLoggedIn = {loggedin} onLogout = {onLogout} user = {user} />
+            <SidebarUser isLoggedIn = {loggedin} />
             
             <li class="uk-nav-header">Stream Submissions</li>
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/haikus">Haikus</a></li>
