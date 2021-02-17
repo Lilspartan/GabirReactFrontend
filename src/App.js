@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Haikus from './components/Haikus'
-import Header from './components/Header'
 import MainIndex from './components/MainBody'
 import MainCal from './components/CalendarBody'
 import MainLog from './components/LoginBody'

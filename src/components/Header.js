@@ -3,7 +3,6 @@ import { a } from 'react-router-dom'
 import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { logoutUser } from "../actions/authActions";
 
 const Header = ({ title, desc }) => {
   var loggedin = localStorage.getItem('jwtToken')
