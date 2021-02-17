@@ -16,7 +16,7 @@ class Dashboard extends Component {
   return (
         <>
             <Header title = {`Dashboard | ${user.name}`} onLogout = {this.onLogoutClick} />
-            <a className = "uk-button uk-button-danger uk-position-large uk-position-top-center" onClick = {this.onLogoutClick}>Logout</a>
+            <a className = "uk-button uk-button-danger uk-position-large uk-position-top-center" onClick = {this.onLogoutClick} style={{ top: '10vh' }}>Logout</a>
             <MainDash user = {user} />
         </>
       );

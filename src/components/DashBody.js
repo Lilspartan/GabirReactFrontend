@@ -5,7 +5,20 @@ import Haikus from './Haikus'
 const DashBody = ({ user }) => {
     var d = new Date();
 
-    const [haikus, setHaikus] = useState([])
+    const [haikus, setHaikus] = useState([
+        {
+            "__createdtime__": 1611090302995,
+            "__updatedtime__": 1611090302995,
+            "haikuLines": [
+                "Loading your haikus",
+                "hopefully you'll see yours soon",
+                "hopefully right now"
+            ],
+            "name": "Loading...",
+            "url": "0",
+            "uuid": ""
+        }
+    ])
 
     useEffect(() => {
         const getHaikus = async () => {
@@ -40,7 +53,7 @@ const DashBody = ({ user }) => {
                             <div className="uk-width-expand@m">
                                 <ul id="component-tab-bottom" className="uk-switcher">
                                     <li>
-                                        <Haikus haikus = {haikus} />
+                                        <Haikus haikus = {haikus} setHaikus = {setHaikus} />
                                     </li>
                                     <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                                     <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
