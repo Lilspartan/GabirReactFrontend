@@ -4,10 +4,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
+import Alert from './Alert';
 
 class Dashboard extends Component {
     onLogoutClick = e => {
-        e.preventDefault();
         this.props.logoutUser();
       };
   render() {
@@ -16,8 +16,8 @@ class Dashboard extends Component {
   return (
         <>
             <Header title = {`Dashboard | ${user.name}`} onLogout = {this.onLogoutClick} />
-            <a className = "uk-button uk-button-danger uk-position-large uk-position-top-center" onClick = {this.onLogoutClick} style={{ top: '10vh' }}>Logout</a>
-            <MainDash user = {user} />
+            
+            <MainDash user = {user} onLogout = {this.onLogoutClick} />
         </>
       );
     }

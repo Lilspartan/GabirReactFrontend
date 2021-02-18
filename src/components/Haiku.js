@@ -7,11 +7,18 @@ const Haiku = ({ haiku, onDelete }) => {
   return (
     <tr>
       <td>{haiku.haikuLines[0]}...</td>
-      <td><BsPencil className = "uk-text-success" /></td>
+      <td>
+        <BsPencil 
+          className = "uk-text-success" 
+          style = {{ cursor: 'pointer' }} 
+          uk-tooltip="Edit haiku"
+        />
+      </td>
       <td>
         <BsTrash 
           className = "uk-text-danger" 
           style = {{ cursor: 'pointer' }} 
+          uk-tooltip = "Delete Haiku"
           onClick = {() => {
             onDelete(haiku);
           }} 
