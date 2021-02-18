@@ -1,6 +1,5 @@
 import { IoChevronDownSharp } from 'react-icons/io5'
 import Header from './Header'
-import Alert from './Alert'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();

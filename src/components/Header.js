@@ -44,7 +44,8 @@ const Header = ({ title, desc }) => {
         content= {desc}
       />
       <div uk-sticky = "true">
-        <a className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide"><BsList style = {{color: 'white', fontSize: '60px'}}/></a>
+        {/* eslint-disable-next-line */}
+        <a className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide" href = "#"><BsList style = {{color: 'white', fontSize: '60px'}}/></a>
       </div>
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
@@ -67,6 +68,8 @@ const Header = ({ title, desc }) => {
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/info/blackflags">Black Flags</a></li>
 
             <li className="uk-nav-divider"></li>
+
+            <li class="uk-nav-header">Social Media</li>
             <li><a className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a></li>
         </ul>
 

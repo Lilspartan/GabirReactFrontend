@@ -17,6 +17,7 @@ const AdminTab = () => {
 
     return (
         <div>
+            {/* eslint-disable-next-line */}
             <a className = "uk-button uk-button-primary" onClick = {onUpdateClick }>Update Calendar</a>
         </div>
     )

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import LoginForm from './LoginForm'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from './Header'
 
 const MainBody = ({ initError, formData, onLogIn }) => {

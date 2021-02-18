@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Haikus from './Haikus';
 import RacerTab from './RacerTab';
 import AdminTab from './AdminTab';
-import Alert from './Alert';
 
 const DashBody = ({ user, onLogout }) => {
     var d = new Date();
@@ -30,6 +28,7 @@ const DashBody = ({ user, onLogout }) => {
         }
 
         getHaikus()
+        /* eslint-disable-next-line */
     }, [])
 
     const fetchHaikus = async () => {
@@ -41,16 +40,20 @@ const DashBody = ({ user, onLogout }) => {
 
     const Racer = () => {
         if (user.roles.includes("racer")) {
+            /* eslint-disable-next-line */
             return <li><a href="#">Racer</a></li>
         } else {
+            /* eslint-disable-next-line */
             return <li><a href="#"></a></li>
         }
     }
 
     const Admin = () => {
         if (user.roles.includes("admin")) {
+            /* eslint-disable-next-line */
             return <li><a href="#">Admin</a></li>
         } else {
+            /* eslint-disable-next-line */
             return <li><a href="#"></a></li>
         }
     }
@@ -58,7 +61,9 @@ const DashBody = ({ user, onLogout }) => {
     const Tabs = () => {
         return (
             <ul className="uk-tab-top" uk-tab="connect: #component-tab-bottom; animation: uk-animation-fade">
+                {/* eslint-disable-next-line */}
                 <li><a href="#">User</a></li>
+                {/* eslint-disable-next-line */}
                 <li><a href="#">Haikus</a></li>
                 <Racer />
                 <Admin />
@@ -110,6 +115,7 @@ const DashBody = ({ user, onLogout }) => {
                                                     </>
                                                 ))
                                             }
+                                            {/* eslint-disable-next-line */}
                                             <a className = "uk-button uk-button-danger uk-align-center" onClick = {() => {
                                                 onLogout()
                                             }}>Logout</a>

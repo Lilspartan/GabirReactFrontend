@@ -1,8 +1,8 @@
 import { BsPencil, BsTrash } from 'react-icons/bs';
 
 const Haiku = ({ haiku, onDelete }) => {
+  /* eslint-disable-next-line */
   const id = Math.floor(Math.random() * 100000);
-  const toggleId = `#${id}`;
     
   return (
     <tr>

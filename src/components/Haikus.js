@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Haiku from './Haiku'
 
 const Haikus = ({ haikus, setHaikus }) => {

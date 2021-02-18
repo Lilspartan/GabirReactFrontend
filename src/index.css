@@ -24,7 +24,7 @@ html {
 }
 
 .bio-p {
-  font-size: 1.1vw;
+  font-size: 24px;
   font-weight: 300;
   padding-left: 8vw;
   padding-right: 8vw;
@@ -44,5 +44,11 @@ html {
   .hide-img-pre, .hide-img-pre img {
     height: 0;
     width: 0;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .bio-p {
+    font-size: 32px;
   }
 }
