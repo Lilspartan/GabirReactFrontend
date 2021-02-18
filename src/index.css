@@ -24,9 +24,10 @@ html {
 }
 
 .bio-p {
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-weight: 300;
-  padding-left: 2vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
 }
 
 .hide-img {
