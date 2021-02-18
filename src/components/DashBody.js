@@ -102,8 +102,9 @@ const DashBody = ({ user, onLogout }) => {
                                             {
                                                 user.alerts.map((alert, i) => (
                                                     <>
+                                                        <hr></hr>
                                                         <div class="uk-card uk-card-body uk-card-small" key = {i}>
-                                                            <h3 class="uk-card-title">{alert.title}</h3>
+                                                            <h3 class="uk-card-title">{alert.title}</h3> <span className = "uk-text-muted">Nov. 3</span>
                                                             <p>{alert.bodytext}</p>
                                                         </div>
                                                     </>
