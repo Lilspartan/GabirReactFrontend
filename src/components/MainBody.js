@@ -27,7 +27,7 @@ const MainBody = ({ haikus }) => {
         </div>
       </div>
 
-      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/image.png)', height: 'auto' }}>
+      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/image.jpg)', height: 'auto' }}>
         <div className="uk-child-width-auto uk-margin uk-child-width-1-1@m" uk-grid>
           <div>
             <br />
@@ -86,7 +86,7 @@ const MainBody = ({ haikus }) => {
               <div>
                 <div style={{ width: '45vw' }}>
                   <h2 className="fade-p4">Kara</h2>
-                  <p className="fade-p4 bio-p uk-dropcap uk-text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p className="fade-p4 bio-p uk-dropcap uk-text-left">Kara is many things. Wife to one, Mother to some and loved by all, she is the prettiest spotter in racing! Trust me, when you're riding one of these 3,200 pound steel beasts out of turn four at Daytona and you don't even know your own name anymore much less what the hell is going on outside your 200 MPH coffin, well, she's that calm voice in your ear like an angel of God calling you home the the finish line. </p>
                 </div>
                 <div>
                   <blockquote cite="#" className="fade-p4">
