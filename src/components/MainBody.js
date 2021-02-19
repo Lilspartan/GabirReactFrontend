@@ -13,7 +13,9 @@ const MainBody = ({ haikus }) => {
           <Alert body = "This alert is just a test" type = "success" />
         </div>
         */}
-        <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 10;">Welcome to Gabir Motors</h1>
+        <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 10;">
+          <img src = "img/newgabirtext.png/" />
+        </h1>
         <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
           <div className="uk-position-center" style={{ top: '60vh' }} uk-parallax="blur: 7;">
             <h3><IoChevronDownSharp /> Scroll Down <IoChevronDownSharp /></h3>

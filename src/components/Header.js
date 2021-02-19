@@ -56,7 +56,7 @@ const Header = ({ title, desc }) => {
             <SidebarUser isLoggedIn = {loggedin} />
             
             <li class="uk-nav-header">Stream Submissions</li>
-            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/haikus">Haikus</a></li>
+            <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/haikus">Haikus</Link></li>
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/quotes">Quotes</a></li>
             
             <li class="uk-nav-header">Helpful Resources</li>

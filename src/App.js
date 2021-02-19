@@ -5,6 +5,7 @@ import MainCal from './components/CalendarBody'
 import MainLog from './components/LoginBody'
 import MainSign from './components/SignupBody'
 import MainDash from './components/Dashboard'
+import MainHaiku from './components/HaikusBody'
 import PrivateRoute from './components/PivateRoute'
 import './index.css'
 
@@ -42,6 +43,8 @@ const App = () => {
           <Route path='/login' component = {MainLog} />
           <Route path='/signup' component = {MainSign} />
           <Route path='/calendar' exact component = {MainCal} />
+          <Route path='/calendar' exact component = {MainCal} />
+          <Route path='/haikus' exact component = {MainHaiku} />
           <Switch>
             <PrivateRoute exact path="/dashboard" component= {MainDash} />
           </Switch>
