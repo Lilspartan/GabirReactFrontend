@@ -82,7 +82,7 @@ class Login extends Component {
                         name = "password" 
                         type="password"
                     />	
-                    <span className="red-text">
+                    <span className="uk-text-danger">
                       {errors.password}
                       {errors.passwordincorrect}
                     </span>

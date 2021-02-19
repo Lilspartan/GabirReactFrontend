@@ -12,6 +12,7 @@ class Dashboard extends Component {
   render() {
     var { user } = this.props.auth;
     user = user._doc
+    localStorage.setItem("uuid", user.uuid)
   return (
         <>
             <Header title = {`Dashboard | ${user.name}`} onLogout = {this.onLogoutClick} />
