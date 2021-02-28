@@ -1,6 +1,20 @@
-- [ ] User data stored in plain text in session storage
-- [ ] User not redirected to dashboard on login
-- [ ] The following pages have not been started:
-- - [ ] Haiku Submit
-- - [ ] Quote Submit
-- - [ ] Black / Blue flags
+## Problems ##
+
+- Haiku Submit
+  - Submitting a haiku does not redirect to any pages
+  - Submitting a haiku without being signed in does not cause an alert
+
+## Pages ##
+
+- Quote Submit
+- Black / Blue flags
+- Assets
+- Finish Dashboard
+
+## Todo ##
+
+- Dashboard
+  - Finish notifications on dashboard
+  - add alerts
+  - add editing/viewing haikus
+  - change racer data
