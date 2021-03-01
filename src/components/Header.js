@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { a } from 'react-router-dom'
 import { BsList } from 'react-icons/bs'
 import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
+import { BsWifi } from "react-icons/bs";
 import { Link } from 'react-router-dom'
 
 const Header = ({ title, desc }) => {
@@ -69,8 +70,13 @@ const Header = ({ title, desc }) => {
 
             <li className="uk-nav-divider"></li>
 
-            <li class="uk-nav-header">Social Media</li>
-            <li><a className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;<a className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a></li>
+            <li class="uk-nav-header">Other Links</li>
+            <li>
+              <a uk-tooltip = "PA League Discord" className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;
+              <a uk-tooltip = "Gabir Motors Twitter" className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;
+              <a uk-tooltip = "PA Twitch" className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a>&nbsp;&nbsp;
+              <a uk-tooltip = "Status Page" className = "uk-display-inline uk-button uk-button-text" href = "https://status.gabirmotors.ga/"><BsWifi /></a>
+            </li>
         </ul>
 
     </div>

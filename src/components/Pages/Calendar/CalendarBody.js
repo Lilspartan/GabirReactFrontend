@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Race from './Race'
 import { BsCheck } from 'react-icons/bs'
-import Header from './Header'
+import Header from '../../Header'
 
 const Calendar = () => {
   

@@ -1,5 +1,5 @@
 import HaikuForm from './HaikuForm'
-import Header from './Header'
+import Header from '../../Header'
 
 const HaikusBody = () => {
     var d = new Date();

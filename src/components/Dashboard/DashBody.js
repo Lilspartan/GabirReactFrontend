@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import Haikus from './Haikus';
-import RacerTab from './RacerTab';
-import AdminTab from './AdminTab';
+import HaikusTab from './Tabs/HaikusTab';
+import RacerTab from './Tabs/RacerTab';
+import AdminTab from './Tabs/AdminTab';
+import { BsPencil, BsTrash } from 'react-icons/bs';
 
-const DashBody = ({ user, onLogout }) => {
+const DashBody = ({ userD, onLogout }) => {
     var d = new Date();
 
     const [haikus, setHaikus] = useState([
@@ -20,6 +21,7 @@ const DashBody = ({ user, onLogout }) => {
             "uuid": ""
         }
     ])
+    const [user, setUser] = useState(userD); 
 
     useEffect(() => {
         const getHaikus = async () => {
@@ -30,6 +32,20 @@ const DashBody = ({ user, onLogout }) => {
         getHaikus()
         /* eslint-disable-next-line */
     }, [])
+
+    const onDeleteNotif = async (id) => {
+        const res = await fetch(`https://api.gabirmotors.ga/user/alert/delete`, {
+            method: 'POST',
+            body: {
+                uuid: user.uuid,
+                num: id
+            }
+        })
+        const data = await res.json()
+        setUser(user.alerts.filter((a, i) => i !== id))
+        console.log(user)
+        return data
+    }
 
     const fetchHaikus = async () => {
         const res = await fetch(`https://api.gabirmotors.ga/user/${user.uuid}/haikus`)
@@ -109,7 +125,15 @@ const DashBody = ({ user, onLogout }) => {
                                                     <>
                                                         <hr></hr>
                                                         <div class="uk-card uk-card-body uk-card-small" key = {i}>
-                                                            <h3 class="uk-card-title">{alert.title}</h3> <span className = "uk-text-muted">Nov. 3</span>
+                                                            <BsTrash 
+                                                                className = "uk-text-danger uk-float-right uk-text-large" 
+                                                                style = {{ cursor: 'pointer' }} 
+                                                                uk-tooltip = "Delete Notification"
+                                                                onClick = {() => {
+                                                                    onDeleteNotif(i);
+                                                                }} 
+                                                            />
+                                                            <h3 class="uk-card-title uk-display-inline">{alert.title}</h3> <span className = "uk-text-muted">Nov. 3</span>
                                                             <p>{alert.bodytext}</p>
                                                         </div>
                                                     </>
@@ -122,7 +146,7 @@ const DashBody = ({ user, onLogout }) => {
                                         </div>
                                     </li>
                                     <li>
-                                        <Haikus haikus = {haikus} setHaikus = {setHaikus} />
+                                        <HaikusTab haikus = {haikus} setHaikus = {setHaikus} />
                                     </li>
                                     <li>
                                         <ShowRacer />

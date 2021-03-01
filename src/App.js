@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import MainIndex from './components/MainBody'
-import MainCal from './components/CalendarBody'
-import MainLog from './components/LoginBody'
-import MainSign from './components/SignupBody'
-import MainDash from './components/Dashboard'
-import MainHaiku from './components/HaikusBody'
-import PrivateRoute from './components/PivateRoute'
+import MainCal from './components/Pages/Calendar/CalendarBody'
+import MainLog from './components/UserAuthentication/Login/LoginBody'
+import MainSign from './components/UserAuthentication/Signup/SignupBody'
+import MainDash from './components/Dashboard/Dashboard'
+import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody'
+import PrivateRoute from './components/UserAuthentication/PivateRoute'
 import './index.css'
 
 import { Provider } from "react-redux";

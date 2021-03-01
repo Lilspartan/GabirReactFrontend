@@ -1,9 +1,9 @@
-import Header from './Header'
+import Header from '../Header'
 import MainDash from './DashBody'
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/authActions";
+import { logoutUser } from "../../actions/authActions";
 
 class Dashboard extends Component {
     onLogoutClick = e => {
@@ -17,7 +17,7 @@ class Dashboard extends Component {
         <>
             <Header title = {`Dashboard | ${user.name}`} onLogout = {this.onLogoutClick} />
             
-            <MainDash user = {user} onLogout = {this.onLogoutClick} />
+            <MainDash userD = {user} onLogout = {this.onLogoutClick} />
         </>
       );
     }
