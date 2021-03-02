@@ -41,16 +41,16 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
+        <Switch>
           <Route path='/' exact component = {MainIndex} />
           <Route path='/login' component = {MainLog} />
           <Route path='/signup' component = {MainSign} />
           <Route path='/calendar' exact component = {MainCal} />
           <Route path='/haikus' exact component = {MainHaiku} />
           <Route path='/quotes' exact component = {MainQuote} />
-          <Switch>
-            <PrivateRoute exact path="/dashboard" component= {MainDash} />
-          </Switch>
+          <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
+        </Switch>
       </Router>
     </Provider>
   )
