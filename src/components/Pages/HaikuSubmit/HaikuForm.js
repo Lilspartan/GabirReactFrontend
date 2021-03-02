@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import React from 'react'
 import axios from "axios";
 
@@ -34,7 +34,8 @@ class HaikuForm extends React.Component {
         axios
             .post("https://api.gabirmotors.ga/haikus/new", newHaiku)
             .then(res => {
-                alert('Success!')
+                alert('Success!');
+                this.props.history.push('/?from=haikusubmit&success=haikusubmit')
             })
             .catch(err => {
                 alert('There was an error')
@@ -45,7 +46,6 @@ class HaikuForm extends React.Component {
     };
 
     render() {
-        const { errors } = this.state;
             return (
                 <form noValidate onSubmit = {this.onSubmit} >
                     <div className="uk-margin">
@@ -108,4 +108,4 @@ class HaikuForm extends React.Component {
         }
 }
 
-export default HaikuForm
+export default withRouter(HaikuForm)

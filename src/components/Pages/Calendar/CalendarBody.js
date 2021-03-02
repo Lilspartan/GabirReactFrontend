@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Race from './Race'
-import { BsCheck } from 'react-icons/bs'
 import Header from '../../Header'
 
 const Calendar = () => {
@@ -15,32 +14,14 @@ const Calendar = () => {
         "notes": null,
         "winner": null,
         "theme": null,
-        "paid": null
+        "paid": null,
+        "tags": [
+          "waiting"
+        ]
       },
       "car": null
     }
   ])
-  
-  /*
-  setTimeout(function() {
-    if (!calendar[1]) {
-      setCalendar({
-        "id": "0",
-        "timestamp": 100000000000000000000,
-        "date": "Failed to Fetch Calendar",
-        "track": "Refresh and try again",
-        "tags": {
-          "notes": null,
-          "winner": null,
-          "theme": null,
-          "paid": null
-        },
-        "car": null
-      })
-    }
-    
-  }, 1000)
-  */
 
   useEffect(() => {
     
@@ -63,9 +44,9 @@ const Calendar = () => {
     <>
       <Header title = "Gabir Motors | Calendar" />
       <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
-        <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
-          <caption className = "uk-padding uk-position-top" style = {{ marginLeft: '8vw' }}>
-            <BsCheck style = {{ color: 'green', fontSize: '24px' }} /> = Completed Race
+        <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
+          <caption className = "uk-padding uk-position-top">
+            <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 5 Calendar</h3>
           </caption>
           <thead>
             <tr>
@@ -77,7 +58,7 @@ const Calendar = () => {
               <th>Theme</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className = "js-filter">
             {calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
               <Race key={index} race={race} />
             ))}

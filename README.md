@@ -6,7 +6,6 @@
 
 ## Pages ##
 
-- Quote Submit
 - Black / Blue flags
 - Assets
 - Finish Dashboard

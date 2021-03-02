@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import HaikusTab from './Tabs/HaikusTab';
 import RacerTab from './Tabs/RacerTab';
 import AdminTab from './Tabs/AdminTab';
-import { BsPencil, BsTrash } from 'react-icons/bs';
+import { BsTrash } from 'react-icons/bs';
 
 const DashBody = ({ userD, onLogout }) => {
     var d = new Date();
@@ -34,17 +34,25 @@ const DashBody = ({ userD, onLogout }) => {
     }, [])
 
     const onDeleteNotif = async (id) => {
-        const res = await fetch(`https://api.gabirmotors.ga/user/alert/delete`, {
+        console.log(user.uuid)
+        await fetch(`https://api.gabirmotors.ga/user/alert/delete`, {
             method: 'POST',
-            body: {
-                uuid: user.uuid,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                uuid: user.uuid,    
                 num: id
-            }
+            })
+        }).then(async (res) => {
+            var data = await res.json();
+            setUser({ ...user, alerts: user.alerts.filter((a, i) => i !== id)} )
+            console.log(data)
+            return data
+        }).catch(e => {
+            alert('There was an error');
+            console.log(e)
+            return e
         })
-        const data = await res.json()
-        setUser(user.alerts.filter((a, i) => i !== id))
-        console.log(user)
-        return data
+        
     }
 
     const fetchHaikus = async () => {
@@ -133,7 +141,7 @@ const DashBody = ({ userD, onLogout }) => {
                                                                     onDeleteNotif(i);
                                                                 }} 
                                                             />
-                                                            <h3 class="uk-card-title uk-display-inline">{alert.title}</h3> <span className = "uk-text-muted">Nov. 3</span>
+                                                            <h3 class="uk-card-title uk-display-inline">{alert.title}</h3> <span className = "uk-text-muted"></span>
                                                             <p>{alert.bodytext}</p>
                                                         </div>
                                                     </>
@@ -160,7 +168,7 @@ const DashBody = ({ userD, onLogout }) => {
                     </div>
 
                 </div>
-                <div style = {{zIndex: "-99"}} className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
+                <div style = {{zIndex: "-99"}} className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid = "true" uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
                     <div>
                         <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>
                     </div>

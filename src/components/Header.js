@@ -56,21 +56,23 @@ const Header = ({ title, desc }) => {
 
             <SidebarUser isLoggedIn = {loggedin} />
             
-            <li class="uk-nav-header">Stream Submissions</li>
+            <li className="uk-nav-header">Stream Submissions</li>
             <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/haikus">Haikus</Link></li>
-            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/quotes">Quotes</a></li>
+            <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/quotes">Quotes</Link></li>
             
-            <li class="uk-nav-header">Helpful Resources</li>
+            <li className="uk-nav-header">Helpful Resources</li>
             <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
-            <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/assets">Assets</a></li>
+            {/*
+            <li><a className = "uk-button uk-button-text uk-display-inline uk-disabled" href = "/">Assets</a></li>
 
             <li class="uk-nav-header">How To</li>
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/info/blueflags">Blue Flags</a></li>
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/info/blackflags">Black Flags</a></li>
-
+            */}
+            <li className="uk-nav-header">More coming soon!</li>
             <li className="uk-nav-divider"></li>
 
-            <li class="uk-nav-header">Other Links</li>
+            <li className="uk-nav-header">Other Links</li>
             <li>
               <a uk-tooltip = "PA League Discord" className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;
               <a uk-tooltip = "Gabir Motors Twitter" className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;
