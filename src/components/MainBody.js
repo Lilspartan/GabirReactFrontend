@@ -1,8 +1,8 @@
-import { IoChevronDownSharp } from 'react-icons/io5'
 import Header from './Header'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();
+  console.log('Hey, stop snooping!')
   return (
     <>
       <Header title = "Gabir Motors | Home" />

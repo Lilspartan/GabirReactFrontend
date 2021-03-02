@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import MainIndex from './components/MainBody'
 import MainCal from './components/Pages/Calendar/CalendarBody'
@@ -7,6 +7,7 @@ import MainSign from './components/UserAuthentication/Signup/SignupBody'
 import MainDash from './components/Dashboard/Dashboard'
 import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody'
 import MainQuote from './components/Pages/QuoteSubmit/QuotesBody'
+import fourBody from './components/Pages/404/404body';
 import PrivateRoute from './components/UserAuthentication/PivateRoute'
 import './index.css'
 
@@ -49,6 +50,7 @@ const App = () => {
           <Switch>
             <PrivateRoute exact path="/dashboard" component= {MainDash} />
           </Switch>
+          <Route path = "*" component = {fourBody} />
       </Router>
     </Provider>
   )
