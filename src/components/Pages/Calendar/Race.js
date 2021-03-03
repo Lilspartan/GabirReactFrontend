@@ -2,7 +2,7 @@ const Race = ({ race }) => {
   var time = Date.now();
   time = time.toString().slice(0, -3);
 
-  var classes = "";
+  var classes = "uk-text-large";
   race.tags.tags.forEach((tag) => {
     classes += ` tag-${tag.trim()}`;
   });
