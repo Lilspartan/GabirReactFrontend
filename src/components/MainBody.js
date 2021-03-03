@@ -1,4 +1,5 @@
 import Header from './Header'
+import { IoChevronDownSharp } from 'react-icons/io5'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();
@@ -17,8 +18,8 @@ const MainBody = ({ haikus }) => {
           <img alt = "Gabir Motors Logo" src = "img/newgabirtext.png" />
         </h1>
         <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
-          <div className="uk-position-center" style={{ top: '60vh' }} uk-parallax="blur: 7;">
-            {/*<h3><IoChevronDownSharp /> Scroll Down <IoChevronDownSharp /></h3>*/}
+          <div className="uk-position-center" style={{ top: '70vh' }} uk-parallax="blur: 7;">
+            <h3><IoChevronDownSharp /> Scroll Down <IoChevronDownSharp /></h3>
           </div>
         </div>
         <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">

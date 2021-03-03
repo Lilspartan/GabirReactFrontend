@@ -10,7 +10,7 @@ const HaikusTab = ({ haikus, setHaikus }) => {
         console.log(e)
       })
     } else {
-      console.log("Ok then")
+      console.log("Not Deleting")
     }
   }
 
