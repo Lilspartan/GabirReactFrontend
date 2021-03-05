@@ -4,6 +4,11 @@ import { IoChevronDownSharp } from 'react-icons/io5'
 const MainBody = ({ haikus }) => {
   var d = new Date();
   console.log('Hey, stop snooping!')
+
+  const GabirMotors = () => {
+    return console.log('You found the secret function!')
+  }
+
   return (
     <>
       <Header title = "Gabir Motors | Home" />
