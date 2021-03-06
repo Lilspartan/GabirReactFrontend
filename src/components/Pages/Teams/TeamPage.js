@@ -46,7 +46,7 @@ const TeamPage = (props) => {
                     <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-container uk-position-center">
                         <div className="uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
                             <div>
-                                <img src = {team.logo} style = {{ height: 'auto', width: '25vw', minWidth: '400px', paddingBottom: '1vh'}} alt = {`${team.name} Logo`}/>
+                                <img src = {team.logo} style = {{ height: 'auto', width: '25vw', minWidth: '250px', paddingBottom: '1vh'}} alt = {`${team.name} Logo`}/>
                             </div>
                             <h2 className = "uk-margin-remove">{team.name}</h2>
                             <h3 className = "uk-margin-remove">Leader: <span className = "">{team.team_leader}</span></h3>
