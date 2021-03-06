@@ -1,5 +1,4 @@
 import React from 'react'
-import { Editor } from '@tinymce/tinymce-react'; 
 
 class AdminTab extends React.Component {
     onUpdateClick = () => {
@@ -27,28 +26,7 @@ class AdminTab extends React.Component {
         return (
             <div>
                 {/* eslint-disable-next-line */}
-                {/*<a className = "uk-button uk-button-primary" onClick = {this.onUpdateClick }>Update Calendar</a>*/}
-                <Editor
-                apiKey = "0jj3axsp6yhal94rsxhqe73vybc5jmeev7xr6iwn6f8wd0j5"
-                    initialValue=""
-                    init={{
-                    height: 500,
-                    menubar: false,
-                    skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),
-                    content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'),
-                    plugins: [
-                        'advlist autolink lists link image', 
-                        'charmap print preview anchor help',
-                        'searchreplace visualblocks code',
-                        'insertdatetime media table paste wordcount'
-                    ],
-                    toolbar:
-                        'undo redo | styleselect | bold italic | \
-                        alignleft aligncenter alignright | \
-                        bullist numlist outdent indent | help '
-                    }}
-                    onChange={this.handleEditorChange}
-                />
+                <a className = "uk-button uk-button-primary" onClick = {this.onUpdateClick }>Update Calendar</a>
             </div>
         )
     }
