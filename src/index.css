@@ -56,3 +56,12 @@ html {
     font-size: 32px;
   }
 }
+
+.team-logo{
+  transition: 0.1s ease-in-out;
+  bottom: 0px;
+}
+
+.team-logo:hover {
+  bottom: 10px;
+}

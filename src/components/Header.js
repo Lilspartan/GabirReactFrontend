@@ -52,7 +52,7 @@ const Header = ({ title, desc }) => {
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-            <li className="uk-logo"><Link to="/"><img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px'}}/></Link></li>
+            <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
             <SidebarUser isLoggedIn = {loggedin} />
             

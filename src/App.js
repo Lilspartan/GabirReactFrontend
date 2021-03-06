@@ -9,6 +9,7 @@ import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody';
 import MainQuote from './components/Pages/QuoteSubmit/QuotesBody';
 import fourBody from './components/Pages/404/404body';
 import MainTeams from './components/Pages/Teams/TeamsPage';
+import TeamPage from './components/Pages/Teams/TeamPage';
 import PrivateRoute from './components/UserAuthentication/PivateRoute';
 import './index.css'
 
@@ -49,6 +50,7 @@ const App = () => {
           <Route path='/haikus' exact component = {MainHaiku} />
           <Route path='/quotes' exact component = {MainQuote} />
           <Route path='/teams' exact component = {MainTeams} />
+          <Route path='/teams/:t' component = {TeamPage} />
           <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
         </Switch>
