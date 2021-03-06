@@ -1,19 +1,19 @@
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import MainIndex from './components/MainBody'
-import MainCal from './components/Pages/Calendar/CalendarBody'
-import MainLog from './components/UserAuthentication/Login/LoginBody'
-import MainSign from './components/UserAuthentication/Signup/SignupBody'
-import MainDash from './components/Dashboard/Dashboard'
-import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody'
-import MainQuote from './components/Pages/QuoteSubmit/QuotesBody'
+import MainIndex from './components/MainBody';
+import MainCal from './components/Pages/Calendar/CalendarBody';
+import MainLog from './components/UserAuthentication/Login/LoginBody';
+import MainSign from './components/UserAuthentication/Signup/SignupBody';
+import MainDash from './components/Dashboard/Dashboard';
+import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody';
+import MainQuote from './components/Pages/QuoteSubmit/QuotesBody';
 import fourBody from './components/Pages/404/404body';
-import PrivateRoute from './components/UserAuthentication/PivateRoute'
+import MainTeams from './components/Pages/Teams/TeamsPage';
+import PrivateRoute from './components/UserAuthentication/PivateRoute';
 import './index.css'
 
 import { Provider } from "react-redux";
 import store from "./store";
-
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
@@ -48,6 +48,7 @@ const App = () => {
           <Route path='/calendar' exact component = {MainCal} />
           <Route path='/haikus' exact component = {MainHaiku} />
           <Route path='/quotes' exact component = {MainQuote} />
+          <Route path='/teams' exact component = {MainTeams} />
           <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
         </Switch>

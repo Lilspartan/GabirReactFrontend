@@ -62,6 +62,7 @@ const Header = ({ title, desc }) => {
             
             <li className="uk-nav-header">Helpful Resources</li>
             <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
+            <li><Link className = "uk-button uk-button-text uk-display-inline" to = "/teams">Teams</Link></li>
             {/*
             <li><a className = "uk-button uk-button-text uk-display-inline uk-disabled" href = "/">Assets</a></li>
 
@@ -74,10 +75,11 @@ const Header = ({ title, desc }) => {
 
             <li className="uk-nav-header">Other Links</li>
             <li>
-              <a uk-tooltip = "PA League Discord" className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;
-              <a uk-tooltip = "Gabir Motors Twitter" className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;
+              <a target = "" uk-tooltip = "PA League Discord" className = "uk-display-inline uk-button uk-button-text" href = "https://discord.gabirmotors.ga/"><FaDiscord /></a>&nbsp;&nbsp;
               <a uk-tooltip = "PA Twitch" className = "uk-display-inline uk-button uk-button-text" href = "https://www.twitch.tv/pennyarcade"><FaTwitch /></a>&nbsp;&nbsp;
-              <a uk-tooltip = "Status Page" className = "uk-display-inline uk-button uk-button-text" href = "https://status.gabirmotors.ga/"><BsWifi /></a>
+              <a uk-tooltip = "Status Page" className = "uk-display-inline uk-button uk-button-text" href = "https://status.gabirmotors.ga/"><BsWifi /></a><br />
+              <a uk-tooltip = "@GabirMotors" className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/GabirMotors"><FaTwitter /></a>&nbsp;&nbsp;
+              <a uk-tooltip = "@FleischwolfNews" className = "uk-display-inline uk-button uk-button-text" href = "https://twitter.com/FleischwolfNews"><FaTwitter /></a>&nbsp;&nbsp;
             </li>
         </ul>
 
