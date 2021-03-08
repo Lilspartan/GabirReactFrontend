@@ -62,8 +62,8 @@ const TeamPage = (props) => {
                                     {team.drivers.map((driver, i) => (
                                         <>
                                             <tr>
-                                                <td className = "uk-text-left uk-text-emphasis">{driver.name}</td>
-                                                <td className = "uk-text-left uk-text-emphasis">{driver.car_number != -1 ? driver.car_number : "N/A"}</td>
+                                                <td className = "uk-text-left uk-text-emphasis">{driver.name} {driver?.username ? `(${driver.username})` : ''}</td>
+                                                <td className = "uk-text-left uk-text-emphasis">{driver.car_number !== -1 ? driver.car_number : "N/A"}</td>
                                             </tr>
                                         </>
                                     ))}

@@ -17,12 +17,28 @@ const Race = ({ race }) => {
           ""
         )}
       </td>
-      <td className="uk-text-emphasis">{race.tags.paid.track ? <b style = {{ color: '#35fc6a' }}>$</b> : ''} {race.track}</td>
+      <td className="uk-text-emphasis">
+        {race.tags.paid.track ? <b style={{ color: "#35fc6a" }}>$</b> : ""}{" "}
+        {race.track}
+      </td>
       <td>
         {race.car.length ? (
-          <span className="uk-text-emphasis">{race.car.map((car, i) => (
-            race.tags.paid.car.length && race.tags.paid.car.includes(String(i + 1)) ? <> <b style = {{ color: '#35fc6a' }}>$</b> <span>{race.car[i] + (i < race.car.length - 1 ? ',' : '' )}</span> </> : '' + race.car[i] + (i < race.car.length - 1 ? ',' : '' )
-          ))}</span>
+          <span className="uk-text-emphasis">
+            {race.car.map((car, i) =>
+              race.tags.paid.car.length &&
+              race.tags.paid.car.includes(String(i + 1)) ? (
+                <>
+                  {" "}
+                  <b style={{ color: "#35fc6a" }}>$</b>{" "}
+                  <span>
+                    {race.car[i] + (i < race.car.length - 1 ? "," : "")}
+                  </span>{" "}
+                </>
+              ) : (
+                "" + race.car[i] + (i < race.car.length - 1 ? "," : "")
+              )
+            )}
+          </span>
         ) : (
           <i className="uk-text-muted">N/A</i>
         )}
