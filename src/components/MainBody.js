@@ -1,24 +1,19 @@
 import Header from './Header'
 import { IoChevronDownSharp } from 'react-icons/io5'
+import Alert from './Alert'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();
   console.log('Hey, stop snooping!')
-
-  const GabirMotors = () => {
-    return console.log('You found the secret function!')
-  }
-
+  
   return (
     <>
       <Header title = "Gabir Motors | Home" />
       
       <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
-        {/*
         <div className = "uk-position-top-center uk-padding-large uk-center uk-position-large">
           <Alert body = "This alert is just a test" type = "success" />
         </div>
-        */}
         <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 15;">
           <img alt = "Gabir Motors Logo" src = "img/newgabirtext.png" />
         </h1>

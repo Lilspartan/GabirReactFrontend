@@ -5,9 +5,9 @@ const Alert = ({ title, body, type, links }) => {
   const classes = `uk-alert-${type}`;
 
   return (
-    <div className = {classes} uk-alert = "test">
+    <div className = {classes} uk-alert = "true">
       {/* eslint-disable-next-line */}
-      <a href = "#" className="uk-alert-close" uk-close = "test"></a>
+      <a className="uk-alert-close" uk-close = "true"></a>
       <p>{body}</p>
     </div>
 

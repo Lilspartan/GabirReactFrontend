@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
 const TeamsPage = () => {
-    var d = new Date();
-
     const [teams, setTeams] = useState([
         {
-            "name": "Future War Cult",
-            "logo": "https://api.gabirmotors.ga/assets/teams/FWC/main.png",
-            "numOfDrivers": 3
+            "name": "",
+            "logo": "",
+            "numOfDrivers": 0
         }
     ])
 
