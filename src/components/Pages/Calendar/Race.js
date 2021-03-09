@@ -57,12 +57,10 @@ const Race = ({ race }) => {
       </td>
       <td className="uk-text-success">
         {race.tags.winner != null ? (
+          /* uk-tooltip = {`Team - Jabir Motors <br />#10`} */
           <span className="uk-text-success">
-            <span className="uk-hidden@m uk-text-uppercase uk-text-bolder">
-              Winner:{" "}
-            </span>{" "}
-            {race.tags.winner}
-          </span>
+            <span className="uk-hidden@m uk-text-uppercase uk-text-bolder"> Winner: {" "} </span> {" "} {race.tags.winner}
+          </span> 
         ) : (
           <i className="uk-text-muted">N/A</i>
         )}

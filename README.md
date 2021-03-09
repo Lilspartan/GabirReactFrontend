@@ -17,3 +17,19 @@
   - add alerts
   - add editing/viewing haikus
   - change racer data
+
+Staff/Admins:
+
+Chiefs: Geoff M (beastGP)
+Scott L (Skiggity)
+Matt H (Brainling)
+Chris O (Draxond)
+
+Series Admins:
+Duke of Dirt: C Drew (DFA)
+The Sultan of Single Seaters: David M (Veevee)
+
+Driving Instructors: Chris S (DuckSoup)
+Redstapler (Mike C)
+
+Captain Calendar: Matt C (mcribbs)
