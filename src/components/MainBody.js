@@ -6,7 +6,15 @@ import ReactComment from './ReactComment'
 const MainBody = ({ haikus }) => {
   var d = new Date();
   console.log('Hey, stop snooping!')
-  
+
+  const codes = [
+    "RACECAR",
+    "NOTLAST",
+    "PODIUM",
+    "COLDTIRES",
+    "GABIR"
+  ]
+
   return (
     <>
       <Header title = "Gabir Motors | Home" />
@@ -17,7 +25,7 @@ const MainBody = ({ haikus }) => {
               <ReactComment text = "Using Inspect to find easter eggs is no fun!" />
               <img src = "img/NorthernHarbor.png" alt = "Northern Harbor Logo"/>
               <h2>Get <strong>20%</strong> off your next order at Norther Harbor</h2>
-              <h4>Use code <code>RACECAR</code> for 20% off any of Norther Harbor's beef based seafood products!</h4>
+              <h4>Use code <code>{ codes[Math.floor(Math.random() * codes.length - 1)] }</code> for 20% off any of Norther Harbor's beef based seafood products!</h4>
               <p>Northern Harbor is the world's premier provider of meat-based fish substitutes. With mouth-watering favorites like our Bone-In Fysh Wyngz, our succulent Fishey Mignon, and your new You'll Swear It's Beef line of Shramp and Crobb crostini, we've got something for every person who wants to ask for fish but actually get beef. </p>
 
           </div>
