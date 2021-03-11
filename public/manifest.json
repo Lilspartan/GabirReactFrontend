@@ -21,5 +21,14 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "shortcuts": [
+    {
+      "name": "Check the Calendar",
+      "short_name": "Calendar",
+      "description": "See the league calendar",
+      "url": "/calendar",
+      "icons": [{ "src": "./logo192.png", "sizes": "192x192" }]
+    }
+  ]
 }
