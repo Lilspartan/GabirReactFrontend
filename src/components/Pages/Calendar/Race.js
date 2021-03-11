@@ -1,4 +1,8 @@
-const Race = ({ race }) => {
+import qs from 'qs';
+import { Link, withRouter } from "react-router-dom";
+
+const Race = (props) => {
+  const race = props.race
   var time = Date.now();
   time = time.toString().slice(0, -3);
 
@@ -7,10 +11,14 @@ const Race = ({ race }) => {
     classes += ` tag-${tag.trim()}`;
   });
 
+  if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })?.highlight == race.timestamp) {
+    classes += " highlight-cal-row"
+  }
+
   return (
     <tr className={classes}>
       <td className="uk-text-bold">
-        <span className="uk-text-emphasis">{race.date}</span>{" "}
+        <span className="uk-text-emphasis" id = {race.timestamp}>{race.date}</span>{" "}
         {time > race.timestamp + 25200 ? (
           <i className="uk-text-muted">COMPLETED</i>
         ) : (
@@ -81,4 +89,4 @@ const Race = ({ race }) => {
   );
 };
 
-export default Race;
+export default withRouter(Race);

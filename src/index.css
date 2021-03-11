@@ -65,3 +65,7 @@ html {
 .team-logo:hover {
   bottom: 10px;
 }
+
+.highlight-cal-row {
+  background-color: rgba(100,100,100,.5);
+}
