@@ -1,6 +1,7 @@
 import Header from './Header'
 import { IoChevronDownSharp } from 'react-icons/io5'
 import Alert from './Alert'
+import ReactComment from './ReactComment'
 
 const MainBody = ({ haikus }) => {
   var d = new Date();
@@ -10,10 +11,21 @@ const MainBody = ({ haikus }) => {
     <>
       <Header title = "Gabir Motors | Home" />
       
+      <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+
+          <div class="uk-offcanvas-bar">
+              <ReactComment text = "Using Inspect to find easter eggs is no fun!" />
+              <img src = "img/NorthernHarbor.png" alt = "Northern Harbor Logo"/>
+              <h2>Get <strong>20%</strong> off your next order at Norther Harbor</h2>
+              <h4>Use code <code>RACECAR</code> for 20% off any of Norther Harbor's beef based seafood products!</h4>
+              <p>Northern Harbor is the world's premier provider of meat-based fish substitutes. With mouth-watering favorites like our Bone-In Fysh Wyngz, our succulent Fishey Mignon, and your new You'll Swear It's Beef line of Shramp and Crobb crostini, we've got something for every person who wants to ask for fish but actually get beef. </p>
+
+          </div>
+      </div>
       <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
         
         <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 15;">
-          <img alt = "Gabir Motors Logo" src = "img/newgabirtext.png" />
+          <img uk-toggle="target: #offcanvas-flip" alt = "Gabir Motors Logo" src = "img/newgabirtext.png" />
         </h1>
         <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
           <div className="uk-position-center" style={{ top: '70vh' }} uk-parallax="blur: 7;">
@@ -128,5 +140,8 @@ const MainBody = ({ haikus }) => {
     </>
   )
 }
+
+/*
+*/
 
 export default MainBody
