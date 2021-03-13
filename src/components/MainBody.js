@@ -25,9 +25,11 @@ const MainBody = ({ haikus }) => {
               <ReactComment text = "Using Inspect to find easter eggs is no fun!" />
               <img src = "img/NorthernHarbor.png" alt = "Northern Harbor Logo"/>
               <h2>Get <strong>20%</strong> off your next order at Norther Harbor</h2>
-              <h4>Use code <code>{ codes[Math.floor(Math.random() * codes.length - 1)] }</code> for 20% off any of Norther Harbor's beef based seafood products!</h4>
-              <p>Northern Harbor is the world's premier provider of meat-based fish substitutes. With mouth-watering favorites like our Bone-In Fysh Wyngz, our succulent Fishey Mignon, and your new You'll Swear It's Beef line of Shramp and Crobb crostini, we've got something for every person who wants to ask for fish but actually get beef. </p>
-
+              <h4>Use code <code>{ codes[Math.floor(Math.random() * codes.length)] }</code> for 20% off any of Norther Harbor's beef based seafood products!</h4>
+              <blockquote>
+                <p className = "uk-text-muted">Northern Harbor is the world's premier provider of meat-based fish substitutes. With mouth-watering favorites like our Bone-In Fysh Wyngz, our succulent Fishey Mignon, and our new You'll Swear It's Beef line of Shramp and Crobb crostini, we've got something for every person who wants to ask for fish but actually get beef. </p>
+                <footer>Northern Harbor</footer>
+              </blockquote> 
           </div>
       </div>
       <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
@@ -106,7 +108,7 @@ const MainBody = ({ haikus }) => {
               <div>
                 <div style={{ width: '45vw' }}>
                   <h2 className="fade-p4">Kara</h2>
-                  <p className="fade-p4 bio-p uk-text-left">Kara is many things. Wife to one, Mother to some and loved by all, she is the prettiest spotter in racing! Trust me, when you're riding one of these 3,200 pound steel beasts out of turn four at Daytona and you don't even know your own name anymore much less what the hell is going on outside your 200 MPH coffin, well, she's that calm voice in your ear like an angel of God calling you home the the finish line. </p>
+                  <p className="fade-p4 bio-p uk-text-left">Kara is many things. Wife to one, Mother to some and loved by all, she is the prettiest spotter in racing! Trust me, when you're riding one of these 3,200 pound steel beasts out of turn four at Daytona and you don't even know your own name anymore much less what the hell is going on outside your 200 MPH coffin, well, she's that calm voice in your ear like an angel of God calling you home to the finish line. </p>
                 </div>
                 <div>
                   <blockquote cite="#" className="fade-p4">

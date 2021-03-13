@@ -69,3 +69,23 @@ html {
 .highlight-cal-row {
   background-color: rgba(100,100,100,.5);
 }
+
+.icon-button {
+  transition: 0.1s;
+}
+
+.icon-button-twitter:hover {
+  color: #4fbdff;
+}
+
+.icon-button-discord:hover {
+  color: #738ADB;
+}
+
+.icon-button-twitch:hover {
+  color: #6441a5;
+}
+
+.icon-button-status:hover {
+  color: #47ff14 
+}

@@ -9,16 +9,16 @@ const TeamPage = (props) => {
     const [team, setTeam] = useState({
         "drivers": [
           {
-            "name": "",
+            "name": "Loading Drivers",
             "username": "",
-            "car_number": -1
+            "car_number": ""
           }
         ],
         "_id": "",
-        "abbr": "",
-        "name": "",
-        "team_leader": "",
-        "logo": ""
+        "abbr": "TN",
+        "name": "Loading Team...",
+        "team_leader": "...",
+        "logo": "https://cdn.shopify.com/s/files/1/0042/9942/files/brand-pa_256x.png?v=1603497096"
       });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
