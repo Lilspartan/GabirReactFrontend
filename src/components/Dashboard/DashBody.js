@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import HaikusTab from "./Tabs/HaikusTab";
 import RacerTab from "./Tabs/RacerTab";
+import LiveryUploadTab from './Tabs/LiveryUploadTab';
 import AdminTab from "./Tabs/AdminTab";
 import { BsTrash } from "react-icons/bs";
 
@@ -83,6 +84,25 @@ const DashBody = ({ userD, onLogout }) => {
     }
   };
 
+  const Upload = () => {
+    if (user.roles.includes("user")) {
+      /* eslint-disable-next-line */
+      return (
+        <li>
+          <a href="#">Livery Upload</a>
+        </li>
+      );
+    } else {
+      /* eslint-disable-next-line */
+      return (
+        <li>
+          <a href="#"></a>
+        </li>
+      );
+    }
+  };
+
+
   const Admin = () => {
     if (user.roles.includes("admin")) {
       /* eslint-disable-next-line */
@@ -115,10 +135,19 @@ const DashBody = ({ userD, onLogout }) => {
         <li>
           <a href="#">Haikus</a>
         </li>
+        <Upload />
         <Racer />
         <Admin />
       </ul>
     );
+  };
+
+  const ShowUpload = () => {
+    if (user.roles.includes("user")) {
+      return <LiveryUploadTab user={user} />;
+    } else {
+      return <li></li>;
+    }
   };
 
   const ShowRacer = () => {
@@ -191,6 +220,9 @@ const DashBody = ({ userD, onLogout }) => {
                   </li>
                   <li>
                     <HaikusTab haikus={haikus} setHaikus={setHaikus} />
+                  </li>
+                  <li>
+                    <ShowUpload />
                   </li>
                   <li>
                     <ShowRacer />

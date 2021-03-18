@@ -24,8 +24,8 @@ const MainBody = ({ haikus }) => {
           <div class="uk-offcanvas-bar">
               <ReactComment text = "Using Inspect to find easter eggs is no fun!" />
               <img src = "img/NorthernHarbor.png" alt = "Northern Harbor Logo"/>
-              <h2>Get <strong>20%</strong> off your next order at Norther Harbor</h2>
-              <h4>Use code <code>{ codes[Math.floor(Math.random() * codes.length)] }</code> for 20% off any of Norther Harbor's beef based seafood products!</h4>
+              <h2>Get <strong>20%</strong> off your next order at Northern Harbor</h2>
+              <h4>Use code <code>{ codes[Math.floor(Math.random() * codes.length)] }</code> for 20% off any of Northern Harbor's beef based seafood products!</h4>
               <blockquote>
                 <p className = "uk-text-muted">Northern Harbor is the world's premier provider of meat-based fish substitutes. With mouth-watering favorites like our Bone-In Fysh Wyngz, our succulent Fishey Mignon, and our new You'll Swear It's Beef line of Shramp and Crobb crostini, we've got something for every person who wants to ask for fish but actually get beef. </p>
                 <footer>Northern Harbor</footer>
@@ -67,7 +67,7 @@ const MainBody = ({ haikus }) => {
                 <div>
                   <blockquote cite="#" className="fade-p2">
                     <p className="uk-margin-small-bottom">The tallest flowers get cut, don't try to be good at anything.</p>
-                    <footer><cite><a href="#mike">Mike Racecar</a></cite></footer>
+                    <footer><cite><a target = "_new" href="https://twitter.com/cwgabriel">Mike Racecar</a></cite></footer>
                   </blockquote>
                 </div>
               </div>
@@ -88,7 +88,7 @@ const MainBody = ({ haikus }) => {
                 <div>
                   <blockquote cite="#" className="fade-p3">
                     <p className="uk-margin-small-bottom">Sometimes your worst nights, are your best nights.</p>
-                    <footer><cite><a href="#jerry">Carson Bolt</a></cite></footer>
+                    <footer><cite><a target = "_new" href="https://twitter.com/TychoBrahe">Carson Bolt</a></cite></footer>
                   </blockquote>
                 </div>
               </div>
@@ -113,7 +113,7 @@ const MainBody = ({ haikus }) => {
                 <div>
                   <blockquote cite="#" className="fade-p4">
                     <p className="uk-margin-small-bottom">What?! You're insane!</p>
-                    <footer><cite><a href="#kara">Kara</a></cite></footer>
+                    <footer><cite><a target = "_new" href="https://twitter.com/karajanae">Kara</a></cite></footer>
                   </blockquote>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const MainBody = ({ haikus }) => {
                 <div>
                   <blockquote cite="#" className="fade-p5">
                     <p className="uk-margin-small-bottom">I don't promise anything.</p>
-                    <footer><cite><a href="#gabe">Gabe "The Younger"</a></cite></footer>
+                    <footer><cite><a target = "_new" href="https://twitter.com/gabekrahulik">Gabe "The Younger"</a></cite></footer>
                   </blockquote>
                 </div>
               </div>

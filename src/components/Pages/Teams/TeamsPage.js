@@ -6,16 +6,42 @@ import { Link } from 'react-router-dom'
 const TeamsPage = () => {
     const [teams, setTeams] = useState([
         {
-            "name": "",
-            "logo": "",
+            "name": "Penny Arcade iRacing League",
+            "abbr": "PAL",
+            "logo": "https://cdn.shopify.com/s/files/1/0042/9942/files/brand-pa_256x.png?v=1603497096",
             "numOfDrivers": 0
         }
     ])
+    
+    const [sortBy, setSort] = useState({
+        "drivers": true,
+        "name_a_z": false,
+        "name_z_a": false
+    })
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         const res = await fetch('https://api.gabirmotors.ga/team/thumb')
-        const data = await res.json();
+        var data = await res.json();
+        if (sortBy.drivers) {
+            data.sort((a, b) => {return a.numOfDrivers - b.numOfDrivers})
+            data.reverse();
+        } else if (sortBy.name_a_z) {
+            data.sort(function(a, b){
+                if(a.abbr < b.abbr) { return -1; }
+                if(a.abbr > b.abbr) { return 1; }
+                return 0;
+            })
+        } else if (sortBy.name_z_a) {
+            data.sort(function(a, b){
+                if(a.abbr < b.abbr) { return -1; }
+                if(a.abbr > b.abbr) { return 1; }
+                return 0;
+            })
+            data.reverse();
+        }
+        
+        console.log(data)
         setTeams(data);
     }, [])
 
@@ -23,7 +49,7 @@ const TeamsPage = () => {
         team = team.team
         return (
             <div style = {{  }}>
-                <div className="scroll-in-1 uk-tile uk-padding-large team-logo">
+                <div className="scroll-in-1 uk-tile uk-padding-large team-logo" data-drivers = {team.numOfDrivers} data-name = {team.name}>
                     <div>
                         <Link to = {`/teams/${team.abbr}`}>
                             <img 

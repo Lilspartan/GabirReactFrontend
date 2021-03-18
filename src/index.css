@@ -89,3 +89,53 @@ html {
 .icon-button-status:hover {
   color: #47ff14 
 }
+
+.progessBar{
+height: 1rem;
+width: 0%;
+background-color: rgb(68, 212, 231);
+color: white;
+padding:2px
+}
+
+.file-upload{
+
+box-shadow: 2px 2px 2px 2px #ccc;
+padding: 2rem;
+display: flex;
+flex-direction: column;
+
+justify-content: space-between;
+font-size: 1rem;
+}
+
+.upbutton{
+ width: 5rem;
+ padding: .5rem;
+ background-color: #2767e9;
+ color: aliceblue;
+ font-size: 1rem;
+ cursor: pointer;
+}
+
+.show-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+/* Track */
+.show-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+.show-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.show-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

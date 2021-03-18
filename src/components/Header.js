@@ -75,11 +75,15 @@ const Header = ({ title, desc }) => {
 
             <li className="uk-nav-header">Other Links</li>
             <li>
-              <a target = "" uk-tooltip = "PA League Discord; delay: 250" className = "uk-display-inline uk-button" href = "https://discord.gabirmotors.ga/"><FaDiscord className = "icon-button icon-button-discord"/></a>&nbsp;&nbsp;
-              <a uk-tooltip = "PA Twitch; delay: 250" className = "uk-display-inline uk-button" href = "https://www.twitch.tv/pennyarcade"><FaTwitch className = "icon-button icon-button-twitch"/></a>&nbsp;&nbsp;
-              <a uk-tooltip = "Status Page; delay: 250" className = "uk-display-inline uk-button" href = "https://status.gabirmotors.ga/"><BsWifi className = "icon-button icon-button-status"/></a><br />
-              <a uk-tooltip = "@GabirMotors; delay: 250" className = "uk-display-inline uk-button" href = "https://twitter.com/GabirMotors"><FaTwitter className = "icon-button icon-button-twitter"/></a>&nbsp;&nbsp;
-              <a uk-tooltip = "@FleischwolfNews; delay: 250" className = "uk-display-inline uk-button" href = "https://twitter.com/FleischwolfNews"><FaTwitter className = "icon-button icon-button-twitter"/></a>&nbsp;&nbsp;
+              <a target = "_new" uk-tooltip = "PA League Discord" className = "uk-display-inline uk-button" href = "https://discord.gabirmotors.ga/"><FaDiscord className = "icon-button icon-button-discord"/></a>&nbsp;&nbsp;
+              <a target = "_new" uk-tooltip = "PA Twitch" className = "uk-display-inline uk-button" href = "https://www.twitch.tv/pennyarcade"><FaTwitch className = "icon-button icon-button-twitch"/></a>&nbsp;&nbsp;
+              <a target = "_new" uk-tooltip = "Status Page" className = "uk-display-inline uk-button" href = "https://status.gabirmotors.ga/"><BsWifi className = "icon-button icon-button-status"/></a><br />
+              <a target = "_new" uk-tooltip = "@GabirMotors" className = "uk-display-inline uk-button" href = "https://twitter.com/GabirMotors"><FaTwitter className = "icon-button icon-button-twitter"/></a>&nbsp;&nbsp;
+              <a target = "_new" uk-tooltip = "@FleischwolfNews" className = "uk-display-inline uk-button" href = "https://twitter.com/FleischwolfNews"><FaTwitter className = "icon-button icon-button-twitter"/></a>&nbsp;&nbsp;
+            </li>
+            <li className="uk-nav-divider"></li>
+            <li>
+              <p className = "uk-padding-small">Made by Gabe Krahulik</p>
             </li>
         </ul>
 
