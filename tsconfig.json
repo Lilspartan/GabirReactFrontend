@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ESNEXT",
+      "lib": [
+          "dom",
+          "es6"
+      ],
+      "watch": true,
+      "outDir": "srcTemp",
+      "rootDir": "ts",
+      "moduleResolution": "node",
+      "jsx": "react",
+      "module": "commonjs"
+    }
+  }
+  

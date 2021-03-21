@@ -1,15 +1,21 @@
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import MainIndex from './components/MainBody';
-import MainCal from './components/Pages/Calendar/CalendarBody';
-import MainLog from './components/UserAuthentication/Login/LoginBody';
+/*
+  Main bodies imports
+*/
+
 import MainSign from './components/UserAuthentication/Signup/SignupBody';
-import MainDash from './components/Dashboard/Dashboard';
+import MainLog from './components/UserAuthentication/Login/LoginBody';
 import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody';
 import MainQuote from './components/Pages/QuoteSubmit/QuotesBody';
-import fourBody from './components/Pages/404/404body';
+import MainCal from './components/Pages/Calendar/CalendarBody';
+import MainAssets from './components/Pages/Assets/AssetsBody';
 import MainTeams from './components/Pages/Teams/TeamsPage';
 import TeamPage from './components/Pages/Teams/TeamPage';
+import MainDash from './components/Dashboard/Dashboard';
+import fourBody from './components/Pages/404/404body';
+import MainIndex from './components/MainBody';
+
 import PrivateRoute from './components/UserAuthentication/PivateRoute';
 import './index.css'
 
@@ -51,6 +57,7 @@ const App = () => {
           <Route path='/quotes' exact component = {MainQuote} />
           <Route path='/teams' exact component = {MainTeams} />
           <Route path='/teams/:t' component = {TeamPage} />
+          <Route path='/assets' component = {MainAssets} />
           <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
         </Switch>

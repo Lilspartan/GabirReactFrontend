@@ -36,7 +36,7 @@ const Header = ({ title, desc }) => {
       return <GuestInSidebar />
     }
   }
-
+  
   return (
     <header>
       <title>{ title }</title>
@@ -83,7 +83,7 @@ const Header = ({ title, desc }) => {
             </li>
             <li className="uk-nav-divider"></li>
             <li>
-              <p className = "uk-padding-small">Made by Gabe Krahulik</p>
+              <p className = "uk-padding-small uk-text-uppercase uk-text-top">Made by<br /> <a className = "uk-button uk-button-text" target = "_new" href="https://twitter.com/gabekrahulik">Gabe Krahulik</a></p>
             </li>
         </ul>
 
