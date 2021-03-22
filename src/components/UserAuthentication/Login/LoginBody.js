@@ -3,6 +3,7 @@ import LoginForm from './LoginForm'
 import { useState } from 'react'
 import Header from '../../Header'
 import Footer from '../../Footer'
+import InfoTab from '../../InfoTab'
 
 const MainBody = ({ initError, formData, onLogIn }) => {
     const [error, setError] = useState('')
@@ -10,6 +11,12 @@ const MainBody = ({ initError, formData, onLogIn }) => {
     return (
         <>
             <Header title = "Gabir Motors | Login" />
+            <InfoTab>
+                <h2>Gabir Motors Account</h2>
+                <p>
+                    Here you can log into your Gabir Motors account, or you can <Link to = "/signup">sign up</Link> for one if you don't have on already
+                </p>
+            </InfoTab>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
 
                 <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container">
