@@ -12,6 +12,7 @@
     "bcrypt": "^5.0.0",
     "classnames": "^2.2.6",
     "crypto-js": "^4.0.0",
+    "fs": "^0.0.1-security",
     "is-empty": "^1.2.0",
     "json-server": "^0.16.3",
     "jwt-decode": "^3.1.2",

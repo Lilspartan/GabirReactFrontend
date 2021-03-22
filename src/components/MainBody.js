@@ -1,10 +1,10 @@
 import Header from './Header'
 import { IoChevronDownSharp } from 'react-icons/io5'
 import Alert from './Alert'
+import Footer from './Footer'
 import ReactComment from './ReactComment'
 
 const MainBody = ({ haikus }) => {
-  var d = new Date();
   console.log('Hey, stop snooping!')
 
   const codes = [
@@ -42,11 +42,7 @@ const MainBody = ({ haikus }) => {
             <h3><IoChevronDownSharp /> Scroll Down <IoChevronDownSharp /></h3>
           </div>
         </div>
-        <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
-          <div>
-            <h4 className="fade-p1" uk-parallax="blur: 7;">{`Gabir Motors • ${d.getFullYear()}`}</h4>
-          </div>
-        </div>
+        <Footer />
       </div>
 
       <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/image.jpg)', height: 'auto' }}>
@@ -150,8 +146,5 @@ const MainBody = ({ haikus }) => {
     </>
   )
 }
-
-/*
-*/
 
 export default MainBody

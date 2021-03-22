@@ -2,6 +2,7 @@ import React from 'react'
 import Header from "../../Header";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
+import Footer from '../../Footer'
 
 const TeamsPage = () => {
     return (
@@ -16,11 +17,7 @@ const TeamsPage = () => {
                         
                     </div>
                 </div>
-                <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
-                    <div>
-                        {/* <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4> */}
-                    </div>
-                </div>
+                <Footer />
             </div>
 
         </>

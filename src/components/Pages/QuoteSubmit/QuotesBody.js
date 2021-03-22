@@ -1,8 +1,8 @@
 import QuoteForm from './QuoteForm'
 import Header from '../../Header'
+import Footer from '../../Footer'
 
 const HaikusBody = () => {
-    var d = new Date();
     return (
         <>
             <Header title = "Gabir Motors | Quotes" />
@@ -15,11 +15,7 @@ const HaikusBody = () => {
 						    <QuoteForm />
 					      </div>
               </div>
-              <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
-                <div>
-                  <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>
-                </div>
-              </div>
+              <Footer />
             </div>
         </>
     )
