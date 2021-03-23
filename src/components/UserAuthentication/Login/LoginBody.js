@@ -2,15 +2,21 @@ import { Link } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import { useState } from 'react'
 import Header from '../../Header'
+import Footer from '../../Footer'
+import InfoTab from '../../InfoTab'
 
 const MainBody = ({ initError, formData, onLogIn }) => {
-    var d = new Date();
-
     const [error, setError] = useState('')
 
     return (
         <>
             <Header title = "Gabir Motors | Login" />
+            <InfoTab>
+                <h2>Gabir Motors Account</h2>
+                <p>
+                    Here you can log into your Gabir Motors account, or you can <Link to = "/signup">sign up</Link> for one if you don't have on already
+                </p>
+            </InfoTab>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>
 
                 <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container">
@@ -22,11 +28,7 @@ const MainBody = ({ initError, formData, onLogIn }) => {
                         <LoginForm onLogIn = {onLogIn} onError = {setError}/>
                     </div>
                 </div>
-                <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
-                    <div>
-                        <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>
-                    </div>
-                </div>
+                <Footer />
             </div>
         </>
     )

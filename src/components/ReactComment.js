@@ -4,7 +4,7 @@ const ReactComment = ( props ) => {
     const el = useRef();
     useEffect( () => {
         el.current.outerHTML = `<!-- ${props.text} -->`;
-    }, [] );
+    }, [props.text] );
     return (
         <div ref={el}/>
     );

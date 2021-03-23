@@ -4,10 +4,9 @@ import RacerTab from "./Tabs/RacerTab";
 import LiveryUploadTab from './Tabs/LiveryUploadTab';
 import AdminTab from "./Tabs/AdminTab";
 import { BsTrash } from "react-icons/bs";
+import Footer from '../Footer'
 
 const DashBody = ({ userD, onLogout }) => {
-  var d = new Date();
-
   const [haikus, setHaikus] = useState([
     {
       __createdtime__: 1611090302995,
@@ -235,16 +234,7 @@ const DashBody = ({ userD, onLogout }) => {
             </div>
           </div>
         </div>
-        <div
-          style={{ zIndex: "-99" }}
-          className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m"
-          uk-grid="true"
-          uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true"
-        >
-          <div>
-            <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>
-          </div>
-        </div>
+        <Footer />
       </div>
     </>
   );

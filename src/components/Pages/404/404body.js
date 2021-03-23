@@ -1,7 +1,7 @@
 import Header from '../../Header'
+import Footer from '../../Footer'
 
 const fourBody = () => {
-    var d = new Date();
     return (
         <>
             <Header title = "Gabir Motors | 404" />
@@ -15,11 +15,7 @@ const fourBody = () => {
                     404 Page Not Found
                 </h1>
                
-                <div className="uk-grid-small uk-child-width-auto uk-margin uk-position-bottom-center uk-margin-xlarge-top@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .fade-p1; delay: 500; repeat: true">
-                    <div>
-                        <h4 className="fade-p1">{`Gabir Motors • ${d.getFullYear()}`}</h4>
-                    </div>
-                </div>
+                <Footer />
             </div>
         </>
     )

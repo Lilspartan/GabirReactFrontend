@@ -5,25 +5,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
-class Dashboard extends Component {
-  onLogoutClick = (e) => {
-    this.props.logoutUser();
+const Dashboard = (props) => {
+  const onLogoutClick = (e) => {
+    props.logoutUser();
   };
-  render() {
-    var { user } = this.props.auth;
+
+  var { user } = props.auth;
     user = user._doc;
     localStorage.setItem("uuid", user.uuid);
-    return (
-      <>
-        <Header
-          title={`Dashboard | ${user.name}`}
-          onLogout={this.onLogoutClick}
-        />
 
-        <MainDash userD={user} onLogout={this.onLogoutClick} />
-      </>
-    );
-  }
+  return (
+    <>
+      <Header
+        title={`Dashboard | ${user.name}`}
+        onLogout={onLogoutClick}
+      />
+
+      <MainDash userD={user} onLogout={onLogoutClick} />
+    </>
+  )
 }
 
 Dashboard.propTypes = {
