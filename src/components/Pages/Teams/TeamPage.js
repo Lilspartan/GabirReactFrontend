@@ -58,8 +58,7 @@ const TeamPage = (props) => {
                             </div>
                             <h2 className = "uk-margin-remove">{team.name}</h2>
                             <h3 className = "uk-margin-remove">Leader: <span className = "">{team.team_leader}</span></h3>
-                            <h3 className = "uk-margin-remove">Drivers:</h3>
-                            <div className = "uk-overflow-auto show-scrollbar" style = {{ maxHeight: '50vh' }}>
+                            <div className = "uk-overflow-auto show-scrollbar" style = {{ maxHeight: '40vh' }}>
                                 <table className = "uk-table uk-table-small uk-table-middle">
                                     <thead>
                                         <tr>
