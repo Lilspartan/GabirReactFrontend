@@ -6,7 +6,6 @@
 ## Pages ##
 
 - Black / Blue flags
-- Assets
 - Finish Dashboard
 
 ## Todo ##

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
 }
@@ -9,7 +10,7 @@ html, body {
 
 h1 {
   font-size: 56px;
-  font-family: acumin-pro,sans-serif;
+  font-family: acumin-pro, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -18,13 +19,17 @@ html {
   overflow: scroll;
   overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
-  width: 0px;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0px;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
 }
+
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: #ff0000;
 }
 
 .bio-p {
@@ -35,7 +40,7 @@ html {
 }
 
 .hide-img {
-  height: 55vh; 
+  height: 55vh;
   width: 50vw;
 }
 
@@ -45,7 +50,8 @@ html {
 }
 
 @media only screen and (max-width: 960px) {
-  .hide-img-pre, .hide-img-pre img {
+  .hide-img-pre,
+  .hide-img-pre img {
     height: 0;
     width: 0;
   }
@@ -57,7 +63,7 @@ html {
   }
 }
 
-.team-logo{
+.team-logo {
   transition: 0.1s ease-in-out;
   bottom: 0px;
 }
@@ -67,7 +73,7 @@ html {
 }
 
 .highlight-cal-row {
-  background-color: rgba(100,100,100,.5);
+  background-color: rgba(100, 100, 100, 0.5);
 }
 
 .icon-button {
@@ -79,7 +85,7 @@ html {
 }
 
 .icon-button-discord:hover {
-  color: #738ADB;
+  color: #738adb;
 }
 
 .icon-button-twitch:hover {
@@ -87,35 +93,38 @@ html {
 }
 
 .icon-button-status:hover {
-  color: #47ff14 
+  color: #ffce47;
 }
 
-.progessBar{
-height: 1rem;
-width: 0%;
-background-color: rgb(68, 212, 231);
-color: white;
-padding:2px
+.icon-button-github:hover {
+  color: #6f42c1;
 }
 
-.file-upload{
-
-box-shadow: 2px 2px 2px 2px #ccc;
-padding: 2rem;
-display: flex;
-flex-direction: column;
-
-justify-content: space-between;
-font-size: 1rem;
+.progessBar {
+  height: 1rem;
+  width: 0%;
+  background-color: rgb(68, 212, 231);
+  color: white;
+  padding: 2px;
 }
 
-.upbutton{
- width: 5rem;
- padding: .5rem;
- background-color: #2767e9;
- color: aliceblue;
- font-size: 1rem;
- cursor: pointer;
+.file-upload {
+  box-shadow: 2px 2px 2px 2px #ccc;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.upbutton {
+  width: 5rem;
+  padding: 0.5rem;
+  background-color: #2767e9;
+  color: aliceblue;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .show-scrollbar::-webkit-scrollbar {
@@ -138,4 +147,8 @@ font-size: 1rem;
 /* Handle on hover */
 .show-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.assets-list {
+  list-style-type: none;
 }

@@ -14,7 +14,7 @@ const MainBody = ({ initError, formData, onLogIn }) => {
             <InfoTab>
                 <h2>Gabir Motors Account</h2>
                 <p>
-                    Here you can log into your Gabir Motors account, or you can <Link to = "/signup">sign up</Link> for one if you don't have on already
+                    Here you can log into your Gabir Motors account, or you can <Link to = "/signup">sign up</Link> for one if you don't have one already
                 </p>
             </InfoTab>
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh'}}>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Race from './Race'
 import Header from '../../Header'
-import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 const Calendar = () => {
   

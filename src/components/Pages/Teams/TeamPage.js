@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { withRouter, useParams, Link } from 'react-router-dom'
 import Header from "../../Header";
-import { FaDiscord, FaTwitter, FaTwitch } from 'react-icons/fa'
-import { BsWifi } from "react-icons/bs";
 
 const TeamPage = (props) => {
 
@@ -17,7 +15,7 @@ const TeamPage = (props) => {
           }
         ],
         "_id": "",
-        "abbr": "TN",
+        "abbr": "...",
         "name": "Loading Team...",
         "team_leader": "...",
         "logo": "https://cdn.shopify.com/s/files/1/0042/9942/files/brand-pa_256x.png?v=1603497096"
@@ -39,7 +37,7 @@ const TeamPage = (props) => {
 
     const SocialLinks = () => {
         if (team?.social_media_links?.length) {
-            return team.social_media_links.map(link => <a target = "_new" uk-tooltip = {team.name} className = "uk-display-inline uk-button uk-text-large" href = {link.link}><FaTwitter className = "icon-button icon-button-twitter"/></a> )
+            return team.social_media_links.map(link => <a target = "_new" uk-tooltip = {team.name} className = "uk-display-inline uk-button uk-text-large" href = {link.link}><span className = "icon-button icon-button-twitter" uk-icon = "icon:twitter; ratio: 1.4"></span></a> )
         } else {
             return <></>
         }
@@ -54,7 +52,7 @@ const TeamPage = (props) => {
             <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{backgroundImage: 'url(../img/gabir_bg.jpg)', height: '100vh'}}>
                 <div>
                     <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-container uk-position-center">
-                        <div className="uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large" style = {{ maxHeight: '95vh' }}>
+                        <div className="uk-animation-slide-top-medium uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large" style = {{ maxHeight: '95vh' }}>
                             <div>
                                 <img src = {team.logo} style = {{ height: 'auto', width: '25vw', minWidth: '250px', paddingBottom: '1vh'}} alt = {`${team.name} Logo`}/>
                             </div>

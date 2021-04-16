@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const Race = (props) => {
   const race = props.race
@@ -11,7 +11,7 @@ const Race = (props) => {
     classes += ` tag-${tag.trim()}`;
   });
 
-  if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })?.highlight == race.timestamp) {
+  if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })?.highlight === race.timestamp) {
     classes += " highlight-cal-row"
   }
 

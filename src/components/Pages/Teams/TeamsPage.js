@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import Header from "../../Header";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import InfoTab from '../../InfoTab';
+import qs from 'qs';
 
-const TeamsPage = () => {
+const TeamsPage = (props) => {
     const [teams, setTeams] = useState([
         {
             "name": "Penny Arcade iRacing League",
@@ -14,6 +16,16 @@ const TeamsPage = () => {
         }
     ])
     
+    let params = qs.parse(props.location.hash, {});
+    console.log(params)
+
+    if (params?.['#whatis'] !== undefined) {
+        setTimeout(function() {
+            console.log('clicked!')
+            document.getElementById('info-button').click()
+        }, 2000)
+    }
+
     // eslint-disable-next-line no-unused-vars
     const [sortBy, setSort] = useState({
         "drivers": true,

@@ -115,7 +115,7 @@ class Register extends React.Component {
                         </div>
                     </div>
                     <div className="uk-margin">
-                        <button className="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
+                        <button className="uk-button uk-button-primary uk-button-large uk-width-1-1">Create Account</button>
                     </div>
                     <div className="uk-text-small uk-text-center">
                         <Link to = "/login" className = "uk-button uk-button-text">already have an account?</Link>

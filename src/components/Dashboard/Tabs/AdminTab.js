@@ -36,6 +36,7 @@ const AdminTab = () => {
     }
     
     const onCheckImage = (image) => {
+        console.log(image)
         axios.post(`https://i.gabirmotors.ga/check`, {
             toCheck: image
         }).then(res => {
@@ -50,7 +51,7 @@ const AdminTab = () => {
             console.log(e)
         })
     } 
-
+    
     return (
         <div>
             <a className = "uk-button uk-button-primary" onClick = {onUpdateClick }>Update Calendar</a>
@@ -59,7 +60,7 @@ const AdminTab = () => {
             {
                 unchecked.length && (
                     <div className = "uk-display-block">
-                        <img src = {unchecked[0].path} /><br />
+                        <img src = {unchecked[0].path} style = {{ width: '20vw', height: 'auto'}}/><br />
                         <span>DESC: {unchecked[0].data.description}</span><br />
                         <span>ON: {unchecked[0].data.readableDate}</span><br />
                         <span>BY: {unchecked[0].user.name}</span><br />
