@@ -78,6 +78,7 @@ html {
 
 .icon-button {
   transition: 0.1s;
+  color: white;
 }
 
 .icon-button-twitter:hover {

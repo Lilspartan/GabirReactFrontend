@@ -9,9 +9,9 @@ const Haiku = ({ haiku, onDelete }) => {
       <td>{haiku.haikuLines[0]}...</td>
       <td>
         <BsPencil 
-          className = "uk-text-success" 
+          className = " uk-text-disabled" 
           style = {{ cursor: 'pointer' }} 
-          uk-tooltip="Edit haiku"
+          uk-tooltip="Edit haiku (Currently Disabled)"
         />
       </td>
       <td>

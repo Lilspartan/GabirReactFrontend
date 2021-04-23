@@ -15,7 +15,7 @@ const HaikusTab = ({ haikus, setHaikus }) => {
   }
 
   return (
-    <table className = "uk-table uk-table-divder uk-table-small">
+    <table className = "uk-table uk-table-small">
       <tbody>
         {haikus.map((h, index) => (
           <Haiku key={index} haiku={h} onDelete = {onDeleteHaiku} />

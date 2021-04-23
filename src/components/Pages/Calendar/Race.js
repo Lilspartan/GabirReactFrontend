@@ -6,15 +6,18 @@ const Race = (props) => {
   var time = Date.now();
   time = time.toString().slice(0, -3);
 
-  var classes = "uk-text-large";
+  var classes = "uk-text-large tag-race";
   race.tags.tags.forEach((tag) => {
     classes += ` tag-${tag.trim()}`;
   });
 
+  if (time < race.timestamp + 25200) classes += " tag-uncomplete";
+  if (!race.tags.paid.car.length && !race.tags.paid.track) classes += " tag-free";
+
   if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })?.highlight === race.timestamp) {
     classes += " highlight-cal-row"
   }
-
+  
   return (
     <tr className={classes}>
       <td className="uk-text-bold">
