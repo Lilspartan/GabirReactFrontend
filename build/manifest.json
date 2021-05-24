@@ -1,0 +1,35 @@
+{
+  "short_name": "Gabir Motors",
+  "name": "The Gabir Motors Website",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ff8300",
+  "background_color": "#000000",
+  "shortcuts": [
+    {
+      "name": "Check the Calendar",
+      "short_name": "Calendar",
+      "description": "See the league calendar",
+      "url": "/calendar",
+      "icons": [{ "src": "./logo192.png", "sizes": "192x192" }]
+    }
+  ]
+}
+

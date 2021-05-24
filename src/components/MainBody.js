@@ -39,7 +39,7 @@ const MainBody = ({ haikus }) => {
         </h1>
         <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
           <div className="uk-position-center" style={{ top: '70vh' }} uk-parallax="blur: 7;">
-            <h3><IoChevronDownSharp /> Scroll Down <IoChevronDownSharp /></h3>
+            <h3><IoChevronDownSharp /> Scroll Down. <IoChevronDownSharp /></h3>
           </div>
         </div>
         <Footer />
