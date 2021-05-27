@@ -37,9 +37,9 @@ const MainBody = ({ haikus }) => {
         <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 15;">
           <img uk-toggle="target: #offcanvas-flip" alt = "Gabir Motors Logo" src = "img/newgabirtext.png" />
         </h1>
-        <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 2000">
-          <div className="uk-position-center" style={{ top: '70vh' }} uk-parallax="blur: 7;">
-            <h3><IoChevronDownSharp /> Scroll Down. <IoChevronDownSharp /></h3>
+        <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 1800">
+          <div className="uk-position-center" style={{ top: '75vh' }} uk-parallax="blur: 7;">
+            <h3><a href = "#mike" className = "uk-button uk-button-default">Meet the team</a></h3>
           </div>
         </div>
         <Footer />

@@ -1,14 +1,24 @@
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import RightTab from './RightTab'
+import RightTabLink from './RightTabLink'
+import { logoutUser } from "../actions/authActions";
+import { connect } from "react-redux";
 
-const Header = ({ title, desc }) => {
+const Header = (props) => {
+  const { title, desc } = props;
   var loggedin = localStorage.getItem('jwtToken')
+  if (loggedin) {
+    //console.log(props)
+    var { user } = props.auth;
+    user = user._doc;
+  }
 
   const LoggedInSidebar = ({ toggle }) => {
     return (
       <>
         <li className="uk-parent">
+            <li className="uk-nav-header">{user?.name}</li>
             <Link to = "/dashboard" className = "uk-button uk-button-text uk-display-inline uk-padding-small">Dashboard</Link>
         </li>
         <li className="uk-nav-divider"></li>
@@ -43,11 +53,29 @@ const Header = ({ title, desc }) => {
       />
       <div uk-sticky = "true">
         {/* eslint-disable-next-line */}
-        <a className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide" href = "#"><span uk-icon="icon: menu; ratio: 2" style = {{color: 'white'}}></span></a>
+        <a id = "menuopen" className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide" href = "#"><span uk-icon="icon: menu; ratio: 2" style = {{color: 'white'}}></span></a>
       </div>
 
-      <RightTab id = "tab01">
-        <h1>Test</h1>
+      <RightTab id = "anniversary">
+        <img src = "https://i.gabirmotors.ga/assets/Other%20Images/League/LeagueHORIZONTAL.png" alt = "Northern Harbor Logo"/>
+        <h3>The PA League Turns 1!</h3>
+        <p>
+          Tonight, May 27th, is the Penny Arcade iRacing League's 1-year anniversary. The league has been such an awesome experience for everyone involved, and will hopefully continue to be a fun place to hang out and race with others.
+        </p>
+        <p>
+          A big thank you to the Admins,<br />
+          <ul style = {{ listStyleType: 'square'}}>
+            <li><a href = "https://twitter.com/beastgp" target = "_new">beastGP (Geoff M)</a></li>
+            <li><a href = "https://twitter.com/Draxond" target = "_new">Draxond (Chris O)</a></li>
+            <li><a href = "https://twitter.com/brainling" target = "_new">Brainling (Matt H)</a></li>
+            <li><a href = "https://www.twitch.tv/skiggity242" target = "_new">Skiggity (Scott L.)</a></li>
+          </ul>
+          for putting together our races, and keeping the league fun.<br /><br />
+          Thank you everyone for joining us in the League, and keeping it a friendly environment for people of all skill levels, I hope the next year is even better than the last.<br /><br />
+          For tonight's stream we have some 1 year iRacing codes to give away, so make sure to join us for a chance at one of those, and we'll (hopefully) have stream racer before the stream starts.<br />
+          <br />
+          Keep on racing <span uk-icon = "heart"></span>
+        </p>
       </RightTab>
 
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
@@ -56,7 +84,8 @@ const Header = ({ title, desc }) => {
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <a href="#tab01" uk-toggle></a>
+            <RightTabLink id = "annbtn" target = "anniversary" type = "success">1-Year Anniversary</RightTabLink>
+            <li className="uk-nav-divider"></li>
 
             <SidebarUser isLoggedIn = {loggedin} />
             
@@ -101,4 +130,7 @@ Header.propTypes = {
   desc: PropTypes.string
 }
 
-export default Header
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default withRouter(connect(mapStateToProps, { logoutUser })(Header));
