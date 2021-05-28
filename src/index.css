@@ -41,6 +41,10 @@ html {
   padding-right: 8vw;
 }
 
+.text-shadow {
+  text-shadow: 3px 4px 10px rgba(0, 0, 0, 0.79);
+}
+
 .hide-img {
   height: 55vh;
   width: 50vw;

@@ -35,7 +35,7 @@ const MainBody = ({ haikus }) => {
       <div className="uk-height-large uk-background-fixed uk-light uk-flex uk-background-cover" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
         
         <h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block" uk-parallax="blur: 15;">
-          <img uk-toggle="target: #offcanvas-flip" alt = "Gabir Motors Logo" src = "img/newgabirtext.png" />
+          <img uk-toggle="target: #offcanvas-flip" alt = "Gabir Motors Logo" src = "img/newgabirtext.png" uk-parallax = "scale:1.2" />
         </h1>
         <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 1800">
           <div className="uk-position-center" style={{ top: '75vh' }} uk-parallax="blur: 7;">
@@ -45,11 +45,11 @@ const MainBody = ({ haikus }) => {
         <Footer />
       </div>
 
-      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/image.jpg)', height: 'auto' }}>
+      <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed text-shadow" style={{ backgroundImage: 'url(img/image.jpg)', height: 'auto' }}>
         <div className="uk-child-width-auto uk-margin uk-child-width-1-1@m" uk-grid>
           <div>
             <br />
-            <div id="mike" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100; repeat: true">
+            <div id="mike" className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100; repeat: true">
               <div>
                 <div className="uk-grid-margin" style={{ height: "55vh", width: '50vw' }}>
                   <img className="fade-p2" src="img/MikeRacecar.png" alt="Mike Racecar" style={{ height: "55vh", width: 'auto' }} uk-img />
@@ -69,7 +69,7 @@ const MainBody = ({ haikus }) => {
               </div>
             </div>
             <br />
-            <div id="jerry" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100; repeat: true">
+            <div id="jerry" className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100; repeat: true">
               {/*Not Visible except on mobile (To make it easier to read)*/}
               <div className="uk-hidden@m">
                 <div className="uk-grid-margin" style={{ height: "55vh", width: '50vw' }}>
@@ -95,7 +95,7 @@ const MainBody = ({ haikus }) => {
               </div>
             </div>
             <br />
-            <div id="kara" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100; repeat: true">
+            <div id="kara" className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100; repeat: true">
               <div>
                 <div className="uk-grid-margin" style={{ height: "55vh", width: '50vw' }}>
                   <img className="fade-p4" src="img/kara.png" alt="Kara" style={{ height: "55vh", width: 'auto' }} uk-img />
@@ -115,7 +115,7 @@ const MainBody = ({ haikus }) => {
               </div>
             </div>
             <br />
-            <div id="gabe" className="uk-child-width-expand@m uk-text-center uk-grid-match" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100; repeat: true">
+            <div id="gabe" className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow" uk-grid="parallax: 100" uk-parallax="" uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100; repeat: true">
               {/*Not Visible except on mobile (To make it easier to read)*/}
               <div className="uk-hidden@m">
                 <div className="uk-grid-margin" style={{ height: "55vh", width: '50vw' }}>
