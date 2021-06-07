@@ -4,7 +4,6 @@ import RightTab from './RightTab'
 import RightTabLink from './RightTabLink'
 import { logoutUser } from "../actions/authActions";
 import { connect } from "react-redux";
-
 const Header = (props) => {
   const { title, desc } = props;
   var loggedin = localStorage.getItem('jwtToken')
@@ -65,7 +64,7 @@ const Header = (props) => {
         <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <RightTabLink id = "test" target = "linktest" type = "success">Link Test</RightTabLink>
+            {/*<RightTabLink id = "test" target = "linktest" type = "success">Link Test</RightTabLink>*/}
             <li className="uk-nav-divider"></li>
 
             <SidebarUser isLoggedIn = {loggedin} />
@@ -78,6 +77,7 @@ const Header = (props) => {
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/teams">Teams</Link></li>
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/assets">Assets</Link></li>
+            <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/standings">Standings <i className = "uk-text-muted">(WIP)</i></Link></li>
 
             {/*
             <li class="uk-nav-header">How To</li>

@@ -5,14 +5,17 @@ import axios from "axios";
 const LiveryUploadTab = ({ user }) => {
   const [file, setFile] = useState(""); // storing the uploaded file    // storing the recived file from backend
   const [desc, setDesc] = useState("");
+  const [theme, setTheme] = useState(false);
   const [data, getFile] = useState({ name: "", path: "" });
   const [progress, setProgess] = useState(0); // progess bar
   const [error, setError] = useState("");
   const [derror, setDerror] = useState("")
   const el = useRef(); // accesing input element
-  
+  const maxLength = 50;
+
   const handleFileChange = (e) => {
     setProgess(0);
+    getFile({ name: "", path: "" })
     setError("")
     const file = e.target.files[0]; // accesing file
     console.log(file);
@@ -22,22 +25,31 @@ const LiveryUploadTab = ({ user }) => {
   };
 
   const handleDescChange = (e) => {
+    setProgess(0);
+    getFile({ name: "", path: "" })
     const desc = e.target.value;
-    console.log(desc);
     setDerror("")
-    if (desc === "") return setDerror("A description is required");
+    if (desc.length > maxLength) return setDerror("Your description is too long (max " + maxLength + ") Current: " + desc.length)
     setDesc(desc)
   };
+
+  const handleThemeChange = (e) => {
+    setProgess(0);
+    getFile({ name: "", path: "" })
+    setTheme(e.target.checked);
+    console.log(theme)
+  }
 
   const uploadFile = () => {
     const formData = new FormData();
     if (error !== "") return;
     if (derror !== "") return;
-    if (desc === "") return setDerror("A description is required")
+    if (desc.length > maxLength) return setDerror("Your description is too long (max " + maxLength + ") Current: " + desc.length)
     formData.append("file", file); // appending file
     console.log(file)
     formData.append("user", JSON.stringify(user))
     formData.append("desc", desc)
+    formData.append("followsTheme", theme)
     axios
       .post("https://i.gabirmotors.ga/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
@@ -52,6 +64,10 @@ const LiveryUploadTab = ({ user }) => {
           path: "https://i.gabirmotors.ga" + res.data.path,
         });
         console.log(data)
+        document.getElementById("desc").value = "";
+        document.getElementById("filetxt").value = "";
+        document.getElementById("theme").checked = false;
+        document.getElementById("file").value = "";
       })
       .catch((err) => console.log(err));
   };
@@ -67,13 +83,14 @@ const LiveryUploadTab = ({ user }) => {
                 <span className = "uk-text-danger uk-display-block uk-padding-small uk-padding-remove-top uk-text-center">{error && error}</span>
                 <span className = "uk-text-danger uk-display-block uk-padding-small uk-padding-remove-top uk-text-center">{derror && derror}</span>
                 <div class="uk-margin">
-                    <input class="uk-input" type="text" placeholder="Description" onChange={handleDescChange} />
+                    <input id = "desc" class="uk-input" type="text" placeholder="Description" onChange={handleDescChange} />
                 </div>
                 <div uk-form-custom="target: true">
-                    <input type="file" multiple ref={el} onChange={handleFileChange}/>
-                    <input className="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled />
+                    <input id = "file" type="file" multiple ref={el} onChange={handleFileChange}/>
+                    <input id = "filetxt" className="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled />
                 </div>
-                <button class="uk-button uk-button-default" onClick={uploadFile}>Upload</button>
+                <button class="uk-button uk-button-default" onClick={uploadFile}>Upload</button><br /><br />
+                <label><input class="uk-checkbox uk-margin-left-large" id = "theme" type="checkbox" onChange = {handleThemeChange}/> Follows Theme</label>
             </div>
     </div>
   );

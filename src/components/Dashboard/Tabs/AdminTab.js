@@ -36,12 +36,33 @@ const AdminTab = () => {
     }
     
     const onCheckImage = (image) => {
+        console.log("Checking...");
         console.log(image)
         axios.post(`https://i.gabirmotors.ga/check`, {
             toCheck: image
         }).then(res => {
-            if (res.status === 200) {
-                alert("Success!");
+            if (res.status === 200 && res.data.message === "SUCCESS") {
+                console.log("Checked!");
+                setUnchecked(unchecked.filter(i => i !== image))
+            } else {
+                alert("Error! Try again later");
+            }
+            
+        }).catch(e => {
+            alert("An error has occurred");
+            console.log(e)
+        })
+    } 
+
+    const onBadImage = (image) => {
+        console.log("Checking...");
+        console.log(image)
+        axios.post(`https://i.gabirmotors.ga/bad`, {
+            toCheck: image
+        }).then(res => {
+            if (res.status === 200 && res.data.message === "SUCCESS") {
+                console.log("Deleted!");
+                setUnchecked(unchecked.filter(i => i !== image))
             } else {
                 alert("Error! Try again later");
             }
@@ -65,10 +86,15 @@ const AdminTab = () => {
                         <span>ON: {unchecked[0].data.readableDate}</span><br />
                         <span>BY: {unchecked[0].user.name}</span><br />
                         <div class="uk-button-group">
-                            <button class="uk-button uk-button-default" onClick = {onCheckImage(unchecked[0])}>GOOD</button>
-                            <button class="uk-button uk-button-danger">BAD</button>
+                            <button class="uk-button uk-button-default" onClick = {() => {onCheckImage(unchecked[0])}}>GOOD</button>
+                            <button class="uk-button uk-button-danger" onClick = {() => {onBadImage(unchecked[0])}}>BAD</button>
                         </div>
                     </div>
+                )
+            }
+            {
+                !unchecked.length && (
+                    <i className = "uk-text-muted">All caught up!</i>
                 )
             }
         </div>

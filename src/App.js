@@ -16,6 +16,7 @@ import MainDash from './components/Dashboard/Dashboard';
 import fourBody from './components/Pages/404/404body';
 import MainIndex from './components/MainBody';
 import MainStandings from './components/Pages/Standings/StandingsBody';
+import MainShowoff from "./components/Pages/stream/showoff/MainShowoff";
 
 import PrivateRoute from './components/UserAuthentication/PivateRoute';
 import './index.css'
@@ -60,6 +61,7 @@ const App = () => {
           <Route path='/teams/:t' component = {TeamPage} />
           <Route path='/assets' component = {MainAssets} />
           <Route path='/standings' component = {MainStandings} />
+          <Route path='/showoff' component = {MainShowoff} />
           <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
         </Switch>
