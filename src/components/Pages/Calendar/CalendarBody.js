@@ -3,6 +3,7 @@ import Race from './Race'
 import Header from '../../Header'
 import { logoutUser } from "../../../actions/authActions";
 import { connect } from "react-redux";
+import Loading from "../../Loading";
 
 const Calendar = (props) => {
   
@@ -11,6 +12,7 @@ const Calendar = (props) => {
   //console.log(user)
 
   const [isEdit, setEdit] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [calendar, setCalendar] = useState([
     {
       "id": "0",
@@ -41,6 +43,9 @@ const Calendar = (props) => {
     }
 
     getCal();
+    setTimeout(() => {
+        setLoading(false);
+    }, 1500)
   }, [])
   
   const fetchCal = async () => {
@@ -53,40 +58,43 @@ const Calendar = (props) => {
   return (
     <>
       <Header title = "Gabir Motors | Calendar" />
-      <div uk-filter="target: .js-filter; animation: fade" className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
-        <div className = "uk-position-top-center" style = {{ zIndex: '10000' }}>
-        {/*
-        <ul class="uk-subnav uk-subnav-pill">
-          <li uk-filter-control=".tag-race" className = "uk-active"><a href="#">All</a></li>
-          <li uk-filter-control=".tag-road"><a href="#">Road</a></li>
-          <li uk-filter-control=".tag-oval"><a href="#">Oval</a></li>
-          <li uk-filter-control=".tag-dirt"><a href="#">Dirt</a></li>
-          <li uk-filter-control=".tag-uncomplete"><a href="#">Uncompleted</a></li>
-          <li uk-filter-control=".tag-free"><a href="#">Free</a></li>
-        </ul>
-        */}
+      {loading && (
+          <div className = "uk-background-cover"
+          style={{
+          backgroundImage: "url(img/gabir_bg.jpg)",
+          height: "100vh",
+          }}>
+          <div className = "uk-position-center">
+              <Loading size = "300px" />
+          </div>
+          </div>
+      )}
+      { !loading && (
+        <div uk-filter="target: .js-filter; animation: fade" className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
+          <div className = "uk-position-top-center" style = {{ zIndex: '10000' }}>
+          </div>
+          <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
+            <caption className = "uk-padding uk-position-top">
+              <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 5 Calendar</h3>
+            </caption>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Track</th>
+                <th>Car</th>
+                <th>Notes</th>
+                <th>Winner</th>
+                <th>Theme</th>
+              </tr>
+            </thead>
+            <tbody className = "js-filter">
+              {calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
+                <Race key={index} race={race} isEdit = {isEdit} />
+              ))}
+            </tbody>
+          </table>
         </div>
-        <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
-          <caption className = "uk-padding uk-position-top">
-            <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 5 Calendar</h3>
-          </caption>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Track</th>
-              <th>Car</th>
-              <th>Notes</th>
-              <th>Winner</th>
-              <th>Theme</th>
-            </tr>
-          </thead>
-          <tbody className = "js-filter">
-            {calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
-              <Race key={index} race={race} isEdit = {isEdit} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+      )}
     </>
   )
 }

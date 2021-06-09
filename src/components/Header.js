@@ -13,6 +13,8 @@ const Header = (props) => {
     user = user._doc;
   }
 
+  console.log("      _________________   ____  ____  ___       \n     /  ______________/  /   / /   / /   \\     \n    /  /      _______   /   / /   / /    /      \n   /  /      /____  /  /   / /   / /    /       \n  /  /___________/ /  /   / /   / /    /        \n  \\_______________/  /___/ /___/ /____/         \n");
+
   const LoggedInSidebar = ({ toggle }) => {
     return (
       <>
@@ -77,8 +79,9 @@ const Header = (props) => {
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/teams">Teams</Link></li>
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/assets">Assets</Link></li>
-            <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/standings">Standings <i className = "uk-text-muted">(WIP)</i></Link></li>
+            <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/standings">Standings</Link></li>
 
+            <li className="uk-nav-header">How to (Coming Soon)</li>
             {/*
             <li class="uk-nav-header">How To</li>
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.ga/info/blueflags">Blue Flags</a></li>

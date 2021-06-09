@@ -10,7 +10,7 @@ const Row = ({ standing, colors, moreData }) => {
 
     const teamColor = (team !== "LWP" ? colors[team] : '#333')
     const border = `5px solid ${teamColor}`
-
+    
     return (    
         <tr className = "standings-row">
             <td className = "standings-color-bar" style = {{ 
@@ -22,7 +22,9 @@ const Row = ({ standing, colors, moreData }) => {
                 </td>
             <td className = "standings-pos">{standing.pos}</td>
             <td className = "standings-name">{standing.name}</td>
-            <td className = "standings-total-points">{standing.totalPoints}</td>
+            <td className = "standings-total-points">{standing.seasonPoints}</td>
+            <td className = "uk-visible@m">{standing.wins !== 0 && standing.wins}</td>
+            <td className = "uk-visible@m">{standing.podiums !== 0 && standing.podiums}</td>
             {
                 moreData &&
                 standing.points.map(point => (

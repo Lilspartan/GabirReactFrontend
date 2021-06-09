@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import Header from '../../Header'
 import Row from './Row'
 import Loading from "../../Loading";
-import ReactComment from '../../ReactComment';
 
 const StandingsBody = () => {
     const [standings, setStandings] = useState([]);
@@ -57,7 +56,6 @@ const StandingsBody = () => {
             {
                 !loading && (
                     <>
-                        <ReactComment text = "The amount of HMA drivers on the top of this scoreboard is worrying" />
                         <div className="uk-height-large uk-background-cover uk-light uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
                             <h1 className = "uk-text-center uk-margin-bottom uk-text-muted">Thank you to <a target = "_new" href = "https://twitter.com/severinmira">severinmira#2039</a> for the data</h1>
                             <a href = "#" className = "uk-visible@m uk-button uk-button-default uk-align-center uk-width-1-2 uk-width-1-3@s" onClick = {() => { setMoreData(!moreData)}}>Show More Info</a>
@@ -67,7 +65,9 @@ const StandingsBody = () => {
                                     <th></th>
                                     <th>Position</th>
                                     <th>Name</th>
-                                    <th>Total Points</th>
+                                    <th>Season Points</th>
+                                    <th className = "uk-visible@m">Wins</th>
+                                    <th className = "uk-visible@m">Podiums</th>
                                     {moreData && weeks.map(w => (
                                         <th className = "uk-visible@m">{w}</th>
                                     ))}
