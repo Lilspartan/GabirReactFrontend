@@ -4,8 +4,16 @@ import RightTab from './RightTab'
 import RightTabLink from './RightTabLink'
 import { logoutUser } from "../actions/authActions";
 import { connect } from "react-redux";
-const Header = (props) => {
-  const { title, desc } = props;
+import { FC } from 'react'
+
+interface Props extends FC {
+  title: string;
+  desc?: string;
+  auth?: any;
+}
+
+const Header:FC<Props> = (props) => {
+  const { title = "Gabir Motors", desc = 'The world’s premiere, pretend Motorsports Company. Proud sponsor of Mike Racecar and the Penny Arcade iRacing league.' } = props;
   var loggedin = localStorage.getItem('jwtToken')
   if (loggedin) {
     //console.log(props)
@@ -15,7 +23,7 @@ const Header = (props) => {
 
   console.log("      _________________   ____  ____  ___       \n     /  ______________/  /   / /   / /   \\     \n    /  /      _______   /   / /   / /    /      \n   /  /      /____  /  /   / /   / /    /       \n  /  /___________/ /  /   / /   / /    /        \n  \\_______________/  /___/ /___/ /____/         \n");
 
-  const LoggedInSidebar = ({ toggle }) => {
+  const LoggedInSidebar = () => {
     return (
       <>
         <li className="uk-nav-header">{user?.name}</li>
@@ -26,7 +34,7 @@ const Header = (props) => {
     )
   }
 
-  const GuestInSidebar = (props) => {
+  const GuestInSidebar = () => {
     return (
       <li className="uk-parent">
           <ul className="uk-nav-sub">
@@ -36,8 +44,12 @@ const Header = (props) => {
     )
   }
 
-  const SidebarUser = ({ isLoggedIn}) => {
-    if (isLoggedIn) {
+  type Sidebar = {
+    isLoggedIn:any;
+  }
+
+  const SidebarUser = (props:Sidebar) => {
+    if (props.isLoggedIn) {
       return <LoggedInSidebar />
     } else {
       return <GuestInSidebar />
@@ -104,17 +116,8 @@ const Header = (props) => {
   )
 }
 
-Header.defaults = {
-  title: 'Gabir Motors',
-  desc: 'The world’s premiere, pretend Motorsports Company. Proud sponsor of Mike Racecar and the Penny Arcade iRacing league.'
-}
-
-Header.propTypes = {
-  title: PropTypes.string,
-  desc: PropTypes.string
-}
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:any) => ({
   auth: state.auth,
 });
-export default withRouter(connect(mapStateToProps, { logoutUser })(Header));
+
+export default withRouter<Props, any>(connect(mapStateToProps, { logoutUser })(Header));

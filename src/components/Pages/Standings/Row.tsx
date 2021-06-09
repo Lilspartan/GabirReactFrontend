@@ -1,9 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FC } from 'react'
 import { Link } from 'react-router-dom';
 import ReactComment from '../../ReactComment';
+import { Standing } from '../../../interfaces'
 
-const Row = ({ standing, colors, moreData }) => {
-    var team = standing.team;
+type RowProps = {
+    standing: Standing,
+    colors: any,
+    moreData: boolean
+}
+
+const Row = ({ standing, colors, moreData }: RowProps) => {
+    var team:any = standing.team;
     team = team.replace(/[a-z]/g, '');
     team = team.replace(/\s/g, '');
     team = team.replace(/\./g, '');

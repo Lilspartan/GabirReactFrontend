@@ -1,7 +1,13 @@
 import Haiku from '../Haiku'
+import { Haiku as HaikuTypes } from '../../../interfaces';
 
-const HaikusTab = ({ haikus, setHaikus }) => {
-  const onDeleteHaiku = (haiku) => {
+type HaikuTabProps = {
+  haikus: HaikuTypes[];
+  setHaikus: Function;
+}
+
+const HaikusTab = ({ haikus, setHaikus }: HaikuTabProps) => {
+  const onDeleteHaiku = (haiku: HaikuTypes) => {
     if (window.confirm(`Are you sure you want to delete this haiku? \n_______________________\n${haiku.haikuLines[0]}\n${haiku.haikuLines[1]}\n${haiku.haikuLines[2]}\n- ${haiku.name}`)) {
       fetch(`https://api.gabirmotors.ga/haikus/${haiku.url}/delete`).then(res => {
         setHaikus(haikus.filter((h) => h.url !== haiku.url))

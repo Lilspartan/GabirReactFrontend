@@ -2,9 +2,10 @@
 
 import React, { useRef, useState } from "react";
 import axios from 'axios';
+import { Image } from '../../../interfaces';
 
 const AdminTab = () => {
-    const [unchecked, setUnchecked] = useState([]);
+    const [unchecked, setUnchecked] = useState<Image[]>([]);
 
     const onUpdateClick = () => {
         fetch(`https://api.gabirmotors.ga/update/calendar`).then(res => {
@@ -35,7 +36,7 @@ const AdminTab = () => {
         })
     }
     
-    const onCheckImage = (image) => {
+    const onCheckImage = (image:Image) => {
         console.log("Checking...");
         console.log(image)
         axios.post(`https://i.gabirmotors.ga/check`, {
@@ -54,7 +55,7 @@ const AdminTab = () => {
         })
     } 
 
-    const onBadImage = (image) => {
+    const onBadImage = (image:Image) => {
         console.log("Checking...");
         console.log(image)
         axios.post(`https://i.gabirmotors.ga/bad`, {
@@ -85,9 +86,9 @@ const AdminTab = () => {
                         <span>DESC: {unchecked[0].data.description}</span><br />
                         <span>ON: {unchecked[0].data.readableDate}</span><br />
                         <span>BY: {unchecked[0].user.name}</span><br />
-                        <div class="uk-button-group">
-                            <button class="uk-button uk-button-default" onClick = {() => {onCheckImage(unchecked[0])}}>GOOD</button>
-                            <button class="uk-button uk-button-danger" onClick = {() => {onBadImage(unchecked[0])}}>BAD</button>
+                        <div className="uk-button-group">
+                            <button className="uk-button uk-button-default" onClick = {() => {onCheckImage(unchecked[0])}}>GOOD</button>
+                            <button className="uk-button uk-button-danger" onClick = {() => {onBadImage(unchecked[0])}}>BAD</button>
                         </div>
                     </div>
                 )

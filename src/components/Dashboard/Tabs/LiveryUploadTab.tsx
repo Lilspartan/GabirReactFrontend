@@ -1,8 +1,13 @@
 /* eslint-disable no-extend-native */
 import React, { useRef, useState } from "react";
 import axios from "axios";
+import { User } from '../../../interfaces';
 
-const LiveryUploadTab = ({ user }) => {
+type TabProps = {
+  user: User
+}
+
+const LiveryUploadTab = ({ user }:TabProps) => {
   const [file, setFile] = useState(""); // storing the uploaded file    // storing the recived file from backend
   const [desc, setDesc] = useState("");
   const [theme, setTheme] = useState(false);
@@ -10,10 +15,10 @@ const LiveryUploadTab = ({ user }) => {
   const [progress, setProgess] = useState(0); // progess bar
   const [error, setError] = useState("");
   const [derror, setDerror] = useState("")
-  const el = useRef(); // accesing input element
+  const el:any = useRef(); // accesing input element
   const maxLength = 50;
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (e:any) => {
     setProgess(0);
     getFile({ name: "", path: "" })
     setError("")
@@ -24,7 +29,7 @@ const LiveryUploadTab = ({ user }) => {
     setFile(file); // storing file
   };
 
-  const handleDescChange = (e) => {
+  const handleDescChange = (e:any) => {
     setProgess(0);
     getFile({ name: "", path: "" })
     const desc = e.target.value;
@@ -33,7 +38,7 @@ const LiveryUploadTab = ({ user }) => {
     setDesc(desc)
   };
 
-  const handleThemeChange = (e) => {
+  const handleThemeChange = (e:any) => {
     setProgess(0);
     getFile({ name: "", path: "" })
     setTheme(e.target.checked);
@@ -49,7 +54,7 @@ const LiveryUploadTab = ({ user }) => {
     console.log(file)
     formData.append("user", JSON.stringify(user))
     formData.append("desc", desc)
-    formData.append("followsTheme", theme)
+    formData.append("followsTheme", String(theme))
     axios
       .post("https://i.gabirmotors.ga/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
@@ -63,11 +68,10 @@ const LiveryUploadTab = ({ user }) => {
           name: res.data.name,
           path: "https://i.gabirmotors.ga" + res.data.path,
         });
-        console.log(data)
-        document.getElementById("desc").value = "";
-        document.getElementById("filetxt").value = "";
-        document.getElementById("theme").checked = false;
-        document.getElementById("file").value = "";
+        (document.getElementById("desc") as HTMLInputElement)!.value = "";
+        (document.getElementById("filetxt") as HTMLInputElement)!.value = "";
+        (document.getElementById("theme") as HTMLInputElement)!.checked = false;
+        (document.getElementById("file") as HTMLInputElement)!.value = "";
       })
       .catch((err) => console.log(err));
   };
@@ -77,20 +81,20 @@ const LiveryUploadTab = ({ user }) => {
         <hr />
         {/* displaying received image*/}
         {data.path && <img className = "uk-box-shadow-xlarge uk-align-center" style = {{ maxWidth: '20vw', height: 'auto', maxHeight: '30vh'}} src={data.path} alt={data.name} />}
-            <div class="uk-margin" uk-margin>
-                <progress id="js-progressbar" class="uk-progress uk-align-center" value={progress} max="100">{progress}</progress>
+            <div className="uk-margin" uk-margin>
+                <progress id="js-progressbar" className="uk-progress uk-align-center" value={progress} max="100">{progress}</progress>
                 <span className = "uk-text-success uk-display-block uk-padding-small uk-padding-remove-top uk-text-center">{progress === 100 && "Upload Complete! View it"} {progress === 100 && <a target = "_new" href = {data.path}>here</a>}</span>
                 <span className = "uk-text-danger uk-display-block uk-padding-small uk-padding-remove-top uk-text-center">{error && error}</span>
                 <span className = "uk-text-danger uk-display-block uk-padding-small uk-padding-remove-top uk-text-center">{derror && derror}</span>
-                <div class="uk-margin">
-                    <input id = "desc" class="uk-input" type="text" placeholder="Description" onChange={handleDescChange} />
+                <div className="uk-margin">
+                    <input id = "desc" className="uk-input" type="text" placeholder="Description" onChange={handleDescChange} />
                 </div>
                 <div uk-form-custom="target: true">
                     <input id = "file" type="file" multiple ref={el} onChange={handleFileChange}/>
                     <input id = "filetxt" className="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled />
                 </div>
-                <button class="uk-button uk-button-default" onClick={uploadFile}>Upload</button><br /><br />
-                <label><input class="uk-checkbox uk-margin-left-large" id = "theme" type="checkbox" onChange = {handleThemeChange}/> Follows Theme</label>
+                <button className="uk-button uk-button-default" onClick={uploadFile}>Upload</button><br /><br />
+                <label><input className="uk-checkbox uk-margin-left-large" id = "theme" type="checkbox" onChange = {handleThemeChange}/> Follows Theme</label>
             </div>
     </div>
   );

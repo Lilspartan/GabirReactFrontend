@@ -6,8 +6,12 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
+
+import { UserData } from '../interfaces';
+import { History } from 'history'
+
 // Register User
-export const registerUser = (userData, history) => dispatch => {
+export const registerUser = (userData:UserData, history:History) => (dispatch:any) => {
   axios
     .post("https://api.gabirmotors.ga/user/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
@@ -19,7 +23,7 @@ export const registerUser = (userData, history) => dispatch => {
     );
 };
 // Login - get user token
-export const loginUser = userData => dispatch => {
+export const loginUser = (userData:UserData) => (dispatch:any) => {
   axios
     .post("https://api.gabirmotors.ga/user/login", userData)
     .then(res => {
@@ -42,7 +46,7 @@ export const loginUser = userData => dispatch => {
     );
 };
 // Set logged in user
-export const setCurrentUser = decoded => {
+export const setCurrentUser = (decoded:any) => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded
@@ -55,7 +59,7 @@ export const setUserLoading = () => {
   };
 };
 // Log user out
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch:any) => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
   localStorage.removeItem("uuid");

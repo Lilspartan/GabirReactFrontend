@@ -4,9 +4,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { Header as HeaderTypes } from '../../interfaces'
 
-const Dashboard = (props) => {
-  const onLogoutClick = (e) => {
+const Dashboard = (props:any) => {
+  const onLogoutClick = (e:any) => {
     props.logoutUser();
   };
 
@@ -16,10 +17,7 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <Header
-        title={`Dashboard | ${user.name}`}
-        onLogout={onLogoutClick}
-      />
+      <Header title={`Dashboard | ${user.name}`} />
 
       <MainDash userD={user} onLogout={onLogoutClick} />
     </>
@@ -30,7 +28,7 @@ Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:any) => ({
   auth: state.auth,
 });
 export default connect(mapStateToProps, { logoutUser })(Dashboard);
