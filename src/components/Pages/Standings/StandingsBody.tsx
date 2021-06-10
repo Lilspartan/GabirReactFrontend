@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import Header from '../../Header'
 import Row from './Row'
 import Loading from "../../Loading";
+import { Standing } from '../../../interfaces'
 
 const StandingsBody = () => {
-    const [standings, setStandings] = useState([]);
+    const [standings, setStandings] = useState<Standing[]>([]);
     const [colors, setColors] = useState({});
     const [moreData, setMoreData] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -14,7 +15,7 @@ const StandingsBody = () => {
             const res = await fetch('https://api.gabirmotors.ga/standings');
             var data = await res.json();
 
-            data = data.sort((a, b) => {return a.pos-b.pos})
+            data = data.sort((a:Standing, b:Standing) => {return a.pos-b.pos})
 
             setStandings(data)
             

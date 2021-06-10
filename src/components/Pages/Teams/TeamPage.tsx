@@ -1,47 +1,47 @@
 import { useState, useEffect } from "react";
 import { withRouter, useParams, Link } from 'react-router-dom'
 import Header from "../../Header";
+import { Team, Driver, SocialMediaLink } from '../../../interfaces';
 
-const TeamPage = (props) => {
+type Params = {
+    t: string;
+}
 
-    let { t } = useParams();
+const TeamPage = (props: any) => {
 
-    const [team, setTeam] = useState({
+    let { t } = useParams<Params>();
+
+    const [team, setTeam] = useState<Team>({
         "drivers": [
           {
-            "name": "Loading Drivers",
-            "username": "",
-            "car_number": ""
+              "name": "Loading",
+              "car_number": -1
           }
         ],
         "_id": "",
         "abbr": "...",
         "name": "Loading Team...",
         "team_leader": "...",
-        "logo": "https://cdn.shopify.com/s/files/1/0042/9942/files/brand-pa_256x.png?v=1603497096"
+        "logo": "https://cdn.shopify.com/s/files/1/0042/9942/files/brand-pa_256x.png?v=1603497096",
       });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(async () => {
-        const res = await fetch(`https://api.gabirmotors.ga/team/${t}`)
-        const data = await res.json()
-        
-        if (data?.message === "ERR_NO_TEAM") {
-            return props.history.push('/?from=teams&error=noteam')
+    useEffect(() => {
+        const fetchTeam = async () => {
+            const res = await fetch(`https://api.gabirmotors.ga/team/${t}`)
+            const data = await res.json()
+            
+            if (data?.message === "ERR_NO_TEAM") {
+                return props.history.push('/?from=teams&error=noteam')
+            }
+
+            console.log(data)
+
+            return setTeam(data);
         }
 
-        console.log(data)
-
-        return setTeam(data);
+        fetchTeam();
     }, [ t, props.history ])
-
-    const SocialLinks = () => {
-        if (team?.social_media_links?.length) {
-            return team.social_media_links.map(link => <a target = "_new" uk-tooltip = {team.name} className = "uk-display-inline uk-button uk-text-large" href = {link.link}><span className = "icon-button icon-button-twitter" uk-icon = "icon:twitter; ratio: 1.4"></span></a> )
-        } else {
-            return <></>
-        }
-    }
 
     return (
         <>
@@ -78,7 +78,6 @@ const TeamPage = (props) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <SocialLinks />
                             <br />
                             <br />
                             <Link to = "/teams" className = "uk-button uk-button-text uk-text-success">Back to teams</Link>

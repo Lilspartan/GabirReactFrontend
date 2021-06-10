@@ -1,6 +1,4 @@
-import { useState, useEffect, FC } from 'react'
 import { Link } from 'react-router-dom';
-import ReactComment from '../../ReactComment';
 import { Standing } from '../../../interfaces'
 
 type RowProps = {

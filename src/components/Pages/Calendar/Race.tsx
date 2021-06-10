@@ -1,10 +1,14 @@
 import qs from 'qs';
-import { withRouter } from "react-router-dom";
+import { Race as RaceTypes } from '../../../interfaces';
+import { FC } from 'react'
 
-const Race = (props) => {
-  const race = props.race
+interface Props {
+  race: RaceTypes;
+}
+
+const Race:FC<Props> = ({ race }) => {
   var time = Date.now();
-  time = time.toString().slice(0, -3);
+  time = Number(time.toString().slice(0, -3));
 
   var classes = "uk-text-large tag-race";
   race.tags.tags.forEach((tag) => {
@@ -13,15 +17,11 @@ const Race = (props) => {
 
   if (time < race.timestamp + 25200) classes += " tag-uncomplete";
   if (!race.tags.paid.car.length && !race.tags.paid.track) classes += " tag-free";
-
-  if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })?.highlight === race.timestamp) {
-    classes += " highlight-cal-row"
-  }
   
   return (
     <tr className={classes}>
       <td className="uk-text-bold">
-        <span className="uk-text-emphasis" id = {race.timestamp}>{race.date}</span>{" "}
+        <span className="uk-text-emphasis">{race.date}</span>{" "}
         {time > race.timestamp + 25200 ? (
           <i className="uk-text-muted">COMPLETED</i>
         ) : (
@@ -92,4 +92,4 @@ const Race = (props) => {
   );
 };
 
-export default withRouter(Race);
+export default Race;

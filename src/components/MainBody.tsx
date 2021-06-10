@@ -1,12 +1,10 @@
 import Header from "./Header";
-import { IoChevronDownSharp } from "react-icons/io5";
-import Alert from "./Alert";
 import Footer from "./Footer";
 import ReactComment from "./ReactComment";
 import Loading from "./Loading";
 import { useState, useEffect } from "react";
 
-const MainBody = ({ haikus }) => {
+const MainBody = () => {
   console.log("Hey, stop snooping!");
 
   const [loading, setLoading] = useState(true);
@@ -37,7 +35,7 @@ const MainBody = ({ haikus }) => {
       {!loading && (
         <>
           <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
-            <div class="uk-offcanvas-bar">
+            <div className="uk-offcanvas-bar">
               <ReactComment text="Using Inspect to find easter eggs is no fun!" />
               <img src="img/NorthernHarbor.png" alt="Northern Harbor Logo" />
               <h2>

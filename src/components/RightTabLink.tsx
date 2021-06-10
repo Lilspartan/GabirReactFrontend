@@ -2,12 +2,12 @@ import React from 'react'
 import qs from 'qs';
 import { withRouter } from 'react-router-dom';
 
-const RightTabLink = (props) => {
-    const { id, target, type, children } = props;
+const RightTabLink = (props:any) => {
+    const { id, target, type, children }:any = props;
     setTimeout(function() {
         if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#${target}`] !== undefined) {
-            document.getElementById("menuopen").click();
-            document.getElementById(id).click();
+            (document.getElementById("menuopen") as HTMLInputElement)!.click();
+            (document.getElementById(id) as HTMLInputElement)!.click();
         }
     }, 100)
 

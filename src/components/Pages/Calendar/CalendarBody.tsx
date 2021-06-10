@@ -4,16 +4,19 @@ import Header from '../../Header'
 import { logoutUser } from "../../../actions/authActions";
 import { connect } from "react-redux";
 import Loading from "../../Loading";
+import { Race as RaceTypes } from '../../../interfaces';
 
-const Calendar = (props) => {
+type Props = {
+  auth: any;
+}
+
+const Calendar = (props: Props) => {
   
   var { user } = props.auth;
   user = user._doc;
-  //console.log(user)
-
-  const [isEdit, setEdit] = useState(true);
+  
   const [loading, setLoading] = useState(true);
-  const [calendar, setCalendar] = useState([
+  const [calendar, setCalendar] = useState<RaceTypes[]>([
     {
       "id": "0",
       "timestamp": 100000000000000000000,
@@ -71,7 +74,7 @@ const Calendar = (props) => {
       )}
       { !loading && (
         <div uk-filter="target: .js-filter; animation: fade" className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
-          <div className = "uk-position-top-center" style = {{ zIndex: '10000' }}>
+          <div className = "uk-position-top-center" style = {{ zIndex: 10000 }}>
           </div>
           <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
             <caption className = "uk-padding uk-position-top">
@@ -89,7 +92,7 @@ const Calendar = (props) => {
             </thead>
             <tbody className = "js-filter">
               {calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
-                <Race key={index} race={race} isEdit = {isEdit} />
+                <Race key={index} race={race} />
               ))}
             </tbody>
           </table>
@@ -99,7 +102,7 @@ const Calendar = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state:any) => ({
   auth: state.auth,
 });
 export default connect(mapStateToProps, { logoutUser })(Calendar);

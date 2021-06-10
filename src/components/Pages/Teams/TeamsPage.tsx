@@ -4,10 +4,16 @@ import Header from "../../Header";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import InfoTab from '../../InfoTab';
-import qs from 'qs';
 
-const TeamsPage = (props) => {
-    const [teams, setTeams] = useState([
+interface Thumbnail {
+    name: string;
+    abbr: string;
+    logo: string;
+    numOfDrivers: number;
+}
+
+const TeamsPage = () => {
+    const [teams, setTeams] = useState<Thumbnail[]>([
         {
             "name": "Penny Arcade iRacing League",
             "abbr": "PAL",
@@ -15,16 +21,6 @@ const TeamsPage = (props) => {
             "numOfDrivers": 0
         }
     ])
-    
-    let params = qs.parse(props.location.hash, {});
-    console.log(params)
-
-    if (params?.['#whatis'] !== undefined) {
-        setTimeout(function() {
-            console.log('clicked!')
-            document.getElementById('info-button').click()
-        }, 2000)
-    }
 
     // eslint-disable-next-line no-unused-vars
     const [sortBy, setSort] = useState({
@@ -34,33 +30,40 @@ const TeamsPage = (props) => {
     })
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(async () => {
-        const res = await fetch('https://api.gabirmotors.ga/team/thumb')
-        var data = await res.json();
-        if (sortBy.drivers) {
-            data.sort((a, b) => {return a.numOfDrivers - b.numOfDrivers})
-            data.reverse();
-        } else if (sortBy.name_a_z) {
-            data.sort(function(a, b){
-                if(a.abbr < b.abbr) { return -1; }
-                if(a.abbr > b.abbr) { return 1; }
-                return 0;
-            })
-        } else if (sortBy.name_z_a) {
-            data.sort(function(a, b){
-                if(a.abbr < b.abbr) { return -1; }
-                if(a.abbr > b.abbr) { return 1; }
-                return 0;
-            })
-            data.reverse();
+    useEffect(() => {
+        const fetchTeams = async () => {
+            const res = await fetch('https://api.gabirmotors.ga/team/thumb')
+            var data:Thumbnail[] = await res.json();
+            if (sortBy.drivers) {
+                data.sort((a, b) => {return a.numOfDrivers - b.numOfDrivers})
+                data.reverse();
+            } else if (sortBy.name_a_z) {
+                data.sort(function(a, b){
+                    if(a.abbr < b.abbr) { return -1; }
+                    if(a.abbr > b.abbr) { return 1; }
+                    return 0;
+                })
+            } else if (sortBy.name_z_a) {
+                data.sort(function(a, b){
+                    if(a.abbr < b.abbr) { return -1; }
+                    if(a.abbr > b.abbr) { return 1; }
+                    return 0;
+                })
+                data.reverse();
+            }
+            
+            console.log(data)
+            setTeams(data);
         }
-        
-        console.log(data)
-        setTeams(data);
+
+        fetchTeams();
     }, [])
 
-    const TeamCard = (team) => {
-        team = team.team
+    type TeamCardTypes = {
+        team: Thumbnail;
+    }
+
+    const TeamCard = ({ team }:TeamCardTypes) => {
         return (
             <div style = {{  }}>
                 <div className="scroll-in-1 uk-tile uk-padding-large team-logo" data-drivers = {team.numOfDrivers} data-name = {team.name}>
