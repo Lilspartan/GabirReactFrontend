@@ -5,21 +5,31 @@ import Header from "../../Header";
 import { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom'
 import InfoTab from '../../InfoTab'
+import { 
+    File as FileTypes, 
+    Folder as FolderTypes, 
+    GetFile,
+    GetFolder
+} from '../../../interfaces';
 
 const TeamsPage = () => {
     const [assets, setAssets] = useState({children: []});
     const [showSize, setShowSize] = useState(false);
 
-    useEffect(async () => {
-        const res = await fetch(`https://i.gabirmotors.ga/assetsList`)
-        const data = await res.json()
-        
-        console.log(data)
+    useEffect(() => {
+        const fetchAssets = async () => {
+            const res = await fetch(`https://i.gabirmotors.ga/assetsList`)
+            const data = await res.json()
+            
+            console.log(data)
+    
+            return setAssets(data);
+        }
 
-        return setAssets(data);
+        fetchAssets();
     }, [])
 
-    const File = ({ name, size, path, fileSize, ext }) => {
+    const File = ({ name, size, path, fileSize, ext }:FileTypes) => {
         const imgExt = [".jpg", ".png"];
         const txtExt = [".txt", ".json", ".md"];
         const webExt = [".html"];
@@ -43,14 +53,14 @@ const TeamsPage = () => {
         )
     }
 
-    const Folder = ({ name, children, size }) => {
+    const Folder = ({ name, children, size }:FolderTypes) => {
         return (
             <li className="uk-parent uk-active">
                 <a className = "uk-text-left" href="#" style = {{ paddingLeft: `${size * 20}px` }}><span uk-icon="folder"></span> {name}</a>
                 <ul className="uk-nav-primary uk-nav-parent-icon" uk-nav = "true">
-                        { children.map((child, i) => (
+                        { children.map((child:GetFile | GetFolder) => (
                             <>
-                                {child?.children ? <Folder name = {child.name} children = {child.children} size = {Number(size) + 1}/> : <File name = {child.name} size = {Number(size) + 1} path = {child.path} ext = {child.extension} fileSize = {child.size} />}
+                                {"children" in child ? <Folder name = {child.name} children = {child.children} size = {Number(size) + 1}/> : <File name = {child.name} size = {Number(size) + 1} path = {child.path} ext = {child.extension} fileSize = {child.size} />}
                             </>
                         ))}
                 </ul>
@@ -75,9 +85,9 @@ const TeamsPage = () => {
                     <div className="uk-animation-slide-top-medium uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
                         <a href = "#" onClick = {() => { setShowSize(!showSize) }} className = "uk-button uk-button-text">Toggle File Sizes</a>
                         <ul className="uk-nav-primary uk-nav-parent-icon assets-nav" uk-nav = "true">
-                            { assets.children.map((child, i) => (
+                            { assets.children.map((child:GetFile | GetFolder) => (
                                 <>
-                                    {child?.children ? <Folder name = {child.name} children = {child.children} size = {0}/> : <File name = {child.name} size = {0} path = {child.path} ext = {child.extension} fileSize = {child.size} />}
+                                    {"children" in child ? <Folder name = {child.name} children = {child.children} size = {0}/> : <File name = {child.name} size = {0} path = {child.path} ext = {child.extension} fileSize = {child.size} />}
                                 </>
                             ))}
                         </ul>

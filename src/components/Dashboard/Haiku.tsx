@@ -1,6 +1,12 @@
 import { BsPencil, BsTrash } from 'react-icons/bs';
+import { Haiku as HaikuTypes} from '../../interfaces';
 
-const Haiku = ({ haiku, onDelete }) => {
+type Props = {
+  haiku: HaikuTypes;
+  onDelete: Function;
+}
+
+const Haiku = ({ haiku, onDelete }:Props) => {
   /* eslint-disable-next-line */
   const id = Math.floor(Math.random() * 100000);
     

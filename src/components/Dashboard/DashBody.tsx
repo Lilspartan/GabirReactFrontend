@@ -5,9 +5,14 @@ import LiveryUploadTab from './Tabs/LiveryUploadTab';
 import AdminTab from "./Tabs/AdminTab";
 import { BsTrash } from "react-icons/bs";
 import Footer from '../Footer'
-import Loading from '../Loading'
+import { User } from '../../interfaces'
 
-const DashBody = ({ userD, onLogout }) => {
+type Props = {
+  userD: User;
+  onLogout: Function;
+}
+
+const DashBody = ({ userD, onLogout }:Props) => {
   const [haikus, setHaikus] = useState([
     {
       __createdtime__: 1611090302995,
@@ -34,7 +39,7 @@ const DashBody = ({ userD, onLogout }) => {
     /* eslint-disable-next-line */
   }, []);
 
-  const onDeleteNotif = async (id) => {
+  const onDeleteNotif = async (id:number) => {
     console.log(user.uuid);
     await fetch(`https://api.gabirmotors.ga/user/alert/delete`, {
       method: "POST",
@@ -188,7 +193,7 @@ const DashBody = ({ userD, onLogout }) => {
                         <>
                           <hr></hr>
                           <div
-                            class="uk-card uk-card-body uk-card-small"
+                            className="uk-card uk-card-body uk-card-small"
                             key={i}
                           >
                             <BsTrash
@@ -199,7 +204,7 @@ const DashBody = ({ userD, onLogout }) => {
                                 onDeleteNotif(i);
                               }}
                             />
-                            <h3 class="uk-card-title uk-display-inline">
+                            <h3 className="uk-card-title uk-display-inline">
                               {alert.title}
                             </h3>{" "}
                             <span className="uk-text-muted"></span>

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, RouteComponentProps  } from 'react-router-dom'
 import RightTab from './RightTab'
 import RightTabLink from './RightTabLink'
 import { logoutUser } from "../actions/authActions";
 import { connect } from "react-redux";
 import { FC } from 'react'
 
-interface Props extends FC {
+interface Props extends RouteComponentProps {
   title: string;
   desc?: string;
   auth?: any;
@@ -120,4 +120,4 @@ const mapStateToProps = (state:any) => ({
   auth: state.auth,
 });
 
-export default withRouter<Props, any>(connect(mapStateToProps, { logoutUser })(Header));
+export default withRouter(connect(mapStateToProps, { logoutUser })(Header));
