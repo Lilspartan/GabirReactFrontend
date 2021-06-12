@@ -1,5 +1,3 @@
-import React from 'react'
-
 const RightTab = (props:any) => {
     const info = props.children;
 

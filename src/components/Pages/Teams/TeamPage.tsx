@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { withRouter, useParams, Link } from 'react-router-dom'
 import Header from "../../Header";
-import { Team, Driver, SocialMediaLink } from '../../../interfaces';
+import { Team, Driver } from '../../../interfaces';
 
 type Params = {
     t: string;
@@ -67,7 +67,7 @@ const TeamPage = (props: any) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {team.drivers.map((driver, i) => (
+                                        {team.drivers.map((driver: Driver) => (
                                             <>
                                                 <tr>
                                                     <td className = "uk-text-left uk-text-emphasis">{driver.name} {driver?.username ? `(${driver.username})` : ''}</td>

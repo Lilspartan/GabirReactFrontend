@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
 import { Link, withRouter, RouteComponentProps  } from 'react-router-dom'
 import RightTab from './RightTab'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import RightTabLink from './RightTabLink'
 import { logoutUser } from "../actions/authActions";
 import { connect } from "react-redux";

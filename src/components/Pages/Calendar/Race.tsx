@@ -1,4 +1,3 @@
-import qs from 'qs';
 import { Race as RaceTypes } from '../../../interfaces';
 import { FC } from 'react'
 

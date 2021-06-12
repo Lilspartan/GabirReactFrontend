@@ -1,20 +1,10 @@
 import { useState, useEffect } from 'react'
 import Race from './Race'
 import Header from '../../Header'
-import { logoutUser } from "../../../actions/authActions";
-import { connect } from "react-redux";
 import Loading from "../../Loading";
 import { Race as RaceTypes } from '../../../interfaces';
 
-type Props = {
-  auth: any;
-}
-
-const Calendar = (props: Props) => {
-  
-  var { user } = props.auth;
-  user = user._doc;
-  
+const Calendar = () => {  
   const [loading, setLoading] = useState(true);
   const [calendar, setCalendar] = useState<RaceTypes[]>([
     {
@@ -102,7 +92,4 @@ const Calendar = (props: Props) => {
   )
 }
 
-const mapStateToProps = (state:any) => ({
-  auth: state.auth,
-});
-export default connect(mapStateToProps, { logoutUser })(Calendar);
+export default Calendar;

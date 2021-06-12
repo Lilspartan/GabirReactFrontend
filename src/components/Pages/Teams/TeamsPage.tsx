@@ -22,35 +22,14 @@ const TeamsPage = () => {
         }
     ])
 
-    // eslint-disable-next-line no-unused-vars
-    const [sortBy, setSort] = useState({
-        "drivers": true,
-        "name_a_z": false,
-        "name_z_a": false
-    })
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const fetchTeams = async () => {
             const res = await fetch('https://api.gabirmotors.ga/team/thumb')
             var data:Thumbnail[] = await res.json();
-            if (sortBy.drivers) {
-                data.sort((a, b) => {return a.numOfDrivers - b.numOfDrivers})
-                data.reverse();
-            } else if (sortBy.name_a_z) {
-                data.sort(function(a, b){
-                    if(a.abbr < b.abbr) { return -1; }
-                    if(a.abbr > b.abbr) { return 1; }
-                    return 0;
-                })
-            } else if (sortBy.name_z_a) {
-                data.sort(function(a, b){
-                    if(a.abbr < b.abbr) { return -1; }
-                    if(a.abbr > b.abbr) { return 1; }
-                    return 0;
-                })
-                data.reverse();
-            }
+            
+            data.sort((a, b) => {return a.numOfDrivers - b.numOfDrivers})
+            data.reverse();
             
             console.log(data)
             setTeams(data);

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
 import Header from '../../Header'
 import Row from './Row'
@@ -59,7 +60,7 @@ const StandingsBody = () => {
                     <>
                         <div className="uk-height-large uk-background-cover uk-light uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
                             <h1 className = "uk-text-center uk-margin-bottom uk-text-muted">Thank you to <a target = "_new" href = "https://twitter.com/severinmira">severinmira#2039</a> for the data</h1>
-                            <a href = "#" className = "uk-visible@m uk-button uk-button-default uk-align-center uk-width-1-2 uk-width-1-3@s" onClick = {() => { setMoreData(!moreData)}}>Show More Info</a>
+                            <a className = "uk-visible@m uk-button uk-button-default uk-align-center uk-width-1-2 uk-width-1-3@s" onClick = {() => { setMoreData(!moreData)}}>Show More Info</a>
                             <h4 className = "uk-hidden@m uk-text-center uk-margin-bottom uk-text-muted uk-text-italic">More data available on larger screens</h4>
                             <table className = "standings-table uk-table uk-table-medium uk-table-hover" style = {{ minHeight: '100vh' }}>
                                 <tr>

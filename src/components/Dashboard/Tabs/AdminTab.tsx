@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import axios from 'axios';
 import { Image } from '../../../interfaces';
 
@@ -82,7 +82,7 @@ const AdminTab = () => {
             {
                 unchecked.length && (
                     <div className = "uk-display-block">
-                        <img src = {unchecked[0].path} style = {{ width: '20vw', height: 'auto'}}/><br />
+                        <img alt = "Submitted" src = {unchecked[0].path} style = {{ width: '20vw', height: 'auto'}}/><br />
                         <span>DESC: {unchecked[0].data.description}</span><br />
                         <span>ON: {unchecked[0].data.readableDate}</span><br />
                         <span>BY: {unchecked[0].user.name}</span><br />

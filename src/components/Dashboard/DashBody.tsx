@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from "react";
 import HaikusTab from "./Tabs/HaikusTab";
 import RacerTab from "./Tabs/RacerTab";
@@ -117,7 +119,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
         </li>
       );
     } else {
-      /* eslint-disable-next-line */
       return (
         <li>
           <a href="#"></a>
