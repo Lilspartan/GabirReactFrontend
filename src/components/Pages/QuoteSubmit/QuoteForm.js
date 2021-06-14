@@ -23,7 +23,7 @@ class QuoteForm extends React.Component {
         const newQuote = {
             quote: `${this.state.quote} - ${this.state.author}`
         };
-        fetch(`https://api.gabirmotors.ga/quotes/new`, {
+        fetch(`https://api.gabirmotors.com/quotes/new`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newQuote)

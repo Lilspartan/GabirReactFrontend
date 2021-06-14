@@ -20,7 +20,7 @@ const TeamsPage = () => {
 
     useEffect(() => {
         const fetchAssets = async () => {
-            const res = await fetch(`https://i.gabirmotors.ga/assetsList`)
+            const res = await fetch(`https://i.gabirmotors.com/assetsList`)
             const data = await res.json()
             
             console.log(data)
@@ -49,7 +49,7 @@ const TeamsPage = () => {
         return (
             <div uk-lightbox = "true">
                 <li className = "uk-active">
-                    <a data-caption= {`${name} | ${((fileSize / 1000) / 1000).toFixed(2)}MB`} className = "uk-text-left uk-link" href={`https://i.gabirmotors.ga${path.replace("public", "")}`} target = "_blank" style = {{ paddingLeft: `${size * 20}px`, fontSize: '24px' }}><span uk-icon={displayIcon}></span> {name} {showSize && <span className = "uk-text-muted">| {((fileSize / 1000) / 1000).toFixed(2)}MB</span>}</a>
+                    <a data-caption= {`${name} | ${((fileSize / 1000) / 1000).toFixed(2)}MB`} className = "uk-text-left uk-link" href={`https://i.gabirmotors.com${path.replace("public", "")}`} target = "_blank" style = {{ paddingLeft: `${size * 20}px`, fontSize: '24px' }}><span uk-icon={displayIcon}></span> {name} {showSize && <span className = "uk-text-muted">| {((fileSize / 1000) / 1000).toFixed(2)}MB</span>}</a>
                 </li>
             </div>
         )

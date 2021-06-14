@@ -8,7 +8,7 @@ const AdminTab = () => {
     const [unchecked, setUnchecked] = useState<Image[]>([]);
 
     const onUpdateClick = () => {
-        fetch(`https://api.gabirmotors.ga/update/calendar`).then(res => {
+        fetch(`https://api.gabirmotors.com/update/calendar`).then(res => {
             if (res.status === 200) {
                 alert("Success!");
             } else {
@@ -22,7 +22,7 @@ const AdminTab = () => {
     }
     
     const onGetUnchecked = () => {
-        axios.get(`https://i.gabirmotors.ga/manifest/unchecked`).then(res => {
+        axios.get(`https://i.gabirmotors.com/manifest/unchecked`).then(res => {
             if (res.status === 200) {
                 console.log(res)
                 setUnchecked(res.data)
@@ -39,7 +39,7 @@ const AdminTab = () => {
     const onCheckImage = (image:Image) => {
         console.log("Checking...");
         console.log(image)
-        axios.post(`https://i.gabirmotors.ga/check`, {
+        axios.post(`https://i.gabirmotors.com/check`, {
             toCheck: image
         }).then(res => {
             if (res.status === 200 && res.data.message === "SUCCESS") {
@@ -58,7 +58,7 @@ const AdminTab = () => {
     const onBadImage = (image:Image) => {
         console.log("Checking...");
         console.log(image)
-        axios.post(`https://i.gabirmotors.ga/bad`, {
+        axios.post(`https://i.gabirmotors.com/bad`, {
             toCheck: image
         }).then(res => {
             if (res.status === 200 && res.data.message === "SUCCESS") {

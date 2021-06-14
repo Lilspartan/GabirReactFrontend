@@ -13,7 +13,7 @@ import { History } from 'history'
 // Register User
 export const registerUser = (userData:UserData, history:History) => (dispatch:any) => {
   axios
-    .post("https://api.gabirmotors.ga/user/register", userData)
+    .post("https://api.gabirmotors.com/user/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
@@ -25,7 +25,7 @@ export const registerUser = (userData:UserData, history:History) => (dispatch:an
 // Login - get user token
 export const loginUser = (userData:UserData) => (dispatch:any) => {
   axios
-    .post("https://api.gabirmotors.ga/user/login", userData)
+    .post("https://api.gabirmotors.com/user/login", userData)
     .then(res => {
       // Save to localStorage
       // Set token to localStorage

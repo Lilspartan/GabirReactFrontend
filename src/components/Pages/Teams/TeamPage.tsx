@@ -28,7 +28,7 @@ const TeamPage = (props: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const fetchTeam = async () => {
-            const res = await fetch(`https://api.gabirmotors.ga/team/${t}`)
+            const res = await fetch(`https://api.gabirmotors.com/team/${t}`)
             const data = await res.json()
             
             if (data?.message === "ERR_NO_TEAM") {

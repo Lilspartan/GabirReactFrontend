@@ -25,7 +25,7 @@ const TeamsPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         const fetchTeams = async () => {
-            const res = await fetch('https://api.gabirmotors.ga/team/thumb')
+            const res = await fetch('https://api.gabirmotors.com/team/thumb')
             var data:Thumbnail[] = await res.json();
             
             data.sort((a, b) => {return a.numOfDrivers - b.numOfDrivers})

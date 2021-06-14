@@ -67,7 +67,7 @@ export interface User {
     alerts:       any[];
     uuid:         string;
     verfied:      boolean;
-    racerProfile: RacerProfile;
+    racerProfile: Driver;
     profile:      Profile;
     roles:        string[];
     email:        string;
@@ -76,12 +76,6 @@ export interface User {
 
 export interface Profile {
     theme: string;
-}
-
-export interface RacerProfile {
-    racerName: string;
-    carNumber: number;
-    team:      string;
 }
 
 export interface Header {
@@ -170,5 +164,5 @@ export interface Driver {
     uuid?:          string;
     name:           string;
     username?:      string;
-    team?:          string;
+    team?:          Team;
 }

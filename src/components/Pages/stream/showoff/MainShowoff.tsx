@@ -1,25 +1,32 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { Image } from '../../../../interfaces';
+import qs from 'qs';
 
-const MainShowoff = () => {
+const MainShowoff = (props: any) => {
     const [images, setImages] = useState([]);
+
+    let time = 3000;
+
+    console.log(qs.parse(props.location.hash));
+    
+    if (qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#t`] !== undefined) {
+        time = Number((qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#t`]));
+    }
 
     useEffect(() => {
         const fetchImages = async () => {
-            const res = await fetch('https://i.gabirmotors.ga/manifest/checked');
+            const res = await fetch('https://i.gabirmotors.com/manifest/checked');
             const data = await res.json();
 
             await setImages(data);
             
         }
         fetchImages();
-        console.log(images)
-
-        
-    }, [images])
+    }, [])
 
     useEffect(() => {
+        console.log(time)
         const fade = (i: number) => {
             setTimeout(function() {
                 (document.getElementById(`${i}`) as HTMLInputElement)!.style.opacity = "100"
@@ -33,7 +40,7 @@ const MainShowoff = () => {
                         fade(j)
                     }
                 }
-            }, 3000*i)
+            }, time*i)
         }
         for (var i = 0; i < images.length; i ++) {
             fade(i)

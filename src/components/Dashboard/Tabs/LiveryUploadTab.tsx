@@ -56,7 +56,7 @@ const LiveryUploadTab = ({ user }:TabProps) => {
     formData.append("desc", desc)
     formData.append("followsTheme", String(theme))
     axios
-      .post("https://i.gabirmotors.ga/upload", formData, {
+      .post("https://i.gabirmotors.com/upload", formData, {
         onUploadProgress: (ProgressEvent) => {
           let progress = Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100);
           setProgess(progress);
@@ -66,7 +66,7 @@ const LiveryUploadTab = ({ user }:TabProps) => {
         console.log(res);
         getFile({
           name: res.data.name,
-          path: "https://i.gabirmotors.ga" + res.data.path,
+          path: "https://i.gabirmotors.com" + res.data.path,
         });
         (document.getElementById("desc") as HTMLInputElement)!.value = "";
         (document.getElementById("filetxt") as HTMLInputElement)!.value = "";

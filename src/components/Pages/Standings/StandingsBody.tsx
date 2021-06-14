@@ -13,7 +13,7 @@ const StandingsBody = () => {
 
     useEffect(() => {
         const fetchStandings = async () => {
-            const res = await fetch('https://api.gabirmotors.ga/standings');
+            const res = await fetch('https://api.gabirmotors.com/standings');
             var data = await res.json();
 
             data = data.sort((a:Standing, b:Standing) => {return a.pos-b.pos})
@@ -23,7 +23,7 @@ const StandingsBody = () => {
         }
 
         const fetchColors = async() => {
-            const res = await fetch('https://i.gabirmotors.ga/assets/teams/colors.json');
+            const res = await fetch('https://i.gabirmotors.com/assets/teams/colors.json');
             const data = await res.json();
 
             setColors(data)

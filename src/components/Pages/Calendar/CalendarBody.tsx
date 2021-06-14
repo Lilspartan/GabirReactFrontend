@@ -42,7 +42,7 @@ const Calendar = () => {
   }, [])
   
   const fetchCal = async () => {
-    const res = await fetch(`https://api.gabirmotors.ga/calendar`)
+    const res = await fetch(`https://api.gabirmotors.com/calendar`)
     const data = await res.json()
     
     return data

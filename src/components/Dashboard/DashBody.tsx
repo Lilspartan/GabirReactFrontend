@@ -43,7 +43,7 @@ const DashBody = ({ userD, onLogout }:Props) => {
 
   const onDeleteNotif = async (id:number) => {
     console.log(user.uuid);
-    await fetch(`https://api.gabirmotors.ga/user/alert/delete`, {
+    await fetch(`https://api.gabirmotors.com/user/alert/delete`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -66,7 +66,7 @@ const DashBody = ({ userD, onLogout }:Props) => {
 
   const fetchHaikus = async () => {
     const res = await fetch(
-      `https://api.gabirmotors.ga/user/${user.uuid}/haikus`
+      `https://api.gabirmotors.com/user/${user.uuid}/haikus`
     );
     const data = await res.json();
 
