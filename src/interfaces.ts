@@ -75,7 +75,19 @@ export interface User {
 }
 
 export interface Profile {
-    theme: string;
+    accounts?: Accounts;
+}
+
+export interface Accounts {
+    discord: DiscordAccount;
+    iRacing: string;
+}
+
+export interface DiscordAccount {
+    username: string;
+    id: string;
+    avatar: string;
+    tag: string;
 }
 
 export interface Header {

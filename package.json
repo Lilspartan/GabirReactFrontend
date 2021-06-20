@@ -41,7 +41,8 @@
     "uikit": "^3.6.16",
     "uikit-react": "^3.0.20",
     "universal-cookie": "^4.0.4",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -67,5 +68,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.35.1"
   }
 }

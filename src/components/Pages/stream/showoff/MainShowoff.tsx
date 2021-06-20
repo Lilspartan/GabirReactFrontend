@@ -48,18 +48,21 @@ const MainShowoff = (props: any) => {
     }, [images])
 
     return (
-        <div>
+        <div className = "" style = {{
+            height: '100vh'
+        }}>
             {
                 images.length && (
                     images.map((i:Image, id:number) => (
-                        <div id = {`${id}`} className = "uk-position-center" style = {{ opacity: '0', transition: '0.5s' }}>
+                        <div id = {`${id}`} className = "" style = {{ opacity: '0', transition: '0.5s', position: 'absolute', bottom: '0' }}>
                             <img src = {i.path} style = {{
                                 maxWidth: '50vw',
                                 minWidth: '25vw',
-                                boxShadow: '2px 2px 2px 2px #fffff'
+                                border: '5px solid white',
+                                boxShadow: '0px 7px 38px 12px rgba(0,0,0,0.47)'
                             }} alt = {i.oldName}/><br />
-                            <span className = "uk-text-justify" style = {{ color: 'white', fontSize: '20px'}}>{i.data.description}</span><br />
-                            <span className = "uk-text-justify" style = {{ color: 'white', fontSize: '20px'}}>Submitted By: {i.user.name}</span>
+                            <span className = "uk-text-justify" style = {{ color: 'white', fontSize: '40px', fontFamily: 'acumin-pro-extra-condensed, sans-serif' }}>{i.data.description}</span><br />
+                            <span className = "uk-text-justify" style = {{ color: 'white', fontSize: '40px', fontFamily: 'acumin-pro-extra-condensed, sans-serif' }}>Submitted By: {i.user.name}</span>
                         </div>
                     ))
                 )

@@ -17,9 +17,10 @@ import fourBody from './components/Pages/404/404body';
 import MainIndex from './components/MainBody';
 import MainStandings from './components/Pages/Standings/StandingsBody';
 import MainShowoff from "./components/Pages/stream/showoff/MainShowoff";
+import MainTutorial from "./components/Pages/Tutorial/MainTutorial";
 
 import PrivateRoute from './components/UserAuthentication/PivateRoute';
-import './index.css'
+import './index.scss'
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -62,6 +63,7 @@ const App = () => {
           <Route path='/assets' component = {MainAssets} />
           <Route path='/standings' component = {MainStandings} />
           <Route path='/showoff' component = {MainShowoff} />
+          <Route path='/tutorial' component = {MainTutorial} />
           <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
         </Switch>

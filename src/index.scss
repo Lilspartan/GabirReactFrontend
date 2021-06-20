@@ -24,6 +24,13 @@ h1 {
   font-style: normal;
 }
 
+h2 {
+  font-size: 40px;
+  font-family: acumin-pro-extra-condensed, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 html {
   overflow: scroll;
   overflow-x: hidden;
@@ -196,5 +203,37 @@ html {
   }
   100% {
     transform: translate(0%, 0%);
+  }
+}
+
+.tutorial-article {
+  padding: 100px 15px;
+  color: #ccc;
+  font-size: 20px;
+  max-width: 60vw;
+  margin-left: 10vw;
+}
+
+.tutorial-article > p, .tutorial-article > ul > li,.tutorial-article > span {
+  margin-left: 20px;
+}
+
+.article-header {
+  margin: 30px;
+
+}
+
+@media only screen and (max-width: 960px) {
+  .tutorial-article {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100vw;
+  }
+
+  .article-header {
+    margin: 30px;
   }
 }

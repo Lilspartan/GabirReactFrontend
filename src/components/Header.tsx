@@ -4,7 +4,8 @@ import RightTab from './RightTab'
 import RightTabLink from './RightTabLink'
 import { logoutUser } from "../actions/authActions";
 import { connect } from "react-redux";
-import { FC } from 'react'
+import { FC } from 'react';
+import Label from './Label';
 
 interface Props extends RouteComponentProps {
   title: string;
@@ -92,8 +93,7 @@ const Header:FC<Props> = (props) => {
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/teams">Teams</Link></li>
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/assets">Assets</Link></li>
             <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/standings">Standings</Link></li>
-
-            <li className="uk-nav-header">How to (Coming Soon)</li>
+            <li className = "nav-link"><Link className = "uk-button uk-button-text uk-display-inline" to = "/tutorial">Tutorials</Link></li>
             {/*
             <li class="uk-nav-header">How To</li>
             <li><a className = "uk-button uk-button-text uk-display-inline" href = "https://gabirmotors.com/info/blueflags">Blue Flags</a></li>
