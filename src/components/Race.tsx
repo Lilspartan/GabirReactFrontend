@@ -1,4 +1,4 @@
-import { Race as RaceTypes } from '../../../interfaces';
+import { Race as RaceTypes } from '../interfaces';
 import { FC } from 'react'
 
 interface Props {

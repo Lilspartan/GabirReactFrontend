@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
-import Header from '../../Header'
-import Row from './Row'
-import Loading from "../../Loading";
-import { Standing } from '../../../interfaces'
+import Header from '../components/Header'
+import Row from '../components/Row'
+import Loading from "../components/Loading";
+import { Standing } from '../interfaces'
 
 const StandingsBody = () => {
     const [standings, setStandings] = useState<Standing[]>([]);

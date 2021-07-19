@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { withRouter, useParams, Link } from 'react-router-dom'
-import Header from "../../Header";
-import { Team, Driver } from '../../../interfaces';
+import Header from "../components/Header";
+import { Team, Driver } from '../interfaces';
 
 type Params = {
     t: string;

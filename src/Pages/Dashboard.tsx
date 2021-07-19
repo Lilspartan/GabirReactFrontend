@@ -1,9 +1,9 @@
-import Header from "../Header";
-import MainDash from "./DashBody";
+import Header from "../components/Header";
+import MainDash from "../components/Dashboard/DashBody";
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+import { logoutUser } from "../actions/authActions";
 
 const Dashboard = (props:any) => {
   const onLogoutClick = (e:any) => {

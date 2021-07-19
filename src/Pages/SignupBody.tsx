@@ -1,9 +1,14 @@
-import SignupForm from "./SignupForm";
-import Header from "../../Header";
+import SignupForm from "../components/SignupForm";
+import Header from "../components/Header";
 import { Link } from "react-router-dom";
-import Footer from '../../Footer';
+import Footer from '../components/Footer';
 
-const MainBody = ({ error, formData }) => {
+type Props = {
+  error: any;
+  formData: any;
+}
+
+const MainBody = ({ error, formData }:Props) => {
   return (
     <>
       <Header title="Gabir Motors | Signup" />

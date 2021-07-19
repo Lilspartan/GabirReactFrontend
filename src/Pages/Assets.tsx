@@ -3,16 +3,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React from 'react'
-import Header from "../../Header";
+import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom'
-import InfoTab from '../../InfoTab'
+import InfoTab from '../components/InfoTab'
 import { 
     File as FileTypes, 
     Folder as FolderTypes, 
     GetFile,
     GetFolder
-} from '../../../interfaces';
+} from '../interfaces';
 
 const TeamsPage = () => {
     const [assets, setAssets] = useState({children: []});

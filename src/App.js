@@ -4,22 +4,22 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
   Main bodies imports
 */
 
-import MainSign from './components/UserAuthentication/Signup/SignupBody';
-import MainLog from './components/UserAuthentication/Login/LoginBody';
-import MainHaiku from './components/Pages/HaikuSubmit/HaikusBody';
-import MainQuote from './components/Pages/QuoteSubmit/QuotesBody';
-import MainCal from './components/Pages/Calendar/CalendarBody';
-import MainAssets from './components/Pages/Assets/AssetsBody';
-import MainTeams from './components/Pages/Teams/TeamsPage';
-import TeamPage from './components/Pages/Teams/TeamPage';
-import MainDash from './components/Dashboard/Dashboard';
-import fourBody from './components/Pages/404/404body';
+import MainSign from './Pages/SignupBody';
+import MainLog from './Pages/LoginBody';
+import MainHaiku from './Pages/HaikusBody';
+import MainQuote from './Pages/QuoteSubmit';
+import MainCal from './Pages/Calendar';
+import MainAssets from './Pages/Assets';
+import MainTeams from './Pages/TeamsPage';
+import TeamPage from './Pages/TeamPage';
+import MainDash from './Pages/Dashboard';
+import fourBody from './Pages/404';
 import MainIndex from './components/MainBody';
-import MainStandings from './components/Pages/Standings/StandingsBody';
-import MainShowoff from "./components/Pages/stream/showoff/MainShowoff";
-import MainTutorial from "./components/Pages/Tutorial/MainTutorial";
+import MainStandings from './Pages/Standings';
+import MainShowoff from "./Pages/Showoff";
+import MainTutorial from "./Pages/Tutorial";
 
-import PrivateRoute from './components/UserAuthentication/PivateRoute';
+import PrivateRoute from './components/PivateRoute';
 import './index.scss'
 
 import { Provider } from "react-redux";

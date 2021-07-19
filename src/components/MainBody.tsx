@@ -3,19 +3,72 @@ import Footer from "./Footer";
 import ReactComment from "./ReactComment";
 import Loading from "./Loading";
 import { useState, useEffect } from "react";
+import { Race } from '../interfaces';
 
 const MainBody = () => {
-  console.log("Hey, stop snooping!");
-
   const [loading, setLoading] = useState(true);
+  const [next, setNext] = useState<Race>({
+    "tags": {
+      "paid": {
+        "track": false,
+        "car": []
+      },
+      "tags": [
+        "note"
+      ],
+      "notes": null,
+      "winner": null,
+      "theme": null
+    },
+    "car": [
+      "N/A"
+    ],
+    "date": "",
+    "timestamp": 0,
+    "track": "",
+    "id": "0",
+  });
 
   const codes = ["RACECAR", "NOTLAST", "PODIUM", "COLDTIRES", "GABIR"];
 
+  function timeConverter(UNIX_timestamp:number){
+    var a = new Date(UNIX_timestamp * 1000);;
+    var year = a.getFullYear();
+    var month = "0" + String(a.getMonth() + 1);
+    var date = "0" + a.getDate();
+    var hour = "0" + a.getHours();
+    var min = "0" + a.getMinutes();
+    var sec = "0" + a.getSeconds();
+    var s = `${year}-${month}-${date.substr(-2)}T${hour.substr(-2)}:${min.substr(-2)}:${sec.substr(-2)}-07:00`
+    return s
+  }
+
+  const fetchCal = async () => {
+    const res = await fetch(`https://api.gabirmotors.com/calendar`)
+    const data:Race[] = await res.json()
+    
+    return data.sort((a:Race, b:Race) => { return a.timestamp - b.timestamp })
+  }
+
   useEffect(() => {
+    (async () => {
+      var cal = await fetchCal();
+      var done = false;
+
+      for (var i = 0; i < cal.length; i ++) {
+        //console.log(cal[i].timestamp * 1000 + 70200000, Date.now())
+        if (cal[i].timestamp * 1000 + 9000000 > Date.now() && !done) {
+          done = true;
+          setNext(cal[i]);
+        }
+      }
+    })()
+
     setTimeout(() => {
       setLoading(false);
     }, 1500)
-  })
+  }, [])
+
 
   return (
     <>
@@ -67,6 +120,27 @@ const MainBody = () => {
               height: "100vh",
             }}
           >
+            <div className="uk-child-width-1-4 uk-text-center uk-position-top-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 400;" uk-countdown={`date: ` + timeConverter(next.timestamp + 9000)} uk-parallax="blur: 15;">
+              <div className = "uk-width-1-1">
+                <h1 className = "fade-cd uk-text-center uk-display-block">NEXT RACE IN</h1>
+              </div>
+              <div className = "fade-cd">
+                <span className="acumin uk-countdown-number uk-countdown-days"></span>
+                <div className="acumin uk-countdown-label">Days</div>
+              </div>
+              <div className = "fade-cd">
+                <span className="acumin uk-countdown-number uk-countdown-hours"></span>
+                <div className="acumin uk-countdown-label">Hours</div>
+              </div>
+              <div className = "fade-cd">
+                <span className="acumin uk-countdown-number uk-countdown-minutes"></span>
+                <div className="acumin uk-countdown-label">Minutes</div>
+              </div>
+              <div className = "fade-cd">
+                <span className="acumin uk-countdown-number uk-countdown-seconds"></span>
+                <div className="acumin uk-countdown-label">Seconds</div>
+              </div>
+            </div>
             <h1
               className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block"
               uk-parallax="blur: 15;"

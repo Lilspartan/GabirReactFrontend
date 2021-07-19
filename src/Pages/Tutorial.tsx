@@ -2,9 +2,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React from 'react'
-import Header from "../../Header";
-import { useState, useEffect } from "react";
+import Header from "../components/Header";
 import { withRouter } from 'react-router-dom'
 import qs from 'qs';
 

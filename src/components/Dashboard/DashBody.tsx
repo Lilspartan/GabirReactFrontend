@@ -5,21 +5,13 @@ import HaikusTab from "./Tabs/HaikusTab";
 import RacerTab from "./Tabs/RacerTab";
 import LiveryUploadTab from './Tabs/LiveryUploadTab';
 import AdminTab from "./Tabs/AdminTab";
-import AccountsTab from "./Tabs/AccountsTab";
 import { BsTrash } from "react-icons/bs";
 import Footer from '../Footer'
 import { User } from '../../interfaces'
-import axios from "axios";
 
 type Props = {
   userD: User;
   onLogout: Function;
-}
-
-type ULink = {
-  path?: string;
-  link?: string;
-  mmessage?: string;
 }
 
 const DashBody = ({ userD, onLogout }:Props) => {
@@ -38,9 +30,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
     },
   ]);
   const [user, setUser] = useState(userD);
-  const [link, setLink] = useState("");
-  const [uLink, setULink] = useState("");
-  const [uPath, setUPath] = useState("");
 
   useEffect(() => {
     const getHaikus = async () => {
@@ -83,39 +72,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
 
     return data;
   };
-
-  const oUP = (e:any) => {
-    setUPath(e.target.value);
-  }
-
-  const oUL = (e:any) => {
-    setULink(e.target.value);
-  }
-
-  const pL = async () => {
-    console.log("uploading")
-    alert("done")
-    axios
-      .post("https://links.gabirmotors.com/upload", { path: uPath, link: uLink}, {
-        onUploadProgress: (ProgressEvent) => {
-          let progress = Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100);
-        },
-      })
-      .then(async (res) => {
-        console.log("uploaded")
-        alert("done")
-        var data = res.data;
-        if ((data as ULink).path !== undefined) {
-          return alert((data as ULink).path)
-        }
-
-        if ((data as ULink).link !== undefined) {
-          return alert((data as ULink).link)
-        }
-
-        alert("Success!");
-      })
-  }
 
   const Racer = () => {
     if (user.roles.includes("racer")) {
@@ -185,9 +141,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
         <li>
           <a href="#">Haikus</a>
         </li>
-        <li>
-          <a href="#">Linked Accounts</a>
-        </li>
         <Upload />
         <Racer />
         <Admin />
@@ -236,7 +189,7 @@ const DashBody = ({ userD, onLogout }:Props) => {
                   <li>
                     <h3 className="uk-text-center">Hello, {user.name}</h3>
                     <div>
-                      <h4 className="uk-text-center">Notifications:</h4>
+                      <h4 className="uk-text-center">{user.alerts.length > 0 && "Notifications:"}</h4>
                       {user.alerts.map((alert, i) => (
                         <>
                           <hr></hr>
@@ -260,25 +213,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
                           </div>
                         </>
                       ))}
-                      { user.roles.includes("links") && (
-                        <div>
-                          <form className="uk-form-horizontal">
-                              <div>
-                                  <label className="uk-form-label">https://links.gabirmotors.com/</label>
-                                  <div className="uk-form-controls">
-                                    <input className="uk-input" id="form-horizontal-text" type="text" placeholder="path" onChange = {oUP} />
-                                  </div>
-                              </div>
-                              <div className="uk-margin">
-                                <label className="uk-form-label">Link</label>
-                                <div className="uk-form-controls">
-                                    <input className="uk-input" id="form-horizontal-text" type="url" placeholder="Link" onChange = {oUL} />
-                                </div>
-                            </div>
-                            <button className = "uk-button uk-button-default" onClick = {pL}>Submit</button>
-                          </form>
-                        </div>
-                      )}
                       {/* eslint-disable-next-line */}
                       <a
                         className="uk-button uk-button-danger uk-align-center"
@@ -292,9 +226,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
                   </li>
                   <li>
                     <HaikusTab haikus={haikus} setHaikus={setHaikus} />
-                  </li>
-                  <li>
-                    <AccountsTab user = {user} />
                   </li>
                   <li>
                     <ShowUpload />

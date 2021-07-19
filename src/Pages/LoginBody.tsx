@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
-import LoginForm from './LoginForm'
+import LoginForm from '../components/LoginForm'
 import { useState } from 'react'
-import Header from '../../Header'
-import Footer from '../../Footer'
-import InfoTab from '../../InfoTab'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import InfoTab from '../components/InfoTab'
 
-const MainBody = ({ initError, formData, onLogIn }) => {
+type Props = {
+    initError: any;
+    formData: any;
+    onLogIn: any;
+}
+
+const MainBody = ({ initError, formData, onLogIn }: Props) => {
     const [error, setError] = useState('')
 
     return (

@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
-import Header from "../../Header";
+import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import InfoTab from '../../InfoTab';
+import InfoTab from '../components/InfoTab';
 
 interface Thumbnail {
     name: string;

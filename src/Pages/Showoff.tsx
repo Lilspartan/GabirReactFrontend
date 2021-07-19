@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { Image } from '../../../../interfaces';
+import { Image } from '../interfaces';
 import qs from 'qs';
 
 const MainShowoff = (props: any) => {
@@ -45,7 +45,7 @@ const MainShowoff = (props: any) => {
         for (var i = 0; i < images.length; i ++) {
             fade(i)
         }
-    }, [images])
+    }, [images,time])
 
     return (
         <div className = "" style = {{

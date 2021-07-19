@@ -76,6 +76,13 @@ export interface User {
 
 export interface Profile {
     accounts?: Accounts;
+    trophies?: Trophy[];
+}
+
+export interface Trophy {
+    name: String;
+    awardee: String;
+    bodytext: String;
 }
 
 export interface Accounts {
@@ -172,7 +179,7 @@ export interface SocialMediaLink {
 }
 
 export interface Driver {
-    car_number:     number;
+    car_number:     number | string;
     uuid?:          string;
     name:           string;
     username?:      string;

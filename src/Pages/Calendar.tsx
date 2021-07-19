@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import Race from './Race'
-import Header from '../../Header'
-import Loading from "../../Loading";
-import { Race as RaceTypes } from '../../../interfaces';
+import Race from '../components/Race'
+import Header from '../components/Header'
+import Loading from "../components/Loading";
+import { Race as RaceTypes } from '../interfaces';
 
 const Calendar = () => {  
   const [loading, setLoading] = useState(true);
@@ -68,7 +68,7 @@ const Calendar = () => {
           </div>
           <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
             <caption className = "uk-padding uk-position-top">
-              <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 5 Calendar</h3>
+              <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 7 Calendar</h3>
             </caption>
             <thead>
               <tr>
