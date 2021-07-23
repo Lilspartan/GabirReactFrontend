@@ -6,7 +6,7 @@ import RightTab from './RightTab'
 import RightTabLink from './RightTabLink'
 import { logoutUser } from "../actions/authActions";
 import { connect } from "react-redux";
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 
 interface Props extends RouteComponentProps {
   title: string;
@@ -23,7 +23,18 @@ const Header:FC<Props> = (props) => {
     user = user._doc;
   }
 
-  const [driveroftheday, setDriveroftheday] = useState(true)
+  useEffect(() => {
+    (async () => {
+      var res = await fetch('https://streaming.gabirmotors.com/dodotd');
+      var data = await res.json();
+
+      if (res.status === 200) {
+        setDriveroftheday(data.do);
+      }
+    })();
+  })
+
+  const [driveroftheday, setDriveroftheday] = useState(false)
 
   console.log("      _________________   ____  ____  ___       \n     /  ______________/  /   / /   / /   \\     \n    /  /      _______   /   / /   / /    /      \n   /  /      /____  /  /   / /   / /    /       \n  /  /___________/ /  /   / /   / /    /        \n  \\_______________/  /___/ /___/ /____/         \n");
 
