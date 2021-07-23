@@ -3,7 +3,7 @@
 export interface Standing {
     points:       Array<number | string>;
     _id:          string;
-    pos:          number;
+    pos:          string;
     name:         string;
     team:         string;
     totalPoints:  number;

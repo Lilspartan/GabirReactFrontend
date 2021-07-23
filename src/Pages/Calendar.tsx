@@ -51,22 +51,13 @@ const Calendar = () => {
   return (
     <>
       <Header title = "Gabir Motors | Calendar" />
-      {loading && (
-          <div className = "uk-background-cover"
-          style={{
-          backgroundImage: "url(img/gabir_bg.jpg)",
-          height: "100vh",
-          }}>
-          <div className = "uk-position-center">
-              <Loading size = "300px" />
-          </div>
-          </div>
-      )}
+      {loading && <Loading />}
+      
       { !loading && (
         <div uk-filter="target: .js-filter; animation: fade" className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
           <div className = "uk-position-top-center" style = {{ zIndex: 10000 }}>
           </div>
-          <table className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
+          <table uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .tag-race; delay: 50;" className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
             <caption className = "uk-padding uk-position-top">
               <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 7 Calendar</h3>
             </caption>

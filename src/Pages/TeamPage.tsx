@@ -2,12 +2,20 @@ import { useState, useEffect } from "react";
 import { withRouter, useParams, Link } from 'react-router-dom'
 import Header from "../components/Header";
 import { Team, Driver } from '../interfaces';
+import qs from 'qs';
 
 type Params = {
     t: string;
 }
 
 const TeamPage = (props: any) => {
+    const [goto, setGoto] = useState("teams")
+
+    setTimeout(function() {
+        if (qs.parse(props.location.search, { ignoreQueryPrefix: true })["from"] !== undefined) {
+            setGoto(String(qs.parse(props.location.search, { ignoreQueryPrefix: true })["from"]))
+        }
+    }, 100)
 
     let { t } = useParams<Params>();
 
@@ -80,7 +88,7 @@ const TeamPage = (props: any) => {
                             </div>
                             <br />
                             <br />
-                            <Link to = "/teams" className = "uk-button uk-button-text uk-text-success">Back to teams</Link>
+                            <Link to = {`/${goto}`} className = "uk-button uk-button-text uk-text-success">Back to {goto}</Link>
                         </div>
                     </div>
                 </div>

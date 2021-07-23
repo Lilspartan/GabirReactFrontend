@@ -1,7 +1,7 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import ReactComment from "./ReactComment";
-import Loading from "./Loading";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ReactComment from "../components/ReactComment";
+import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { Race } from '../interfaces';
 
@@ -73,17 +73,7 @@ const MainBody = () => {
   return (
     <>
       <Header title="Gabir Motors | Home" />
-      {loading && (
-        <div className = "uk-background-cover"
-        style={{
-          backgroundImage: "url(img/gabir_bg.jpg)",
-          height: "100vh",
-        }}>
-          <div className = "uk-position-center">
-            <Loading size = "300px" />
-          </div>
-        </div>
-      )}
+      {loading && <Loading />}
 
       {!loading && (
         <>

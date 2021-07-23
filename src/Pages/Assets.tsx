@@ -47,7 +47,7 @@ const TeamsPage = () => {
             displayIcon = "file-pdf"
         }  
         return (
-            <div uk-lightbox = "true">
+            <div uk-lightbox = "true" className = "file">
                 <li className = "uk-active">
                     <a data-caption= {`${name} | ${((fileSize / 1000) / 1000).toFixed(2)}MB`} className = "uk-text-left uk-link" href={`https://i.gabirmotors.com${path.replace("public", "")}`} target = "_blank" style = {{ paddingLeft: `${size * 20}px`, fontSize: '24px' }}><span uk-icon={displayIcon}></span> {name} {showSize && <span className = "uk-text-muted">| {((fileSize / 1000) / 1000).toFixed(2)}MB</span>}</a>
                 </li>
@@ -57,7 +57,7 @@ const TeamsPage = () => {
 
     const Folder = ({ name, children, size }:FolderTypes) => {
         return (
-            <li className="uk-parent uk-active">
+            <li className="uk-parent uk-active folder">
                 <a className = "uk-text-left" href="#" style = {{ paddingLeft: `${size * 20}px` }}><span uk-icon="folder"></span> {name}</a>
                 <ul className="uk-nav-primary uk-nav-parent-icon" uk-nav = "true">
                         { children.map((child:GetFile | GetFolder) => (

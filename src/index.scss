@@ -208,8 +208,8 @@ html {
   color: white;
 }
 
-.standings-table > tr > td {
-  
+.standings-row {
+  max-height: 3rem;
 }
 
 #yellow, #orange, #red {
@@ -259,4 +259,37 @@ html {
   .article-header {
     margin: 30px;
   }
+}
+
+#timeline div {
+  margin-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-img {
+  width: 60vh;
+  height: auto;
+}
+
+.timeline-name {
+  font-size: 60px;
+}
+
+.timeline-season {
+  font-size: 70px;
+  font-weight: 800;
+}
+
+select {
+  background-color: #222222;
+  color: white;
+  border: 0px solid black;
+  padding: 20px;
+  font-family: acumin-pro-extra-condensed, sans-serif;
+  font-size: 24px;
+}
+
+option:checked {
+  color: #4cb582;
 }

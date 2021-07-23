@@ -14,10 +14,12 @@ import MainTeams from './Pages/TeamsPage';
 import TeamPage from './Pages/TeamPage';
 import MainDash from './Pages/Dashboard';
 import fourBody from './Pages/404';
-import MainIndex from './components/MainBody';
+import MainIndex from './Pages/Main';
 import MainStandings from './Pages/Standings';
 import MainShowoff from "./Pages/Showoff";
 import MainTutorial from "./Pages/Tutorial";
+import MainTimeline from "./Pages/Timeline";
+import MainDOTD from './Pages/Driveroftheday';
 
 import PrivateRoute from './components/PivateRoute';
 import './index.scss'
@@ -64,6 +66,8 @@ const App = () => {
           <Route path='/standings' component = {MainStandings} />
           <Route path='/showoff' component = {MainShowoff} />
           <Route path='/tutorial' component = {MainTutorial} />
+          <Route path='/timeline' component = {MainTimeline} />
+          <Route path='/driveroftheday' component = {MainDOTD} />
           <PrivateRoute exact path="/dashboard" component= {MainDash} />
           <Route path = "*" component = {fourBody} />
         </Switch>
