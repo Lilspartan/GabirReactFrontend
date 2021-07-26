@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import HaikusTab from "./Tabs/HaikusTab";
 import RacerTab from "./Tabs/RacerTab";
 import LiveryUploadTab from './Tabs/LiveryUploadTab';
-import AdminTab from "./Tabs/AdminTab";
 import { BsTrash } from "react-icons/bs";
 import Footer from '../Footer'
 import { User } from '../../interfaces'
@@ -109,24 +108,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
     }
   };
 
-
-  const Admin = () => {
-    if (user.roles.includes("admin")) {
-      /* eslint-disable-next-line */
-      return (
-        <li>
-          <a href="#">Admin</a>
-        </li>
-      );
-    } else {
-      return (
-        <li>
-          <a href="#"></a>
-        </li>
-      );
-    }
-  };
-
   const Tabs = () => {
     return (
       <ul
@@ -143,7 +124,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
         </li>
         <Upload />
         <Racer />
-        <Admin />
       </ul>
     );
   };
@@ -159,14 +139,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
   const ShowRacer = () => {
     if (user.roles.includes("racer")) {
       return <RacerTab user={user} />;
-    } else {
-      return <li></li>;
-    }
-  };
-
-  const ShowAdmin = () => {
-    if (user.roles.includes("admin")) {
-      return <AdminTab />;
     } else {
       return <li></li>;
     }
@@ -232,9 +204,6 @@ const DashBody = ({ userD, onLogout }:Props) => {
                   </li>
                   <li>
                     <ShowRacer />
-                  </li>
-                  <li>
-                    <ShowAdmin />
                   </li>
                 </ul>
               </div>

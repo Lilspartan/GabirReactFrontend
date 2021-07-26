@@ -1,10 +1,8 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ReactComment from "../components/ReactComment";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { Race } from '../interfaces';
-import Modal from '../components/Modal';
 
 const MainBody = () => {
   const [loading, setLoading] = useState(true);
@@ -80,7 +78,6 @@ const MainBody = () => {
         <>
           <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
             <div className="uk-offcanvas-bar">
-              <ReactComment text="Using Inspect to find easter eggs is no fun!" />
               <img src="img/NorthernHarbor.png" alt="Northern Harbor Logo" />
               <h2>
                 Get <strong>20%</strong> off your next order at Northern Harbor
