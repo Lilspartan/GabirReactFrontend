@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import Loading from "../components/Loading";
-import { Standing } from '../interfaces'
+import { Standing } from '../interfaces';
+import { Link } from 'react-router-dom';
 
 const StandingsBody = () => {
     const [standings, setStandings] = useState<Standing[]>([]);
@@ -52,8 +53,11 @@ const StandingsBody = () => {
                         <div className="uk-height-large uk-background-cover uk-light uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
                             <h1 className = "uk-text-center uk-margin-bottom uk-text-muted uk-animation-slide-bottom-small">Thank you to <a target = "_new" href = "https://twitter.com/severinmira">severinmira#2039</a> for the data</h1>
                             <div>
-                                <a className = "uk-animation-slide-left-medium uk-visible@m uk-button uk-button-default uk-align-center uk-width-1-2 uk-width-1-3@s" onClick = {() => { setMoreData(!moreData)}}>Show More Info</a>
-                                <a className = "uk-animation-slide-right-medium uk-button uk-button-default uk-align-center uk-width-1-2 uk-width-1-3@s" onClick = {() => { setShowChampions(!showChampions)}}>{!showChampions ? "Show Champions Cup" : "Hide Champions Cup"}</a>
+                                <a className = "uk-animation-slide-top-medium uk-visible@m uk-button uk-button-default uk-align-center uk-width-1-2 uk-width-1-3@s" onClick = {() => { setMoreData(!moreData)}}>Show More Info</a>
+                                <div className = "uk-align-center uk-width-1-2@s uk-width-1-1">
+                                    <a className = "uk-animation-slide-left-medium uk-button uk-button-default uk-width-1-1 uk-width-1-2@m" onClick = {() => { setShowChampions(!showChampions)}}>{!showChampions ? "Show Champions Cup" : "Hide Champions Cup"}</a>
+                                    <Link className = "uk-animation-slide-right-medium uk-button uk-button-default uk-width-1-1 uk-width-1-2@m" to = "/timeline">Timeline of Champions</Link>
+                                </div>
                             </div>
                             <h4 className = "uk-animation-slide-left-medium uk-hidden@m uk-text-center uk-margin-bottom uk-text-muted uk-text-italic">More data available on larger screens</h4>
                             <table className = "standings-table uk-table uk-table-medium uk-table-hover" uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .standings-row; delay: 50;">

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loading = () => {
     return (
-        <div className = "uk-background-cover"
+        <div className = "uk-background-cover loader"
         style={{
           backgroundImage: "url(img/gabir_bg.jpg)",
           height: "100vh",

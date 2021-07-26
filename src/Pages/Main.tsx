@@ -4,6 +4,7 @@ import ReactComment from "../components/ReactComment";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { Race } from '../interfaces';
+import Modal from '../components/Modal';
 
 const MainBody = () => {
   const [loading, setLoading] = useState(true);
@@ -172,7 +173,6 @@ const MainBody = () => {
                   id="mike"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-parallax=""
                   uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100; repeat: true"
                 >
                   <div>
@@ -185,7 +185,6 @@ const MainBody = () => {
                         src="img/MikeRacecar.png"
                         alt="Mike Racecar"
                         style={{ height: "55vh", width: "auto" }}
-                        uk-img
                       />
                     </div>
                   </div>
@@ -227,7 +226,6 @@ const MainBody = () => {
                   id="jerry"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-parallax=""
                   uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100; repeat: true"
                 >
                   {/*Not Visible except on mobile (To make it easier to read)*/}
@@ -241,7 +239,6 @@ const MainBody = () => {
                         src="img/intro.png"
                         alt="Carson Bolt"
                         style={{ height: "55vh", width: "auto" }}
-                        uk-img
                       />
                     </div>
                   </div>
@@ -297,7 +294,6 @@ const MainBody = () => {
                   id="kara"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-parallax=""
                   uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100; repeat: true"
                 >
                   <div>
@@ -310,7 +306,6 @@ const MainBody = () => {
                         src="img/kara.png"
                         alt="Kara"
                         style={{ height: "55vh", width: "auto" }}
-                        uk-img
                       />
                     </div>
                   </div>
@@ -352,7 +347,6 @@ const MainBody = () => {
                   id="gabe"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-parallax=""
                   uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100; repeat: true"
                 >
                   {/*Not Visible except on mobile (To make it easier to read)*/}
@@ -366,7 +360,6 @@ const MainBody = () => {
                         src="img/gabe.png"
                         alt='Gabe "The Younger"'
                         style={{ height: "55vh", width: "auto" }}
-                        uk-img
                       />
                     </div>
                   </div>
@@ -410,7 +403,6 @@ const MainBody = () => {
                         src="img/gabe.png"
                         alt='Gabe "The Younger"'
                         style={{ height: "55vh", width: "auto" }}
-                        uk-img
                       />
                     </div>
                   </div>

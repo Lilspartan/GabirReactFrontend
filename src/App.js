@@ -4,21 +4,21 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
   Main bodies imports
 */
 
-import MainSign from './Pages/SignupBody';
-import MainLog from './Pages/LoginBody';
-import MainHaiku from './Pages/HaikusBody';
-import MainQuote from './Pages/QuoteSubmit';
+import fourBody from './Pages/404';
+import MainLog from './Pages/Login';
+import MainIndex from './Pages/Main';
+import MainSign from './Pages/Signup';
 import MainCal from './Pages/Calendar';
 import MainAssets from './Pages/Assets';
-import MainTeams from './Pages/TeamsPage';
 import TeamPage from './Pages/TeamPage';
 import MainDash from './Pages/Dashboard';
-import fourBody from './Pages/404';
-import MainIndex from './Pages/Main';
-import MainStandings from './Pages/Standings';
 import MainShowoff from "./Pages/Showoff";
-import MainTutorial from "./Pages/Tutorial";
+import MainTeams from './Pages/TeamsPage';
+import MainHaiku from './Pages/HaikuSubmit';
 import MainTimeline from "./Pages/Timeline";
+import MainTutorial from "./Pages/Tutorial";
+import MainQuote from './Pages/QuoteSubmit';
+import MainStandings from './Pages/Standings';
 import MainDOTD from './Pages/Driveroftheday';
 
 import PrivateRoute from './components/PivateRoute';

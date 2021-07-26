@@ -53,7 +53,7 @@ const Calendar = () => {
       <Header title = "Gabir Motors | Calendar" />
       {loading && <Loading />}
       
-      { !loading && (
+      {!loading && (
         <div uk-filter="target: .js-filter; animation: fade" className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
           <div className = "uk-position-top-center" style = {{ zIndex: 10000 }}>
           </div>
@@ -73,7 +73,7 @@ const Calendar = () => {
             </thead>
             <tbody className = "js-filter">
               {calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
-                <Race key={index} race={race} />
+                !loading && <Race key={index} race={race} />
               ))}
             </tbody>
           </table>

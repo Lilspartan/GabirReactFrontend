@@ -92,7 +92,7 @@ const Header:FC<Props> = (props) => {
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
             <RightTabLink id = "draw4link" target = "draw4" type = "success"></RightTabLink>
-            
+
             { driveroftheday && <Link to = "/driveroftheday" className = { `uk-text-success` }>Driver of the Day</Link> }
             <li className="uk-nav-divider"></li>
 
@@ -107,7 +107,7 @@ const Header:FC<Props> = (props) => {
             </li>
             
             <li className="uk-parent">
-              <a href="#" className = "uk-button-link uk-text-primary nav-text">Helpful Resources</a>
+              <a href="#" className = "uk-button-link uk-text-primary nav-text">League Resources</a>
               <ul className="uk-nav-sub">
                 <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
                 <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/teams">Teams</Link></li>

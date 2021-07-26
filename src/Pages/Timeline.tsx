@@ -1,15 +1,10 @@
 import Header from "../components/Header";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
-import qs from 'qs';
 import { withRouter } from 'react-router-dom';
 
 type Props = {
     text: string, team?: string
-}
-
-type Props2 = {
-    season: string
 }
 
 const Timeline = (props:any) => {
