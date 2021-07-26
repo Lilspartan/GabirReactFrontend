@@ -1,33 +1,19 @@
-## Problems ##
+# Gabir Motors Site (React)
 
-- Haiku Submit
-  - Submitting a haiku without being signed in does not cause an alert
+Well, there isn't much to say...
+This is it, look around I guess.
 
-## Pages ##
+> The tallest flowers get cut, don't try to be good at anything.
+> -Mike Racecar
 
-- Black / Blue flags
-- Finish Dashboard
+## Todo
+- [x] Make button on TeamPage redirect to last page
+- [ ] Allow changing of racer data on dashboard
+- [ ] Fix the standings page overflowing to the right on mobile 
+- [ ] Add archived calendar pages for previous seasons
+- [ ] Possibly add calendars for other series
+- [ ] Submitting a haiku without being signed in should prompt you to do so
 
-## Todo ##
+> My speed is driven by a desire to kill 
+> -Angus
 
-- Dashboard
-  - Finish notifications on dashboard
-  - add alerts
-  - add editing/viewing haikus
-  - change racer data
-
-Staff/Admins:
-
-Chiefs: Geoff M (beastGP)
-Scott L (Skiggity)
-Matt H (Brainling)
-Chris O (Draxond)
-
-Series Admins:
-Duke of Dirt: C Drew (DFA)
-The Sultan of Single Seaters: David M (Veevee)
-
-Driving Instructors: Chris S (DuckSoup)
-Redstapler (Mike C)
-
-Captain Calendar: Matt C (mcribbs)
