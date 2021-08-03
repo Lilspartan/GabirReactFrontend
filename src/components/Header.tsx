@@ -4,8 +4,6 @@ import { Link, withRouter, RouteComponentProps  } from 'react-router-dom'
 import RightTab from './RightTab'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import RightTabLink from './RightTabLink'
-import { logoutUser } from "../actions/authActions";
-import { connect } from "react-redux";
 import { FC, useState, useEffect } from 'react';
 
 interface Props extends RouteComponentProps {
@@ -16,13 +14,7 @@ interface Props extends RouteComponentProps {
 
 const Header:FC<Props> = (props) => {
   const { title = "Gabir Motors", desc = 'The world’s premiere, pretend Motorsports Company. Proud sponsor of Mike Racecar and the Penny Arcade iRacing league.' } = props;
-  var loggedin = localStorage.getItem('jwtToken')
-  if (loggedin) {
-    //console.log(props)
-    var { user } = props.auth;
-    user = user._doc;
-  }
-
+  
   useEffect(() => {
     (async () => {
       var res = await fetch('https://streaming.gabirmotors.com/dodotd');
@@ -36,38 +28,7 @@ const Header:FC<Props> = (props) => {
 
   const [driveroftheday, setDriveroftheday] = useState(false)
 
-  console.log("      _________________   ____  ____  ___       \n     /  ______________/  /   / /   / /   \\     \n    /  /      _______   /   / /   / /    /      \n   /  /      /____  /  /   / /   / /    /       \n  /  /___________/ /  /   / /   / /    /        \n  \\_______________/  /___/ /___/ /____/         \n");
-
-  const LoggedInSidebar = () => {
-    return (
-      <>
-        <li className="uk-parent">
-          <a href="#" className = "uk-button-link uk-text-primary nav-text">{user?.name}</a>
-          <ul className="uk-nav-sub">
-            <li><Link to = "/dashboard" className = "nav-text-sub uk-button-text uk-display-inline">Dashboard</Link></li>
-          </ul>
-        </li>
-      </>
-    )
-  }
-
-  const GuestInSidebar = () => {
-    return (
-      <li className = "uk-text-center"><Link to = "/login" className = "acumin nav-text uk-display-inline uk-button uk-button-text uk-text-success">Login</Link> | <Link to = "/signup" className = "acumin nav-text uk-display-inline uk-button uk-button-text uk-text-success">Sign Up</Link></li>
-    )
-  }
-
-  type Sidebar = {
-    isLoggedIn:any;
-  }
-
-  const SidebarUser = (props:Sidebar) => {
-    if (props.isLoggedIn) {
-      return <LoggedInSidebar />
-    } else {
-      return <GuestInSidebar />
-    }
-  }
+  //console.log("      _________________   ____  ____  ___       \n     /  ______________/  /   / /   / /   \\     \n    /  /      _______   /   / /   / /    /      \n   /  /      /____  /  /   / /   / /    /       \n  /  /___________/ /  /   / /   / /    /        \n  \\_______________/  /___/ /___/ /____/         \n");
   
   return (
     <header>
@@ -88,34 +49,21 @@ const Header:FC<Props> = (props) => {
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
-        <ul uk-nav = "true" className="uk-nav-primary uk-nav-parent-icong uk-margin-auto-vertical" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50;">
+        <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50;">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
             <RightTabLink id = "draw4link" target = "draw4" type = "success"></RightTabLink>
 
-            { driveroftheday && <Link to = "/driveroftheday" className = { `uk-text-success` }>Driver of the Day</Link> }
+            { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Driver of the Day</Link> }
             <li className="uk-nav-divider"></li>
-
-            <SidebarUser isLoggedIn = {loggedin} />
             
-            <li className="uk-parent">
-              <a href="#" className = "uk-button-link uk-text-primary nav-text">Stream Submissions</a>
-              <ul className="uk-nav-sub">
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/haikus">Haikus</Link></li>
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/quotes">Quotes</Link></li>
-              </ul>
-            </li>
-            
-            <li className="uk-parent">
-              <a href="#" className = "uk-button-link uk-text-primary nav-text">League Resources</a>
-              <ul className="uk-nav-sub">
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/calendar">Calendar</Link></li>
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/teams">Teams</Link></li>
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/assets">Assets</Link></li>
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/standings">Standings</Link></li>
-                <li><Link className = "nav-text-sub uk-button-text uk-display-inline" to = "/tutorial">Tutorials</Link></li>
-              </ul>
-            </li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/haikus">Haikus</Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/quotes">Quotes</Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar</Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/teams">Teams</Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/assets">Assets</Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/standings">Standings</Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/tutorial">Tutorials</Link></li>
             
             <li className="uk-nav-divider"></li>
             <li uk-scrollspy="cls: uk-animation-slide-top; target: .icon; delay: 100;">
@@ -135,8 +83,4 @@ const Header:FC<Props> = (props) => {
   )
 }
 
-const mapStateToProps = (state:any) => ({
-  auth: state.auth,
-});
-
-export default withRouter(connect(mapStateToProps, { logoutUser })(Header));
+export default withRouter(Header);

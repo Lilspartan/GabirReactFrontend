@@ -170,7 +170,7 @@ const MainBody = () => {
                   id="mike"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100; repeat: true"
+                  uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p2; delay: 100"
                 >
                   <div>
                     <div
@@ -223,7 +223,7 @@ const MainBody = () => {
                   id="jerry"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100; repeat: true"
+                  uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p3; delay: 100;"
                 >
                   {/*Not Visible except on mobile (To make it easier to read)*/}
                   <div className="uk-hidden@m">
@@ -291,7 +291,7 @@ const MainBody = () => {
                   id="kara"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100; repeat: true"
+                  uk-scrollspy="cls: uk-animation-slide-left-small; target: .fade-p4; delay: 100;"
                 >
                   <div>
                     <div
@@ -344,7 +344,7 @@ const MainBody = () => {
                   id="gabe"
                   className="uk-child-width-expand@m uk-text-center uk-grid-match text-shadow"
                   uk-grid="parallax: 100"
-                  uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100; repeat: true"
+                  uk-scrollspy="cls: uk-animation-slide-right-small; target: .fade-p5; delay: 100;"
                 >
                   {/*Not Visible except on mobile (To make it easier to read)*/}
                   <div className="uk-hidden@m">

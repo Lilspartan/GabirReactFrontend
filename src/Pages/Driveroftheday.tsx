@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import LoadingIcon from '../components/LoadingIcon'
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
+import qs from 'qs';
 
 type Driver = {
     Username:  string;
@@ -14,17 +15,22 @@ type Driver = {
     id:        string;
 }
 
+type User = {
+    email: string,
+    picture: string
+}
+
 const Driveroftheday = (props: any) => {
     const [drivers, setDrivers] = useState<Driver[]>([])
-    const [dotd_voted, setvoted] = useState<Driver>(JSON.parse(localStorage.dotd_voted_last || "{}"));
     const [sending, setSending] = useState(false)
+    const [alreadyVoted, setAlreadyVoted] = useState(false);
+    const [voted, setVoted] = useState<Driver>()
+    const [twitchUser, setTwitchUser] = useState<User>({
+        email: "",
+        picture: ""
+    });
 
-    if (localStorage.getItem('dotd_voted_last_time')) {
-        if (Date.now() - Number(localStorage.getItem('dotd_voted_last_time')) >= 7200000) {
-            localStorage.removeItem('dotd_voted_last_time');
-            localStorage.removeItem('dotd_voted_last');
-        }
-    }
+    var token = (qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#access_token`])
 
     const [chosenDriver, setChosenDriver] = useState<Driver>()
 
@@ -36,6 +42,21 @@ const Driveroftheday = (props: any) => {
             if (res.status === 200) {
                 if (!d.do) {
                     props.history.push("/");
+                } else {
+                    if (!token) {
+                        props.history.push("/auth");
+                    } else {
+                        var res = await fetch('https://id.twitch.tv/oauth2/userinfo', {
+                            headers: new Headers({
+                                "Authorization": `Bearer ${token}`
+                            })
+                        })
+                        var userData:User = await res.json()
+                        if (res.status !== 200) {
+                            props.history.push("/auth");
+                        }
+                        await setTwitchUser(userData)
+                    }
                 }
             }
 
@@ -45,33 +66,53 @@ const Driveroftheday = (props: any) => {
         })()
     }, [])
 
+    useEffect(() => {
+        axios
+        .post('https://streaming.gabirmotors.com/dotd/checkvoted', { email: twitchUser.email })
+        .then(res => {
+            console.log(res.data)
+            if (res.data?.message == "ALREADY_VOTED") {
+                console.log(res.data)
+                setVoted(res.data.data.driver)
+                setAlreadyVoted(true);
+            }
+            
+            //window.location.reload();
+        })
+        .catch(e => {
+            alert('There was an error, try again later!')
+            console.log(e)
+        })
+    }, [twitchUser])
+
     const onChange = (e:any) => {
-        console.log(e)
-        if (!localStorage.getItem('dotd_voted_last')) {
-            setChosenDriver(drivers[e.target.value])
-        }
+        setChosenDriver(drivers[e.target.value])
     }
 
     const onSubmit = () => {
         if (chosenDriver !== undefined && chosenDriver.id !== undefined) {
-            if (!localStorage.getItem('dotd_voted_last')) {
-                axios
-                    .post('https://streaming.gabirmotors.com/dotd/vote', { id: chosenDriver.id })
-                    .then(res => {
-                        localStorage.setItem('dotd_voted_last', JSON.stringify(chosenDriver));
-                        localStorage.setItem('dotd_voted_last_time', String(Date.now()));
+            axios
+                .post('https://streaming.gabirmotors.com/dotd/vote', { id: chosenDriver.id, email: twitchUser.email })
+                .then(res => {
+                    if (res.data?.message == "ALREADY_VOTED") {
+                        console.log(res.data)
+                        setVoted(res.data.data.driver)
+                        setAlreadyVoted(true);
+                    } else {
                         setSending(true)
-                        setvoted(chosenDriver)
+                        setVoted(chosenDriver)
+                        setAlreadyVoted(true);
                         setTimeout(() => {
                             setSending(false);
-                        }, 5000)
-                        //window.location.reload();
-                    })
-                    .catch(e => {
-                        alert('There was an error, try again later!')
-                        console.log(e)
-                    })
-            }
+                        }, 2000)
+                    }
+                    
+                    //window.location.reload();
+                })
+                .catch(e => {
+                    alert('There was an error, try again later!')
+                    console.log(e)
+                })
         }
     }
 
@@ -83,9 +124,12 @@ const Driveroftheday = (props: any) => {
                 <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container">
                     <div className="uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
                         {!sending && (
-                            <Link to="/" className="uk-card-title uk-text-center">
-                                <img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px', }}/>
-                            </Link>
+                            <>
+                                <Link to="/" className="uk-card-title uk-text-center">
+                                    <img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px', }}/>
+                                </Link>
+                                <h3 className = "acumin"><img src={twitchUser.picture} style = {{ width: '5vw'}}/></h3>
+                            </> 
                         )}
 
                         {sending && (
@@ -93,7 +137,7 @@ const Driveroftheday = (props: any) => {
                         )}
 
                         {
-                            (!localStorage.getItem('dotd_voted_last') && !sending) && (
+                            (!alreadyVoted && !sending) && (
                                 <>
                                     <h1>Driver of the Day Vote</h1>
                                     <div className="uk-margin">
@@ -120,10 +164,10 @@ const Driveroftheday = (props: any) => {
                         }
 
                         {
-                            (localStorage.getItem('dotd_voted_last') && !sending) && (
+                            (alreadyVoted && !sending) && (
                                 <>
                                     <h2>You Have Already Voted For:</h2>
-                                    <h3>#{dotd_voted.CarNumber} {dotd_voted.Username}</h3>
+                                    <h3>#{voted?.CarNumber} {voted?.Username}</h3>
                                 </> 
                             )
                         }

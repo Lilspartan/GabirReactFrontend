@@ -9,8 +9,7 @@ class HaikuForm extends React.Component {
             Line1: "",
             Line2: "",
             Line3: "",
-            name: "",
-            uuid: localStorage.getItem("uuid") || null
+            name: ""
         };
     }
 
@@ -27,8 +26,7 @@ class HaikuForm extends React.Component {
                 this.state.Line2,
                 this.state.Line3
             ],
-            name: this.state.name,
-            uuid: this.state.uuid
+            name: this.state.name
         };
 
         axios

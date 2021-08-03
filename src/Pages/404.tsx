@@ -2,6 +2,13 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 const fourBody = () => {
+    var messages = [
+        `Well... this is embarassing. No idea what happened there`,
+        `This is not the page you are looking for`,
+        `Are you sure you typed that in correctly?`,
+        `They say you cut the course!`,
+        `You went off the track!`
+    ]
     return (
         <>
             <Header title = "Gabir Motors | 404" />
@@ -12,9 +19,8 @@ const fourBody = () => {
                 </h1>
 
                 <h1 className = "uk-position-center">
-                    404 Page Not Found
+                    {messages[Math.floor(Math.random() * messages.length)]}
                 </h1>
-               
                 <Footer />
             </div>
         </>
