@@ -21,14 +21,43 @@ type User = {
 }
 
 const Driveroftheday = (props: any) => {
+
+    /*
+        Steps:
+        
+        1. Check to see if vote is currently active
+        2. Check if the user is logged in, if yes skip to step 4
+        3. Display Twitch Sign In button
+        4. Check if the user has already voted, if yes skip to step 6
+        5. DIsplay the driver that the user voted for
+        6. Display the vote form
+
+        Possible Display States:
+
+        CHECKING - Getting the state
+        NO_VOTING_REDIRECT - vote is not active, redirect to main page
+        NOT_LOGGED_IN - Display the twitch log in button
+        ALREADY_VOTED - Display the previous voted
+        HAS_NOT_VOTED - Display the form
+    */
+
+    // List of drivers that can be voted for 
     const [drivers, setDrivers] = useState<Driver[]>([])
-    const [sending, setSending] = useState(false)
+
+    // Wether the user has voted yet or not
     const [alreadyVoted, setAlreadyVoted] = useState(false);
+
+    // The driver the user has already voted for or undefined
     const [voted, setVoted] = useState<Driver>()
+
+    // The twitch user with email to ensure no duplicate votes, and picture to display the user
     const [twitchUser, setTwitchUser] = useState<User>({
         email: "",
         picture: ""
     });
+
+    // Save the display state
+    const [displayState, setDisplayState] = useState("CHECKING")
 
     var token = (qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#access_token`])
 
@@ -36,16 +65,21 @@ const Driveroftheday = (props: any) => {
 
     useEffect(() => {
         (async() => {
+            // STEP 1: Check if the vote is active
             var res = await fetch('https://streaming.gabirmotors.com/dodotd');
             var d = await res.json();
     
             if (res.status === 200) {
                 if (!d.do) {
+                    // If the vote is not active, go to the main page
+                    setDisplayState("NO_VOTING_REDIRECT")
                     props.history.push("/");
                 } else {
                     if (!token) {
-                        props.history.push("/auth");
+                        // Not Logged In
+                        setDisplayState("NOT_LOGGED_IN")
                     } else {
+                        // Logged In
                         var res = await fetch('https://id.twitch.tv/oauth2/userinfo', {
                             headers: new Headers({
                                 "Authorization": `Bearer ${token}`
@@ -53,7 +87,8 @@ const Driveroftheday = (props: any) => {
                         })
                         var userData:User = await res.json()
                         if (res.status !== 200) {
-                            props.history.push("/auth");
+                            // Invalid token
+                            setDisplayState("NOT_LOGGED_IN")
                         }
                         await setTwitchUser(userData)
                     }
@@ -75,6 +110,9 @@ const Driveroftheday = (props: any) => {
                 console.log(res.data)
                 setVoted(res.data.data.driver)
                 setAlreadyVoted(true);
+                setDisplayState("ALREADY_VOTED")
+            } else {
+                setDisplayState("HAS_NOT_VOTED")
             }
             
             //window.location.reload();
@@ -99,12 +137,9 @@ const Driveroftheday = (props: any) => {
                         setVoted(res.data.data.driver)
                         setAlreadyVoted(true);
                     } else {
-                        setSending(true)
+                        setDisplayState("ALREADY_VOTED");
                         setVoted(chosenDriver)
                         setAlreadyVoted(true);
-                        setTimeout(() => {
-                            setSending(false);
-                        }, 2000)
                     }
                     
                     //window.location.reload();
@@ -123,7 +158,16 @@ const Driveroftheday = (props: any) => {
 
                 <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container">
                     <div className="uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
-                        {!sending && (
+                        {displayState === "NOT_LOGGED_IN" && (
+                            <>
+                                <h1>Sign in to vote</h1>
+                                <div className="uk-margin">
+                                    <a href='https://id.twitch.tv/oauth2/authorize?client_id=6gfpjegdkmcmepffbvh4vfp8s9vd13&redirect_uri=https://gabirmotors.com/vote&response_type=token+id_token&scope=user:read:email+openid&claims={ "id_token": { "email": null, "email_verified": null }, "userinfo": { "picture": null, "email": null } }' className = "uk-button uk-button-primary" style = {{ backgroundColor: '#6441a5', color: 'white' }}>Sign in with <span uk-icon = "icon:twitch; ratio: 1.4"></span></a>
+                                </div>
+                            </>
+                        )}
+                        
+                        {(displayState === "ALREADY_VOTED" || displayState === "HAS_NOT_VOTED") && (
                             <>
                                 <Link to="/" className="uk-card-title uk-text-center">
                                     <img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px', }}/>
@@ -132,12 +176,9 @@ const Driveroftheday = (props: any) => {
                             </> 
                         )}
 
-                        {sending && (
-                            <LoadingIcon />
-                        )}
 
                         {
-                            (!alreadyVoted && !sending) && (
+                            (displayState === "HAS_NOT_VOTED") && (
                                 <>
                                     <h1>Driver of the Day Vote</h1>
                                     <div className="uk-margin">
@@ -164,7 +205,7 @@ const Driveroftheday = (props: any) => {
                         }
 
                         {
-                            (alreadyVoted && !sending) && (
+                            (displayState === "ALREADY_VOTED") && (
                                 <>
                                     <h2>You Have Already Voted For:</h2>
                                     <h3>#{voted?.CarNumber} {voted?.Username}</h3>

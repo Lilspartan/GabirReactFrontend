@@ -18,8 +18,6 @@ import MainTutorial from "./Pages/Tutorial";
 import MainDOTD from './Pages/Driveroftheday';
 import MainStandings from './Pages/Standings';
 
-import MainTwitch from './Pages/testTwitch';
-
 import './index.scss'
 
 const App = () => {
@@ -37,7 +35,6 @@ const App = () => {
         <Route path='/showoff' component = {MainShowoff} />
         <Route path='/tutorial' component = {MainTutorial} />
         <Route path='/timeline' component = {MainTimeline} />
-        <Route path='/auth' component = {MainTwitch} />
         <Route path='/vote' component = {MainDOTD} />
         <Route path = "*" component = {fourBody} />
       </Switch>
