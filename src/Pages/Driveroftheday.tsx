@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import LoadingIcon from '../components/LoadingIcon'
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import qs from 'qs';
@@ -22,14 +21,18 @@ type User = {
 
 const Driveroftheday = (props: any) => {
 
-    /*
+    /*  
+        This is the only code I have properly commented and it makes me happy, if you see this I 
+        want you to know that 
+                                        - Gabe
+
         Steps:
         
         1. Check to see if vote is currently active
         2. Check if the user is logged in, if yes skip to step 4
         3. Display Twitch Sign In button
         4. Check if the user has already voted, if yes skip to step 6
-        5. DIsplay the driver that the user voted for
+        5. Display the driver that the user voted for
         6. Display the vote form
 
         Possible Display States:
@@ -44,24 +47,20 @@ const Driveroftheday = (props: any) => {
     // List of drivers that can be voted for 
     const [drivers, setDrivers] = useState<Driver[]>([])
 
-    // Wether the user has voted yet or not
-    const [alreadyVoted, setAlreadyVoted] = useState(false);
-
     // The driver the user has already voted for or undefined
     const [voted, setVoted] = useState<Driver>()
 
     // The twitch user with email to ensure no duplicate votes, and picture to display the user
-    const [twitchUser, setTwitchUser] = useState<User>({
-        email: "",
-        picture: ""
-    });
+    const [twitchUser, setTwitchUser] = useState<User>({ email: "", picture: "" });
 
     // Save the display state
     const [displayState, setDisplayState] = useState("CHECKING")
 
-    var token = (qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#access_token`])
-
+    // The driver the user has voted for
     const [chosenDriver, setChosenDriver] = useState<Driver>()
+
+    // The users's token to get user info
+    var token = (qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#access_token`])
 
     useEffect(() => {
         (async() => {
@@ -75,6 +74,7 @@ const Driveroftheday = (props: any) => {
                     setDisplayState("NO_VOTING_REDIRECT")
                     props.history.push("/");
                 } else {
+                    // STEP 2: Check if the user is logged in
                     if (!token) {
                         // Not Logged In
                         setDisplayState("NOT_LOGGED_IN")
@@ -102,6 +102,7 @@ const Driveroftheday = (props: any) => {
     }, [])
 
     useEffect(() => {
+        // STEP 4: Check if the user has already voted
         axios
         .post('https://streaming.gabirmotors.com/dotd/checkvoted', { email: twitchUser.email })
         .then(res => {
@@ -109,13 +110,10 @@ const Driveroftheday = (props: any) => {
             if (res.data?.message == "ALREADY_VOTED") {
                 console.log(res.data)
                 setVoted(res.data.data.driver)
-                setAlreadyVoted(true);
                 setDisplayState("ALREADY_VOTED")
             } else {
                 setDisplayState("HAS_NOT_VOTED")
             }
-            
-            //window.location.reload();
         })
         .catch(e => {
             alert('There was an error, try again later!')
@@ -135,11 +133,9 @@ const Driveroftheday = (props: any) => {
                     if (res.data?.message == "ALREADY_VOTED") {
                         console.log(res.data)
                         setVoted(res.data.data.driver)
-                        setAlreadyVoted(true);
                     } else {
                         setDisplayState("ALREADY_VOTED");
                         setVoted(chosenDriver)
-                        setAlreadyVoted(true);
                     }
                     
                     //window.location.reload();

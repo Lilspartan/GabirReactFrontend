@@ -8,11 +8,9 @@ This is it, look around I guess.
 
 ## Todo
 - [x] Make button on TeamPage redirect to last page
-- [ ] Allow changing of racer data on dashboard
 - [ ] Fix the standings page overflowing to the right on mobile 
 - [ ] Add archived calendar pages for previous seasons
 - [ ] Possibly add calendars for other series
-- [ ] Submitting a haiku without being signed in should prompt you to do so
 
 > My speed is driven by a desire to kill 
 > -Angus

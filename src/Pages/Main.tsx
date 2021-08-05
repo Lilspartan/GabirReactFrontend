@@ -16,6 +16,7 @@ const MainBody = () => {
         "note"
       ],
       "notes": null,
+      "winnerNumber": null,
       "winner": null,
       "theme": null
     },

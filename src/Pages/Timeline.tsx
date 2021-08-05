@@ -69,7 +69,7 @@ const Timeline = (props:any) => {
                             <TimelineEvent text = "PA League 1 Year Anniversary" />
                             <TimelineEvent text = "Red Stapler (Michael Carpenter2) - 222 Points" team = "LWP" />
 
-                            <SeasonMarker>7<br /><h2><i>July 29, 2021 - ??? 2021</i></h2></SeasonMarker>
+                            <SeasonMarker>7<br /><h2><i>July 29, 2021 - Sep 30, 2021</i></h2></SeasonMarker>
                         </div>
                     </div>
                 </>

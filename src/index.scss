@@ -125,7 +125,7 @@ html {
 }
 
 .icon-button-discord:hover {
-  color: #738adb;
+  color: #5865F2;
 }
 
 .icon-button-twitch:hover {
@@ -142,6 +142,10 @@ html {
 
 .icon-button-store:hover {
   color: #FF8300;
+}
+
+.icon-button-share:hover {
+  color: #36c900;
 }
 
 .progessBar {
@@ -300,5 +304,10 @@ option:checked {
 }
 
 .uk-modal-title {
+  color: white;
+}
+
+.uk-dropdown {
+  background-color: #222222;
   color: white;
 }
