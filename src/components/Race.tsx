@@ -87,7 +87,7 @@ const Race:FC<Props> = ({ race }) => {
                 <span className="uk-hidden@m uk-text-uppercase uk-text-bolder"> Winner: {" "} </span> {" "} {race.tags.winner}
               </span> 
             </button>
-            <div uk-dropdown = "pos: left-left; animation: uk-animation-slide-left-medium; duration: 100">
+            <div uk-dropdown = "pos: top-center">
               <Link to = {`/teams${driver?.team?.abbr !== "LWP" ? '/'+driver?.team?.abbr : ''}?from=calendar`}><img alt = {`${driver?.team?.name} logo`} className = "standings-logo" src = {`https://i.gabirmotors.com/assets/teams/${driver?.team?.abbr}/main.png`} /></Link> 
               <br /> 
               #{driver?.car_number} {driver?.name} {driver?.username ? `(${driver.username})` : ''}

@@ -58,7 +58,7 @@ const Calendar = () => {
         <div uk-filter="target: .js-filter; animation: fade" className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
           <div className = "uk-position-top-center" style = {{ zIndex: 10000 }}>
           </div>
-          <table uk-scrollspy="cls: uk-animation-slide-left-small; target: .tag-race; delay: 50;" className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8vh'}}>
+          <table uk-scrollspy="cls: uk-animation-slide-left-small; target: .tag-race; delay: 50;" className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8rem'}}>
             <caption className = "uk-padding uk-position-top">
               <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 7 Calendar</h3>
             </caption>
