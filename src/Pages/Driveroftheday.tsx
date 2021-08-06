@@ -103,23 +103,27 @@ const Driveroftheday = (props: any) => {
 
     useEffect(() => {
         // STEP 4: Check if the user has already voted
-        axios
-        .post('https://streaming.gabirmotors.com/dotd/checkvoted', { email: twitchUser.email })
-        .then(res => {
-            console.log(res.data)
-            if (res.data?.message == "ALREADY_VOTED") {
-                console.log(res.data)
-                setVoted(res.data.data.driver)
-                setDisplayState("ALREADY_VOTED")
-            } else {
-                setDisplayState("HAS_NOT_VOTED")
-            }
-        })
-        .catch(e => {
-            alert('There was an error, try again later!')
-            console.log(e)
-        })
+        if (token) {
+            axios
+            .post('https://streaming.gabirmotors.com/dotd/checkvoted', { email: twitchUser.email })
+            .then(res => {
+                if (res.data?.message == "ALREADY_VOTED") {
+                    setVoted(res.data.data.driver)
+                    setDisplayState("ALREADY_VOTED")
+                } else {
+                    setDisplayState("HAS_NOT_VOTED")
+                }
+            })
+            .catch(e => {
+                alert('There was an error, try again later!')
+                console.log(e)
+            })
+        }
     }, [twitchUser])
+
+    useEffect(() => {
+        console.log(displayState)
+    }, [displayState])
 
     const onChange = (e:any) => {
         setChosenDriver(drivers[e.target.value])
@@ -176,7 +180,7 @@ const Driveroftheday = (props: any) => {
                         {
                             (displayState === "HAS_NOT_VOTED") && (
                                 <>
-                                    <h1>Driver of the Day Vote</h1>
+                                    <h1>Livery Parade Vote</h1>
                                     <div className="uk-margin">
                                         <div uk-form-custom="target: > * > span:first-child">
                                             <select onChange = {onChange}>

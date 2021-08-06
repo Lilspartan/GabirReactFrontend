@@ -71,7 +71,7 @@ const Header:FC<Props> = (props) => {
 
             <RightTabLink id = "draw4link" target = "draw4" type = "success"></RightTabLink>
 
-            { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Driver of the Day</Link> }
+            { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
             
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/haikus">Haikus</Link></li>

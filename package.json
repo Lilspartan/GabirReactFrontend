@@ -20,6 +20,7 @@
     "bcrypt": "^5.0.0",
     "classnames": "^2.2.6",
     "crypto-js": "^4.0.0",
+    "framer-motion": "^4.1.17",
     "fs": "^0.0.1-security",
     "is-empty": "^1.2.0",
     "json-server": "^0.16.3",
