@@ -14,5 +14,3 @@ This is it, look around I guess.
 
 > My speed is driven by a desire to kill 
 > -Angus
-
-NzA2OTg5MjcwMzgwMDUyNTcw.XrCREQ.BaP6sJaP8O3oLNTWmm0imwtunGk
