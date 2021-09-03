@@ -65,10 +65,10 @@ const Driveroftheday = (props: any) => {
     useEffect(() => {
         (async() => {
             // STEP 1: Check if the vote is active
-            var res = await fetch('https://streaming.gabirmotors.com/dodotd');
-            var d = await res.json();
+            var checkResponse = await fetch('https://streaming.gabirmotors.com/dodotd');
+            var d = await checkResponse.json();
     
-            if (res.status === 200) {
+            if (checkResponse.status === 200) {
                 if (!d.do) {
                     // If the vote is not active, go to the main page
                     setDisplayState("NO_VOTING_REDIRECT")
@@ -80,13 +80,13 @@ const Driveroftheday = (props: any) => {
                         setDisplayState("NOT_LOGGED_IN")
                     } else {
                         // Logged In
-                        var res = await fetch('https://id.twitch.tv/oauth2/userinfo', {
+                        var userRes = await fetch('https://id.twitch.tv/oauth2/userinfo', {
                             headers: new Headers({
                                 "Authorization": `Bearer ${token}`
                             })
                         })
-                        var userData:User = await res.json()
-                        if (res.status !== 200) {
+                        var userData:User = await userRes.json()
+                        if (userRes.status !== 200) {
                             // Invalid token
                             setDisplayState("NOT_LOGGED_IN")
                         }
@@ -99,7 +99,7 @@ const Driveroftheday = (props: any) => {
             const data:Driver[] = await res.json()
             setDrivers(data)
         })()
-    }, [])
+    }, [token, props.history])
 
     useEffect(() => {
         // STEP 4: Check if the user has already voted
@@ -107,7 +107,7 @@ const Driveroftheday = (props: any) => {
             axios
             .post('https://streaming.gabirmotors.com/dotd/checkvoted', { email: twitchUser.email })
             .then(res => {
-                if (res.data?.message == "ALREADY_VOTED") {
+                if (res.data?.message === "ALREADY_VOTED") {
                     setVoted(res.data.data.driver)
                     setDisplayState("ALREADY_VOTED")
                 } else {
@@ -119,7 +119,7 @@ const Driveroftheday = (props: any) => {
                 console.log(e)
             })
         }
-    }, [twitchUser])
+    }, [twitchUser, token])
 
     useEffect(() => {
         console.log(displayState)
@@ -134,7 +134,7 @@ const Driveroftheday = (props: any) => {
             axios
                 .post('https://streaming.gabirmotors.com/dotd/vote', { id: chosenDriver.id, email: twitchUser.email })
                 .then(res => {
-                    if (res.data?.message == "ALREADY_VOTED") {
+                    if (res.data?.message === "ALREADY_VOTED") {
                         console.log(res.data)
                         setVoted(res.data.data.driver)
                     } else {
@@ -172,7 +172,7 @@ const Driveroftheday = (props: any) => {
                                 <Link to="/" className="uk-card-title uk-text-center">
                                     <img src = "img/logo.png" alt = "GM logo" style = {{width: '10vw', height: 'auto', minWidth: '200px', }}/>
                                 </Link>
-                                <h3 className = "acumin"><img src={twitchUser.picture} style = {{ width: '5vw'}}/></h3>
+                                <h3 className = "acumin"><img src={twitchUser.picture} alt = {twitchUser.email} style = {{ width: '5vw'}}/></h3>
                             </> 
                         )}
 
@@ -198,7 +198,7 @@ const Driveroftheday = (props: any) => {
                                         </div>
                                     </div>
                                     <div className = "uk-margin">
-                                        <a className = "uk-text-success" onClick = {onSubmit}>Submit Vote</a>
+                                        <a className = "uk-text-success" onClick = {onSubmit} href = "#submit">Submit Vote</a>
                                     </div>
                                 </>
                             )

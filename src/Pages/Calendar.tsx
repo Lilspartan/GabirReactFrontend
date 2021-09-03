@@ -51,7 +51,7 @@ const Calendar = () => {
 
   return (
     <>
-      <Header title = "Gabir Motors | Calendar" />
+      <Header title = "Gabir Motors | Calendar" desc = "View the Gabir Motors Cup Calendar"/>
       {loading && <Loading />}
       
       {!loading && (

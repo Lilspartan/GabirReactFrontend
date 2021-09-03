@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ShareButton = () => {
     const handleClick = () => {
         if (navigator.share) {
@@ -20,7 +18,7 @@ const ShareButton = () => {
 
     return (
         <>
-            <a onClick = {handleClick} uk-tooltip = "Share" className = "icon uk-display-inline uk-button" href = "#"><span className = "icon-button icon-button-share" uk-icon = "icon:social; ratio: 1.4"></span></a>&nbsp;&nbsp;
+            <a onClick = {handleClick} uk-tooltip = "Share" className = "icon uk-display-inline uk-button" href = "#share"><span className = "icon-button icon-button-share" uk-icon = "icon:social; ratio: 1.4"></span></a>&nbsp;&nbsp;
         </>
     )
 }
