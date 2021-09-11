@@ -50,6 +50,11 @@ const TeamsPage = () => {
             <div uk-lightbox = "true" className = "file">
                 <li className = "uk-active">
                     <a data-caption= {`${name} | ${((fileSize / 1000) / 1000).toFixed(2)}MB`} className = "uk-text-left uk-link" href={`https://i.gabirmotors.com${path.replace("public", "")}`} target = "_blank" style = {{ paddingLeft: `${size * 20}px`, fontSize: '24px' }}><span uk-icon={displayIcon}></span> {name} {showSize && <span className = "uk-text-muted">| {((fileSize / 1000) / 1000).toFixed(2)}MB</span>}</a>
+                    {displayIcon === "image" && (
+                        <div style = {{ backgroundColor: 'rgba(0,0,0,0)' }} uk-dropdown = "pos: left; offset: 100;animation: uk-animation-slide-left-medium; duration: 100; delay-hide: 0">
+                            <img src={`https://i.gabirmotors.com${path.replace("public", "")}`} alt="" style = {{ maxHeight: '250px', maxWidth: '300px' }}/>
+                        </div>
+                    )}
                 </li>
             </div>
         )
