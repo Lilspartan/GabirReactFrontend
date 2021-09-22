@@ -3,9 +3,13 @@ import Footer from "../components/Footer";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import { Race } from '../interfaces';
+import Alert from '../components/Alert/index';
+import qs from 'qs';
+import { Notification, Area } from '../components/Notification/index'
 
-const MainBody = () => {
+const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
+  const [urlQuery, setUrlQuery] = useState(qs.parse(props.location.search, { ignoreQueryPrefix: true }));
   const [next, setNext] = useState<Race>({
     "tags": {
       "paid": {
@@ -77,6 +81,26 @@ const MainBody = () => {
 
       {!loading && (
         <>
+          {
+            urlQuery?.error && urlQuery.error === "noteam" && (
+              <Alert type = "danger" title = "Error!" text = "Error with retrieving the given team" />
+            )
+          }
+
+          {
+            urlQuery?.success && urlQuery.success === "quotesubmit" && (
+              <Alert type = "success" title = "Success!" text = "Your quote has been recieved, thank you!" />
+            )
+          }
+
+          {
+            urlQuery?.success && urlQuery.success === "haikusubmit" && (
+              <Alert type = "success" title = "Success!" text = "Your haiku has been recieved, thank you!" />
+            )
+          }
+          
+          <Alert type = "info" title = "Important!" text = "Mike Racecar will not be available to race this week" id = "nomikeracecar"/>
+
           <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
             <div className="uk-offcanvas-bar">
               <img src="img/NorthernHarbor.png" alt="Northern Harbor Logo" />
@@ -151,6 +175,7 @@ const MainBody = () => {
                   <a href="#mike" className="uk-button uk-button-default">
                     Meet the team
                   </a>
+                  {/* <Button type = "success" /> */}
                 </h3>
               </div>
             </div>

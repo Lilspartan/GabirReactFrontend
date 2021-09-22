@@ -26,7 +26,7 @@ const Row = ({ standing, colors, moreData, champions }: RowProps) => {
                 borderLeft: border
             }}>
                 { (
-                    <Link to = {`/teams${team !== "LWP" ? '/'+team : ''}?from=standings`}><img alt = {`${team} logo`} className = "standings-logo" src = {`https://i.gabirmotors.com/assets/teams/${team}/main.png`} /></Link>
+                    <Link to = {`/teams${team !== "LWP" ? '/'+team : '/LWP'}?from=standings`}><img alt = {`${team} logo`} className = "standings-logo" src = {`https://i.gabirmotors.com/assets/teams/${team}/main.png`} /></Link>
                 ) }
                 </td>
             <td className = "standings-pos">{standing.pos}</td>
