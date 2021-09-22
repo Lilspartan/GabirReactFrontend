@@ -1,0 +1,124 @@
+:root {
+  --color: #222222;
+}
+
+.alert {
+  background-color: var(--default);
+  color: white;
+  padding: 15px 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-weight: 500;
+  width: clamp(30%, 1000px, 80%);
+  margin: auto;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.alert-success {
+  --color: #3BA55C;
+  background-color: var(--color);
+}
+
+.alert-danger {
+  --color: #f04847;
+  background-color: var(--color);
+}
+
+.alert-info {
+  --color: #00c1e3;
+  background-color: var(--color);
+}
+
+.alert-warning {
+  --color: #f3a119;
+  background-color: var(--color);
+  color: black;
+}
+
+.alert-light {
+  --color: #fefefe;
+  background-color: var(--color);
+  color: black;
+}
+
+.alert-warning .alert-close a {
+  background-color: var(--warning);
+  color: black;
+}
+
+.alert-close {
+  float: right;
+  cursor: pointer;
+}
+
+.alert-close a {
+  color: white;
+  text-decoration: none;
+}
+
+.alert.show {
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-timing-function: ease-out;
+}
+
+.alert.hide {
+  animation-duration: 1s;
+  animation-name: slideout;
+  animation-timing-function: ease-in;
+  top: -100%;
+}
+
+.alert-body {
+  padding: 25px;
+}
+
+.alert-title {
+  font-weight: bolder;
+  font-size: 1.1em;
+  padding-right: 10px;
+}
+
+@keyframes slidein {
+  from {
+    top: -100%;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+@keyframes slideout {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: -100%;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .alert {
+    text-align: center;
+  }
+  .alert-title {
+    display: block;
+  }
+}
+
+.alert-buttons {
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.alert-button {
+  color: (--color);
+  text-decoration: none;
+}

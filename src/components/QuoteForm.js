@@ -29,7 +29,7 @@ class QuoteForm extends React.Component {
             body: JSON.stringify(newQuote)
         })
             .then(res => {
-                alert('Success!')
+                //alert('Success!')
                 this.props.history.push("/?from=quotesubmit&success=quotesubmit");
             })
             .catch(err => {

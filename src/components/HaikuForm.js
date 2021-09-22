@@ -32,7 +32,7 @@ class HaikuForm extends React.Component {
         axios
             .post("https://api.gabirmotors.com/haikus/new", newHaiku)
             .then(res => {
-                alert('Success!');
+                //alert('Success!');
                 this.props.history.push('/?from=haikusubmit&success=haikusubmit')
             })
             .catch(err => {
