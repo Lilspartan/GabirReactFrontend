@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom'
 import InfoTab from '../components/InfoTab'
+import Alert from '../components/Alert/index'
 import { 
     File as FileTypes, 
     Folder as FolderTypes, 
@@ -80,6 +81,7 @@ const TeamsPage = () => {
             <Header
                 title={`Gabir Motors | Assets`}
             />
+            <Alert type = "info" title = "Tip:" text = 'Hovering over an image name now displays a preview of that image' id = "assetspreview"/>
             
             <InfoTab>
                 <h2>PA League Assets</h2>
