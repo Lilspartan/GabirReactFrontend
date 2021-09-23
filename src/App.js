@@ -20,6 +20,34 @@ import MainStandings from './Pages/Standings';
 
 import './index.scss'
 
+var channelOrder = [
+  {
+      url: "https://www.twitch.tv/skiggity242",
+      id: "71778837",
+      name: "Skiggity242"
+  },
+  {
+      url: "https://www.twitch.tv/pennyarcade",
+      id: "7443503",
+      name: "Penny Arcade"
+  }
+]
+
+const getViewers = async (user) => {
+  var res = await fetch(`https://api.twitch.tv/helix/streams?user_id=${user.id}`, {
+      headers: new Headers({
+          'Client-ID': 'v354nab7jsgctl2zww4ic69tc4l3hf',
+          'Authorization': 'Bearer jkmoj86ctljekpx3xl7ix28iwmzyen'
+      })
+  })
+
+  var data = await res.json();
+  if (data.data.length) {
+      console.log(`${user.url} is Online!`)
+      window.location.href = user.url
+  }
+}
+
 const App = () => {
   return (
     <Router>
@@ -36,6 +64,13 @@ const App = () => {
         <Route path='/tutorial' component = {MainTutorial} />
         <Route path='/timeline' component = {MainTimeline} />
         <Route path='/vote' component = {MainDOTD} />
+        <Route path='/live' component = {() => {
+          for (var i in channelOrder) {
+              getViewers(channelOrder[i])
+          }
+          window.location.href = "https://www.twitch.tv/pennyarcade"
+          return null;
+        }} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>

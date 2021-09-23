@@ -1,0 +1,86 @@
+:root {
+    --color: #222222;
+    --secondary: white;
+}
+
+.notification-success {
+    --color: #3BA55C;
+    --secondary: white;
+}
+
+.notification-danger {
+    --color: #f04847;
+    --secondary: white;
+}
+
+.notification-info {
+    --color: #00c1e3;
+    --secondary: white;
+}
+
+.notification-warning {
+    --color: #f3a119;
+    --secondary: black;
+}
+
+.notification-light {
+    --color: #fefefe;  
+    --secondary: black; 
+}
+
+#notifications {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    align-content: right;
+    align-items: right;
+    width: clamp(30%, 500px, 40%);
+    margin: 10px clamp(1%, 50px, 5%);
+    padding: 10px;
+    z-index: 10;
+}
+
+.notification {
+    background-color: var(--color);
+    color: var(--secondary);
+    padding: 15px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    width: 100%;
+    margin: 10px 10px;
+    transition: all 0.5s ease;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.notification:hover {
+    margin-left: 20px;
+    opacity: 1;
+}
+
+.notification-close {
+    float: right;
+    cursor: pointer;
+    color: white;
+}
+
+.notification-close a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.notification.show {
+    display: block;
+}
+
+.notification.hide {
+    display: none;
+}
+
+.notification-body {
+    padding-right: 15px;
+}
+
+.notification-icon {
+    margin-right: 1em;
+}

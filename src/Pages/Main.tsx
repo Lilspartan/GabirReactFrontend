@@ -9,6 +9,7 @@ import { Notification, Area } from '../components/Notification/index'
 
 const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
+  const [isLive, setIsLive] = useState(false);
   const [urlQuery, setUrlQuery] = useState(qs.parse(props.location.search, { ignoreQueryPrefix: true }));
   const [next, setNext] = useState<Race>({
     "tags": {
@@ -71,6 +72,23 @@ const MainBody = (props: any) => {
     setTimeout(() => {
       setLoading(false);
     }, 1500)
+
+    var startTime = '19:30:00';
+    var endTime = '21:30:00';
+
+    var currentDate = new Date()   
+
+    var startDate = new Date(currentDate.getTime());
+    startDate.setHours(Number(startTime.split(":")[0]));
+    startDate.setMinutes(Number(startTime.split(":")[1]));
+    startDate.setSeconds(Number(startTime.split(":")[2]));
+
+    var endDate = new Date(currentDate.getTime());
+    endDate.setHours(Number(endTime.split(":")[0]));
+    endDate.setMinutes(Number(endTime.split(":")[1]));
+    endDate.setSeconds(Number(endTime.split(":")[2]));
+
+    setIsLive(startDate < currentDate && endDate > currentDate && currentDate.getDay() == 4);
   }, [])
 
 
@@ -99,7 +117,17 @@ const MainBody = (props: any) => {
             )
           }
           
-          <Alert type = "info" title = "Important!" text = "Mike Racecar will not be available to race this week" id = "nomikeracecar"/>
+          <Alert type = "info" title = "Important!" text = "Mike Racecar will not be available to race this week" id = "nonmikeracecar"/>
+
+          <Area>
+            {isLive && (
+              <>
+                <Notification icon = "twitch" link = "https://gabirmotors.com/live">
+                  The League is Live RIGHT NOW!!! Click this to watch
+                </Notification>
+              </>
+            )}
+          </Area>
 
           <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
             <div className="uk-offcanvas-bar">

@@ -82,11 +82,6 @@ const TeamsPage = () => {
                 title={`Gabir Motors | Assets`}
             />
             <Alert type = "info" title = "Tip:" text = 'Hovering over an image name now displays a preview of that image' id = "assetspreview"/>
-            
-            <InfoTab>
-                <h2>PA League Assets</h2>
-                
-            </InfoTab>
 
             <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
                 
