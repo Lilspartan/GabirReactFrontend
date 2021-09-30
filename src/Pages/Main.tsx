@@ -115,15 +115,13 @@ const MainBody = (props: any) => {
             urlQuery?.success && urlQuery.success === "haikusubmit" && (
               <Alert type = "success" title = "Success!" text = "Your haiku has been recieved, thank you!" />
             )
-          }
-          
-          <Alert type = "info" title = "Important!" text = "Mike Racecar will not be available to race this week" id = "nonmikeracecar"/>
+          }        
 
           <Area>
             {isLive && (
               <>
                 <Notification icon = "twitch" link = "https://gabirmotors.com/live">
-                  The League is Live RIGHT NOW!!! Click this to watch
+                  The League is Live RIGHT NOW!!! Click to watch
                 </Notification>
               </>
             )}
