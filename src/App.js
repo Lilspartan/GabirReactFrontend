@@ -18,6 +18,8 @@ import MainTutorial from "./Pages/Tutorial";
 import MainDOTD from './Pages/Driveroftheday';
 import MainStandings from './Pages/Standings';
 
+import NewAssets from './Pages/NewAssets';
+
 import './index.scss'
 
 var channelOrder = [
@@ -71,6 +73,7 @@ const App = () => {
           window.location.href = "https://www.twitch.tv/pennyarcade"
           return null;
         }} />
+        <Route path ='/newassets' exact component = {NewAssets} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
