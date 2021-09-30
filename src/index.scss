@@ -1,5 +1,14 @@
 @import url("https://use.typekit.net/wyp3msi.css");
 
+:root {
+  --success: #3ba55c;
+  --danger: #f04847;
+  --default: #222222;
+  --light: #fefefe;
+  --info: #00c1e3;
+  --warning: #f3a119;
+}
+
 html,
 body {
   padding: 0;

@@ -1,34 +1,9 @@
 :root {
     --color: #222222;
     --secondary: white;
-}
-
-.notification-success {
-    --color: #3BA55C;
-    --secondary: white;
-}
-
-.notification-danger {
-    --color: #f04847;
-    --secondary: white;
-}
-
-.notification-info {
-    --color: #00c1e3;
-    --secondary: white;
-}
-
-.notification-warning {
-    --color: #f3a119;
-    --secondary: black;
-}
-
-.notification-light {
-    --color: #fefefe;  
-    --secondary: black; 
-}
-
-#notifications {
+  }
+  
+  #notifications {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -37,10 +12,9 @@
     width: clamp(30%, 500px, 40%);
     margin: 10px clamp(1%, 50px, 5%);
     padding: 10px;
-    z-index: 10;
-}
-
-.notification {
+  }
+  
+  .notification {
     background-color: var(--color);
     color: var(--secondary);
     padding: 15px 10px;
@@ -48,39 +22,55 @@
     font-weight: 500;
     width: 100%;
     margin: 10px 10px;
-    transition: all 0.5s ease;
-    opacity: 1;
-    text-decoration: none;
-}
-
-.notification:hover {
-    margin-left: 20px;
-    opacity: 1;
-}
-
-.notification-close {
+    transition: all 0.3s ease;
+    box-shadow: 0px 9px 40px -16px #000000;
+  }
+  
+  .notification-success {
+    --color: var(--success);
+    --secondary: white;
+  }
+  
+  .notification-danger {
+    --color: var(--danger);
+    --secondary: white;
+  }
+  
+  .notification-info {
+    --color: var(--info);
+    --secondary: white;
+  }
+  
+  .notification-warning {
+    --color: var(--warning);
+    --secondary: black;
+  }
+  
+  .notification-light {
+    --color: var(--light);
+    --secondary: black;
+  }
+  
+  .notification:hover {
+    margin-left: 15px;
+  }
+  
+  .notification-close a {
     float: right;
     cursor: pointer;
-    color: white;
-}
-
-.notification-close a {
     color: var(--secondary);
     text-decoration: none;
-}
-
-.notification.show {
+  }
+  
+  .notification.show {
     display: block;
-}
-
-.notification.hide {
+  }
+  
+  .notification.hide {
     display: none;
-}
-
-.notification-body {
+  }
+  
+  .notification-body {
     padding-right: 15px;
-}
-
-.notification-icon {
-    margin-right: 1em;
-}
+  }
+  

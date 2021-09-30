@@ -1,52 +1,68 @@
 :root {
   --color: #222222;
+  --pullamount: 30px;
 }
 
 .alert {
-  background-color: var(--default);
-  color: white;
+  background-color: var(--color);
+  color: var(--secondary);
   padding: 15px 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   font-weight: 500;
   width: clamp(30%, 1000px, 80%);
   margin: auto;
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 10;
+  z-index: 11;
+  transition: all 0.3s ease;
+}
+
+.alert.show:not(.alert-bottom):hover {
+  padding-top: var(--pullamount);
+  width: clamp(35%, 1010px, 85%);
+  box-shadow: 0px 9px 40px -16px #000000;
+}
+
+.alert.show.alert-bottom:hover {
+  padding-bottom: var(--pullamount);
+  width: clamp(35%, 1010px, 85%);
+  box-shadow: 0px -9px 40px -16px #000000;
+}
+
+.alert:not(.alert-bottom) {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.alert.alert-bottom {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  bottom: 0;
 }
 
 .alert-success {
-  --color: #3BA55C;
-  background-color: var(--color);
+  --color: var(--success);
+  --secondary: white;
 }
 
 .alert-danger {
-  --color: #f04847;
-  background-color: var(--color);
+  --color: var(--danger);
+  --secondary: white;
 }
 
 .alert-info {
-  --color: #00c1e3;
-  background-color: var(--color);
+  --color: var(--info);
+  --secondary: white;
 }
 
 .alert-warning {
-  --color: #f3a119;
-  background-color: var(--color);
-  color: black;
+  --color: var(--warning);
+  --secondary: black;
 }
 
 .alert-light {
-  --color: #fefefe;
-  background-color: var(--color);
-  color: black;
-}
-
-.alert-warning .alert-close a {
-  background-color: var(--warning);
-  color: black;
+  --color: var(--light);
+  --secondary: black;
 }
 
 .alert-close {
@@ -55,21 +71,35 @@
 }
 
 .alert-close a {
-  color: white;
+  color: var(--secondary);
   text-decoration: none;
+  padding: 10px;
 }
 
-.alert.show {
+.alert.show:not(.alert-bottom) {
   animation-duration: 1s;
-  animation-name: slidein;
+  animation-name: slideinForTop;
   animation-timing-function: ease-out;
 }
 
-.alert.hide {
+.alert.hide:not(.alert-bottom) {
   animation-duration: 1s;
-  animation-name: slideout;
+  animation-name: slideoutForTop;
   animation-timing-function: ease-in;
   top: -100%;
+}
+
+.alert.show.alert-bottom {
+  animation-duration: 1s;
+  animation-name: slideinForBottom;
+  animation-timing-function: ease-out;
+}
+
+.alert.hide.alert-bottom {
+  animation-duration: 1s;
+  animation-name: slideoutForBottom;
+  animation-timing-function: ease-in;
+  bottom: -100%;
 }
 
 .alert-body {
@@ -82,7 +112,7 @@
   padding-right: 10px;
 }
 
-@keyframes slidein {
+@keyframes slideinForTop {
   from {
     top: -100%;
   }
@@ -92,13 +122,34 @@
   }
 }
 
-@keyframes slideout {
+@keyframes slideinForBottom {
+  from {
+    bottom: -100%;
+  }
+
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes slideoutForTop {
   from {
     top: 0;
   }
 
   to {
     top: -100%;
+    visibility: hidden;
+  }
+}
+
+@keyframes slideoutForBottom {
+  from {
+    bottom: 0;
+  }
+
+  to {
+    bottom: -100%;
     visibility: hidden;
   }
 }
