@@ -119,8 +119,12 @@ const Race:FC<Props> = ({ race }) => {
             </button>
             {race.tags.winnerNumber != null && (
               <div uk-dropdown = "pos: top-center">
-                <Link to = {`/teams${driver?.team?.abbr !== "LWP" ? '/'+driver?.team?.abbr : ''}?from=calendar`}><img alt = {`${driver?.team?.name} logo`} className = "standings-logo" src = {`https://i.gabirmotors.com/assets/teams/${driver?.team?.abbr}/main.png`} /></Link> 
-                <br /> 
+								{driver?.team && (
+									<>
+                		<Link to = {`/teams${driver?.team?.abbr !== "LWP" ? '/'+driver?.team?.abbr : ''}?from=calendar`}><img alt = {`${driver?.team?.name} logo`} className = "standings-logo" src = {`https://i.gabirmotors.com/assets/teams/${driver?.team?.abbr}/main.png`} /></Link> 
+                		<br /> 	
+									</>
+								)}
                 #{driver?.car_number} {driver?.name} {driver?.username ? `(${driver.username})` : ''}
               </div>
             )} 
