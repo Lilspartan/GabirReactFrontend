@@ -70,6 +70,9 @@ const Timeline = (props:any) => {
                             <TimelineEvent text = "Red Stapler (Michael Carpenter2) - 222 Points" team = "LWP" />
 
                             <SeasonMarker>7<br /><h2><i>July 29, 2021 - Sep 30, 2021</i></h2></SeasonMarker>
+                            <TimelineEvent text = "	Christopher Decker - 249 Points" team = "HMA" />
+
+                            <SeasonMarker>8<br /><h2><i>October 14, 2021 - December 16, 2021</i></h2></SeasonMarker>
                         </div>
                     </div>
                 </>
