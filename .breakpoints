@@ -1,0 +1,12 @@
+{
+  "files": {
+    "cloudbuild.yaml": [
+      {
+        "id": "65c521ab-b339-4e96-ab0c-46efb26ca854",
+        "line": 8,
+        "version": 84,
+        "index": 142
+      }
+    ]
+  }
+}
