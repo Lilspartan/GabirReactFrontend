@@ -19,6 +19,7 @@ const Tutorial = (props:Props) => {
 
     var tutorials = [
         "Tutorials",
+        "Joining The League",
         "Blue Flags",
         "Advanced Blue Flags",
         "Black Flags",
@@ -65,6 +66,48 @@ const Tutorial = (props:Props) => {
                                     <p>
                                         If you haven't noticed already, there are tabs at the top of the page, each of which is a different tutorial, you can also click <a href = "#blue-flags">here</a> or swipe (on mobile) to get started.
                                     </p>
+                                </article>
+                            </li>
+                            <li>
+                                <article className="tutorial-article uk-align-center">
+                                    <img src="https://i.gabirmotors.com/assets/league/LeagueHORIZONTAL.png" alt="PA League Logo"/>
+                                    <br />
+                                    <span className = "uk-text-italic timestamp">Edited 10/2/21</span>
+
+                                    <h2>How do I Join the PA League?</h2>
+                                    <p>
+                                        So you want to join the PA League, good choice! Here you'll be able to find links you may need in your journey and answers to questions you might have along the way.
+                                    </p>
+
+                                    <h2>Important Links</h2>
+                                    <ul className = "uk-list">
+                                        <li><a href = "https://discord.gabirmotors.com" target="_new"><span className = "uk-text-bold uk-text-primary uk-button uk-button-link">Join the Discord <span uk-icon = "icon:discord; ratio: 1.5"></span></span></a></li>
+                                        <li><a href = "https://members.iracing.com/membersite/member/LeagueView.do?league=4778" target="_new"><span className = "uk-text-bold uk-text-primary uk-button uk-button-link">Join the League</span></a></li>
+                                        <li><a href = "https://twitter.com/gabirmotors" target="_new"><span className = "uk-text-bold uk-text-primary uk-button uk-button-link">Gabir Motors Twitter <span uk-icon = "icon:twitter; ratio: 1.5"></span></span></a></li>
+                                    </ul>
+
+                                    <h2>FAQ</h2>
+
+                                    <ul className="uk-list">
+                                        <li>
+                                            <span className="uk-text-bold">Q: I Don't Have iRacing, can I Still Join the Discord Server?</span>
+                                            <p>A: Yes! Anyone is welcome to join the server and hangout</p>
+                                        </li>
+
+                                        <br/><br/>
+
+                                        <li>
+                                            <span className="uk-text-bold">Q: I'm new iRacing / I'm not Good at iRacing, can I Still Join?</span>
+                                            <p>A: Of Course! The league is open to people of all skill levels, and a great place to learn</p>
+                                        </li>
+                                        
+                                        <br/><br/>
+
+                                        <li>
+                                            <span className="uk-text-bold">Q: When Does the League Race?</span>
+                                            <p>A: There are races all week, but races streamed at <a href="https://www.twitch.tv/pennyarcade" target = "_new">twitch.tv/pennyarcade</a> are Thursdays from 7:30 PST to 9:30 PST</p>
+                                        </li>
+                                    </ul>
                                 </article>
                             </li>
                             <li>

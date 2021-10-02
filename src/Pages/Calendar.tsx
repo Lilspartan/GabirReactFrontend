@@ -60,7 +60,7 @@ const Calendar = () => {
           </div>
           <table uk-scrollspy="cls: uk-animation-slide-left-small; target: .tag-race; delay: 50;" className = "uk-table uk-table-hover uk-table-divider uk-table-responsive uk-table-middle uk-table-large" style = {{ minHeight: '100vh', marginTop: '8rem'}}>
             <caption className = "uk-padding uk-position-top">
-              <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 7 Calendar</h3>
+              <h3 className = "uk-text-center uk-margin-bottom">Gabir Motors Season 8 Calendar</h3>
             </caption>
             <thead>
               <tr>
