@@ -38,7 +38,7 @@ const Alert = ({ icon, type, title, text, collapse, id }: Props) => {
         if (dismissed !== null && id !== undefined) {
             var a = JSON.parse(dismissed);
             if (a[id]) {
-                setClasses(classes.replace('show', 'uk-invisible'));
+                setClasses(classes + ' uk-invisible');
             }
         }
     }, [dismissed])
