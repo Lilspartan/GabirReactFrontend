@@ -39,7 +39,7 @@ const MainBody = (props: any) => {
   function timeConverter(UNIX_timestamp:number){
     var a = new Date(UNIX_timestamp * 1000);;
     var year = a.getFullYear();
-    var month = "0" + String(a.getMonth() + 1);
+    var month = a.getMonth() + 1 < 10 ? "" + String(a.getMonth() + 1) : String(a.getMonth() + 1);
     var date = "0" + a.getDate();
     var hour = "0" + a.getHours();
     var min = "0" + a.getMinutes();
@@ -61,9 +61,10 @@ const MainBody = (props: any) => {
       var done = false;
 
       for (var i = 0; i < cal.length; i ++) {
-        //console.log(cal[i].timestamp * 1000 + 70200000, Date.now())
+        console.log(cal[i].timestamp * 1000 + 9000000 + " > " + Date.now() + " = " + (cal[i].timestamp * 1000 + 9000000 > Date.now()))
         if (cal[i].timestamp * 1000 + 9000000 > Date.now() && !done) {
           done = true;
+					console.log("Setting Time...")
           setNext(cal[i]);
         }
       }
