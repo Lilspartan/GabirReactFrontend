@@ -109,6 +109,7 @@ const Assets = () => {
                                     </ul>
                                 </div>
                             </li>
+                            <li uk-filter-control=".tag-endurance"><a href="#">Endurance Racing</a></li>
                             <li uk-filter-control=".tag-league"><a href="#">League</a></li>
                             <li uk-filter-control=".tag-characters"><a href="#">Characters</a></li>
                             <li uk-filter-control=".tag-inverted"><a href="#">Inverted</a></li>

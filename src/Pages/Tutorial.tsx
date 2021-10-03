@@ -70,7 +70,7 @@ const Tutorial = (props:Props) => {
                             </li>
                             <li>
                                 <article className="tutorial-article uk-align-center">
-                                    <img src="https://i.gabirmotors.com/assets/league/LeagueHORIZONTAL.png" alt="PA League Logo"/>
+                                    <img src="https://i.gabirmotors.com/assets/league/pa_league_horizontal.png" alt="PA League Logo"/>
                                     <br />
                                     <span className = "uk-text-italic timestamp">Edited 10/2/21</span>
 
