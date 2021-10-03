@@ -60,7 +60,7 @@ const App = () => {
         <Route path='/quotes' exact component = {MainQuote} />
         <Route path='/teams' exact component = {MainTeams} />
         <Route path='/teams/:t' component = {TeamPage} />
-        <Route path='/assets' component = {MainAssets} />
+        <Route path='/assets' component = {NewAssets} />
         <Route path='/standings' component = {MainStandings} />
         <Route path='/showoff' component = {MainShowoff} />
         <Route path='/tutorial' component = {MainTutorial} />
@@ -73,7 +73,7 @@ const App = () => {
           window.location.href = "https://www.twitch.tv/pennyarcade"
           return null;
         }} />
-        <Route path ='/newassets' exact component = {NewAssets} />
+        <Route path ='/oldassets' exact component = {MainAssets} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
