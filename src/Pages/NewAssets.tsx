@@ -43,7 +43,11 @@ const Assets = () => {
     }, [])
 
     const changeTheme = () => { 
-        var doChange = window.confirm("Are you sure? The screen will be very bright");
+        if (darkTheme) {
+            var doChange = window.confirm("Are you sure? The screen will be very bright");
+        } else {
+            var doChange = true;
+        }
         if (doChange) setDarkTheme(!darkTheme) 
     }
 
