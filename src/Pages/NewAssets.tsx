@@ -48,8 +48,11 @@ const Assets = () => {
             displayIcon = "image";
         }
         var tag = path;
-        tag = tag.replace("public/assets/", "").substring(0,tag.replace("public/assets/", "").indexOf('/'));
-        var classes = "tag-all tag-" + tag;
+        var tags = tag.replace("public/assets/", "").substring(0,tag.replace("public/assets/", "").lastIndexOf('/')).split('/');
+        var classes = "tag-all";
+        tags.forEach(t => {
+            classes += " tag-"+t
+        })
 
 
         return (
@@ -75,6 +78,8 @@ const Assets = () => {
         )
     }
 
+    // Stop looking through my code >:|
+
     return (
         <>
             <Header
@@ -87,9 +92,25 @@ const Assets = () => {
                     <div style = {{ marginTop: "5vh" }}>
                         <ul className="uk-subnav uk-subnav-pill">
                             <li uk-filter-control=".tag-all"><a href="#">All</a></li>
-                            <li uk-filter-control=".tag-teams"><a href="#">Teams</a></li>
+                            <li>
+                                <a href = "#">Teams</a>
+                                <div uk-dropdown="mode: click; pos: bottom-justify">
+                                    <ul className="uk-list uk-subnav uk-subnav-pill">
+                                        <li uk-filter-control=".tag-teams"><a href="#">All Teams</a></li>
+                                        <li uk-filter-control=".tag-GM"><a href="#">GM</a></li>
+                                        <li uk-filter-control=".tag-ASS"><a href="#">ASS</a></li>
+                                        <li uk-filter-control=".tag-JM"><a href="#">JM</a></li>
+                                        <li uk-filter-control=".tag-SENDIT"><a href="#">SENDIT</a></li>
+                                        <li uk-filter-control=".tag-HMA"><a href="#">HMA</a></li>
+                                        <li uk-filter-control=".tag-LWP"><a href="#">LWP</a></li>
+                                        <li uk-filter-control=".tag-FWC"><a href="#">FWC</a></li>
+                                        <li uk-filter-control=".tag-CT"><a href="#">CT</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li uk-filter-control=".tag-league"><a href="#">League</a></li>
                             <li uk-filter-control=".tag-characters"><a href="#">Characters</a></li>
+                            <li uk-filter-control=".tag-inverted"><a href="#">Inverted</a></li>
                             <li uk-filter-control=".tag-other"><a href="#">Other</a></li>
                         </ul>
                     </div>
