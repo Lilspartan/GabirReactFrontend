@@ -63,6 +63,8 @@ const StandingsBody = () => {
                             <table className = "uk-margin-remove uk-table uk-table-medium uk-table-hover" uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .standings-row; delay: 50;">
                                 <tbody>
                                     <tr className = "standings-row">
+                                    <th></th>
+                                        <th>Position</th>
                                         <th>Name</th>
                                         <th>Season Points</th>
                                         <th className = "uk-visible@m">Wins</th>
