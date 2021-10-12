@@ -188,3 +188,8 @@ export interface Driver {
     username?:      string;
     team?:          Team;
 }
+
+export interface TeamStanding {
+    name: string;
+    points: number;
+}

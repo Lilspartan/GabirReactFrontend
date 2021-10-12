@@ -52,6 +52,8 @@ h1 {
   letter-spacing: 0.5px;
 }
 
+// * { border: 1px solid red; }
+
 h2 {
   font-size: 40px;
   font-family: acumin-pro-extra-condensed, sans-serif;
@@ -319,4 +321,13 @@ option:checked {
 .uk-dropdown {
   background-color: #222222;
   color: white;
+}
+
+#timebar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid red;
+	display: inline;
+	width: 100vw;
 }
