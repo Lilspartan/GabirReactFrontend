@@ -17,6 +17,8 @@ import MainTimeline from "./Pages/Timeline";
 import MainTutorial from "./Pages/Tutorial";
 import MainDOTD from './Pages/Driveroftheday';
 import MainStandings from './Pages/Standings';
+import MainTimetable from './Pages/Timetable';
+import MainConstructors from './Pages/Constructors';
 
 import NewAssets from './Pages/NewAssets';
 
@@ -64,7 +66,7 @@ const App = () => {
         <Route path='/standings' component = {MainStandings} />
         <Route path='/showoff' component = {MainShowoff} />
         <Route path='/tutorial' component = {MainTutorial} />
-        <Route path='/timeline' component = {MainTimeline} />
+        <Route path='/timeline' exact component = {MainTimeline} />
         <Route path='/vote' component = {MainDOTD} />
         <Route path='/live' component = {() => {
           for (var i in channelOrder) {
@@ -74,6 +76,8 @@ const App = () => {
           return null;
         }} />
         <Route path ='/oldassets' exact component = {MainAssets} />
+        <Route path ='/constructors' exact component = {MainConstructors} />
+        <Route path ='/timetable' exact component = {MainTimetable} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
