@@ -8,6 +8,7 @@ import { Standing, Team, TeamStanding } from '../interfaces';
 const StandingsBody = () => {
     const [colors, setColors] = useState({});
     const [loading, setLoading] = useState(true);
+    const [standings, setStandings] = useState<Standing[]>([]);
     const [constructorsStandings, setConstructorsStandings] = useState<TeamStanding[]>([]);
     const [teams, setTeams] = useState<Team[]>([]);
 
@@ -17,35 +18,11 @@ const StandingsBody = () => {
             var data: Standing[] = await res.json();
 
             data = data.sort((a:Standing, b:Standing) => {return Number(a.pos)-Number(b.pos)})
-            
+            setStandings(data)
+
             const res2 = await fetch('https://api.gabirmotors.com/team/all')
             var t: Team[] = await res2.json();
             setTeams(t);
-
-            const setpoints = () => {
-                var constructorsPoints: TeamStanding[] = []
-                for (var i = 0; i < teams.length; i ++) {
-                    var currentTeam:Standing[] = [];
-                    for (var j in data) {
-                        var te = data[j].team;
-                        te = te.replace(/[a-z]/g, '');
-                        te = te.replace(/\s/g, '');
-                        te = te.replace(/\./g, '');
-                        if (te === teams[i].abbr) {
-                            currentTeam.push(data[j])
-                            console.log(data[j])
-                        }
-                    }
-                    constructorsPoints.push({
-                        name: currentTeam[0].team,
-                        points: Number(currentTeam[0].seasonPoints) + Number(currentTeam[1].seasonPoints)
-                    });
-                }
-                return constructorsPoints.sort((a:TeamStanding, b:TeamStanding) => {return Number(b.points)-Number(a.points)});
-            }
-                
-            setConstructorsStandings(setpoints())
-            console.log(constructorsStandings)
         }
 
         const fetchColors = async() => {
@@ -61,6 +38,34 @@ const StandingsBody = () => {
             setLoading(false);
         }, 1500)
     }, [])
+    
+    useEffect(() => {
+        const setpoints = () => {
+            var constructorsPoints: TeamStanding[] = []
+            for (var i = 0; i < teams.length; i ++) {
+                var currentTeam:Standing[] = [];
+                for (var j in standings) {
+                    var te = standings[j].team;
+                    te = te.replace(/[a-z]/g, '');
+                    te = te.replace(/\s/g, '');
+                    te = te.replace(/\./g, '');
+                    if (te === teams[i].abbr) {
+                        currentTeam.push(standings[j])
+                    }
+                }
+                
+                constructorsPoints.push({
+                    name: currentTeam[0].team,
+                    points: (currentTeam[0]?.seasonPoints !== undefined ? Number(currentTeam[0]?.seasonPoints) : 0) + (currentTeam[1]?.seasonPoints !== undefined ? Number(currentTeam[1]?.seasonPoints) : 0)
+                });
+            }
+            return constructorsPoints.sort((a:TeamStanding, b:TeamStanding) => {return Number(b.points)-Number(a.points)});
+        }
+        
+        var pts = setpoints();
+        console.log(pts);
+        setConstructorsStandings(pts);
+    }, [teams, standings])
 
     return (
         <>

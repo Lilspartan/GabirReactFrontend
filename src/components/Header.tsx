@@ -49,21 +49,32 @@ const Header:FC<Props> = (props) => {
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
-        <ul uk-nav = "true" className="uk-text-center uk-nav-primary uk-margin-auto-vertical" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50;">
+        <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical uk-nav-parent-icon" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50; repeat:">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
             <RightTabLink id = "draw4link" target = "draw4" type = "success"></RightTabLink>
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
-            
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/haikus">Haikus</Link></li>
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/quotes">Quotes</Link></li>
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar</Link></li>
+          
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar <span className="uk-label">New Season!</span></Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/teams">Teams</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/assets">Assets</Link></li>
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/standings">Standings</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/tutorial">Tutorials</Link></li>
+            <li className = "uk-parent">
+              <a className = "uk-button-link uk-text-primary nav-text">Standings</a>
+              <ul className="uk-nav-sub">
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/standings">Driver Standings</Link></li>
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/constructors">Team Standings</Link></li>
+              </ul>
+            </li>
+            <li className = "uk-parent">
+              <a className = "uk-button-link uk-text-primary nav-text">Submissions</a>
+              <ul className="uk-nav-sub">
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/haikus">Haikus</Link></li>
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/quotes">Quotes</Link></li>
+              </ul>
+            </li>
             
             <li className="uk-nav-divider"></li>
             <li uk-scrollspy="cls: uk-animation-slide-top; target: .icon; delay: 100;">
