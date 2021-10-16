@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Loading from "../components/Loading";
+import Loading from "../components/LoadingIcon/Loading";
 import { useState, useEffect } from "react";
 import { Race } from '../interfaces';
 import Alert from '../components/Alert/index';

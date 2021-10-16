@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import TeamRow from '../components/StandingsRow/TeamRow'
-import Loading from "../components/Loading";
+import Loading from "../components/LoadingIcon/Loading";
 import { Standing, Team, TeamStanding } from '../interfaces';
 
 const StandingsBody = () => {

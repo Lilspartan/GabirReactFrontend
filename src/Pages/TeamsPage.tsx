@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react'
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import InfoTab from '../components/InfoTab';
-import Loading from "../components/Loading";
+import Loading from "../components/LoadingIcon/Loading";
 
 interface Thumbnail {
     name: string;
@@ -77,15 +75,6 @@ const TeamsPage = () => {
 
             {!loading && (
                 <>
-                    <InfoTab>
-                        <h2>PA League Teams</h2>
-                        <p>
-                            The PA League consists of <strong>{teams.length}</strong> teams, each of them with their own drivers. This page exists to help navigate the complicated world of the teams.
-                        </p>
-                        <p>
-                            On the left you can see the <strong>{teams.length}</strong> teams sorted by number of drivers, click on any of the logos to get more info about each team.
-                        </p>
-                    </InfoTab>
                     <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '150vh' }}>
                         <div>
                             <div uk-scrollspy="target: > div; cls: uk-animation-slide-top; delay: 100" className="uk-flex-center uk-child-width-1-2@s uk-grid-collapse uk-text-center uk-grid-small" uk-grid = "true" style = {{ height: '100vh'}}>

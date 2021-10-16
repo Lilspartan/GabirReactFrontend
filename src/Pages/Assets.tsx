@@ -6,18 +6,28 @@ import React from 'react'
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom'
-import InfoTab from '../components/InfoTab'
 import Alert from '../components/Alert/index'
 import { 
-    File as FileTypes, 
-    Folder as FolderTypes, 
     GetFile,
     GetFolder
 } from '../interfaces';
 
-const TeamsPage = () => {
+interface FileTypes {
+    path:      string;
+    name:      string;
+    ext:       string;
+    size:      number;
+}
+
+interface FolderTypes {
+    name:      string;
+    children:  (GetFile | GetFolder)[];
+}
+
+const Assets = () => {
     const [assets, setAssets] = useState({children: []});
     const [showSize, setShowSize] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(true);
 
     useEffect(() => {
         const fetchAssets = async () => {
@@ -32,69 +42,110 @@ const TeamsPage = () => {
         fetchAssets();
     }, [])
 
-    const File = ({ name, size, path, fileSize, ext }:FileTypes) => {
+    const changeTheme = () => { 
+        if (darkTheme) {
+            var doChange = window.confirm("Are you sure? The screen will be very bright");
+        } else {
+            var doChange = true;
+        }
+        if (doChange) setDarkTheme(!darkTheme) 
+    }
+
+    const Image = ({ name, path, ext, size }:FileTypes) => {
         const imgExt = [".jpg", ".png"];
-        const txtExt = [".txt", ".json", ".md"];
-        const webExt = [".html"];
-        const pdfExt = [".pdf"];
-        let displayIcon = "file";
+        let displayIcon = "file/";
         if (imgExt.includes(ext)) {
             displayIcon = "image";
-        } else if (txtExt.includes(ext)) {
-            displayIcon = "file-text"
-        } else if (webExt.includes(ext)) {
-            displayIcon = "desktop"
-        } else if (pdfExt.includes(ext)) {
-            displayIcon = "file-pdf"
-        }  
+        }
+        var tag = path;
+        var tags = tag.replace("public/assets/", "").substring(0,tag.replace("public/assets/", "").lastIndexOf('/')).split('/');
+        var classes = "tag-all";
+        tags.forEach(t => {
+            classes += " tag-"+t
+        })
+
+
         return (
-            <div uk-lightbox = "true" className = "file">
-                <li className = "uk-active">
-                    <a data-caption= {`${name} | ${((fileSize / 1000) / 1000).toFixed(2)}MB`} className = "uk-text-left uk-link" href={`https://i.gabirmotors.com${path.replace("public", "")}`} target = "_blank" style = {{ paddingLeft: `${size * 20}px`, fontSize: '24px' }}><span uk-icon={displayIcon}></span> {name} {showSize && <span className = "uk-text-muted">| {((fileSize / 1000) / 1000).toFixed(2)}MB</span>}</a>
-                    {displayIcon === "image" && (
-                        <div style = {{ backgroundColor: 'rgba(0,0,0,0)' }} uk-dropdown = "pos: left; offset: 100;animation: uk-animation-slide-left-medium; duration: 100; delay-hide: 0">
-                            <img src={`https://i.gabirmotors.com${path.replace("public", "")}`} alt="" style = {{ maxHeight: '250px', maxWidth: '300px' }}/>
-                        </div>
-                    )}
-                </li>
+            <div style = {{ marginTop: "20px", padding: "20px" }} className = {classes}>
+                <div className="uk-flex uk-flex-center uk-flex-middle">
+                    <a href = {`https://i.gabirmotors.com${path.replace('public', '')}`} target = "_new" uk-tooltip={`${name} | ${((size / 1000) / 1000).toFixed(2)}MB`}><img src={`https://i.gabirmotors.com${path.replace('public', '')}`} alt="" style = {{ maxHeight: "150px" }} uk-img = "true"/></a>
+                </div>
             </div>
         )
     }
 
-    const Folder = ({ name, children, size }:FolderTypes) => {
-        return (
-            <li className="uk-parent uk-active folder">
-                <a className = "uk-text-left" href="#" style = {{ paddingLeft: `${size * 20}px` }}><span uk-icon="folder"></span> {name}</a>
-                <ul className="uk-nav-primary uk-nav-parent-icon" uk-nav = "true">
-                        { children.map((child:GetFile | GetFolder) => (
-                            <>
-                                {"children" in child ? <Folder name = {child.name} children = {child.children} size = {Number(size) + 1}/> : <File name = {child.name} size = {Number(size) + 1} path = {child.path} ext = {child.extension} fileSize = {child.size} />}
-                            </>
-                        ))}
-                </ul>
-            </li>
+    const Folder = ({ name, children }:FolderTypes) => {
+        return  (
+            <>
+                { children.map((child:GetFile | GetFolder) => {
+                    if ("children" in child) {
+                        return <Folder name = {child.name} children = {child?.children}/>
+                    } else {
+                        return <Image name = {child.name} path = {child.path} ext = {child.extension} size = {child.size} />  
+                    }
+                })}
+            </>
         )
     }
+
+    var bg = (darkTheme ? 'gabir_bg.jpg' : 'bg-inverted.png');
+
+    // Stop looking through my code >:|
 
     return (
         <>
             <Header
                 title={`Gabir Motors | Assets`}
             />
-            <Alert type = "info" title = "Tip:" text = 'Hovering over an image name now displays a preview of that image' id = "assetspreview"/>
 
-            <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: '100vh' }}>
+            <div uk-sticky = "true" uk-scrollspy="cls: uk-animation-slide-right; target: .toggle-theme; delay: 250; repeat: true">
+                {/* eslint-disable-next-line */}
+                <a uk-tooltip = "Toggle Theme" className="toggle-theme uk-margin-small-right uk-position-top-right uk-button uk-button-link" href = "#" onClick = {changeTheme} style = {{ color: `${darkTheme ? 'white' : 'black'}` }}>Change to { darkTheme ? 'Light Theme' : 'Dark Theme' }</a>
+            </div>
+
+            <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: `url(img/${bg})`, minHeight: '100vh', height: 'auto', paddingBottom: '5vh' }}>
+                <Alert id = "newassets" title = "New Assets Page" text = "Welcome to the new Gabir Motors Assets Page! Here you will be able to find images you might want for any of your League based projects. Use the tags at the top to filter the images, and click on any of the images to open it" />
+                <Alert id = "freetouse" type = "info" title = "Tip:" text = "All of the assets below are free for you to use on all of your PA League related projects!" />
                 
-                <div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-container uk-position-center">
-                    <div className="uk-animation-slide-top-medium uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
-                        <a href = "#" onClick = {() => { setShowSize(!showSize) }} className = "uk-button uk-button-text">Toggle File Sizes</a>
-                        <ul className="uk-nav-primary uk-nav-parent-icon assets-nav" uk-nav = "true">
-                            { assets.children.map((child:GetFile | GetFolder) => (
-                                <>
-                                    {"children" in child ? <Folder name = {child.name} children = {child.children} size = {0}/> : <File name = {child.name} size = {0} path = {child.path} ext = {child.extension} fileSize = {child.size} />}
-                                </>
-                            ))}
+                <div className="uk-width-2-3@m uk-text-center uk-margin-auto uk-container" uk-filter="target: .assets-filter; animation: fade">
+                    <div style = {{ marginTop: "5vh" }}>
+                        <ul className="uk-subnav uk-subnav-pill">
+                            <li uk-filter-control=".tag-all"><a href="#">All</a></li>
+                            <li>
+                                <a href = "#">Teams</a>
+                                <div uk-dropdown="mode: click; pos: bottom-justify">
+                                    <ul className="uk-list uk-subnav uk-subnav-pill">
+                                        <li uk-filter-control=".tag-teams"><a href="#">All Teams</a></li>
+                                        <li uk-filter-control=".tag-GM"><a href="#">GM</a></li>
+                                        <li uk-filter-control=".tag-ASS"><a href="#">ASS</a></li>
+                                        <li uk-filter-control=".tag-JM"><a href="#">JM</a></li>
+                                        <li uk-filter-control=".tag-SENDIT"><a href="#">SENDIT</a></li>
+                                        <li uk-filter-control=".tag-HMA"><a href="#">HMA</a></li>
+                                        <li uk-filter-control=".tag-LWP"><a href="#">LWP</a></li>
+                                        <li uk-filter-control=".tag-FWC"><a href="#">FWC</a></li>
+                                        <li uk-filter-control=".tag-CT"><a href="#">CT</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li uk-filter-control=".tag-endurance"><a href="#">Endurance Racing</a></li>
+                            <li uk-filter-control=".tag-league"><a href="#">League</a></li>
+                            <li uk-filter-control=".tag-characters"><a href="#">Characters</a></li>
+                            <li uk-filter-control=".tag-inverted"><a href="#">Inverted</a></li>
+                            <li uk-filter-control=".tag-other"><a href="#">Other</a></li>
                         </ul>
+                    </div>
+                    <div className = "uk-child-width-1-3@s uk-child-width-1-3@m assets-filter" uk-grid="masonry: true; 50">
+                        { assets.children.map((child:GetFile | GetFolder) => {
+                            if ("children" in child) {
+                                return (
+                                    <Folder name = {child.name} children = {child?.children}/>
+                                )
+                            } else {
+                                return (
+                                    <Image name = {child.name} path = {child.path} ext = {child.extension} size = {child.size} /> 
+                                )  
+                            }
+                        })}
                     </div>
                 </div>        
             </div>
@@ -103,4 +154,4 @@ const TeamsPage = () => {
     )
 }
 
-export default withRouter(TeamsPage)
+export default withRouter(Assets)

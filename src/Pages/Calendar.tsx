@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Race from '../components/Race'
 import Header from '../components/Header'
-import Loading from "../components/Loading";
+import Loading from "../components/LoadingIcon/Loading";
 import { Race as RaceTypes } from '../interfaces';
 
 const Calendar = () => {  

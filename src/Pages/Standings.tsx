@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Row from '../components/StandingsRow/Row'
-import Loading from "../components/Loading";
+import Loading from "../components/LoadingIcon/Loading";
 import { Standing } from '../interfaces';
 import { Link } from 'react-router-dom';
 

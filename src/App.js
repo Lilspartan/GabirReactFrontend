@@ -20,8 +20,6 @@ import MainStandings from './Pages/Standings';
 import MainTimetable from './Pages/Timetable';
 import MainConstructors from './Pages/Constructors';
 
-import NewAssets from './Pages/NewAssets';
-
 import './index.scss'
 
 var channelOrder = [
@@ -62,7 +60,7 @@ const App = () => {
         <Route path='/quotes' exact component = {MainQuote} />
         <Route path='/teams' exact component = {MainTeams} />
         <Route path='/teams/:t' component = {TeamPage} />
-        <Route path='/assets' component = {NewAssets} />
+        <Route path='/assets' component = {MainAssets} />
         <Route path='/standings' component = {MainStandings} />
         <Route path='/showoff' component = {MainShowoff} />
         <Route path='/tutorial' component = {MainTutorial} />
@@ -75,7 +73,6 @@ const App = () => {
           window.location.href = "https://www.twitch.tv/pennyarcade"
           return null;
         }} />
-        <Route path ='/oldassets' exact component = {MainAssets} />
         <Route path ='/constructors' exact component = {MainConstructors} />
         <Route path ='/timetable' exact component = {MainTimetable} />
         <Route path = "*" component = {fourBody} />

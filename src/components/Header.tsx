@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import { Link, withRouter, RouteComponentProps  } from 'react-router-dom'
-import RightTab from './RightTab'
+import RightTab from './RightTab/RightTab'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import RightTabLink from './RightTabLink'
+import RightTabLink from './RightTab/RightTabLink'
 import { FC, useState, useEffect } from 'react';
 import ShareButton from '../components/ShareButton';
 

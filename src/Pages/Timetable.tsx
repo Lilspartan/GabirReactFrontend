@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
 import Header from '../components/Header'
-import Loading from "../components/Loading";
+import Loading from "../components/LoadingIcon/Loading";
 
 const Timetable = () => {
     const [loading, setLoading] = useState(true);
