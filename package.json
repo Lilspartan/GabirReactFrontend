@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "@react-spring/parallax": "^9.1.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -53,9 +54,9 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "serve": "serve -s build"
   },
@@ -78,6 +79,9 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.35.1"
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "sass": "^1.35.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }
