@@ -10,6 +10,7 @@ import { Notification, Area } from '../components/Notification/index'
 const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
+  // eslint-disable-next-line
   const [urlQuery, setUrlQuery] = useState(qs.parse(props.location.search, { ignoreQueryPrefix: true }));
   const [next, setNext] = useState<Race>({
     "tags": {
@@ -89,7 +90,7 @@ const MainBody = (props: any) => {
     endDate.setMinutes(Number(endTime.split(":")[1]));
     endDate.setSeconds(Number(endTime.split(":")[2]));
 
-    setIsLive(startDate < currentDate && endDate > currentDate && currentDate.getDay() == 4);
+    setIsLive(startDate < currentDate && endDate > currentDate && currentDate.getDay() === 4);
   }, [])
 
 

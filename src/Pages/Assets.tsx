@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-target-blank */
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import React from 'react'
 import Header from "../components/Header";
 import { useState, useEffect } from "react";
@@ -26,7 +22,6 @@ interface FolderTypes {
 
 const Assets = () => {
     const [assets, setAssets] = useState({children: []});
-    const [showSize, setShowSize] = useState(false);
     const [darkTheme, setDarkTheme] = useState(true);
 
     useEffect(() => {
@@ -43,20 +38,12 @@ const Assets = () => {
     }, [])
 
     const changeTheme = () => { 
-        if (darkTheme) {
-            var doChange = window.confirm("Are you sure? The screen will be very bright");
-        } else {
-            var doChange = true;
-        }
+        var doChange = true;
+        if (darkTheme) doChange = window.confirm("Are you sure? The screen will be very bright");
         if (doChange) setDarkTheme(!darkTheme) 
     }
 
     const Image = ({ name, path, ext, size }:FileTypes) => {
-        const imgExt = [".jpg", ".png"];
-        let displayIcon = "file/";
-        if (imgExt.includes(ext)) {
-            displayIcon = "image";
-        }
         var tag = path;
         var tags = tag.replace("public/assets/", "").substring(0,tag.replace("public/assets/", "").lastIndexOf('/')).split('/');
         var classes = "tag-all";
@@ -110,28 +97,28 @@ const Assets = () => {
                 <div className="uk-width-2-3@m uk-text-center uk-margin-auto uk-container" uk-filter="target: .assets-filter; animation: fade">
                     <div style = {{ marginTop: "5vh" }}>
                         <ul className="uk-subnav uk-subnav-pill">
-                            <li uk-filter-control=".tag-all"><a href="#">All</a></li>
+                            <li uk-filter-control=".tag-all"><a href="#All">All</a></li>
                             <li>
-                                <a href = "#">Teams</a>
+                                <a href = "#Teams">Teams</a>
                                 <div uk-dropdown="mode: click; pos: bottom-justify">
                                     <ul className="uk-list uk-subnav uk-subnav-pill">
-                                        <li uk-filter-control=".tag-teams"><a href="#">All Teams</a></li>
-                                        <li uk-filter-control=".tag-GM"><a href="#">GM</a></li>
-                                        <li uk-filter-control=".tag-ASS"><a href="#">ASS</a></li>
-                                        <li uk-filter-control=".tag-JM"><a href="#">JM</a></li>
-                                        <li uk-filter-control=".tag-SENDIT"><a href="#">SENDIT</a></li>
-                                        <li uk-filter-control=".tag-HMA"><a href="#">HMA</a></li>
-                                        <li uk-filter-control=".tag-LWP"><a href="#">LWP</a></li>
-                                        <li uk-filter-control=".tag-FWC"><a href="#">FWC</a></li>
-                                        <li uk-filter-control=".tag-CT"><a href="#">CT</a></li>
+                                        <li uk-filter-control=".tag-teams"><a href="#ALL">All Teams</a></li>
+                                        <li uk-filter-control=".tag-GM"><a href="#GM">GM</a></li>
+                                        <li uk-filter-control=".tag-ASS"><a href="#ASS">ASS</a></li>
+                                        <li uk-filter-control=".tag-JM"><a href="#JM">JM</a></li>
+                                        <li uk-filter-control=".tag-SENDIT"><a href="#SENDIT">SENDIT</a></li>
+                                        <li uk-filter-control=".tag-HMA"><a href="#HMA">HMA</a></li>
+                                        <li uk-filter-control=".tag-LWP"><a href="#LWP">LWP</a></li>
+                                        <li uk-filter-control=".tag-FWC"><a href="#FWC">FWC</a></li>
+                                        <li uk-filter-control=".tag-CT"><a href="#CT">CT</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li uk-filter-control=".tag-endurance"><a href="#">Endurance Racing</a></li>
-                            <li uk-filter-control=".tag-league"><a href="#">League</a></li>
-                            <li uk-filter-control=".tag-characters"><a href="#">Characters</a></li>
-                            <li uk-filter-control=".tag-inverted"><a href="#">Inverted</a></li>
-                            <li uk-filter-control=".tag-other"><a href="#">Other</a></li>
+                            <li uk-filter-control=".tag-endurance"><a href="#Endurance">Endurance Racing</a></li>
+                            <li uk-filter-control=".tag-league"><a href="#League">League</a></li>
+                            <li uk-filter-control=".tag-characters"><a href="#Characters">Characters</a></li>
+                            <li uk-filter-control=".tag-inverted"><a href="#Inverted">Inverted</a></li>
+                            <li uk-filter-control=".tag-other"><a href="#Other">Other</a></li>
                         </ul>
                     </div>
                     <div className = "uk-child-width-1-3@s uk-child-width-1-3@m assets-filter" uk-grid="masonry: true; 50">

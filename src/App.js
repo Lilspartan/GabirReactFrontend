@@ -17,8 +17,8 @@ import MainTimeline from "./Pages/Timeline";
 import MainTutorial from "./Pages/Tutorial";
 import MainDOTD from './Pages/Driveroftheday';
 import MainStandings from './Pages/Standings';
-import MainTimetable from './Pages/Timetable';
 import MainConstructors from './Pages/Constructors';
+import MainSpecMapping from './Pages/Tools/SpecMapping';
 
 import './index.scss'
 
@@ -74,7 +74,7 @@ const App = () => {
           return null;
         }} />
         <Route path ='/constructors' exact component = {MainConstructors} />
-        <Route path ='/timetable' exact component = {MainTimetable} />
+        <Route path ='/specmapping' exact component = {MainSpecMapping} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>

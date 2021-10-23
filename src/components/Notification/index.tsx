@@ -17,7 +17,7 @@ export const Notification = ({ type, children, icon, link }: Props) => {
     return (
         <a href = {( link ? link : "#")} target = {( link ? "_new" : "")}>
             <div className={classes}>
-                <span className="notification-close"><a href="#" onClick={dismiss}>✖</a></span>
+                <span className="notification-close"><a href="#dismiss" onClick={dismiss}>✖</a></span>
 
                 <span className="notification-body">
                     <span className="notification-text"> {icon !== undefined ? ( <span className = "notification-icon" uk-icon = {`icon:${icon}`}></span> ) : ""} { children } </span>

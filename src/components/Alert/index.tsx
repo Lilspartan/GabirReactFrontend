@@ -41,12 +41,12 @@ const Alert = ({ icon, type, title, text, collapse, id }: Props) => {
                 setClasses(classes + ' uk-invisible');
             }
         }
-    }, [dismissed])
+    }, [dismissed, classes, id])
 
     return (
         <>
             <div className = {classes}>
-                <span className ="alert-close"><a href = "#" onClick = {dismiss} >✖</a></span>
+                <span className ="alert-close"><a href = "#dismiss" onClick = {dismiss} >✖</a></span>
                 <span className ="alert-body">
                     <span className ="alert-title">{ title }</span>
                     <span className ="slert-text">{ text }</span>
