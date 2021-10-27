@@ -12,6 +12,7 @@
 # below:
 .git
 .gitignore
+.replit
 
 # Node.js dependencies:
 node_modules/
