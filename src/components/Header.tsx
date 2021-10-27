@@ -57,7 +57,7 @@ const Header:FC<Props> = (props) => {
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
           
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar <span className="uk-label">New Season!</span></Link></li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/teams">Teams</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/assets">Assets</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/tutorial">Tutorials</Link></li>
