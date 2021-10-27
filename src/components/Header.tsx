@@ -89,6 +89,7 @@ const Header:FC<Props> = (props) => {
               <a target = "_new" uk-tooltip = "@GabirMotors" className = "icon uk-display-inline uk-button" href = "https://twitter.com/GabirMotors"><span className = "icon-button icon-button-twitter" uk-icon = "icon:twitter; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <a target = "_new" uk-tooltip = "@FleischwolfNews" className = "icon uk-display-inline uk-button" href = "https://twitter.com/FleischwolfNews"><span className = "icon-button icon-button-twitter" uk-icon = "icon:twitter; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <a target = "_new" uk-tooltip = "GM Merch" className = "icon uk-display-inline uk-button" href = "https://store.penny-arcade.com/collections/gabir-motors"><span className = "icon-button icon-button-store" uk-icon = "icon:bag; ratio: 1.4"></span></a>&nbsp;&nbsp;
+              <a target = "_new" uk-tooltip = "Source code" className = "icon uk-display-inline uk-button" href = "https://github.com/LilSpartan/GabirReactFrontend/tree/production"><span className = "icon-button icon-button-github" uk-icon = "icon:git-branch; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <ShareButton />
             </li>
             <li uk-scrollspy="cls: uk-animation-slide-left-medium; target: .uk-text-uppercase; delay: 100;">

@@ -97,11 +97,14 @@ const MainBody = (props: any) => {
   return (
     <>
       <Header title="Gabir Motors | Home" />
-      <img src="img/web.png" alt="Web" id = "web"/>
+
       {loading && <Loading />}
 
       {!loading && (
         <>
+          {/* This is where I put the holiday related images */}
+          <img src="img/web.png" alt="Web" id = "web"/>
+          <img src="img/gabir_pumpkin.png" alt="Pumpkin" id = "pumpkin" />
           {
             urlQuery?.error && urlQuery.error === "noteam" && (
               <Alert type = "danger" title = "Error!" text = "Error with retrieving the given team" />
