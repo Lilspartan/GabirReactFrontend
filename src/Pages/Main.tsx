@@ -97,6 +97,7 @@ const MainBody = (props: any) => {
   return (
     <>
       <Header title="Gabir Motors | Home" />
+      <img src="img/web.png" alt="Web" id = "web"/>
       {loading && <Loading />}
 
       {!loading && (
