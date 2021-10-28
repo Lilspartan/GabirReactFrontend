@@ -14,8 +14,20 @@ export const Notification = ({ type, children, icon, link }: Props) => {
         setClasses(classes.replace('show', 'hide'));
     }
 
-    return (
-        <a href = {( link ? link : "#")} target = {( link ? "_new" : "")}>
+    if (link) {
+        return (
+            <a href = {( link ? link : "#")} target = {( link ? "_new" : "")}>
+                <div className={classes}>
+                    <span className="notification-close"><a href="#dismiss" onClick={dismiss}>✖</a></span>
+
+                    <span className="notification-body">
+                        <span className="notification-text"> {icon !== undefined ? ( <span className = "notification-icon" uk-icon = {`icon:${icon}`}></span> ) : ""} { children } </span>
+                    </span>
+                </div>
+            </a>
+        )
+    } else {
+        return (
             <div className={classes}>
                 <span className="notification-close"><a href="#dismiss" onClick={dismiss}>✖</a></span>
 
@@ -23,8 +35,8 @@ export const Notification = ({ type, children, icon, link }: Props) => {
                     <span className="notification-text"> {icon !== undefined ? ( <span className = "notification-icon" uk-icon = {`icon:${icon}`}></span> ) : ""} { children } </span>
                 </span>
             </div>
-        </a>
-    )
+        )
+    }
 }
 
 export const Area = (props: any) => {
