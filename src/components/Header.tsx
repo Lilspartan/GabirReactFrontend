@@ -52,7 +52,7 @@ const Header:FC<Props> = (props) => {
         <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical uk-nav-parent-icon" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50; repeat:">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <RightTabLink id = "draw4link" target = "draw4" type = "success"></RightTabLink>
+            <Link to = "/tutorial#joining-the-league" className = "uk-text-success">Join the League!</Link>
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
