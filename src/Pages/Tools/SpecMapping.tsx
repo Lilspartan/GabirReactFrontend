@@ -86,14 +86,16 @@ const SpecMap = (props: any) => {
 								<>
 									<Notification icon="link">
 										Link Copied to Clipboard
-								</Notification>
+									</Notification>
 								</>
 							)}
 						</Area>
 						<div className="uk-height-large uk-background-cover uk-light uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}>
+							{/* <h1 className = "uk-margin-auto uk-text-center">Gabir Motors Spec Map Previsualization Tool</h1> */}
+							
 							<div className = {(c ? "uk-hidden" : "uk-hidden@m")}>
 								<div className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-container uk-position-center">
-									<div className="uk-animation-slide-top-medium uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large" style={{ maxHeight: '95vh' }}>
+									<div className="uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large" style={{ maxHeight: '95vh' }}>
 										<span className="uk-text-danger uk-text-bold">This page is not designed for small screens</span><br /><br />
 										<a href="#continue" onClick = {() => { setC(true) }} className="uk-button uk-button-danger">Continue Anyways</a>
 									</div>
@@ -101,9 +103,9 @@ const SpecMap = (props: any) => {
 							</div>
 
 
-							<div className={`${(c ? "uk-visible" : "uk-visible@m")} uk-child-width-1-2 uk-text-center uk-grid uk-position-center`} uk-grid="masonry: true;">
+							<div uk-scrollspy = "target: div; cls: uk-animation-fade; delay: 100; repeat: false" className={`${(c ? "uk-visible" : "uk-visible@m")} uk-child-width-1-2 uk-text-center uk-grid uk-position-center`} uk-grid="masonry: true;">
 								<div className="uk-flex uk-flex-center uk-flex-middle">
-									<div className="uk-animation-slide-top-medium uk-margin uk-width-1-2 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
+									<div className="uk-margin uk-width-1-2 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
 										<h2>Pick a Color to Get Started</h2>
 										<label htmlFor="color">Choose a Color:</label> <input type="color" id="color" value={color} onChange={changeColor} /><br />
 										<label htmlFor="metallic">Metallic</label> <input type="range" min="0" max="10" value={metallic / 10} id="metallic" onChange={changeMetal} /><br />
@@ -111,7 +113,8 @@ const SpecMap = (props: any) => {
 									</div>
 								</div>
 								<div className="uk-flex uk-flex-center uk-flex-middle">
-									<div className="uk-animation-slide-top-medium uk-margin uk-width-1-1 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
+									<div className="uk-margin uk-width-auto uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
+										<h2>Preview</h2>
 										<img id="black" src="https://i.gabirmotors.com/siteimages/grid-black.jpg" style={{ display: "none" }} alt="grid-black" />
 										<img id="blue" src="https://i.gabirmotors.com/siteimages/grid-blue.jpg" style={{ display: "none" }} alt="grid-blue" />
 										<img id="red" src="https://i.gabirmotors.com/siteimages/grid-red.jpg" style={{ display: "none" }} alt="grid-red" />
@@ -120,7 +123,7 @@ const SpecMap = (props: any) => {
 									</div>
 								</div>
 								<div className="uk-flex uk-flex-center uk-flex-middle">
-									<div className="uk-animation-slide-top-medium uk-margin uk-width-1-2 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
+									<div className="uk-margin uk-width-1-2 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
 										<div>
 											<p className="tools-number uk-text-left" id="color-value"><span className="uk-text-bold">Current Color: </span>{color}</p>
 											<p className="tools-number uk-text-left" id="metal-value"><span className="uk-text-bold">Metallic: </span>{metallic}% ({Math.ceil(metallic * 2.55).toString(16).toUpperCase()})</p>
@@ -132,7 +135,7 @@ const SpecMap = (props: any) => {
 												setCopied(true);
 											}}>Click to Share</a>
 
-											<p className="uk-text-warning uk-text-bold uk-text-left">Warning: Some images may take a while to load</p>
+											<p className="uk-text-warning uk-text-left"><span className = "uk-text-bold"><span uk-icon="icon: warning"></span> Warning.</span> Some images may take a while to load</p>
 
 										</div>
 									</div>
