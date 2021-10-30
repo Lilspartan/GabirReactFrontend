@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const Notification = ({ type, children, icon, link }: Props) => {
-    const [classes, setClasses] = useState(`notification notification-${type} show`)
+    const [classes, setClasses] = useState(`notification notification-${type} uk-animation-slide-right show`)
     const dismiss = () => {
         setClasses(classes.replace('show', 'hide'));
     }
