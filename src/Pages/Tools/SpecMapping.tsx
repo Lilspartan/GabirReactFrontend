@@ -4,7 +4,17 @@ import Header from '../../components/Header'
 import Loading from "../../components/LoadingIcon/Loading";
 import qs from 'qs';
 import { Notification, Area } from '../../components/Notification/index'
-import Alert from '../../components/Alert/index'
+
+type CarImage = {
+	path: string;
+	name: string;
+}
+
+type Preset = {
+	name: string;
+	metal: number;
+	rough: number;
+}
 
 const SpecMap = (props: any) => {
 	const [loading, setLoading] = useState(true);
@@ -15,6 +25,18 @@ const SpecMap = (props: any) => {
 	const [copied, setCopied] = useState(false);
 	const [c, setC] = useState(false);
 	const [link, setLink] = useState(`#color=${color}&metal=${metallic}&rough=${roughness}&car=${car}`);
+	const [carsList, setCarsList] = useState<CarImage[]>([]);
+	const [presets, setPresets] = useState<Preset[]>([
+		{name: "Flat",metal: 0,rough: 80},
+		{name: "Matte",metal: 0,rough: 50},
+		{name: "Satin",metal: 0,rough: 20},
+		{name: "Gloss",metal: 0,rough: 0},
+		{name: "Chrome",metal: 100,rough: 0},
+		{name: "Metallic",metal: 90,rough: 40},
+		{name: "Candy",metal: 50,rough: 10},
+		{name: "Pearl",metal: 60,rough: 20},
+		{name: "Velvet",metal: 80,rough: 100},
+	]);
 
 	function drawCar(hexRGB: string, metalPct: number, roughPct: number) {
 		var rough = roughPct / 10;
@@ -49,6 +71,23 @@ const SpecMap = (props: any) => {
 	}, [color, metallic, roughness, car])
 
 	useEffect(() => {
+		const fetchCars = async () => {
+			const res = await fetch("https://i.gabirmotors.com/carImages");
+			const data = await res.json();
+			var cars = [];
+
+			for (var i = 0; i < data.children.length; i ++) {
+				cars.push({
+					path: data.children[i].name,
+					name: data.children[i].children[0].name.replace(".txt", "")
+				})
+			}
+
+			setCarsList(cars);
+		}
+
+		fetchCars();
+
 		setTimeout(() => {
 			setLoading(false);
 			setTimeout(() => {
@@ -75,11 +114,16 @@ const SpecMap = (props: any) => {
 	const changeColor = (e: any) => setColor(e.target.value)
 	const changeMetal = (e: any) => setMetallic(e.target.value * 10)
 	const changeRough = (e: any) => setRoughness(e.target.value * 10)
+	const changePreset = (e: any) => {
+		var values = e.target.value.split('/');
+		setMetallic(values[0]);
+		setRoughness(values[1]);
+	}
 	const changeCar = (e: any) => {
 		setCar(e.target.value)
 		setTimeout(() => {
 			drawCar(color, metallic, roughness)
-		}, 1000)
+		}, 2000)
 	}
 
 	return (
@@ -113,41 +157,76 @@ const SpecMap = (props: any) => {
 
 							<div className={`${(c ? "uk-visible" : "uk-visible@m")} uk-text-center uk-position-center`}>
 								<div>
-									<div className="uk-animation-fade uk-margin uk-width-1-1 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-flex">
-										<div className = "uk-padding-small">
+									<div className="uk-animation-fade uk-margin uk-width-1-1 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-flex uk-flex-wrap">
+										<div className = "uk-padding-small uk-width-1-1@s uk-width-1-2@l">
+											<h2 className = "uk-text-center">Pick a car</h2>
 											<div className="uk-margin">
-												<div uk-form-custom="target: > * > span:first-child">
-													<select onChange = {changeCar} value = {car}>
-														<option value="streetstock">Street Stock</option>
-														<option value="dallaraf3">Dallara F3</option>
+												<div uk-form-custom="target: > * > span:first-child" className = "uk-width-1-1">
+													<select onChange = {changeCar} value = {car} className = "uk-width-1-1">
+														{carsList.map(ca => (
+															<option value = {ca.path}>{ ca.name }</option>
+														))}
 													</select>
-													<button className="uk-button uk-button-default" type="button">
+													<button className="uk-button uk-button-default uk-width-1-1" type="button">
 														<span></span>
 													</button>
 												</div>
 											</div>
-											<label htmlFor="color">Choose a Color:</label> <input type="color" id="color" value={color} onChange={changeColor} /><br />
-											<label htmlFor="metallic">Metallic</label> <input type="range" min="0" max="10" value={metallic / 10} id="metallic" onChange={changeMetal} /><br />
-											<label htmlFor="rough">Roughness</label> <input type="range" min="0" max="10" value={roughness / 10} id="rough" onChange={changeRough} /><br />
+															
+											<hr />
+
+											<div className="uk-margin uk-width-1-1 uk-flex uk-flex-wrap">
+												<div className = "uk-width-1-1@s uk-width-1-2@xl uk-text-left@xl">
+													<h2 className = "uk-text-center">Customize</h2>
+													<label htmlFor="color">Choose a Color:</label> <input type="color" id="color" value={color} onChange={changeColor} /><br />
+													<label htmlFor="metallic">Metallic</label> <input type="range" min="0" max="10" value={metallic / 10} id="metallic" onChange={changeMetal} /><br />
+													<label htmlFor="rough">Roughness</label> <input type="range" min="0" max="10" value={roughness / 10} id="rough" onChange={changeRough} /><br />
+												</div>
+												
+												<div className = "uk-width-1-1@s uk-width-1-2@xl">
+													<h2 className = "uk-text-center">Or Use a Preset</h2>
+													<div className="uk-margin uk-align-center uk-width-1-1">
+														<div uk-form-custom="target: > * > span:first-child" className = "uk-width-1-1">
+															<select onChange = {changePreset} className = "uk-width-1-1">
+																<option value="select">Select One</option>
+																{presets.map(p => (
+																	<option value = {`${p.metal}/${p.rough}`}>{ p.name }</option>
+																))}
+															</select>
+															<button className="uk-button uk-button-default uk-width-1-1 uk-margin-small-top" type="button">
+																<span></span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											
 
 											<hr />
 
-											<p className="tools-number uk-text-left" id="color-value"><span className="uk-text-bold">Current Color: </span>{color}</p>
-											<p className="tools-number uk-text-left" id="metal-value"><span className="uk-text-bold">Metallic: </span>{metallic}% ({Math.ceil(metallic * 2.55).toString(16).toUpperCase()})</p>
-											<p className="tools-number uk-text-left" id="rough-value"><span className="uk-text-bold">Roughness: </span>{roughness}% ({Math.ceil(roughness * 2.55).toString(16).toUpperCase()})</p>
-
-											<br />
-											<a uk-tooltip = "Get a link to the configuration you've made. Save it or share it with others!" className="uk-button uk-button-default uk-align-right uk-width-1-1" href={link} onClick={() => {
-												navigator.clipboard.writeText("https://gabirmotors.com/specmapping" + link)
-												setCopied(true);
-												setTimeout(() => { setCopied(false) }, 5000)
-											}}>Click to Share</a>
+											<div className="uk-margin uk-width-1-1 uk-flex uk-flex-wrap">
+												<div className = "uk-width-1-1@s uk-width-1-2@xl">
+													<p className="tools-number uk-text-left" id="color-value"><span className="uk-text-bold">Current Color: </span>{color}</p>
+													<p className="tools-number uk-text-left" id="metal-value"><span className="uk-text-bold">Metallic: </span>{metallic}% ({Math.ceil(metallic * 2.55).toString(16).toUpperCase()})</p>
+													<p className="tools-number uk-text-left" id="rough-value"><span className="uk-text-bold">Roughness: </span>{roughness}% ({Math.ceil(roughness * 2.55).toString(16).toUpperCase()})</p>
+												</div>
+												
+												<div className = "uk-width-1-1@s uk-width-1-2@xl">
+													<a uk-tooltip = "Get a link to the configuration you've made. Save it or share it with others!" className="uk-button uk-button-default uk-align-right uk-width-1-1 uk-margin-small-top" href={link} onClick={() => {
+														navigator.clipboard.writeText("https://gabirmotors.com/specmapping" + link)
+														setCopied(true);
+														setTimeout(() => { setCopied(false) }, 5000)
+													}}>Click to Share</a>
+												</div>
+											</div>
 
 											<p className="uk-text-warning uk-text-left"><span className = "uk-text-bold"><span uk-icon="icon: warning"></span> Warning!</span> Some images may take a while to load</p>
+											<p className="uk-text-success uk-text-left">Special Thanks to <a href="https://www.tradingpaints.com/profile/666793/Zach-C-Miller" target = "_new" className = "uk-text-bold">Bracket (Zach M.)</a> for the code help and images!</p>
 
 										</div>
 
-										<div className = "uk-padding-small">
+										<div className = "uk-padding-small uk-width-1-1@s uk-width-1-2@l">				
 											<img id="black" src = {`https://i.gabirmotors.com/siteimages/${car}/grid-black.jpg`} style={{ display: "none" }} alt="grid-black" />
 											<img id="blue" src = {`https://i.gabirmotors.com/siteimages/${car}/grid-blue.jpg`} style={{ display: "none" }} alt="grid-blue" />
 											<img id="red" src = {`https://i.gabirmotors.com/siteimages/${car}/grid-red.jpg`} style={{ display: "none" }} alt="grid-red" />

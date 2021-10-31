@@ -338,8 +338,12 @@ option:checked {
 }
 
 .tools-canvas {
-  margin-left: 35px;
   border-radius: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #web {
