@@ -222,7 +222,7 @@ const SpecMap = (props: any) => {
 											</div>
 
 											<p className="uk-text-warning uk-text-left"><span className = "uk-text-bold"><span uk-icon="icon: warning"></span> Warning!</span> Some images may take a while to load</p>
-											<p className="uk-text-success uk-text-left">Special Thanks to <a href="https://www.tradingpaints.com/profile/666793/Zach-C-Miller" target = "_new" className = "uk-text-bold">Bracket (Zach M.)</a> for the code help and images!</p>
+											<p className="uk-text-success uk-text-left">Thank you <a href="https://www.tradingpaints.com/profile/666793/Zach-C-Miller" target = "_new" className = "uk-text-bold">Bracket (Zach M.)</a> for the code help and images!</p>
 
 										</div>
 
