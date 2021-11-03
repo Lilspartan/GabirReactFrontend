@@ -6,6 +6,7 @@ import { Race } from '../interfaces';
 import Alert from '../components/Alert/index';
 import qs from 'qs';
 import { Notification, Area } from '../components/Notification/index'
+import Fall from '../components/Decorations/Fall'
 
 const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
@@ -103,6 +104,7 @@ const MainBody = (props: any) => {
       {!loading && (
         <>
           {/* This is where I put the holiday related images */}
+					<Fall />
           {
             urlQuery?.error && urlQuery.error === "noteam" && (
               <Alert type = "danger" title = "Error!" text = "Error with retrieving the given team" />

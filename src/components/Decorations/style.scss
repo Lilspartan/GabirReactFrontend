@@ -1,0 +1,17 @@
+.fall-leaf img { 
+	width: 100px;
+	z-index: 99999;
+	position: absolute;
+	top: 0;
+  animation-duration: 6s;
+  animation-name: fall;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall{
+    from {top:0px}
+    to {
+			top: calc(100vh - 50px);
+		}
+}
