@@ -333,17 +333,17 @@ option:checked {
 }
 
 .tools-number {
-  padding: 0;
+  padding: 5px;
   margin: 0;
 }
 
 .tools-canvas {
   border-radius: 5px;
-  margin-top: auto;
-  margin-bottom: auto;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 600px;
 }
 
 #web {
@@ -360,3 +360,12 @@ option:checked {
   bottom: 0;
 }
 
+#metallic-container, #rough-container {
+  position: absolute;
+  left: 7rem;
+}
+
+.color-input {
+  position: absolute;
+  left: 14rem;
+}
