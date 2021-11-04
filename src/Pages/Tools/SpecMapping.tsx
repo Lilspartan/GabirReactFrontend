@@ -158,72 +158,56 @@ const SpecMap = (props: any) => {
 							<div className={`${(c ? "uk-visible" : "uk-visible@m")} uk-text-left uk-position-center`}>
 								<div>
 									<div className="uk-padding-small uk-animation-fade uk-margin uk-width-1-1 uk-margin-auto uk-card uk-card-secondary uk-card-body uk-flex uk-flex-wrap">
-										<div className = "uk-padding-small uk-width-1-1@s uk-width-1-2@l">
-											
-											<div className="uk-flex uk-width-1-1 uk-flex-left">
-												<div className = "uk-width-1-2 uk-margin-auto-vertical">
-													<h2 className = "uk-text-left uk-margin-remove uk-height-1-1">Pick a car</h2>
-												</div>
-
-												<div className = "uk-width-1-2 uk-margin-auto-vertical">
-													<div uk-form-custom="target: > * > span:first-child" className = "uk-width-1-1">
-														<select onChange = {changeCar} value = {car} className = "uk-width-1-1">
-															{carsList.map(ca => (
-																<option value = {ca.path}>{ ca.name }</option>
-															))}
-														</select>
-														<button className="uk-button uk-button-default uk-width-1-1" type="button">
-															<span></span>
-														</button>
-													</div>
-												</div>
+								
+										<div className = "uk-width-1-1@s uk-width-1-2@l">
+											<h2 className = "uk-display-inline">Select Your Car &nbsp;&nbsp;</h2>
+											<div uk-form-custom="target: > * > span:first-child" className = "uk-margin-bottom uk-marign-left">
+												<select onChange = {changeCar} value = {car}>
+													{carsList.map(ca => (
+														<option value = {ca.path}>{ ca.name }</option>
+													))}
+												</select>
+												<button className="uk-button uk-button-default" type="button">
+													<span></span>
+													<span uk-icon="icon: chevron-down"></span>
+												</button>
 											</div>
-															
-											<hr />
 
-											<div className="uk-margin uk-width-1-1 uk-flex uk-flex-wrap">
-												<div className = "uk-width-1-1@s uk-width-1-2@xl uk-text-left uk-padding-remove">
+											<div className="">
+												<div className = "uk-width-1-1 uk-text-left uk-padding-remove">
 													<label htmlFor="color">Choose a Color:</label> <input type="color" id="color" value={color} onChange={changeColor} />
 													<span className="uk-margin-left uk-margin-bottom">
-														<input className="uk-input uk-form-width-small uk-form-small uk-form-blank color-input" type="text" placeholder="Color Hex" value = {color} onChange={changeColor} />
+														<input className="uk-form-blank uk-text-primary uk-form-width-small uk-form-small color-input" type="text" placeholder="Color Hex" value = {color} onChange={changeColor} />
 													</span>
 													<br />
 													<label htmlFor="metallic">Metallic</label> <span id="metallic-container"><input type="range" min="0" max="10" value={metallic / 10} id="metallic" onChange={changeMetal} /> {metallic}%</span><br />
 													<label htmlFor="rough">Roughness</label> <span id="rough-container"><input type="range" min="0" max="10" value={roughness / 10} id="rough" onChange={changeRough} /> {roughness}%</span><br />
 													<span>Spec Map Color: </span>
 													<span className="uk-margin-left uk-margin-bottom">
-														<input className="uk-input uk-form-width-small uk-form-small color-input" type="text" placeholder="Spec Map Hex" value = {`#${(Math.ceil(metallic * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(metallic * 2.55).toString(16).toUpperCase()) + (Math.ceil(roughness * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(roughness * 2.55).toString(16).toUpperCase()) + "00"}`} disabled />
+														<input className="uk-form-blank uk-text-primary uk-form-width-small uk-form-small color-input" type="text" placeholder="Spec Map Hex" value = {`#${(Math.ceil(metallic * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(metallic * 2.55).toString(16).toUpperCase()) + (Math.ceil(roughness * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(roughness * 2.55).toString(16).toUpperCase()) + "00"}`} disabled />
 													</span>
 												</div>
 												
-												<div className = "uk-width-1-1@s uk-width-1-2@xl">
-													<div className="uk-flex uk-width-1-1 uk-flex-center">
-														<div className = "uk-width-1-2 uk-margin-auto-vertical">
-															<h2 className = "uk-text-left uk-margin-remove uk-height-1-1">Or Use a Preset</h2>
-														</div>
-
-														<div className = "uk-width-1-2 uk-margin-auto-vertical">
-															<div uk-form-custom="target: > * > span:first-child" className = "uk-width-1-1">
-																<select onChange = {changePreset} className = "uk-width-1-1">
-																	<option value="select">Select One</option>
-																	{presets.map(p => (
-																		<option value = {`${p.metal}/${p.rough}`}>{ p.name }</option>
-																	))}
-																</select>
-																<button className="uk-button uk-button-default uk-width-1-1 uk-margin-small-top" type="button">
-																	<span></span>
-																</button>
-															</div>
-														</div>
+												<div>
+													<h2 className = "uk-display-inline">Or Use a Preset &nbsp;&nbsp;</h2>
+													<div uk-form-custom="target: > * > span:first-child" className = "uk-margin-bottom uk-marign-left">
+														<select onChange = {changePreset} className = "uk-width-1-1">
+															<option value="0/0">Select One</option>
+															{presets.map(p => (
+																<option value = {`${p.metal}/${p.rough}`}>{ p.name }</option>
+															))}
+														</select>
+														<button className="uk-button uk-button-default uk-width-1-1" type="button">
+															<span></span>
+															<span uk-icon="icon: chevron-down"></span>
+														</button>
 													</div>	
 												</div>
 											</div>
 
-											<hr />
-
 											<div className="uk-margin uk-width-1-1 uk-flex uk-flex-wrap">
-												<div className = "uk-width-1-1@s uk-width-1-2@xl">
-													<a uk-tooltip = "Get a link to the configuration you've made. Save it or share it with others!" className="uk-button uk-button-default uk-align-right uk-width-1-1 uk-margin-small-top" href={link} onClick={() => {
+												<div className = "uk-width-1-1">
+													<a uk-tooltip = "Get a link to the configuration you've made. Save it or share it with others!" className="uk-button uk-button-default uk-align-right uk-width-1-1 uk-margin-remove-bottom" href={link} onClick={() => {
 														navigator.clipboard.writeText("https://gabirmotors.com/specmapping" + link)
 														setCopied(true);
 														setTimeout(() => { setCopied(false) }, 5000)

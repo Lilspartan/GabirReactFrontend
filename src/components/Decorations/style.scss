@@ -1,17 +1,30 @@
 .fall-leaf img { 
 	width: 100px;
-	z-index: 99999;
 	position: absolute;
 	top: 0;
-  animation-duration: 6s;
   animation-name: fall;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
 
 @keyframes fall{
-    from {top:0px}
-    to {
+    0% {
+      top:0px
+    }
+
+    25% {
+      transform: translateX(random(60) - random(60)  + px) rotate(random(60) - 30 + deg);
+    }
+
+    50% {
+      transform: translateX(random(60) - random(60) + px) rotate(random(60) + deg);
+    }
+
+    75% {
+      transform: translateX(random(60) - random(60)  + px) rotate(random(60) + deg);
+    }
+
+    100% {
 			top: calc(100vh - 50px);
 		}
 }

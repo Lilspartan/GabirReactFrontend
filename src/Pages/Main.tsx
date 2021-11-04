@@ -6,6 +6,7 @@ import { Race } from '../interfaces';
 import Alert from '../components/Alert/index';
 import qs from 'qs';
 import { Notification, Area } from '../components/Notification/index'
+import Fall from '../components/Decorations/Fall'
 
 const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
@@ -35,25 +36,7 @@ const MainBody = (props: any) => {
     "id": "0",
   });
 
-	const makeLeaf = () => {
-		var x = Math.floor(Math.random() * window.innerWidth);;
-    var leaf = Math.floor(Math.random() * 3) + 1;
-    var animTime = Math.random() * 11
-    var zIndex = Math.round(Math.random());
-    if (animTime < 6) animTime = 6;
-
-    var span = document.createElement('span');
-    span.className = "fall-leaf"
-    var img = document.createElement('img');
-    img.src = `https://i.gabirmotors.com/assets/other/fall/leaf${leaf}.png`;
-    img.style.left = x + "px";
-    img.style.animationDuration = animTime + "s"
-    img.style.zIndex = String(zIndex)
-    span.appendChild(img)
-    document.getElementById("leaves")?.appendChild(span);
-
-		setTimeout(makeLeaf, Math.random() * 5000)
-	}
+	
 
   const codes = ["RACECAR", "NOTLAST", "PODIUM", "COLDTIRES", "GABIR"];
 
@@ -93,7 +76,6 @@ const MainBody = (props: any) => {
 
     setTimeout(() => {
       setLoading(false);
-      makeLeaf()
     }, 1500)
 
     var startTime = '19:30:00';
@@ -124,9 +106,7 @@ const MainBody = (props: any) => {
       {!loading && (
         <>
           {/* This is where I put the holiday related images */}
-					<div id = "leaves">
-            
-          </div>
+					<Fall />
           {
             urlQuery?.error && urlQuery.error === "noteam" && (
               <Alert type = "danger" title = "Error!" text = "Error with retrieving the given team" />

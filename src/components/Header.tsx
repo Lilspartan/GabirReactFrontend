@@ -52,7 +52,7 @@ const Header:FC<Props> = (props) => {
         <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical uk-nav-parent-icon" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50; repeat:">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <Link to = "/tutorial#joining-the-league" className = "uk-text-success">Join the League!</Link>
+            {/* <Link to = "/tutorial#joining-the-league" className = "uk-text-success">Join the League!</Link> */}
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
@@ -87,7 +87,6 @@ const Header:FC<Props> = (props) => {
               <a target = "_new" uk-tooltip = "PA League Discord" className = "icon uk-display-inline uk-button" href = "https://discord.gabirmotors.com/"><span className = "icon-button icon-button-discord" uk-icon = "icon:discord; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <a target = "_new" uk-tooltip = "PA Twitch" className = "icon uk-display-inline uk-button" href = "https://www.twitch.tv/pennyarcade"><span className = "icon-button icon-button-twitch" uk-icon = "icon:twitch; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <a target = "_new" uk-tooltip = "@GabirMotors" className = "icon uk-display-inline uk-button" href = "https://twitter.com/GabirMotors"><span className = "icon-button icon-button-twitter" uk-icon = "icon:twitter; ratio: 1.4"></span></a>&nbsp;&nbsp;
-              <a target = "_new" uk-tooltip = "@FleischwolfNews" className = "icon uk-display-inline uk-button" href = "https://twitter.com/FleischwolfNews"><span className = "icon-button icon-button-twitter" uk-icon = "icon:twitter; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <a target = "_new" uk-tooltip = "GM Merch" className = "icon uk-display-inline uk-button" href = "https://store.penny-arcade.com/collections/gabir-motors"><span className = "icon-button icon-button-store" uk-icon = "icon:bag; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <a target = "_new" uk-tooltip = "Source code" className = "icon uk-display-inline uk-button" href = "https://github.com/LilSpartan/GabirReactFrontend/tree/production"><span className = "icon-button icon-button-github" uk-icon = "icon:git-branch; ratio: 1.4"></span></a>&nbsp;&nbsp;
               <ShareButton />
