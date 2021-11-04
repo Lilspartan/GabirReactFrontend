@@ -369,3 +369,19 @@ option:checked {
   position: absolute;
   left: 14rem;
 }
+
+.fall-leaf img { 
+	width: 100px;
+	position: absolute;
+	top: 0;
+  animation-name: fall;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall{
+    from {top:0px}
+    to {
+			top: calc(100vh - 50px);
+		}
+}
