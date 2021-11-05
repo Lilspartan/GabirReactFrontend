@@ -13,15 +13,15 @@
     }
 
     25% {
-      transform: translateX(random(60) - random(60)  + px) rotate(random(60) - 30 + deg);
+      transform: translateX(var(--wobble1)) rotate(var(--rotate1));
     }
 
     50% {
-      transform: translateX(random(60) - random(60) + px) rotate(random(60) + deg);
+      transform: translateX(var(--wobble2)) rotate(var(--rotate2));
     }
 
     75% {
-      transform: translateX(random(60) - random(60)  + px) rotate(random(60) + deg);
+      transform: translateX(var(--wobble3)) rotate(var(--rotate3));
     }
 
     100% {

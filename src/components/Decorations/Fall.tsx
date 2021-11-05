@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './style.scss'
+import useRandom from '../../utils/useRandom';
 
 const Fall = () => {
 	const makeLeaf = () => {
@@ -16,6 +17,12 @@ const Fall = () => {
 		img.style.left = x + "px";
 		img.style.animationDuration = animTime + "s"
 		img.style.zIndex = String(zIndex)
+		img.style.setProperty("--rotate1", String(Math.floor(Math.random() *61) - 30) + "deg");
+		img.style.setProperty("--rotate2", String(Math.floor(Math.random() *61) - 30) + "deg");
+		img.style.setProperty("--rotate3", String(Math.floor(Math.random() *61) - 30) + "deg");
+		img.style.setProperty("--wobble1", String(Math.floor(Math.random() *61) - 30) + "px");
+		img.style.setProperty("--wobble2", String(Math.floor(Math.random() *61) - 30) + "px");
+		img.style.setProperty("--wobble3", String(Math.floor(Math.random() *61) - 30) + "px");
 		span.appendChild(img)
 		var leaves = document.getElementById("leaves")
 		leaves?.appendChild(span);
