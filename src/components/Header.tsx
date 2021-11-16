@@ -2,8 +2,6 @@
 
 import { Link, withRouter, RouteComponentProps  } from 'react-router-dom'
 import RightTab from './RightTab/RightTab'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import RightTabLink from './RightTab/RightTabLink'
 import { FC, useState, useEffect } from 'react';
 import ShareButton from '../components/ShareButton';
 
@@ -52,21 +50,15 @@ const Header:FC<Props> = (props) => {
         <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical uk-nav-parent-icon" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50; repeat:">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            {/* <Link to = "/tutorial#joining-the-league" className = "uk-text-success">Join the League!</Link> */}
+            <span className = "uk-text-success uk-text-bold">Assets and Spec Mapping have moved to the <Link to = "/toolbox">Toolbox</Link></span>
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
           
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/teams">Teams</Link></li>
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/assets">Assets</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/tutorial">Tutorials</Link></li>
-            <li className = "uk-parent">
-              <a className = "uk-button-link uk-text-primary nav-text">Tools</a>
-              <ul className="uk-nav-sub">
-                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/specmapping">Spec Mapping</Link></li>
-              </ul>
-            </li>
+            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/toolbox">Toolbox</Link></li>
             <li className = "uk-parent">
               <a className = "uk-button-link uk-text-primary nav-text">Standings</a>
               <ul className="uk-nav-sub">

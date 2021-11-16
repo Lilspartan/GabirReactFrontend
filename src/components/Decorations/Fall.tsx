@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import './style.scss'
-import useRandom from '../../utils/useRandom';
 
 const Fall = () => {
 	const makeLeaf = () => {
