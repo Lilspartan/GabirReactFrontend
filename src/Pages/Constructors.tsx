@@ -1,13 +1,10 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
-import Header from '../components/Header'
 import TeamRow from '../components/StandingsRow/TeamRow'
-import Loading from "../components/LoadingIcon/Loading";
 import { Standing, Team, TeamStanding } from '../interfaces';
+import Blank from '../Templates/Blank/index';
 
 const StandingsBody = () => {
     const [colors, setColors] = useState({});
-    const [loading, setLoading] = useState(true);
     const [standings, setStandings] = useState<Standing[]>([]);
     const [constructorsStandings, setConstructorsStandings] = useState<TeamStanding[]>([]);
     const [teams, setTeams] = useState<Team[]>([]);
@@ -34,9 +31,6 @@ const StandingsBody = () => {
         fetchColors();
 
         fetchStandings();
-        setTimeout(() => {
-            setLoading(false);
-        }, 1500)
     }, [])
     
     useEffect(() => {
@@ -68,32 +62,23 @@ const StandingsBody = () => {
     }, [teams, standings])
 
     return (
-        <>
-            <Header title = "Gabir Motors | Constructors" />
-            {loading && <Loading />}
-            {
-                !loading && (
-                    <>
-                        <div className="uk-height-large uk-background-cover uk-light uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', minHeight: '100vh', height: 'auto' }}> 
-                            <h1 className = "uk-text-center uk-margin-bottom uk-text-muted uk-animation-slide-bottom-small">Thank you to <a target = "_new" href = "https://twitter.com/severinmira">severinmira</a> for the data</h1>
-                           
-                            <table className = "uk-margin-remove uk-table uk-table-medium uk-table-hover" uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .standings-row; delay: 50;">
-                                <tbody>
-                                    <tr className = "standings-row">
-                                        <th></th>
-                                        <th>Position</th>
-                                        <th>Team Name</th>
-                                        <th>Points</th>
-                                    </tr>
-                                    {constructorsStandings.map(s => (
-                                        <TeamRow standing = {s} colors = {colors} />
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </>
-                )
-            }   
+      <>
+        <Blank title="Constructors" flex={false}>
+           <h1 className = "uk-text-center uk-margin-bottom uk-text-muted uk-animation-slide-bottom-small">Thank you to <a target = "_new" href = "https://twitter.com/severinmira">severinmira</a> for the data</h1>                 
+            <table className = "uk-margin-remove uk-table uk-table-medium uk-table-hover" uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .standings-row; delay: 50;">
+              <tbody>
+								<tr className = "standings-row">
+									<th></th>
+									<th>Position</th>
+									<th>Team Name</th>
+									<th>Points</th>
+								</tr>
+								{constructorsStandings.map(s => (
+										<TeamRow standing = {s} colors = {colors} />
+								))}
+							</tbody>
+						</table>
+					</Blank> 
         </>
     )
 }

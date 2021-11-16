@@ -1,5 +1,3 @@
-import Header from "../../components/Header";
-import { SocialMediaLink } from '../../interfaces';
 import Blank from '../../Templates/Blank';
 
 type CardProps = {
@@ -8,9 +6,6 @@ type CardProps = {
     children?: any;
     link: string;
     target?: string;
-    credit?: {
-        links?: SocialMediaLink[];
-    };
 }
 
 const Toolbox = () => {

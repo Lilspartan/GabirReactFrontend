@@ -6,16 +6,20 @@ import Loading from "../../components/LoadingIcon/Loading";
 type Props = {
     title?: string;
     children?: any;
+		loading?: boolean
+		flex?: boolean
 }
 
 const Blank = (props: Props) => {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState((props.loading !== undefined ? props.loading : true));
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
         }, 1500)
     }, [])
+
+		const classes = `uk-height-large uk-background-cover uk-light ${props?.flex !== undefined ? (props.flex ? "uk-flex" : "") : "uk-flex"} uk-background-cover uk-background-fixed`
 
     return (
         <>
@@ -25,10 +29,10 @@ const Blank = (props: Props) => {
             {loading && <Loading />}
 
             {!loading && (
-                <div className="uk-height-large uk-background-cover uk-light uk-flex uk-background-cover uk-background-fixed" style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>
+                <div className={classes} style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>
                     { props?.children }   
                 </div>
-            )}]
+            )}
         </>
     )
 }

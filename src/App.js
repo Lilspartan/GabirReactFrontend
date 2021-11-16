@@ -22,6 +22,8 @@ import MainSpecMapping from './Pages/Tools/SpecMapping';
 import MainToolbox from './Pages/Tools/Toolbox';
 import MainMFT from './Pages/MFT';
 
+import MainTest from './Pages/TestingTemplates';
+
 import './index.scss'
 
 var channelOrder = [
@@ -79,6 +81,7 @@ const App = () => {
         <Route path ='/specmapping' exact component = {MainSpecMapping} />
         <Route path ='/toolbox' exact component = {MainToolbox} />
         <Route path ='/mft' exact component = {MainMFT} />
+        <Route path ='/test' exact component = {MainTest} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
