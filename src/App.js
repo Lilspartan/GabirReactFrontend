@@ -19,6 +19,8 @@ import MainDOTD from './Pages/Driveroftheday';
 import MainStandings from './Pages/Standings';
 import MainConstructors from './Pages/Constructors';
 import MainSpecMapping from './Pages/Tools/SpecMapping';
+import MainToolbox from './Pages/Tools/Toolbox';
+import MainMFT from './Pages/MFT';
 
 import './index.scss'
 
@@ -75,6 +77,8 @@ const App = () => {
         }} />
         <Route path ='/constructors' exact component = {MainConstructors} />
         <Route path ='/specmapping' exact component = {MainSpecMapping} />
+        <Route path ='/toolbox' exact component = {MainToolbox} />
+        <Route path ='/mft' exact component = {MainMFT} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
