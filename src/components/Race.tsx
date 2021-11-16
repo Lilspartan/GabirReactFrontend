@@ -1,6 +1,7 @@
 import { Race as RaceTypes, Driver } from '../interfaces';
 import { FC, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import DriverCard from './DriverCard/index';
 
 interface Props {
   race: RaceTypes;
@@ -111,24 +112,11 @@ const Race:FC<Props> = ({ race }) => {
       <td className="uk-text-success">
         {race.tags.winner != null ? (
           /* uk-tooltip = {`Team - Jabir Motors <br />#10`} */
-          <div className="uk-inline">
-            <button className="uk-button uk-button-text" type="button">
-              <span className="uk-text-success">
-                <span className="uk-hidden@m uk-text-uppercase uk-text-bolder"> Winner: {" "} </span> {" "} {race.tags.winner}
-              </span> 
-            </button>
-            {race.tags.winnerNumber != null && (
-              <div uk-dropdown = "pos: top-center">
-								{driver?.team && (
-									<>
-                		<Link to = {`/teams${driver?.team?.abbr !== "LWP" ? '/'+driver?.team?.abbr : ''}?from=calendar`}><img alt = {`${driver?.team?.name} logo`} className = "standings-logo" src = {`https://i.gabirmotors.com/assets/teams/${driver?.team?.abbr}/main.png`} /></Link> 
-                		<br /> 	
-									</>
-								)}
-                #{driver?.car_number} {driver?.name} {driver?.username ? `(${driver.username})` : ''}
-              </div>
-            )} 
-          </div>
+          <DriverCard number = {Number(race.tags.winnerNumber)} name = {race.tags.winner}>
+            <span className="uk-text-success">
+              <span className="uk-hidden@m uk-text-uppercase uk-text-bolder"> Winner: {" "} </span> {" "} {race.tags.winner}
+            </span> 
+          </DriverCard>
         ) : (
           <i className="uk-text-muted">N/A</i>
         )}
