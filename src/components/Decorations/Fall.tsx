@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import './style.scss'
 
 const Fall = () => {
@@ -35,7 +35,7 @@ const Fall = () => {
 
 	useEffect(() => {
 		makeLeaf();
-	}, [])
+	})
 
 	return (
 		<div id = "leaves">

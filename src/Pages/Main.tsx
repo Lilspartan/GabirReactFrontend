@@ -6,7 +6,8 @@ import { Race } from '../interfaces';
 import Alert from '../components/Alert/index';
 import qs from 'qs';
 import { Notification, Area } from '../components/Notification/index'
-import Fall from '../components/Decorations/Fall'
+import Fall from '../components/Decorations/Fall';
+import Christmas from '../components/Decorations/Christmas';
 
 const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,7 @@ const MainBody = (props: any) => {
   function timeConverter(UNIX_timestamp:number){
     var a = new Date(UNIX_timestamp * 1000);;
     var year = a.getFullYear();
-    var month = a.getMonth() + 1 < 10 ? "" + String(a.getMonth() + 1) : String(a.getMonth() + 1);
+    var month = a.getMonth() + 1 < 10 ? "0" + String(a.getMonth() + 1) : String(a.getMonth() + 1);
     var date = "0" + a.getDate();
     var hour = "0" + a.getHours();
     var min = "0" + a.getMinutes();
@@ -106,7 +107,7 @@ const MainBody = (props: any) => {
       {!loading && (
         <>
           {/* This is where I put the holiday related images */}
-					<Fall />
+					{/* <Fall /> */}
           {
             urlQuery?.error && urlQuery.error === "noteam" && (
               <Alert type = "danger" title = "Error!" text = "Error with retrieving the given team" />
@@ -167,6 +168,7 @@ const MainBody = (props: any) => {
               height: "100vh",
             }}
           >
+            <Christmas />
             <div className="uk-child-width-1-4 uk-text-center uk-position-top-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 400;" uk-countdown={`date: ` + timeConverter(next.timestamp + 9000)} uk-parallax="blur: 15;">
               <div className = "uk-width-1-1">
                 <h1 className = "fade-cd uk-text-center uk-display-block">NEXT RACE IN</h1>
@@ -197,6 +199,7 @@ const MainBody = (props: any) => {
                 alt="Gabir Motors Logo"
                 src="img/newgabirtext.png"
                 uk-parallax="scale:1.2"
+                style = {{ zIndex: 2 }}
               />
             </h1>
             <div uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 1800">

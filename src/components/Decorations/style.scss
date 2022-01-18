@@ -1,15 +1,31 @@
-.fall-leaf img { 
+.snowflake img { 
 	width: 100px;
 	position: absolute;
 	top: 0;
   animation-name: fall;
-  animation-timing-function: ease;
+  animation-timing-function: linear;
   animation-fill-mode: forwards;
+}
+
+.layer-0 img {
+  width: 50px;
+  z-index: var(--z);
+}
+
+.layer-1 img {
+  width: 75px;
+  z-index: calc(var(--z) * 10);
+}
+
+.layer-2 img {
+  width: var(--size);
+  filter: blur(var(--blur));
+  z-index: 999999;
 }
 
 @keyframes fall{
     0% {
-      top:0px
+      top:-300px
     }
 
     25% {
@@ -25,6 +41,19 @@
     }
 
     100% {
-			top: calc(100vh - 50px);
+			top: calc(100vh + 600px);
 		}
+}
+
+#christmas-lights {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+#christmas-lights img {
+  display: inline-block;
 }
