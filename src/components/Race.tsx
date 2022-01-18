@@ -1,16 +1,11 @@
-import { Race as RaceTypes, Driver } from '../interfaces';
-import { FC, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Race as RaceTypes } from '../interfaces';
+import { FC } from 'react'
 import DriverCard from './DriverCard/index';
-
 interface Props {
   race: RaceTypes;
 }
 
 const Race:FC<Props> = ({ race }) => {
-  // The Driver Object of the winner, or null if no number is provided
-  const [driver, setDriver] = useState<Driver | null>(null);
-
   // Get the current time, this is to determine which races are completed
   var time = Date.now();
   // Change to seconds instead of milliseconds
@@ -24,22 +19,6 @@ const Race:FC<Props> = ({ race }) => {
 
   if (time < race.timestamp + 25200) classes += " tag-uncomplete";
   if (!race.tags.paid.car.length && !race.tags.paid.track) classes += " tag-free";
-
-  useEffect(() => {
-    // Check if a car number is provided, if so then fetch the driver object
-    if (race.tags.winnerNumber !== null) {
-      (async () => {
-        var res = await fetch(`https://api.gabirmotors.com/driver/${race.tags.winnerNumber}`);
-        var data = await res.json();
-        setDriver(data[0]);
-      })()
-    } else {
-      setDriver({
-        "car_number": "N/A",
-        "name": race.tags.winner ? race.tags.winner : "N/A",
-      })
-    }
-  }, [race.tags.winner, race.tags.winnerNumber])
 
   const DateSlot = () => {
     return (
