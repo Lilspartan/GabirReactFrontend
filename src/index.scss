@@ -365,12 +365,11 @@ option:checked {
   left: 7rem;
 }
 
-.color-input {
-  position: absolute;
-  left: 14rem;
-}
-
 .uk-form-blank {
   border: 0px;
   background-color: #212121;
+}
+
+.template-modal {
+  background-color: var(--default)
 }

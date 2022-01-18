@@ -16,14 +16,25 @@ type Preset = {
 }
 
 const SpecMap = (props: any) => {
+	// The inputs, either from the url or the ui
 	const [color, setColor] = useState((qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#color`] !== undefined ? String(qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`#color`]) : "#000000"));
 	const [metallic, setMetallic] = useState(Number(qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`metal`]) || 0);
 	const [roughness, setRoughness] = useState(Number(qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`rough`]) || 0);
 	const [car, setCar] = useState((qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`car`] !== undefined ? String(qs.parse(props.location.hash, { ignoreQueryPrefix: true })[`car`]) : "streetstock"));
+	
+	// controls the "link copied" pop up
 	const [copied, setCopied] = useState(false);
+
+	// If the user should continue to the tool on a smaller screen
 	const [c, setC] = useState(false);
+
+	// The link to copy
 	const [link, setLink] = useState(`#color=${color}&metal=${metallic}&rough=${roughness}&car=${car}`);
+
+	// this will be filled with the list of car images
 	const [carsList, setCarsList] = useState<CarImage[]>([]);
+
+	// eslint-disable-next-line
 	const [presets, setPresets] = useState<Preset[]>([
 		{name: "Flat",metal: 0,rough: 80},
 		{name: "Matte",metal: 0,rough: 50},

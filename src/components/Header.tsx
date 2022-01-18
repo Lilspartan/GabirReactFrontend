@@ -35,7 +35,7 @@ const Header:FC<Props> = (props) => {
         name="description"
         content= {desc}
       />
-      <div uk-sticky = "true">
+      <div uk-sticky = "true" style= {{ zIndex: 1001 }}>
         {/* eslint-disable-next-line */}
         <a id = "menuopen" className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide" href = "#"><span uk-icon="icon: menu; ratio: 2" style = {{color: 'white'}}></span></a>
       </div>
@@ -47,10 +47,10 @@ const Header:FC<Props> = (props) => {
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
 
-        <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical uk-nav-parent-icon" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50; repeat:">
+        <ul uk-nav = "true" className="uk-nav-primary uk-margin-auto-vertical uk-nav-parent-icon" uk-scrollspy="cls: uk-animation-slide-left-medium; target: .nav-text,.uk-logo; delay: 50; repeat: false">
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
-            <span className = "uk-text-success uk-text-bold">Assets and Spec Mapping have moved to the <Link to = "/toolbox">Toolbox</Link></span>
+            {/* <span className = "uk-text-success uk-text-bold">Assets and Spec Mapping have moved to the <Link to = "/toolbox">Toolbox</Link></span> */}
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
@@ -58,7 +58,14 @@ const Header:FC<Props> = (props) => {
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/teams">Teams</Link></li>
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/tutorial">Tutorials</Link></li>
-            <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/toolbox">Toolbox</Link></li>
+            <li className = "uk-parent">
+              <a className = "uk-button-link uk-text-primary nav-text">Tools</a>
+              <ul className="uk-nav-sub">
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/toolbox">Toolbox</Link></li>
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/assets">Assets</Link></li>
+                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/specmapping">Spec Mapping</Link></li>
+              </ul>
+            </li>
             <li className = "uk-parent">
               <a className = "uk-button-link uk-text-primary nav-text">Standings</a>
               <ul className="uk-nav-sub">

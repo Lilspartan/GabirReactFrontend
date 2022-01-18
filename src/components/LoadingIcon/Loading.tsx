@@ -5,7 +5,7 @@ const Loading = () => {
     return (
         <div className = "uk-background-cover loader"
         style={{
-          backgroundImage: "url(img/gabir_bg.jpg)",
+          backgroundImage: "url(../../img/gabir_bg.jpg)",
           height: "100vh",
         }}>
             <div className = "uk-position-center">
