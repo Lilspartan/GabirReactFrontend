@@ -6,8 +6,8 @@ import Loading from "../../components/LoadingIcon/Loading";
 type Props = {
     title?: string;
     children?: any;
-		loading?: boolean
-		flex?: boolean
+	loading?: boolean
+	flex?: boolean
 }
 
 const Blank = (props: Props) => {
@@ -29,7 +29,7 @@ const Blank = (props: Props) => {
             {loading && <Loading />}
 
             {!loading && (
-                <div className={classes} style={{ backgroundImage: 'url(img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>
+                <div className={classes} style={{ backgroundImage: 'url(../../img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>
                     { props?.children }   
                 </div>
             )}
