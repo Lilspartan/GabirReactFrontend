@@ -23,6 +23,8 @@ import MainColorTemplate from './Pages/Tools/ColorTemplate';
 import MainColorTemplateDownload from './Pages/Tools/ColorTemplateDownload';
 import MainToolbox from './Pages/Tools/Toolbox';
 import MainMFT from './Pages/MFT';
+import MainGabirTV from './Pages/GabirTV';
+import MainPacecar from './Pages/Pacecar';
 
 import MainTest from './Pages/TestingTemplates';
 
@@ -72,13 +74,7 @@ const App = () => {
         <Route path='/tutorial' component = {MainTutorial} />
         <Route path='/timeline' exact component = {MainTimeline} />
         <Route path='/vote' component = {MainDOTD} />
-        <Route path='/live' component = {() => {
-          for (var i in channelOrder) {
-              getViewers(channelOrder[i])
-          }
-          window.location.href = "https://www.twitch.tv/pennyarcade"
-          return null;
-        }} />
+        <Route path='/live' component = {MainGabirTV} />
         <Route path ='/constructors' exact component = {MainConstructors} />
         <Route path ='/specmapping' exact component = {MainSpecMapping} />
         <Route path ='/colortemplate' exact component = {MainColorTemplate} />
@@ -86,6 +82,7 @@ const App = () => {
         <Route path ='/toolbox' exact component = {MainToolbox} />
         <Route path ='/mft' exact component = {MainMFT} />
         <Route path ='/test' exact component = {MainTest} />
+        <Route path ='/regulations/pacecar' exact component = {MainPacecar} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
