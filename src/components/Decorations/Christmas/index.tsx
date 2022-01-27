@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-import './style.scss'
+import '../style.scss'
 
 const Christmas = () => {
     const [frame, setFrame] = useState(0);
 
     useEffect(() => {
         setTimeout(() => {
-            if (frame === 1 || frame == 0) setFrame(2);
+            if (frame === 1 || frame === 0) setFrame(2);
             else if (frame === 2) setFrame(1);
         }, 1000)
     }, [frame])

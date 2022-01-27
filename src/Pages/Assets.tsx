@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom'
-import Alert from '../components/Alert/index'
+import Alert from '../Components/Alert/index'
 import { 
     GetFile,
     GetFolder

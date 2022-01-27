@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
 import qs from 'qs';
-import { Notification, Area } from '../../components/Notification/index'
+import { Notification, NotificationArea as Area } from '../../Components'
 import Blank from '../../Templates/Blank/index';
 
 type CarImage = {

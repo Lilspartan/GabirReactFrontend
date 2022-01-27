@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
 import { Link, withRouter, RouteComponentProps  } from 'react-router-dom'
-import RightTab from './RightTab/RightTab'
 import { FC, useState, useEffect } from 'react';
-import ShareButton from '../components/ShareButton';
+import { ShareButton } from '../';
 
 interface Props extends RouteComponentProps {
   title: string;
@@ -39,10 +36,6 @@ const Header:FC<Props> = (props) => {
         {/* eslint-disable-next-line */}
         <a id = "menuopen" className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide" href = "#"><span uk-icon="icon: menu; ratio: 2" style = {{color: 'white'}}></span></a>
       </div>
-
-      <RightTab id = "draw4"> 
-        
-      </RightTab>
 
       <div id="offcanvas-slide" uk-offcanvas="mode: slide;">
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">

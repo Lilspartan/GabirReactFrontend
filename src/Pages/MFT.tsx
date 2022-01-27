@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Loading from "../components/LoadingIcon/Loading";
+import { LoadingPage } from "../Components";
 import { Helmet } from 'react-helmet';
 
 type Props = {
@@ -57,7 +57,7 @@ const MFT = () => {
                 <meta name="twitter:description" content="Gabir Motors has partnered with MFTs to bring you the world's FIRST MFT marketplace!" />
             </Helmet>
 
-            {loading && <Loading />}
+            {loading && <LoadingPage />}
 
             {!loading && (
                 <>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Race from '../components/Race'
+import { CalendarRow } from '../Components'
 import { Race as RaceTypes } from '../interfaces';
 import Blank from '../Templates/Blank/index';
 
@@ -50,7 +50,7 @@ const Calendar = () => {
 					</thead>
 					<tbody className="js-filter">
 						{calendar.sort((a, b) => { return a.timestamp - b.timestamp }).map((race, index) => (
-							<Race key={index} race={race} />
+							<CalendarRow key={index} race={race} />
 						))}
 					</tbody>
 				</table>

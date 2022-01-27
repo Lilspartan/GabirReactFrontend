@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import Header from "../components/Header";
+import { Header } from "../Components";
 import { withRouter } from 'react-router-dom'
 import qs from 'qs';
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import TeamRow from '../components/StandingsRow/TeamRow'
+import { TeamRow } from '../Components/StandingsRow'
 import { Standing, Team, TeamStanding } from '../interfaces';
 import Blank from '../Templates/Blank/index';
 
@@ -69,8 +69,7 @@ const StandingsBody = () => {
               <tbody>
 								<tr className = "standings-row">
 									<th></th>
-									<th>Position</th>
-									<th>Team Name</th>
+									<th>Team</th>
 									<th>Points</th>
 								</tr>
 								{constructorsStandings.map(s => (

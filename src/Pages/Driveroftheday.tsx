@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { Footer, Header } from '../Components'
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import qs from 'qs';

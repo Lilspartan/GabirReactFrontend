@@ -1,13 +1,9 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Loading from "../components/LoadingIcon/Loading";
 import { useState, useEffect } from "react";
 import { Race } from '../interfaces';
-import Alert from '../components/Alert/index';
+import { Alert } from '../Components';
 import qs from 'qs';
-import { Notification, Area } from '../components/Notification/index'
-import Fall from '../components/Decorations/Fall';
-import Christmas from '../components/Decorations/Christmas';
+import { Christmas } from '../Components/Decorations';
+import { LoadingPage, Footer, Header, Notification, NotificationArea as Area } from "../Components";
 
 const MainBody = (props: any) => {
   const [loading, setLoading] = useState(true);
@@ -102,7 +98,7 @@ const MainBody = (props: any) => {
     <>
       <Header title="Gabir Motors | Home" />
 
-      {loading && <Loading />}
+      {loading && <LoadingPage />}
 
       {!loading && (
         <>

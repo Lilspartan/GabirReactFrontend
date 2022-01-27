@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
-import Header from '../components/Header'
-import Row from '../components/StandingsRow/Row'
-import Loading from "../components/LoadingIcon/Loading";
+import { DriverRow } from '../Components/StandingsRow'
+import { LoadingPage, Header } from "../Components";
 import { Standing } from '../interfaces';
 import { Link } from 'react-router-dom';
 
@@ -46,7 +45,7 @@ const StandingsBody = () => {
     return (
         <>
             <Header title = "Gabir Motors | Standings" />
-            {loading && <Loading />}
+            {loading && <LoadingPage />}
             {
                 !loading && (
                     <>
@@ -74,7 +73,7 @@ const StandingsBody = () => {
                                         ))}
                                     </tr>
                                     {standings.map(s => (
-                                        <Row standing = {s} colors = {colors} moreData = {moreData} champions = {showChampions} />
+                                        <DriverRow standing = {s} colors = {colors} moreData = {moreData} champions = {showChampions} />
                                     ))}  
                                 </tbody>
                             </table>

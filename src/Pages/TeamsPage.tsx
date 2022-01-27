@@ -1,8 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import Header from "../components/Header";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
-import Loading from "../components/LoadingIcon/Loading";
+import { Link } from 'react-router-dom';
+import { LoadingPage, Header } from "../Components";
 
 interface Thumbnail {
     name: string;
@@ -71,7 +69,7 @@ const TeamsPage = () => {
             <Header
                 title={`Gabir Motors | Teams`}
             />
-            {loading && <Loading />}
+            {loading && <LoadingPage />}
 
             {!loading && (
                 <>

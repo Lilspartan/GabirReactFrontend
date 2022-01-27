@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import './style.scss'
+import '../style.scss'
 
 const Fall = () => {
 	const makeLeaf = () => {

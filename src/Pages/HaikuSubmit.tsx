@@ -1,6 +1,4 @@
-import HaikuForm from '../components/HaikuForm'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { Footer, HaikuForm, Header } from '../Components'
 
 const HaikusBody = () => {
     return (

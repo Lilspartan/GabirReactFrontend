@@ -1,5 +1,4 @@
-import Header from "../components/Header";
-import Loading from "../components/LoadingIcon/Loading";
+import { LoadingPage, Header } from "../Components";
 import { useState, useEffect } from "react";
 import { withRouter } from 'react-router-dom';
 
@@ -38,7 +37,7 @@ const Timeline = (props:any) => {
     return (
         <>
             <Header title="Gabir Motors | Champions Timeline" />
-            {loading && <Loading />}
+            {loading && <LoadingPage />}
 
             {!loading && (
                 <>
@@ -73,6 +72,7 @@ const Timeline = (props:any) => {
                             <TimelineEvent text = "	Christopher Decker - 249 Points" team = "HMA" />
 
                             <SeasonMarker>8<br /><h2><i>October 14, 2021 - December 16, 2021</i></h2></SeasonMarker>
+                            <TimelineEvent text = "Christopher Strickland - 194 Points" team = "HMA" />
                         </div>
                     </div>
                 </>

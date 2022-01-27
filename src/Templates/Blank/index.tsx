@@ -1,7 +1,6 @@
 import './style.scss'
-import Header from "../../components/Header";
 import { useState, useEffect } from "react";
-import Loading from "../../components/LoadingIcon/Loading";
+import { LoadingPage, Header } from "../../Components";
 
 type Props = {
     title?: string;
@@ -26,7 +25,7 @@ const Blank = (props: Props) => {
             <Header
                 title={`Gabir Motors${props?.title ? " | " + props.title : ""}`}
             />
-            {loading && <Loading />}
+            {loading && <LoadingPage />}
 
             {!loading && (
                 <div className={classes} style={{ backgroundImage: 'url(../../img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>

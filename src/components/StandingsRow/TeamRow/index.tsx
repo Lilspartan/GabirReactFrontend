@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TeamStanding } from '../../interfaces'
+import { TeamStanding } from '../../../interfaces'
 
 type RowProps = {
     standing: TeamStanding,
