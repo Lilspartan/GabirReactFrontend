@@ -22,7 +22,6 @@ interface FolderTypes {
 
 const Assets = () => {
     const [assets, setAssets] = useState({children: []});
-    const [darkTheme, setDarkTheme] = useState(true);
 
     useEffect(() => {
         const fetchAssets = async () => {
@@ -36,12 +35,6 @@ const Assets = () => {
 
         fetchAssets();
     }, [])
-
-    const changeTheme = () => { 
-        var doChange = true;
-        if (darkTheme) doChange = window.confirm("Are you sure? The screen will be very bright");
-        if (doChange) setDarkTheme(!darkTheme) 
-    }
 
     const Image = ({ name, path, ext, size }:FileTypes) => {
         var tag = path;
@@ -75,17 +68,10 @@ const Assets = () => {
         )
     }
 
-    var bg = (darkTheme ? 'gabir_bg.jpg' : 'bg-inverted.png');
-
     // Stop looking through my code >:|
 
     return (
         <>
-           <div uk-sticky = "true" uk-scrollspy="cls: uk-animation-slide-right; target: .toggle-theme; delay: 250; repeat: true">
-                {/* eslint-disable-next-line */}
-                <a uk-tooltip = "Toggle Theme" className="toggle-theme uk-margin-small-right uk-position-top-right uk-button uk-button-link" href = "#" onClick = {changeTheme} style = {{ color: `${darkTheme ? 'white' : 'black'}` }}>Change to { darkTheme ? 'Light Theme' : 'Dark Theme' }</a>
-            </div>
-
             <Blank title="Assets" loading={false}>
                 <Alert id = "newassets" title = "New Assets Page" text = "Welcome to the new Gabir Motors Assets Page! Here you will be able to find images you might want for any of your League based projects. Use the tags at the top to filter the images, and click on any of the images to open it" />
                 <Alert id = "freetouse" type = "info" title = "Tip:" text = "All of the assets below are free for you to use on all of your PA League related projects!" />

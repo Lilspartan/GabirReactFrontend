@@ -1,15 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from 'react'
 import qs from 'qs';
-import { Notification, Area } from '../../Components/Notification/index'
 import Blank from '../../Templates/Blank/index';
-import Modal from 'react-modal';
-
-type Car = {
-	name: string;
-	id: string;
-	images: Image[];
-}
 
 type Image = {
 	name: string;
@@ -24,9 +16,7 @@ const ColorTemplateDownload = (props: any) => {
 	const [color3, setColor3] = useState((urlParams[`color3`] !== undefined ? String(urlParams[`color3`]) : "#0000FF"));
 	const [car, setCar] = useState((urlParams[`car`] !== undefined ? String(urlParams[`car`]) : "mx5"));
 	const [template, setTemplate] = useState((urlParams[`template`] !== undefined ? String(urlParams[`template`]) : "001"));
-	const [carsList, setCarsList] = useState<Car[]>([]);
 	const [size, setSize] = useState(2048);
-	const [templates, setTemplates] = useState<Image[]>([]);
 
 	function parseColor(colorHex: string) {
 		if(colorHex.substring(0,1) === "#") {
@@ -73,7 +63,6 @@ const ColorTemplateDownload = (props: any) => {
 					let pR = imageData.data[pixelIndex];
 					let pG = imageData.data[pixelIndex+1];
 					let pB = imageData.data[pixelIndex+2];
-					let pA = imageData.data[pixelIndex+3];
 	
 					let r = pR * c1.r + pG * c2.r + pB * c3.r;
 					let g = pR * c1.g + pG * c2.g + pB * c3.g;
@@ -111,43 +100,18 @@ const ColorTemplateDownload = (props: any) => {
 		link.click();
     }
 
-	useEffect(() => {
-		const fetchCars = async () => {
-			const res = await fetch("https://i.gabirmotors.com/templates");
-			const data = await res.json();
-			var cars = [];
-
-			for (var i = 0; i < data.children.length; i ++) {
-				cars.push({
-					name: data.children[i].children[0].name.replace(".txt", ""),
-					id: data.children[i].name,
-					images: data.children[i].children.splice(1).map((i:any) => { return { name: i.name.replace(/\D/g,''), path: i.path } })
-				})
-			}
-
-			setCarsList(cars);
-		}
-
-		fetchCars();
+	useEffect(() => { 
         setTimeout(() => {
             drawTemplateCustomBlend(`https://i.gabirmotors.com/templates/${car}/car_pattern_${template}.tga.PNG`, color1, color2, color3);
         }, 2500)
+		// eslint-disable-next-line
 	}, [])
-
-	useEffect(() => {
-		for (var i = 0; i < carsList.length; i ++) {
-			if (carsList[i].id === car) {
-				setTemplates(carsList[i].images);
-			}
-		}
-	}, [car, carsList])
-
 
 	return (
 		<>
 			<Blank title="Color Templates">
                 <h1>Downloading Your livery... Please Wait</h1>
-                <img id="template" style={{display: "none"}} width = {size + "px"} height = {size + "px"}/>
+                <img id="template" style={{display: "none"}} width = {size + "px"} height = {size + "px"} alt = "Template for the chosen car"/>
                 <svg width="0" height="0">
                 <filter id="cmatrix">
                     <feColorMatrix id="cmatrix_params"

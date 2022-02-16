@@ -1,16 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import '../style.scss'
 
 const Christmas = () => {
-    const [frame, setFrame] = useState(0);
-
-    useEffect(() => {
-        setTimeout(() => {
-            if (frame === 1 || frame === 0) setFrame(2);
-            else if (frame === 2) setFrame(1);
-        }, 1000)
-    }, [frame])
-
     const makeLeaf = () => {
 		var x = Math.floor(Math.random() * (window.innerWidth - 100));
 		var leaf = Math.floor(Math.random() * 3) + 1;
@@ -59,26 +50,6 @@ const Christmas = () => {
 
     return (
         <>
-            <div id = "christmas-lights">
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-                <img src={`https://i.gabirmotors.com/assets/other/christmas/lights${frame + 1}.png`} alt="" />
-            </div>
             <div id = "snowflakes">
             
 		    </div>  

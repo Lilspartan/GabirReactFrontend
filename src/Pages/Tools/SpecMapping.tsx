@@ -77,6 +77,7 @@ const SpecMap = (props: any) => {
 	useEffect(() => {
 		drawCar(color, metallic, roughness)
 		setLink(`#color=${color}&metal=${metallic}&rough=${roughness}&car=${car}`);
+		// eslint-disable-next-line
 	}, [color, metallic, roughness, car])
 
 	useEffect(() => {
@@ -100,6 +101,7 @@ const SpecMap = (props: any) => {
 		setTimeout(() => {
 			drawCar(color, metallic, roughness)
 		}, 3000)
+		// eslint-disable-next-line
 	}, [])
 
 	function drawImage(ctx: any, image: any, metal: number, rough: number, alpha = 1.0, mode = "copy") {

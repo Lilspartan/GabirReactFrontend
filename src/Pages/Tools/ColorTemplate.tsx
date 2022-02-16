@@ -38,6 +38,7 @@ const ColorTemplate = (props: any) => {
 	const [carsList, setCarsList] = useState<Car[]>([]);
 
 	// Size of the canvas
+	// eslint-disable-next-line
 	const [size, setSize] = useState(600);
 
 	// Array of available templates
@@ -117,7 +118,6 @@ const ColorTemplate = (props: any) => {
 					let pR = imageData.data[pixelIndex];
 					let pG = imageData.data[pixelIndex+1];
 					let pB = imageData.data[pixelIndex+2];
-					let pA = imageData.data[pixelIndex+3];
 	
 					let r = pR * c1.r + pG * c2.r + pB * c3.r;
 					let g = pR * c1.g + pG * c2.g + pB * c3.g;
@@ -143,15 +143,6 @@ const ColorTemplate = (props: any) => {
 			img.src = templateUrl;
 		}
 	}
-
-	function download(){
-		var canvas = document.getElementById("canv") as HTMLCanvasElement;
-		var url = canvas?.toDataURL("image/png");
-		var link = document.createElement('a');
-		link.download = car + '_template.png';
-		link.href = url;
-		link.click();
-	  }
 
 	useEffect(() => {
 		const fetchCars = async () => {
@@ -180,11 +171,13 @@ const ColorTemplate = (props: any) => {
 				}
 			}
 		}, 3000)
+		// eslint-disable-next-line
 	}, [])
 
 	useEffect(() => {
 		drawTemplateCustomBlend(`https://i.gabirmotors.com/templates/${car}/car_pattern_${template}.tga.PNG`, color1, color2, color3);
 		setLink(`#color1=${color1}&color2=${color2}&color3=${color3}&car=${car}&template=${template}`);
+		// eslint-disable-next-line
 	}, [car, color1, color2, color3, template])
 
 	useEffect(() => {
@@ -325,7 +318,7 @@ const ColorTemplate = (props: any) => {
 							</div>
 
 							<div className = "uk-padding-small uk-width-1-1@s uk-width-1-2@l">				
-								<img id="template" style={{display: "none"}} width = {size + "px"} height = {size + "px"}/>
+								<img id="template" style={{display: "none"}} width = {size + "px"} height = {size + "px"} alt = "preview of your colored template"/>
 								<svg width="0" height="0">
 								<filter id="cmatrix">
 									<feColorMatrix id="cmatrix_params"

@@ -373,3 +373,154 @@ option:checked {
 .template-modal {
   background-color: var(--default)
 }
+
+#game {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  // border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+  place-content: space-between;
+}
+
+#keyboard {
+  margin-top: 2rem;
+  --button-width: 3.5rem;
+  --button-height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+}
+
+#keyboard > .row {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#keyboard > .row > button {
+  width: var(--button-width);
+
+  height: var(--button-height);
+  margin: 3px;
+  font-size: 1.5rem;
+  background-color: var(--default);
+  color: white;
+  border-color: white;
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 5px;
+  transition: border-radius 0.2s ease;
+}
+
+#keyboard > .row > button.big {
+  width: calc(var(--button-width) + (var(--button-width) / 2));
+}
+
+#keyboard > .row > button.in-spot {
+  background-color: #528d4d;
+}
+
+#keyboard > .row > button.in-word {
+  background-color: #b59f3a;
+}
+
+#keyboard > .row > button.not-in-word {
+  opacity: 0.3;
+}
+
+#keyboard > .row > button:hover {
+  border-width: 1px;
+}
+
+#guesses {
+  --square-size: 5rem;
+  display: flex;
+  flex-direction: column; 
+  margin-top: 1rem;
+}
+
+#guesses > .row {
+  height: var(--square-size);
+  margin-top: 1.3rem;
+}
+
+#guesses > .row > .square {
+  width: var(--square-size);
+  height: var(--square-size);
+  border: 1px solid white;
+  margin: 0.3rem;
+  display: inline-block;
+  text-align: center;
+  font-size: calc(var(--square-size) / 1.5);
+  vertical-align: middle;
+  color: white;
+  font-family: acumin-pro-extra-condensed, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#guesses > .row > .in-spot {
+  background-color: #528d4d;
+}
+
+#guesses > .row > .in-word {
+  background-color: #b59f3a;
+}
+
+#guesses > .row > .not-in-word {
+  background-color: var(--default)
+}
+
+@media only screen and (max-width: 960px) {
+  #keyboard > .row > button {
+    width: 2.4rem;
+    height: 4rem;
+    margin: 1px;
+    font-size: 1.5rem;
+  }
+
+  #keyboard > .row > button.big {
+    width: 3.6rem;
+  }
+
+  #guesses {
+    --square-size: calc(6rem / 1.5);
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem; 
+  }
+
+  #guesses > .row > .square {
+    width: calc(var(--square-size));
+    height: calc(var(--square-size));
+    border: 1px solid white;
+    margin: 0.2rem;
+    display: inline-block;
+    text-align: center;
+    font-size: calc(var(--square-size) / 1.5);
+    vertical-align: middle;
+    color: white;
+    font-family: acumin-pro-extra-condensed, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #guesses > .row {
+    height: var(--square-size);
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #keyboard > .row > button {
+    width: 2.2rem;
+  }
+
+  #keyboard > .row > button.big {
+    width: 3.2rem;
+  }
+}

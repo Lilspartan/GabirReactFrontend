@@ -8,7 +8,7 @@ interface Props extends RouteComponentProps {
 }
 
 const Header:FC<Props> = (props) => {
-  const { title = "Gabir Motors", desc = 'The world’s premiere, pretend Motorsports Company. Proud sponsor of Mike Racecar and the Penny Arcade iRacing league.' } = props;
+  const { title = "Gabir Motors", desc } = props;
   
   useEffect(() => {
     (async () => {
@@ -30,8 +30,9 @@ const Header:FC<Props> = (props) => {
       <title>{ title }</title>
       <meta
         name="description"
-        content= {desc}
+        content= {desc !== undefined ? desc : 'The world\'s premiere, pretend Motorsports Company. Proud sponsor of Mike Racecar and the Penny Arcade iRacing league.'}
       />
+      
       <div uk-sticky = "true" style= {{ zIndex: 1001 }}>
         {/* eslint-disable-next-line */}
         <a id = "menuopen" className="uk-margin-small-right uk-position-top-left"uk-toggle="target: #offcanvas-slide" href = "#"><span uk-icon="icon: menu; ratio: 2" style = {{color: 'white'}}></span></a>

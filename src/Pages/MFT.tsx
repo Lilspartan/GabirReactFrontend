@@ -63,10 +63,12 @@ const MFT = () => {
                 <>
                     <nav className="uk-navbar-container" uk-navbar = "true" style = {{ backgroundColor: "#222222", color: "white", padding: "20px" }}>
                         <div className="uk-navbar-center">
-                            <a className="uk-navbar-item uk-logo" href="#">
-                                <img src="https://i.gabirmotors.com/assets/teams/GM/main.png" style = {{ height: "4rem" }} />
+                            <a className="uk-navbar-item uk-logo" href="/">
+                                <img src="https://i.gabirmotors.com/assets/teams/GM/main.png" style = {{ height: "4rem" }} alt = "Gabir Motors Logo"/>
+                            </a>
+                            <a className="uk-navbar-item uk-logo" href="/mft">
                                 <span uk-icon="icon: close; ratio: 2.5" style = {{ color: "white", fontWeight: "bolder" }}></span>
-                                <img src="https://i.gabirmotors.com/MFTs/mftlogo.png" style = {{ height: "4rem" }} />
+                                <img src="https://i.gabirmotors.com/MFTs/mftlogo.png" style = {{ height: "4rem" }} alt = "Merch Friend Token Logo"/>
                             </a>
                         </div>
                     </nav>

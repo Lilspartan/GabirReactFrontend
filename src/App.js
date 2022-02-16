@@ -4,59 +4,33 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
   Main Pages Imports
 */
 
+import MainMFT from './Pages/MFT';
 import fourBody from './Pages/404';
 import MainIndex from './Pages/Main';
 import MainCal from './Pages/Calendar';
 import MainAssets from './Pages/Assets';
 import TeamPage from './Pages/TeamPage';
+import MainGabirTV from './Pages/GabirTV';
 import MainTeams from './Pages/TeamsPage';
 import MainShowoff from "./Pages/Showoff";
+import MainPacecar from './Pages/Pacecar';
 import MainHaiku from './Pages/HaikuSubmit';
 import MainQuote from './Pages/QuoteSubmit';
 import MainTimeline from "./Pages/Timeline";
 import MainTutorial from "./Pages/Tutorial";
+import MainGabirdle from "./Pages/Gabirdle";
 import MainDOTD from './Pages/Driveroftheday';
 import MainStandings from './Pages/Standings';
+import MainToolbox from './Pages/Tools/Toolbox';
 import MainConstructors from './Pages/Constructors';
 import MainSpecMapping from './Pages/Tools/SpecMapping';
 import MainColorTemplate from './Pages/Tools/ColorTemplate';
+import MainDownforceGuide from './Pages/Tools/DownforceGuide';
 import MainColorTemplateDownload from './Pages/Tools/ColorTemplateDownload';
-import MainToolbox from './Pages/Tools/Toolbox';
-import MainMFT from './Pages/MFT';
-import MainGabirTV from './Pages/GabirTV';
-import MainPacecar from './Pages/Pacecar';
 
 import MainTest from './Pages/TestingTemplates';
 
 import './index.scss'
-
-var channelOrder = [
-  {
-      url: "https://www.twitch.tv/skiggity242",
-      id: "71778837",
-      name: "Skiggity242"
-  },
-  {
-      url: "https://www.twitch.tv/pennyarcade",
-      id: "7443503",
-      name: "Penny Arcade"
-  }
-]
-
-const getViewers = async (user) => {
-  var res = await fetch(`https://api.twitch.tv/helix/streams?user_id=${user.id}`, {
-      headers: new Headers({
-          'Client-ID': 'v354nab7jsgctl2zww4ic69tc4l3hf',
-          'Authorization': 'Bearer jkmoj86ctljekpx3xl7ix28iwmzyen'
-      })
-  })
-
-  var data = await res.json();
-  if (data.data.length) {
-      console.log(`${user.url} is Online!`)
-      window.location.href = user.url
-  }
-}
 
 const App = () => {
   return (
@@ -83,6 +57,8 @@ const App = () => {
         <Route path ='/mft' exact component = {MainMFT} />
         <Route path ='/test' exact component = {MainTest} />
         <Route path ='/regulations/pacecar' exact component = {MainPacecar} />
+        <Route path ='/downforce' exact component = {MainDownforceGuide} />
+        <Route path ='/gabirdle' exact component = {MainGabirdle} />
         <Route path = "*" component = {fourBody} />
       </Switch>
     </Router>
