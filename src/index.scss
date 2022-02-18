@@ -445,7 +445,7 @@ option:checked {
 
 #guesses > .row {
   height: var(--square-size);
-  margin-top: 1.3rem;
+  margin-top: 0.7rem;
 }
 
 #guesses > .row > .square {
@@ -491,14 +491,13 @@ option:checked {
     --square-size: calc(6rem / 1.5);
     display: flex;
     flex-direction: column;
-    margin-top: 2rem; 
   }
 
   #guesses > .row > .square {
     width: calc(var(--square-size));
     height: calc(var(--square-size));
     border: 1px solid white;
-    margin: 0.2rem;
+    margin: 0.1rem;
     display: inline-block;
     text-align: center;
     font-size: calc(var(--square-size) / 1.5);
@@ -523,4 +522,38 @@ option:checked {
   #keyboard > .row > button.big {
     width: 3.2rem;
   }
+}
+
+#game > #message {
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+  border-radius: 8px;
+  font-weight: bolder;
+  font-style: normal;
+  position: absolute;
+  top: 10%;
+  z-index: 999;
+  font-size: 1rem;
+}
+
+#game > #guesses > #header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#game > #guesses > #header > #logo {
+  margin: 0px;
+  width: 20rem;
+}
+
+#game > #guesses > #header > .menuButton {
+  background-color: transparent;
+  color: white;
+  width: auto;
+  float: right;
+  border: 0px solid;
+  stroke-width: 1.5;
+  cursor: pointer;
 }

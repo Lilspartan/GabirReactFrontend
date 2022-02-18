@@ -47,6 +47,7 @@ const Header:FC<Props> = (props) => {
             {/* <span className = "uk-text-success uk-text-bold">Assets and Spec Mapping have moved to the <Link to = "/toolbox">Toolbox</Link></span> */}
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
+            {/* <Link to = "/gabirdle" className = { `uk-text-success` }>Play Gabirdle</Link> */}
             <li className="uk-nav-divider"></li>
           
             <li><Link className = "uk-button-link uk-text-primary nav-text" to = "/calendar">Calendar</Link></li>
