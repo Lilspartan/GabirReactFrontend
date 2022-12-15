@@ -9,18 +9,20 @@ import Header from "./Header";
 import QuoteForm from "./QuoteForm";
 import CalendarRow from "./CalendarRow";
 import ShareButton from "./ShareButton";
+import CarFrame from "./CarFrame";
 
-export { 
-    Alert,
-    DriverCard,
-    LoadingIcon,
-    LoadingPage,
-    Notification,
-    NotificationArea,
-    Footer,
-    HaikuForm,
-    Header,
-    QuoteForm,
-    CalendarRow,
-    ShareButton,
+export {
+	Alert,
+	DriverCard,
+	LoadingIcon,
+	LoadingPage,
+	Notification,
+	NotificationArea,
+	Footer,
+	HaikuForm,
+	Header,
+	QuoteForm,
+	CalendarRow,
+	ShareButton,
+	CarFrame,
 };
