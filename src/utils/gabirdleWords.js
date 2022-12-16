@@ -1,5 +1,4 @@
 const words = [
-	"words",
 	"wheel",
 	"press",
 	"stock",
@@ -21,7 +20,6 @@ const words = [
     "racer",
     "gears",
 	"flags",
-	
 	"wreck",
 	"speed",
 	"gabir",
@@ -38,6 +36,10 @@ const words = [
 	"chief",
 	"races",
 	"champ",
+	"curbs",
+	"butts",
+	"turns",
+	"penny",
 ]
 
 export default words

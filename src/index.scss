@@ -66,6 +66,10 @@ html {
   overflow-x: hidden;
 }
 
+h2.notop {
+  margin-top: 0
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   /* Remove scrollbar space */

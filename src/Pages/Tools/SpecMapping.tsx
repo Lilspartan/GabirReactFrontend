@@ -94,12 +94,12 @@ const SpecMap = (props: any) => {
 									<div className="uk-width-1-1 uk-text-left uk-padding-remove">
 										<label htmlFor="color">Choose a Color:</label> <input type="color" id="color" value={color} onChange={(e) => { setToSetValues({ ...toSetValues, color: e.target.value }) }} />
 										<span className="uk-margin-left uk-margin-bottom">
-											<input className="uk-form-blank uk-text-primary uk-form-width-small uk-form-small color-input" type="text" placeholder="Color Hex" value={color} onChange={(e) => { setToSetValues({ ...toSetValues, color: e.target.value }) }} />
+											<input className="uk-form-blank uk-text-primary uk-form-width-small uk-form-small color-input" type="text" placeholder="Color Hex" value={toSetValues.color} onChange={(e) => { setToSetValues({ ...toSetValues, color: e.target.value }) }} />
 										</span>
 										<br />
-										<label htmlFor="metallic">Metallic</label> <span id="metallic-container"><input type="range" min="0" max="100" value={toSetValues.metal} id="metallic" onChange={(e) => { setToSetValues({ ...toSetValues, metal: parseInt(e.target.value) }) }} /> {metal}%</span><br />
-										<label htmlFor="rough">Roughness</label> <span id="rough-container"><input type="range" min="0" max="100" value={toSetValues.roughness} id="rough" onChange={(e) => { setToSetValues({ ...toSetValues, roughness: parseInt(e.target.value) }) }} /> {roughness}%</span><br />
-										<label htmlFor="clearcoat">Clear coat</label> <span id="clearcoat-container"><input type="range" min="0" max="100" value={toSetValues.clearcoat} id="clearcoat" onChange={(e) => { setToSetValues({ ...toSetValues, clearcoat: parseInt(e.target.value) }) }} /> {clearcoat}%</span><br />
+										<label htmlFor="metallic">Metallic</label> <span id="metallic-container"><input type="range" min="0" max="100" value={toSetValues.metal} id="metallic" onChange={(e) => { setToSetValues({ ...toSetValues, metal: parseInt(e.target.value) }) }} /> {toSetValues.metal}%</span><br />
+										<label htmlFor="rough">Roughness</label> <span id="rough-container"><input type="range" min="0" max="100" value={toSetValues.roughness} id="rough" onChange={(e) => { setToSetValues({ ...toSetValues, roughness: parseInt(e.target.value) }) }} /> {toSetValues.roughness}%</span><br />
+										<label htmlFor="clearcoat">Clear coat</label> <span id="clearcoat-container"><input type="range" min="0" max="100" value={toSetValues.clearcoat} id="clearcoat" onChange={(e) => { setToSetValues({ ...toSetValues, clearcoat: parseInt(e.target.value) }) }} /> {toSetValues.clearcoat}%</span><br />
 										<span>Spec Map Color: </span>
 										<span className="uk-margin-left uk-margin-bottom">
 											<input className="uk-form-blank uk-text-primary uk-form-width-small uk-form-small color-input" type="text" placeholder="Spec Map Hex" value={`#${(Math.ceil(metal * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(metal * 2.55).toString(16).toUpperCase()) + (Math.ceil(roughness * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(roughness * 2.55).toString(16).toUpperCase()) + (Math.ceil(clearcoat * 2.55).toString(16).toUpperCase() === "0" ? "00" : Math.ceil(clearcoat * 2.55).toString(16).toUpperCase())}`} disabled />

@@ -4,6 +4,8 @@ import allWords from '../utils/allwords';
 import words from '../utils/gabirdleWords';
 import useKeypress from '../utils/useKeypress';
 
+const startTime = 1671177600 * 1000;
+
 interface GameState {
 	guessRow: "0" | "1" | "2" | "3" | "4" | "5";
 	rows: {
@@ -17,6 +19,21 @@ interface GameState {
 	inSpot: string[];
 	inWord: string[];
 	notInWord: string[];
+}
+
+interface Streak {
+	guesses: {
+		"1": number;
+		"2": number;
+		"3": number;
+		"4": number;
+		"5": number;
+		"6": number;
+	};
+	played: number; 
+	won: number;
+	streak: number;
+	max_streak: number;
 }
 
 const Gabirdle = () => {
@@ -56,7 +73,23 @@ const Gabirdle = () => {
     const [message, setMessage] = useState<string | null>(null);
     const [shareMessage, setShareMessage] = useState("");
     const [shareButton, setShareButton] = useState("SHARE");
-    const [nextTime, setNextTime] = useState(0);
+    const [nextTime, setNextTime] = useState(startTime);
+	const [timeAddSteps, setTimeAddSteps] = useState(0);
+
+	const [streak, setStreak] = useState<Streak>({
+		guesses: {
+			"1": 0,
+			"2": 0,
+			"3": 0,
+			"4": 0,
+			"5": 0,
+			"6": 0
+		},
+		played: 0, 
+		won: 0,
+		streak: 0,
+		max_streak: 0
+	})
 
 	useKeypress(['Enter', 'Backspace', ...keysRow1, ...keysRow2, ...keysRow3], (event: { key: string }) => {
 		if (event.key === "Backspace") pressButton("del");
@@ -66,7 +99,6 @@ const Gabirdle = () => {
 		}
 	});
 
-	// const [wordToGuess, setWordToGuess] = useState(words[Math.floor(Math.random() * words.length)])
 	const [wordToGuess, setWordToGuess] = useState(words[0])
 
 	const endMessages = [
@@ -99,7 +131,7 @@ const Gabirdle = () => {
 	]
 
     function timeConverter(UNIX_timestamp:number){
-        var a = new Date(UNIX_timestamp * 1000);;
+        var a = new Date(UNIX_timestamp);;
         var year = a.getFullYear();
         var month = a.getMonth() + 1 < 10 ? "0" + String(a.getMonth() + 1) : String(a.getMonth() + 1);
         var date = "0" + a.getDate();
@@ -232,9 +264,9 @@ const Gabirdle = () => {
 
                 if (userGuess === wordToGuess || gameState.guessRow === "5") {
 					console.log("Making Share Message...")
-                    var _tempMessage = `Gabirdle ${!_lw ? "X" : Number(gameState.guessRow) + 1}/6`;
+                    var _tempMessage = `Gabirdle ${timeAddSteps + 1} ${!_lw ? "X" : Number(gameState.guessRow) + 1}/6`;
                     Object.values(gameState.rows).map((row, j) => {
-                        if (row) _tempMessage += '\n';
+                        if (row[0] !== "") _tempMessage += '\n';
                         row.map((letter, i) => {
                             if (j < Number(gameState.guessRow) + 1) {
                                 if (letter.toLowerCase() === wordToGuess.toLowerCase()[i]) {
@@ -248,6 +280,28 @@ const Gabirdle = () => {
                         })
                     })
                     setShareMessage(_tempMessage);
+					
+					let _tempStreakData = streak;
+					_tempStreakData.played ++;
+
+					if (userGuess === wordToGuess) { 
+						_tempStreakData.won ++;
+						_tempStreakData.streak ++;
+						if (_tempStreakData.streak > _tempStreakData.max_streak) _tempStreakData.max_streak = _tempStreakData.streak;
+						switch (gameState.guessRow) {
+							case "0": _tempStreakData.guesses["1"] ++; break;
+							case "1": _tempStreakData.guesses["2"] ++; break;
+							case "2": _tempStreakData.guesses["3"] ++; break;
+							case "3": _tempStreakData.guesses["4"] ++; break;
+							case "4": _tempStreakData.guesses["5"] ++; break;
+							case "5": _tempStreakData.guesses["6"] ++; break;
+						}
+					} else {
+						if (_tempStreakData.streak > _tempStreakData.max_streak) _tempStreakData.max_streak = _tempStreakData.streak;
+						_tempStreakData.streak = 0;
+					}
+					
+					setStreak(_tempStreakData)
 
                     let menuButton = document.getElementById("menuButton") as HTMLButtonElement;
                     menuButton.click();
@@ -260,60 +314,37 @@ const Gabirdle = () => {
 						wordToGuess,
 						shareMessage: _tempMessage
 					}))
+
+					localStorage.setItem("streak", JSON.stringify(streak))
                 }
 
 			}
 		}
 	}
 
-    const wordTimes = [
-		1645759800, 1645760700,
-		1645761600, 1645762500,
-		1645763400, 1645764300,
-		1645765200, 1645766100,
-		1645767000, 1645767900,
-		1645768800, 1645769700,
-		1645770600, 1645771500,
-		1645772400
-	  ]
-
-    // const wordTimes = [
-	// 	1645147920, 1645147980, 1645148040, 1645148100,
-	// 	1645148160, 1645148220, 1645148280, 1645148340,
-	// 	1645148400, 1645148460, 1645148520, 1645148580,
-	// 	1645148640, 1645148700, 1645148760, 1645148820,
-	// 	1645148880, 1645148940, 1645149000, 1645149060,
-	// 	1645149120, 1645149180, 1645149240, 1645149300,
-	// 	1645149360, 1645149420, 1645149480, 1645149540,
-	// 	1645149600, 1645149660, 1645149720, 1645149780,
-	// 	1645149840, 1645149900, 1645149960, 1645150020,
-	// 	1645150080, 1645150140, 1645150200, 1645150260,
-	// 	1645150320, 1645150380, 1645150440, 1645150500,
-	// 	1645150560, 1645150620, 1645150680, 1645150740,
-	// 	1645150800, 1645150860
-	//   ]
-
     useEffect(() => {
-        
-        var done = false;
-		
-		console.log("Finding when then next word is")
+		var currentTime = Date.now();
+		let c = startTime;
+		let oneDay = 24 * 60 * 60 * 1000;
+		let steps = 0;
 
-        for (var i = 0; i < wordTimes.length; i ++) {
-            if (wordTimes[i] * 1000 > Date.now() && !done) {
-                done = true;
-                setNextTime(i);
-				setWordToGuess(words[i])
-            }
-        }
-    }, [])
+		while (c < currentTime) {
+			c += oneDay;
+			steps ++;
+		}
+
+		setNextTime(c);
+		setTimeAddSteps(steps);
+		setWordToGuess(words[steps % words.length])
+	}, [])
 
 	useEffect(() => {
 		console.log("Looking for gamedata in local storage")
-		var _dataFromLocalStorage = localStorage.getItem("lastGame");
+		let _dataFromLocalStorage = localStorage.getItem("lastGame");
 		if (_dataFromLocalStorage !== null) { 
 			let _d = JSON.parse(_dataFromLocalStorage)
 			console.log("found gamedata in local storage")
+			console.log(_d.wordToGuess, wordToGuess)
 			if (_d.wordToGuess === wordToGuess) {
 				setGameState(_d!.gameState);
 				setEvaluations(_d!.evaluations);
@@ -339,6 +370,14 @@ const Gabirdle = () => {
 				setShareMessage("");
 			}
 		}	
+
+		console.log("Looking for streak data in local storage")
+		_dataFromLocalStorage = localStorage.getItem("streak");
+		if (_dataFromLocalStorage !== null) {
+			let _d = JSON.parse(_dataFromLocalStorage)
+			console.log("found streak data in local storage")
+			setStreak(_d);
+		}
 	}, [wordToGuess])
 
 	useEffect(() => {
@@ -353,7 +392,7 @@ const Gabirdle = () => {
 
 						<button className="uk-offcanvas-close" type="button" uk-close="true"></button>
                         
-                        <div className="uk-child-width-1-4 uk-text-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 100; repeat: false" uk-countdown={`date: ` + timeConverter(wordTimes[nextTime])} uk-parallax="blur: 15;">
+                        <div className="uk-child-width-1-4 uk-text-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 100; repeat: false" uk-countdown={`date: ` + timeConverter(nextTime)} uk-parallax="blur: 15;">
                             <div className = "uk-width-1-1">
                                 <h1 className = "fade-cd uk-text-center uk-display-block">NEXT WORD IN</h1>
                             </div>
@@ -376,37 +415,20 @@ const Gabirdle = () => {
                         </div>
 
 						{state === "PLAYING" ? <h2>Finish Your Game to Share</h2> : (
-							<>
-								<h3>Gabirdle, {state === "LOSE" ? "X" : Number(gameState.guessRow) + 1}/6</h3>
-								{
-									Object.values(gameState.rows).map((row, j) => {
-										return (
-											<>
-												<span>
-
-													{row.map((letter, i) => {
-														if (j < Number(gameState.guessRow) + 1) {
-															if (letter.toLowerCase() === wordToGuess.toLowerCase()[i]) {
-																return '🟩'
-															} else if (wordToGuess.toLowerCase().split("").includes(letter.toLowerCase())) {
-																return '🟨'
-															} else {
-																return '⬛'
-															}
-														}
-													})}
-
-												</span><br />
-											</>
-										)
-									})
-								}
-							</>
+							<div style={{whiteSpace: "pre-wrap"}}>
+								{shareMessage}
+							</div>
 						)}
+						<br />
                         {state !== "PLAYING" ? <a id = "share" onClick = {() => {
                             navigator.clipboard.writeText(shareMessage);
                             setShareButton("COPIED");
                         }} uk-tooltip = "Share" className = "uk-button uk-button-default" href = "#share">{ shareButton }</a> : ""}
+						<br />
+						<h2 className = "notop">Games Played: <strong>{ streak.played }</strong></h2>
+						<h2 className = "notop">Games Won: <strong>{ streak.won } ({ Math.floor((streak.won / streak.played) * 100) }%)</strong></h2>
+						<h2 className = "notop">Win Streak: <strong>{ streak.streak }</strong></h2>
+						<h2 className = "notop">Max Streak: <strong>{ streak.max_streak }</strong></h2>
 					</div>
 				</div>
 
