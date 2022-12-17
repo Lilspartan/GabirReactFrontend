@@ -122,7 +122,7 @@ const MainBody = (props: any) => {
             )
           }        
 
-          <Area>
+          {/* <Area>
             {isLive && (
               <>
                 <Notification icon = "twitch" link = "https://gabirmotors.com/live">
@@ -130,7 +130,7 @@ const MainBody = (props: any) => {
                 </Notification>
               </>
             )}
-          </Area>
+          </Area> */}
 
           <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
             <div className="uk-offcanvas-bar">

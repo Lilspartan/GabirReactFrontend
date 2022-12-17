@@ -40,6 +40,8 @@ const words = [
 	"butts",
 	"turns",
 	"penny",
+	"boost",
+	"lines",
 ]
 
 export default words
