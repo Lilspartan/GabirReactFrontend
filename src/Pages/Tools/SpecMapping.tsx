@@ -131,7 +131,7 @@ const SpecMap = (props: any) => {
 							<div className="uk-width-1-1@s uk-width-1-3@l">
 								<div className="">
 								<div>
-									<h2 className = "uk-display-inline">Choose a Car &nbsp;&nbsp;</h2>
+									<h2 className = "uk-display-inline text-5xl">Choose a Car &nbsp;&nbsp;</h2>
 										<div uk-form-custom="target: > * > span:first-child" className = "uk-margin-bottom uk-marign-left">
 											<select onChange = {(e) => {
 												setCarImagesLink(JSON.parse(e.target.value));
@@ -142,7 +142,7 @@ const SpecMap = (props: any) => {
 											</select>
 											<button className="uk-button uk-button-default uk-width-1-1" type="button">
 												<span></span>
-												<span uk-icon="icon: chevron-down"></span>
+												<span className = "ml-2 align-text-bottom" uk-icon="icon: chevron-down"></span>
 											</button>
 										</div>	
 									</div>
@@ -163,7 +163,7 @@ const SpecMap = (props: any) => {
 								</div>
 
 								<div>
-									<h2 className = "uk-display-inline">Or Use a Preset &nbsp;&nbsp;</h2>
+									<h2 className = "uk-display-inline text-5xl">Or Use a Preset &nbsp;&nbsp;</h2>
 									<div uk-form-custom="target: > * > span:first-child" className = "uk-margin-bottom uk-marign-left">
 										<select onChange = {changePreset} className = "uk-width-1-1">
 											<option value="0/0/0">Select One</option>
@@ -173,7 +173,7 @@ const SpecMap = (props: any) => {
 										</select>
 										<button className="uk-button uk-button-default uk-width-1-1" type="button">
 											<span></span>
-											<span uk-icon="icon: chevron-down"></span>
+											<span className = "ml-2 align-text-bottom" uk-icon="icon: chevron-down"></span>
 										</button>
 									</div>	
 								</div>

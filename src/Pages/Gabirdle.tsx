@@ -414,7 +414,7 @@ const Gabirdle = () => {
                             </div>
                         </div>
 
-						{state === "PLAYING" ? <h2>Finish Your Game to Share</h2> : (
+						{state === "PLAYING" ? <h2 className = "text-4xl">Finish Your Game to Share</h2> : (
 							<div style={{whiteSpace: "pre-wrap"}}>
 								{shareMessage}
 							</div>
@@ -425,10 +425,10 @@ const Gabirdle = () => {
                             setShareButton("COPIED");
                         }} uk-tooltip = "Share" className = "uk-button uk-button-default" href = "#share">{ shareButton }</a> : ""}
 						<br />
-						<h2 className = "notop">Games Played: <strong>{ streak.played }</strong></h2>
-						<h2 className = "notop">Games Won: <strong>{ streak.won } ({ Math.floor((streak.won / streak.played) * 100) }%)</strong></h2>
-						<h2 className = "notop">Win Streak: <strong>{ streak.streak }</strong></h2>
-						<h2 className = "notop">Max Streak: <strong>{ streak.max_streak }</strong></h2>
+						<h2 className = "notop text-4xl">Games Played: <strong>{ streak.played }</strong></h2>
+						<h2 className = "notop text-4xl">Games Won: <strong>{ streak.won } ({ Math.floor((streak.won / streak.played) * 100) }%)</strong></h2>
+						<h2 className = "notop text-4xl">Win Streak: <strong>{ streak.streak }</strong></h2>
+						<h2 className = "notop text-4xl">Max Streak: <strong>{ streak.max_streak }</strong></h2>
 					</div>
 				</div>
 

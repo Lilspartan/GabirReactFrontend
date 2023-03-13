@@ -73,9 +73,6 @@ const Assets = () => {
     return (
         <>
             <Blank title="Assets" loading={false}>
-                <Alert id = "newassets" title = "New Assets Page" text = "Welcome to the new Gabir Motors Assets Page! Here you will be able to find images you might want for any of your League based projects. Use the tags at the top to filter the images, and click on any of the images to open it" />
-                <Alert id = "freetouse" type = "info" title = "Tip:" text = "All of the assets below are free for you to use on all of your PA League related projects!" />
-                
                 <div className="uk-width-2-3@m uk-text-center uk-margin-auto uk-container" uk-filter="target: .assets-filter; animation: fade">
                     <div style = {{ marginTop: "5vh" }}>
                         <ul className="uk-subnav uk-subnav-pill">

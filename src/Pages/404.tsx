@@ -12,11 +12,11 @@ const fourBody = () => {
 		<>
 			<Blank title="404" loading={false}>
 
-				<h1 className="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical uk-animation-slide-top-small uk-container uk-display-block">
+				<h1 className="uk-animation-slide-top-small mx-auto">
 					<img alt="Gabir Motors Logo" src="img/newgabirtext.png" style={{ height: 'auto', width: '30vw', minWidth: '300px', marginBottom: '60vh' }} />
 				</h1>
 
-				<h1 className="uk-position-center">
+				<h1 className="uk-position-center text-5xl">
 					{messages[Math.floor(Math.random() * messages.length)]}
 				</h1>
 			</Blank>

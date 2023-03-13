@@ -55,7 +55,6 @@ const Header:FC<Props> = (props) => {
             <li className = "uk-parent">
               <a className = "uk-button-link uk-text-primary nav-text">Tools</a>
               <ul className="uk-nav-sub">
-                <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/toolbox">Toolbox</Link></li>
                 <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/assets">Assets</Link></li>
                 <li><Link className = "uk-button-link uk-text-primary nav-text-sub" to = "/specmapping">Spec Mapping</Link></li>
               </ul>

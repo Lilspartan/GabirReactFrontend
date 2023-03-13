@@ -56,6 +56,7 @@ const TeamsPage = () => {
                                     width: 'auto',
                                     height: '10vh'
                                 }}
+                                className = "mx-auto"
                             />
                         </Link>
                     </div>

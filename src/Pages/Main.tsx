@@ -237,7 +237,7 @@ const MainBody = (props: any) => {
                       style={{ height: "55vh", width: "50vw" }}
                     >
                       <img
-                        className="fade-p2"
+                        className="fade-p2 mx-auto"
                         src="img/MikeRacecar.png"
                         alt="Mike Racecar"
                         style={{ height: "55vh", width: "auto" }}
@@ -246,7 +246,7 @@ const MainBody = (props: any) => {
                   </div>
                   <div>
                     <div style={{ width: "45vw" }}>
-                      <h2 className="fade-p2">Mike Racecar</h2>
+                      <h2 className="fade-p2 text-4xl">Mike Racecar</h2>
                       <p className="fade-p2 bio-p uk-text-left">
                         His momma was a V6 and his daddy is the track.
                         Metaphorically speaking. But he was born in the backseat
@@ -291,7 +291,7 @@ const MainBody = (props: any) => {
                       style={{ height: "55vh", width: "50vw" }}
                     >
                       <img
-                        className="fade-p3"
+                        className="fade-p3 mx-auto"
                         src="img/intro.png"
                         alt="Carson Bolt"
                         style={{ height: "55vh", width: "auto" }}
@@ -300,7 +300,7 @@ const MainBody = (props: any) => {
                   </div>
                   <div>
                     <div style={{ width: "45vw" }}>
-                      <h2 className="fade-p3">Carson Bolt</h2>
+                      <h2 className="fade-p3 text-4xl">Carson Bolt</h2>
                       <p className="fade-p3 bio-p uk-text-left">
                         It's said the man eats rubber and drinks gasoline, just
                         like the cars he loves so well. A driver himself until
@@ -336,7 +336,7 @@ const MainBody = (props: any) => {
                       style={{ height: "55vh", width: "50vw" }}
                     >
                       <img
-                        className="fade-p3"
+                        className="fade-p3 mx-auto"
                         src="img/intro.png"
                         alt="Carson Bolt"
                         style={{ height: "55vh", width: "auto" }}
@@ -358,7 +358,7 @@ const MainBody = (props: any) => {
                       style={{ height: "55vh", width: "50vw" }}
                     >
                       <img
-                        className="fade-p4"
+                        className="fade-p4 mx-auto"
                         src="img/kara.png"
                         alt="Kara"
                         style={{ height: "55vh", width: "auto" }}
@@ -367,7 +367,7 @@ const MainBody = (props: any) => {
                   </div>
                   <div>
                     <div style={{ width: "45vw" }}>
-                      <h2 className="fade-p4">Kara</h2>
+                      <h2 className="fade-p4 text-4xl">Kara</h2>
                       <p className="fade-p4 bio-p uk-text-left">
                         Kara is many things. Wife to one, Mother to some and
                         loved by all, she is the prettiest spotter in racing!
@@ -412,7 +412,7 @@ const MainBody = (props: any) => {
                       style={{ height: "55vh", width: "50vw" }}
                     >
                       <img
-                        className="fade-p5"
+                        className="fade-p5 mx-auto"
                         src="img/gabe.png"
                         alt='Gabe "The Younger"'
                         style={{ height: "55vh", width: "auto" }}
@@ -421,7 +421,7 @@ const MainBody = (props: any) => {
                   </div>
                   <div>
                     <div style={{ width: "45vw" }}>
-                      <h2 className="fade-p5">Gabe "The Younger"</h2>
+                      <h2 className="fade-p5 text-4xl">Gabe "The Younger"</h2>
                       <p className="fade-p5 bio-p uk-text-left">
                         Gabe The Younger leapt fully-formed from the trunk of a
                         moving 1969 Pontiac GTO and he's been going fast ever
@@ -455,7 +455,7 @@ const MainBody = (props: any) => {
                       style={{ height: "55vh", width: "50vw" }}
                     >
                       <img
-                        className="fade-p5"
+                        className="fade-p5 mx-auto"
                         src="img/gabe.png"
                         alt='Gabe "The Younger"'
                         style={{ height: "55vh", width: "auto" }}

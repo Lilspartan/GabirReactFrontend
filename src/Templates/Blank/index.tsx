@@ -7,6 +7,7 @@ type Props = {
     children?: any;
 	loading?: boolean
 	flex?: boolean
+    otherBg?: boolean
 }
 
 const Blank = (props: Props) => {
@@ -28,7 +29,7 @@ const Blank = (props: Props) => {
             {loading && <LoadingPage />}
 
             {!loading && (
-                <div className={classes} style={{ backgroundImage: 'url(../../img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>
+                <div className={classes} style={{ backgroundImage: props.otherBg ? 'url(../../img/image.jpg)' : 'url(../../img/gabir_bg.jpg)', height: 'auto', paddingBottom: "5vh", minHeight: "100vh" }}>
                     { props?.children }   
                 </div>
             )}

@@ -57,8 +57,8 @@ const TeamPage = (props: any) => {
 				<div>
 					<img src={team.logo} style={{ height: 'auto', width: '25vw', minWidth: '250px', paddingBottom: '1vh' }} alt={`${team.name} Logo`} />
 				</div>
-				<h2 className="uk-margin-remove">{team.name}</h2>
-				<h3 className="uk-margin-remove">Leader: <span className="">{team.team_leader}</span></h3>
+				<h2 className="uk-margin-remove text-5xl">{team.name}</h2>
+				<h3 className="uk-margin-remove text-xl">Leader: <span className="">{team.team_leader}</span></h3>
 				<div className="uk-overflow-auto show-scrollbar" style={{ maxHeight: '40vh' }}>
 					<table className="uk-table uk-table-small uk-table-middle">
 						<thead>

@@ -9,7 +9,8 @@ module.exports = {
 				accent: "#6CD4FF ",
 				background: "#171C27",
 				twitter: "#1DA1F2",
-				github: "#6e5494"
+				github: "#6e5494",
+        card: "#222222"
       }
     },
    },
