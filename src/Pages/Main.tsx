@@ -164,7 +164,7 @@ const MainBody = (props: any) => {
               height: "100vh",
             }}
           >
-            <Christmas />
+            {/* <Christmas /> */}
             <div className="uk-child-width-1-4 uk-text-center uk-position-top-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 400;" uk-countdown={`date: ` + timeConverter(next.timestamp)} uk-parallax="blur: 15;">
               <div className = "uk-width-1-1">
                 <h1 className = "fade-cd uk-text-center uk-display-block">NEXT RACE IN</h1>
