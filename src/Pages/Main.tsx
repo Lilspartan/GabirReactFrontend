@@ -62,8 +62,7 @@ const MainBody = (props: any) => {
       var done = false;
 
       for (var i = 0; i < cal.length; i ++) {
-        console.log(cal[i].timestamp * 1000 + " > " + Date.now() + " = " + (cal[i].timestamp * 1000 > Date.now()))
-        if (cal[i].timestamp * 1000 > Date.now() && !done) {
+        if ((cal[i].timestamp + 25200) * 1000 > Date.now() && !done) {
           done = true;
 					console.log("Setting Time...")
           setNext(cal[i]);
@@ -164,8 +163,8 @@ const MainBody = (props: any) => {
               height: "100vh",
             }}
           >
-            <Christmas />
-            <div className="uk-child-width-1-4 uk-text-center uk-position-top-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 400;" uk-countdown={`date: ` + timeConverter(next.timestamp)} uk-parallax="blur: 15;">
+            {/* <Christmas /> */}
+            <div className="uk-child-width-1-4 uk-text-center uk-position-top-center" uk-grid = "true" uk-scrollspy="cls: uk-animation-slide-top-medium; target: .fade-cd; delay: 400;" uk-countdown={`date: ` + timeConverter(next.timestamp + 25200)} uk-parallax="blur: 15;">
               <div className = "uk-width-1-1">
                 <h1 className = "fade-cd uk-text-center uk-display-block">NEXT RACE IN</h1>
               </div>

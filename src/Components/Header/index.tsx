@@ -44,7 +44,7 @@ const Header:FC<Props> = (props) => {
             <li className="uk-logo"><Link to="/"><img src = "../img/logo.png" alt = "GM logo" style = {{width: '14vw', height: 'auto', minWidth: '200px'}}/></Link></li>
 
             {/* <span className = "uk-text-success uk-text-bold">Assets and Spec Mapping have moved to the <Link to = "/toolbox">Toolbox</Link></span> */}
-            <Link to = "/gabirdle"><span className = "uk-text-success uk-text-bold">Check out Gabirdle!</span></Link>
+            <a href = "https://beta.gabirmotors.com"><span className = "uk-text-success uk-text-bold">Test out the Beta Site</span></a>
 
             { driveroftheday && <Link to = "/vote" className = { `uk-text-success` }>Livery Parade Vote</Link> }
             <li className="uk-nav-divider"></li>
